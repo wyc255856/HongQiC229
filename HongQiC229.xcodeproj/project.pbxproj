@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		53AA35012403A33A00E509D8 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 53AA35002403A33A00E509D8 /* Info.plist */; };
 		53AEC6A223FE79F50076BECD /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = 53AEC54D23FE79F50076BECD /* unzip.c */; };
 		53AEC6A323FE79F50076BECD /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 53AEC54E23FE79F50076BECD /* zip.c */; };
 		53AEC6A423FE79F50076BECD /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 53AEC54F23FE79F50076BECD /* ioapi.c */; };
@@ -95,6 +96,7 @@
 
 /* Begin PBXFileReference section */
 		4B92A7C420F5AB89005B6EEE /* HongQiC229.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HongQiC229.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		53AA35002403A33A00E509D8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53AEC54B23FE79F50076BECD /* ZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipArchive.h; sourceTree = "<group>"; };
 		53AEC54D23FE79F50076BECD /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unzip.c; sourceTree = "<group>"; };
 		53AEC54E23FE79F50076BECD /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
@@ -469,6 +471,7 @@
 				53AEC7DD23FE7AE90076BECD /* FifTableViewCell.m */,
 				53AEC7DE23FE7AE90076BECD /* FirstView.h */,
 				53AEC7DF23FE7AE90076BECD /* ForthCollectionViewCell.xib */,
+				53AA35002403A33A00E509D8 /* Info.plist */,
 				53AEC7E023FE7AE90076BECD /* HSC229CarResource.bundle */,
 				53AEC7E123FE7AE90076BECD /* TopTabView.h */,
 				53AEC7E223FE7AE90076BECD /* FifthView.m */,
@@ -634,6 +637,7 @@
 			files = (
 				53AEC89023FE7AE90076BECD /* HSC229CarResource.bundle in Resources */,
 				53B6024A21002819000DAC14 /* bg_splash_2436*1125.png in Resources */,
+				53AA35012403A33A00E509D8 /* Info.plist in Resources */,
 				53B6024921002819000DAC14 /* Default-667h@2x.png in Resources */,
 				53AEC7FA23FE7AE90076BECD /* FifTableViewCell.xib in Resources */,
 				53B6021B20FF3DDF000DAC14 /* Main.storyboard in Resources */,
