@@ -8,7 +8,7 @@
 
 #import "CLPlayerMaskView.h"
 #import "CLSlider.h"
-#import "Masonry.h"
+#import "C229CAR_Masonry.h"
 //间隙
 #define Padding        10
 //顶部底部工具条高度
@@ -46,79 +46,79 @@
 #pragma mark - 约束
 - (void)makeConstraints{
     //顶部工具条
-    [self.topToolBar mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.top.mas_equalTo(self);
-        make.height.mas_equalTo(ToolBarHeight);
+    [self.topToolBar c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+        make.left.right.top.c229_mas_equalTo(self);
+        make.height.c229_mas_equalTo(ToolBarHeight);
     }];
     //底部工具条
-    [self.bottomToolBar mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.bottom.mas_equalTo(self);
-        make.height.mas_equalTo(ToolBarHeight);
+    [self.bottomToolBar c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+        make.left.right.bottom.c229_mas_equalTo(self);
+        make.height.c229_mas_equalTo(ToolBarHeight);
     }];
     //转子
-    [self.loadingView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.mas_equalTo(self);
-        make.size.mas_equalTo(CGSizeMake(40, 40));
+    [self.loadingView c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+        make.center.c229_mas_equalTo(self);
+        make.size.c229_mas_equalTo(CGSizeMake(40, 40));
     }];
     //返回按钮
-    [self.backButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(Padding);
+    [self.backButton c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+        make.top.c229_mas_equalTo(Padding);
         if (@available(iOS 11.0, *)) {
-            make.left.mas_equalTo(self.mas_safeAreaLayoutGuideLeft).mas_offset(Padding);
+            make.left.c229_mas_equalTo(self.c229_mas_safeAreaLayoutGuideLeft).c229_mas_offset(Padding);
         } else {
-            make.left.mas_equalTo(Padding);
+            make.left.c229_mas_equalTo(Padding);
         }
-        make.bottom.mas_equalTo(-Padding);
-        make.width.mas_equalTo(self.backButton.mas_height);
+        make.bottom.c229_mas_equalTo(-Padding);
+        make.width.c229_mas_equalTo(self.backButton.c229_mas_height);
     }];
     //播放按钮
-    [self.playButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(Padding);
+    [self.playButton c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+        make.top.c229_mas_equalTo(Padding);
         if (@available(iOS 11.0, *)) {
-            make.left.mas_equalTo(self.mas_safeAreaLayoutGuideLeft).mas_offset(Padding);
+            make.left.c229_mas_equalTo(self.c229_mas_safeAreaLayoutGuideLeft).c229_mas_offset(Padding);
         } else {
-            make.left.mas_equalTo(Padding);
+            make.left.c229_mas_equalTo(Padding);
         }
-        make.bottom.mas_equalTo(-Padding);
-        make.width.mas_equalTo(self.playButton.mas_height);
+        make.bottom.c229_mas_equalTo(-Padding);
+        make.width.c229_mas_equalTo(self.playButton.c229_mas_height);
     }];
     //全屏按钮
-    [self.fullButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.mas_equalTo(-Padding);
+    [self.fullButton c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+        make.bottom.c229_mas_equalTo(-Padding);
         if (@available(iOS 11.0, *)) {
-            make.right.mas_equalTo(self.mas_safeAreaLayoutGuideRight).mas_offset(-Padding);
+            make.right.c229_mas_equalTo(self.c229_mas_safeAreaLayoutGuideRight).c229_mas_offset(-Padding);
         } else {
-            make.right.mas_equalTo(-Padding);
+            make.right.c229_mas_equalTo(-Padding);
         }
-        make.top.mas_equalTo(Padding);
-        make.width.mas_equalTo(self.fullButton.mas_height);
+        make.top.c229_mas_equalTo(Padding);
+        make.width.c229_mas_equalTo(self.fullButton.c229_mas_height);
     }];
     //当前播放时间
-    [self.currentTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(self.playButton.mas_right).mas_offset(Padding);
-        make.width.mas_equalTo(45);
-        make.centerY.mas_equalTo(self.bottomToolBar);
+    [self.currentTimeLabel c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+        make.left.c229_mas_equalTo(self.playButton.c229_mas_right).c229_mas_offset(Padding);
+        make.width.c229_mas_equalTo(45);
+        make.centerY.c229_mas_equalTo(self.bottomToolBar);
     }];
     //总时间
-    [self.totalTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.mas_equalTo(self.fullButton.mas_left).mas_offset(-Padding);
-        make.width.mas_equalTo(45);
-        make.centerY.mas_equalTo(self.bottomToolBar);
+    [self.totalTimeLabel c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+        make.right.c229_mas_equalTo(self.fullButton.c229_mas_left).c229_mas_offset(-Padding);
+        make.width.c229_mas_equalTo(45);
+        make.centerY.c229_mas_equalTo(self.bottomToolBar);
     }];
     //缓冲条
-    [self.progress mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(self.currentTimeLabel.mas_right).mas_offset(Padding);
-        make.right.mas_equalTo(self.totalTimeLabel.mas_left).mas_offset(-Padding);
-        make.height.mas_equalTo(2);
-        make.centerY.mas_equalTo(self.bottomToolBar);
+    [self.progress c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+        make.left.c229_mas_equalTo(self.currentTimeLabel.c229_mas_right).c229_mas_offset(Padding);
+        make.right.c229_mas_equalTo(self.totalTimeLabel.c229_mas_left).c229_mas_offset(-Padding);
+        make.height.c229_mas_equalTo(2);
+        make.centerY.c229_mas_equalTo(self.bottomToolBar);
     }];
     //滑杆
-    [self.slider mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(self.progress);
+    [self.slider c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+        make.edges.c229_mas_equalTo(self.progress);
     }];
     //失败按钮
-    [self.failButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.mas_equalTo(self);
+    [self.failButton c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+        make.center.c229_mas_equalTo(self);
     }];
 }
 #pragma mark -- 设置颜色

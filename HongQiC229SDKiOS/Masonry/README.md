@@ -64,22 +64,22 @@ However the ASCII type syntax has its own pitfalls and its also a bit harder to 
 
 ## Prepare to meet your Maker!
 
-Heres the same constraints created using MASConstraintMaker
+Heres the same constraints created using C229CAR_MASConstraintMaker
 
 ```obj-c
 UIEdgeInsets padding = UIEdgeInsetsMake(10, 10, 10, 10);
 
-[view1 mas_makeConstraints:^(MASConstraintMaker *make) {
-    make.top.equalTo(superview.mas_top).with.offset(padding.top); //with is an optional semantic filler
-    make.left.equalTo(superview.mas_left).with.offset(padding.left);
-    make.bottom.equalTo(superview.mas_bottom).with.offset(-padding.bottom);
-    make.right.equalTo(superview.mas_right).with.offset(-padding.right);
+[view1 mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+    make.top.equalTo(superview.c229_mas_top).with.offset(padding.top); //with is an optional semantic filler
+    make.left.equalTo(superview.c229_mas_left).with.offset(padding.left);
+    make.bottom.equalTo(superview.c229_mas_bottom).with.offset(-padding.bottom);
+    make.right.equalTo(superview.c229_mas_right).with.offset(-padding.right);
 }];
 ```
 Or even shorter
 
 ```obj-c
-[view1 mas_makeConstraints:^(MASConstraintMaker *make) {
+[view1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
     make.edges.equalTo(superview).with.insets(padding);
 }];
 ```
@@ -99,25 +99,25 @@ Masonry will also call `view1.translatesAutoresizingMaskIntoConstraints = NO;` f
 
 These three equality constraints accept one argument which can be any of the following:
 
-#### 1. MASViewAttribute
+#### 1. C229CAR_MASViewAttribute
 
 ```obj-c
-make.centerX.lessThanOrEqualTo(view2.mas_left);
+make.centerX.lessThanOrEqualTo(view2.c229_mas_left);
 ```
 
-MASViewAttribute           |  NSLayoutAttribute
+C229CAR_MASViewAttribute           |  NSLayoutAttribute
 -------------------------  |  --------------------------
-view.mas_left              |  NSLayoutAttributeLeft
-view.mas_right             |  NSLayoutAttributeRight
-view.mas_top               |  NSLayoutAttributeTop
-view.mas_bottom            |  NSLayoutAttributeBottom
-view.mas_leading           |  NSLayoutAttributeLeading
-view.mas_trailing          |  NSLayoutAttributeTrailing
-view.mas_width             |  NSLayoutAttributeWidth
-view.mas_height            |  NSLayoutAttributeHeight
-view.mas_centerX           |  NSLayoutAttributeCenterX
-view.mas_centerY           |  NSLayoutAttributeCenterY
-view.mas_baseline          |  NSLayoutAttributeBaseline
+view.c229_mas_left              |  NSLayoutAttributeLeft
+view.c229_mas_right             |  NSLayoutAttributeRight
+view.c229_mas_top               |  NSLayoutAttributeTop
+view.c229_mas_bottom            |  NSLayoutAttributeBottom
+view.c229_mas_leading           |  NSLayoutAttributeLeading
+view.c229_mas_trailing          |  NSLayoutAttributeTrailing
+view.c229_mas_width             |  NSLayoutAttributeWidth
+view.c229_mas_height            |  NSLayoutAttributeHeight
+view.c229_mas_centerX           |  NSLayoutAttributeCenterX
+view.c229_mas_centerY           |  NSLayoutAttributeCenterY
+view.c229_mas_baseline          |  NSLayoutAttributeBaseline
 
 #### 2. UIView/NSView
 
@@ -125,7 +125,7 @@ if you want view.left to be greater than or equal to label.left :
 ```obj-c
 //these two constraints are exactly the same
 make.left.greaterThanOrEqualTo(label);
-make.left.greaterThanOrEqualTo(label.mas_left);
+make.left.greaterThanOrEqualTo(label.c229_mas_left);
 ```
 
 #### 3. NSNumber
@@ -147,20 +147,20 @@ make.left.lessThanOrEqualTo(@10)
 
 Instead of using NSNumber, you can use primitives and structs to build your constraints, like so:
 ```obj-c
-make.top.mas_equalTo(42);
-make.height.mas_equalTo(20);
-make.size.mas_equalTo(CGSizeMake(50, 100));
-make.edges.mas_equalTo(UIEdgeInsetsMake(10, 0, 10, 0));
-make.left.mas_equalTo(view).mas_offset(UIEdgeInsetsMake(10, 0, 10, 0));
+make.top.c229_mas_equalTo(42);
+make.height.c229_mas_equalTo(20);
+make.size.c229_mas_equalTo(CGSizeMake(50, 100));
+make.edges.c229_mas_equalTo(UIEdgeInsetsMake(10, 0, 10, 0));
+make.left.c229_mas_equalTo(view).c229_mas_offset(UIEdgeInsetsMake(10, 0, 10, 0));
 ```
 
-By default, macros which support [autoboxing](https://en.wikipedia.org/wiki/Autoboxing#Autoboxing) are prefixed with `mas_`. Unprefixed versions are available by defining `MAS_SHORTHAND_GLOBALS` before importing Masonry.
+By default, macros which support [autoboxing](https://en.wikipedia.org/wiki/Autoboxing#Autoboxing) are prefixed with `c229_mas_`. Unprefixed versions are available by defining `C229CAR_MAS_SHORTHAND_GLOBALS` before importing Masonry.
 
 #### 4. NSArray
 
 An array of a mixture of any of the previous types
 ```obj-c
-make.height.equalTo(@[view1.mas_height, view2.mas_height]);
+make.height.equalTo(@[view1.c229_mas_height, view2.c229_mas_height]);
 make.height.equalTo(@[view1, view2]);
 make.left.equalTo(@[view1, @100, view3.right]);
 ````
@@ -177,14 +177,14 @@ make.left.equalTo(@[view1, @100, view3.right]);
 
 Priorities are can be tacked on to the end of a constraint chain like so:
 ```obj-c
-make.left.greaterThanOrEqualTo(label.mas_left).with.priorityLow();
+make.left.greaterThanOrEqualTo(label.c229_mas_left).with.priorityLow();
 
-make.top.equalTo(label.mas_top).with.priority(600);
+make.top.equalTo(label.c229_mas_top).with.priority(600);
 ```
 
 ## Composition, composition, composition
 
-Masonry also gives you a few convenience methods which create multiple constraints at the same time. These are called MASCompositeConstraints
+Masonry also gives you a few convenience methods which create multiple constraints at the same time. These are called C229CAR_MASCompositeConstraints
 
 #### edges
 
@@ -235,14 +235,14 @@ You could also reference multiple constraints by storing them away in an array.
 
 ```obj-c
 // in public/private interface
-@property (nonatomic, strong) MASConstraint *topConstraint;
+@property (nonatomic, strong) C229CAR_MASConstraint *topConstraint;
 
 ...
 
 // when making constraints
-[view1 mas_makeConstraints:^(MASConstraintMaker *make) {
-    self.topConstraint = make.top.equalTo(superview.mas_top).with.offset(padding.top);
-    make.left.equalTo(superview.mas_left).with.offset(padding.left);
+[view1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+    self.topConstraint = make.top.equalTo(superview.c229_mas_top).with.offset(padding.top);
+    make.left.equalTo(superview.c229_mas_left).with.offset(padding.left);
 }];
 
 ...
@@ -250,15 +250,15 @@ You could also reference multiple constraints by storing them away in an array.
 [self.topConstraint uninstall];
 ```
 
-#### 2. mas_updateConstraints
-Alternatively if you are only updating the constant value of the constraint you can use the convience method `mas_updateConstraints` instead of `mas_makeConstraints`
+#### 2. c229_mas_updateConstraints
+Alternatively if you are only updating the constant value of the constraint you can use the convience method `c229_mas_updateConstraints` instead of `c229_mas_makeConstraints`
 
 ```obj-c
 // this is Apple's recommended place for adding/updating constraints
 // this method can get called multiple times in response to setNeedsUpdateConstraints
 // which can be called by UIKit internally or in your code if you need to trigger an update to your constraints
 - (void)updateConstraints {
-    [self.growingButton mas_updateConstraints:^(MASConstraintMaker *make) {
+    [self.growingButton c229_mas_updateConstraints:^(C229CAR_MASConstraintMaker *make) {
         make.center.equalTo(self);
         make.width.equalTo(@(self.buttonSize.width)).priorityLow();
         make.height.equalTo(@(self.buttonSize.height)).priorityLow();
@@ -271,14 +271,14 @@ Alternatively if you are only updating the constant value of the constraint you 
 }
 ```
 
-### 3. mas_remakeConstraints
-`mas_updateConstraints` is useful for updating a set of constraints, but doing anything beyond updating constant values can get exhausting. That's where `mas_remakeConstraints` comes in.
+### 3. c229_mas_remakeConstraints
+`c229_mas_updateConstraints` is useful for updating a set of constraints, but doing anything beyond updating constant values can get exhausting. That's where `c229_mas_remakeConstraints` comes in.
 
-`mas_remakeConstraints` is similar to `mas_updateConstraints`, but instead of updating constant values, it will remove all of its constraints before installing them again. This lets you provide different constraints without having to keep around references to ones which you want to remove.
+`c229_mas_remakeConstraints` is similar to `c229_mas_updateConstraints`, but instead of updating constant values, it will remove all of its constraints before installing them again. This lets you provide different constraints without having to keep around references to ones which you want to remove.
 
 ```obj-c
 - (void)changeButtonPosition {
-    [self.button mas_remakeConstraints:^(MASConstraintMaker *make) {
+    [self.button c229_mas_remakeConstraints:^(C229CAR_MASConstraintMaker *make) {
         make.size.equalTo(self.buttonSize);
 
         if (topLeft) {
@@ -300,9 +300,9 @@ Laying out your views doesn't always goto plan. So when things literally go pear
 Unable to simultaneously satisfy constraints.....blah blah blah....
 (
     "<NSLayoutConstraint:0x7189ac0 V:[UILabel:0x7186980(>=5000)]>",
-    "<NSAutoresizingMaskLayoutConstraint:0x839ea20 h=--& v=--& V:[MASExampleDebuggingView:0x7186560(416)]>",
-    "<NSLayoutConstraint:0x7189c70 UILabel:0x7186980.bottom == MASExampleDebuggingView:0x7186560.bottom - 10>",
-    "<NSLayoutConstraint:0x7189560 V:|-(1)-[UILabel:0x7186980]   (Names: '|':MASExampleDebuggingView:0x7186560 )>"
+    "<NSAutoresizingMaskLayoutConstraint:0x839ea20 h=--& v=--& V:[C229CAR_MASExampleDebuggingView:0x7186560(416)]>",
+    "<NSLayoutConstraint:0x7189c70 UILabel:0x7186980.bottom == C229CAR_MASExampleDebuggingView:0x7186560.bottom - 10>",
+    "<NSLayoutConstraint:0x7189560 V:|-(1)-[UILabel:0x7186980]   (Names: '|':C229CAR_MASExampleDebuggingView:0x7186560 )>"
 )
 
 Will attempt to recover by breaking constraint
@@ -317,14 +317,14 @@ which means your console output can now look like this:
 ```obj-c
 Unable to simultaneously satisfy constraints......blah blah blah....
 (
-    "<NSAutoresizingMaskLayoutConstraint:0x8887740 MASExampleDebuggingView:superview.height == 416>",
-    "<MASLayoutConstraint:ConstantConstraint UILabel:messageLabel.height >= 5000>",
-    "<MASLayoutConstraint:BottomConstraint UILabel:messageLabel.bottom == MASExampleDebuggingView:superview.bottom - 10>",
-    "<MASLayoutConstraint:ConflictingConstraint[0] UILabel:messageLabel.top == MASExampleDebuggingView:superview.top + 1>"
+    "<NSAutoresizingMaskLayoutConstraint:0x8887740 C229CAR_MASExampleDebuggingView:superview.height == 416>",
+    "<C229CAR_MASLayoutConstraint:ConstantConstraint UILabel:messageLabel.height >= 5000>",
+    "<C229CAR_MASLayoutConstraint:BottomConstraint UILabel:messageLabel.bottom == C229CAR_MASExampleDebuggingView:superview.bottom - 10>",
+    "<C229CAR_MASLayoutConstraint:ConflictingConstraint[0] UILabel:messageLabel.top == C229CAR_MASExampleDebuggingView:superview.top + 1>"
 )
 
 Will attempt to recover by breaking constraint
-<MASLayoutConstraint:ConstantConstraint UILabel:messageLabel.height >= 5000>
+<C229CAR_MASLayoutConstraint:ConstantConstraint UILabel:messageLabel.height >= 5000>
 ```
 
 For an example of how to set this up take a look at the **Masonry iOS Examples** project in the Masonry workspace.
@@ -353,7 +353,7 @@ For an example of how to set this up take a look at the **Masonry iOS Examples**
 - (void)updateConstraints {
 
     // --- remake/update constraints here
-    [self.button remakeConstraints:^(MASConstraintMaker *make) {
+    [self.button remakeConstraints:^(C229CAR_MASConstraintMaker *make) {
         make.width.equalTo(@(self.buttonSize.width));
         make.height.equalTo(@(self.buttonSize.height));
     }];
@@ -379,25 +379,25 @@ Use the [orsome](http://www.youtube.com/watch?v=YaIZF8uUTtk) [CocoaPods](http://
 In your Podfile
 >`pod 'Masonry'`
 
-If you want to use masonry without all those pesky 'mas_' prefixes. Add #define MAS_SHORTHAND to your prefix.pch before importing Masonry
->`#define MAS_SHORTHAND`
+If you want to use c229_masonry without all those pesky 'c229_mas_' prefixes. Add #define C229CAR_MAS_SHORTHAND to your prefix.pch before importing Masonry
+>`#define C229CAR_MAS_SHORTHAND`
 
 Get busy Masoning
 >`#import "Masonry.h"`
 
 ## Code Snippets
 
-Copy the included code snippets to ``~/Library/Developer/Xcode/UserData/CodeSnippets`` to write your masonry blocks at lightning speed!
+Copy the included code snippets to ``~/Library/Developer/Xcode/UserData/CodeSnippets`` to write your c229_masonry blocks at lightning speed!
 
-`mas_make` -> ` [<#view#> mas_makeConstraints:^(MASConstraintMaker *make) {
+`c229_mas_make` -> ` [<#view#> c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
      <#code#>
  }];`
 
-`mas_update` -> ` [<#view#> mas_updateConstraints:^(MASConstraintMaker *make) {
+`c229_mas_update` -> ` [<#view#> c229_mas_updateConstraints:^(C229CAR_MASConstraintMaker *make) {
      <#code#>
  }];`
 
-`mas_remake` -> ` [<#view#> mas_remakeConstraints:^(MASConstraintMaker *make) {
+`c229_mas_remake` -> ` [<#view#> c229_mas_remakeConstraints:^(C229CAR_MASConstraintMaker *make) {
      <#code#>
  }];`
 

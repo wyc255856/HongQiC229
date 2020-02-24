@@ -10,7 +10,7 @@
 
 #import "CLPlayerMaskView.h"
 #import "CLGCDTimerManager.h"
-#import "Masonry.h"
+#import "C229CAR_Masonry.h"
 // 播放器的几种状态
 typedef NS_ENUM(NSInteger, CLPlayerState) {
     CLPlayerStateFailed,     ///< 播放失败

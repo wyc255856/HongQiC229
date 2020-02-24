@@ -1,23 +1,23 @@
 //
-//  MASCompositeConstraint.h
+//  C229CAR_MASCompositeConstraint.h
 //  Masonry
 //
 //  Created by Jonas Budelmann on 21/07/13.
 //  Copyright (c) 2013 cloudling. All rights reserved.
 //
 
-#import "MASConstraint.h"
-#import "MASUtilities.h"
+#import "C229CAR_MASConstraint.h"
+#import "C229CAR_MASUtilities.h"
 
 /**
- *	A group of MASConstraint objects
+ *	A group of C229CAR_MASConstraint objects
  */
-@interface MASCompositeConstraint : MASConstraint
+@interface C229CAR_MASCompositeConstraint : C229CAR_MASConstraint
 
 /**
  *	Creates a composite with a predefined array of children
  *
- *	@param	children	child MASConstraints
+ *	@param	children	child C229CAR_MASConstraints
  *
  *	@return	a composite constraint
  */

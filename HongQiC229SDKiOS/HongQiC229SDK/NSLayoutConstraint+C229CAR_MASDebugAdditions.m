@@ -1,16 +1,16 @@
 //
-//  NSLayoutConstraint+MASDebugAdditions.m
+//  NSLayoutConstraint+C229CAR_MASDebugAdditions.m
 //  Masonry
 //
 //  Created by Jonas Budelmann on 3/08/13.
 //  Copyright (c) 2013 Jonas Budelmann. All rights reserved.
 //
 
-#import "NSLayoutConstraint+MASDebugAdditions.h"
-#import "MASConstraint.h"
-#import "MASLayoutConstraint.h"
+#import "NSLayoutConstraint+C229CAR_MASDebugAdditions.h"
+#import "C229CAR_MASConstraint.h"
+#import "C229CAR_MASLayoutConstraint.h"
 
-@implementation NSLayoutConstraint (MASDebugAdditions)
+@implementation NSLayoutConstraint (C229CAR_MASDebugAdditions)
 
 #pragma mark - description maps
 
@@ -73,22 +73,22 @@
     dispatch_once(&once, ^{
 #if TARGET_OS_IPHONE || TARGET_OS_TV
         descriptionMap = @{
-            @(MASLayoutPriorityDefaultHigh)      : @"high",
-            @(MASLayoutPriorityDefaultLow)       : @"low",
-            @(MASLayoutPriorityDefaultMedium)    : @"medium",
-            @(MASLayoutPriorityRequired)         : @"required",
-            @(MASLayoutPriorityFittingSizeLevel) : @"fitting size",
+            @(C229CAR_MASLayoutPriorityDefaultHigh)      : @"high",
+            @(C229CAR_MASLayoutPriorityDefaultLow)       : @"low",
+            @(C229CAR_MASLayoutPriorityDefaultMedium)    : @"medium",
+            @(C229CAR_MASLayoutPriorityRequired)         : @"required",
+            @(C229CAR_MASLayoutPriorityFittingSizeLevel) : @"fitting size",
         };
 #elif TARGET_OS_MAC
         descriptionMap = @{
-            @(MASLayoutPriorityDefaultHigh)                 : @"high",
-            @(MASLayoutPriorityDragThatCanResizeWindow)     : @"drag can resize window",
-            @(MASLayoutPriorityDefaultMedium)               : @"medium",
-            @(MASLayoutPriorityWindowSizeStayPut)           : @"window size stay put",
-            @(MASLayoutPriorityDragThatCannotResizeWindow)  : @"drag cannot resize window",
-            @(MASLayoutPriorityDefaultLow)                  : @"low",
-            @(MASLayoutPriorityFittingSizeCompression)      : @"fitting size",
-            @(MASLayoutPriorityRequired)                    : @"required",
+            @(C229CAR_MASLayoutPriorityDefaultHigh)                 : @"high",
+            @(C229CAR_MASLayoutPriorityDragThatCanResizeWindow)     : @"drag can resize window",
+            @(C229CAR_MASLayoutPriorityDefaultMedium)               : @"medium",
+            @(C229CAR_MASLayoutPriorityWindowSizeStayPut)           : @"window size stay put",
+            @(C229CAR_MASLayoutPriorityDragThatCannotResizeWindow)  : @"drag cannot resize window",
+            @(C229CAR_MASLayoutPriorityDefaultLow)                  : @"low",
+            @(C229CAR_MASLayoutPriorityFittingSizeCompression)      : @"fitting size",
+            @(C229CAR_MASLayoutPriorityRequired)                    : @"required",
         };
 #endif
     });
@@ -98,8 +98,8 @@
 #pragma mark - description override
 
 + (NSString *)descriptionForObject:(id)obj {
-    if ([obj respondsToSelector:@selector(mas_key)] && [obj mas_key]) {
-        return [NSString stringWithFormat:@"%@:%@", [obj class], [obj mas_key]];
+    if ([obj respondsToSelector:@selector(c229_mas_key)] && [obj c229_mas_key]) {
+        return [NSString stringWithFormat:@"%@:%@", [obj class], [obj c229_mas_key]];
     }
     return [NSString stringWithFormat:@"%@:%p", [obj class], obj];
 }
@@ -135,7 +135,7 @@
         }
     }
 
-    if (self.priority != MASLayoutPriorityRequired) {
+    if (self.priority != C229CAR_MASLayoutPriorityRequired) {
         [description appendFormat:@" ^%@", self.class.layoutPriorityDescriptionsByValue[@(self.priority)] ?: [NSNumber numberWithDouble:self.priority]];
     }
 

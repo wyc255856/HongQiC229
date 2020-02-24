@@ -1,29 +1,29 @@
 //
-//  MASViewConstraint.m
+//  C229CAR_MASViewConstraint.m
 //  Masonry
 //
 //  Created by Jonas Budelmann on 20/07/13.
 //  Copyright (c) 2013 cloudling. All rights reserved.
 //
 
-#import "MASViewConstraint.h"
-#import "MASConstraint+Private.h"
-#import "MASCompositeConstraint.h"
-#import "MASLayoutConstraint.h"
-#import "View+MASAdditions.h"
+#import "C229CAR_MASViewConstraint.h"
+#import "C229CAR_MASConstraint+Private.h"
+#import "C229CAR_MASCompositeConstraint.h"
+#import "C229CAR_MASLayoutConstraint.h"
+#import "View+C229CAR_MASAdditions.h"
 #import <objc/runtime.h>
 
-@interface MAS_VIEW (MASConstraints)
+@interface C229CAR_MAS_VIEW (C229CAR_MASConstraints)
 
-@property (nonatomic, readonly) NSMutableSet *mas_installedConstraints;
+@property (nonatomic, readonly) NSMutableSet *c229_mas_installedConstraints;
 
 @end
 
-@implementation MAS_VIEW (MASConstraints)
+@implementation C229CAR_MAS_VIEW (C229CAR_MASConstraints)
 
 static char kInstalledConstraintsKey;
 
-- (NSMutableSet *)mas_installedConstraints {
+- (NSMutableSet *)c229_mas_installedConstraints {
     NSMutableSet *constraints = objc_getAssociatedObject(self, &kInstalledConstraintsKey);
     if (!constraints) {
         constraints = [NSMutableSet set];
@@ -35,29 +35,29 @@ static char kInstalledConstraintsKey;
 @end
 
 
-@interface MASViewConstraint ()
+@interface C229CAR_MASViewConstraint ()
 
-@property (nonatomic, strong, readwrite) MASViewAttribute *secondViewAttribute;
-@property (nonatomic, weak) MAS_VIEW *installedView;
-@property (nonatomic, weak) MASLayoutConstraint *layoutConstraint;
+@property (nonatomic, strong, readwrite) C229CAR_MASViewAttribute *secondViewAttribute;
+@property (nonatomic, weak) C229CAR_MAS_VIEW *installedView;
+@property (nonatomic, weak) C229CAR_MASLayoutConstraint *layoutConstraint;
 @property (nonatomic, assign) NSLayoutRelation layoutRelation;
-@property (nonatomic, assign) MASLayoutPriority layoutPriority;
+@property (nonatomic, assign) C229CAR_MASLayoutPriority layoutPriority;
 @property (nonatomic, assign) CGFloat layoutMultiplier;
 @property (nonatomic, assign) CGFloat layoutConstant;
 @property (nonatomic, assign) BOOL hasLayoutRelation;
-@property (nonatomic, strong) id mas_key;
+@property (nonatomic, strong) id c229_mas_key;
 @property (nonatomic, assign) BOOL useAnimator;
 
 @end
 
-@implementation MASViewConstraint
+@implementation C229CAR_MASViewConstraint
 
-- (id)initWithFirstViewAttribute:(MASViewAttribute *)firstViewAttribute {
+- (id)initWithFirstViewAttribute:(C229CAR_MASViewAttribute *)firstViewAttribute {
     self = [super init];
     if (!self) return nil;
     
     _firstViewAttribute = firstViewAttribute;
-    self.layoutPriority = MASLayoutPriorityRequired;
+    self.layoutPriority = C229CAR_MASLayoutPriorityRequired;
     self.layoutMultiplier = 1;
     
     return self;
@@ -66,7 +66,7 @@ static char kInstalledConstraintsKey;
 #pragma mark - NSCoping
 
 - (id)copyWithZone:(NSZone __unused *)zone {
-    MASViewConstraint *constraint = [[MASViewConstraint alloc] initWithFirstViewAttribute:self.firstViewAttribute];
+    C229CAR_MASViewConstraint *constraint = [[C229CAR_MASViewConstraint alloc] initWithFirstViewAttribute:self.firstViewAttribute];
     constraint.layoutConstant = self.layoutConstant;
     constraint.layoutRelation = self.layoutRelation;
     constraint.layoutPriority = self.layoutPriority;
@@ -77,8 +77,8 @@ static char kInstalledConstraintsKey;
 
 #pragma mark - Public
 
-+ (NSArray *)installedConstraintsForView:(MAS_VIEW *)view {
-    return [view.mas_installedConstraints allObjects];
++ (NSArray *)installedConstraintsForView:(C229CAR_MAS_VIEW *)view {
+    return [view.c229_mas_installedConstraints allObjects];
 }
 
 #pragma mark - Private
@@ -122,9 +122,9 @@ static char kInstalledConstraintsKey;
 - (void)setSecondViewAttribute:(id)secondViewAttribute {
     if ([secondViewAttribute isKindOfClass:NSValue.class]) {
         [self setLayoutConstantWithValue:secondViewAttribute];
-    } else if ([secondViewAttribute isKindOfClass:MAS_VIEW.class]) {
-        _secondViewAttribute = [[MASViewAttribute alloc] initWithView:secondViewAttribute layoutAttribute:self.firstViewAttribute.layoutAttribute];
-    } else if ([secondViewAttribute isKindOfClass:MASViewAttribute.class]) {
+    } else if ([secondViewAttribute isKindOfClass:C229CAR_MAS_VIEW.class]) {
+        _secondViewAttribute = [[C229CAR_MASViewAttribute alloc] initWithView:secondViewAttribute layoutAttribute:self.firstViewAttribute.layoutAttribute];
+    } else if ([secondViewAttribute isKindOfClass:C229CAR_MASViewAttribute.class]) {
         _secondViewAttribute = secondViewAttribute;
     } else {
         NSAssert(NO, @"attempting to add unsupported attribute: %@", secondViewAttribute);
@@ -133,7 +133,7 @@ static char kInstalledConstraintsKey;
 
 #pragma mark - NSLayoutConstraint multiplier proxies
 
-- (MASConstraint * (^)(CGFloat))multipliedBy {
+- (C229CAR_MASConstraint * (^)(CGFloat))multipliedBy {
     return ^id(CGFloat multiplier) {
         NSAssert(!self.hasBeenInstalled,
                  @"Cannot modify constraint multiplier after it has been installed");
@@ -144,7 +144,7 @@ static char kInstalledConstraintsKey;
 }
 
 
-- (MASConstraint * (^)(CGFloat))dividedBy {
+- (C229CAR_MASConstraint * (^)(CGFloat))dividedBy {
     return ^id(CGFloat divider) {
         NSAssert(!self.hasBeenInstalled,
                  @"Cannot modify constraint multiplier after it has been installed");
@@ -154,10 +154,10 @@ static char kInstalledConstraintsKey;
     };
 }
 
-#pragma mark - MASLayoutPriority proxy
+#pragma mark - C229CAR_MASLayoutPriority proxy
 
-- (MASConstraint * (^)(MASLayoutPriority))priority {
-    return ^id(MASLayoutPriority priority) {
+- (C229CAR_MASConstraint * (^)(C229CAR_MASLayoutPriority))priority {
+    return ^id(C229CAR_MASLayoutPriority priority) {
         NSAssert(!self.hasBeenInstalled,
                  @"Cannot modify constraint priority after it has been installed");
         
@@ -168,18 +168,18 @@ static char kInstalledConstraintsKey;
 
 #pragma mark - NSLayoutRelation proxy
 
-- (MASConstraint * (^)(id, NSLayoutRelation))equalToWithRelation {
+- (C229CAR_MASConstraint * (^)(id, NSLayoutRelation))equalToWithRelation {
     return ^id(id attribute, NSLayoutRelation relation) {
         if ([attribute isKindOfClass:NSArray.class]) {
             NSAssert(!self.hasLayoutRelation, @"Redefinition of constraint relation");
             NSMutableArray *children = NSMutableArray.new;
             for (id attr in attribute) {
-                MASViewConstraint *viewConstraint = [self copy];
+                C229CAR_MASViewConstraint *viewConstraint = [self copy];
                 viewConstraint.layoutRelation = relation;
                 viewConstraint.secondViewAttribute = attr;
                 [children addObject:viewConstraint];
             }
-            MASCompositeConstraint *compositeConstraint = [[MASCompositeConstraint alloc] initWithChildren:children];
+            C229CAR_MASCompositeConstraint *compositeConstraint = [[C229CAR_MASCompositeConstraint alloc] initWithChildren:children];
             compositeConstraint.delegate = self.delegate;
             [self.delegate constraint:self shouldBeReplacedWithConstraint:compositeConstraint];
             return compositeConstraint;
@@ -194,17 +194,17 @@ static char kInstalledConstraintsKey;
 
 #pragma mark - Semantic properties
 
-- (MASConstraint *)with {
+- (C229CAR_MASConstraint *)with {
     return self;
 }
 
-- (MASConstraint *)and {
+- (C229CAR_MASConstraint *)and {
     return self;
 }
 
 #pragma mark - attribute chaining
 
-- (MASConstraint *)addConstraintWithLayoutAttribute:(NSLayoutAttribute)layoutAttribute {
+- (C229CAR_MASConstraint *)addConstraintWithLayoutAttribute:(NSLayoutAttribute)layoutAttribute {
     NSAssert(!self.hasLayoutRelation, @"Attributes should be chained before defining the constraint relation");
 
     return [self.delegate constraint:self addConstraintWithLayoutAttribute:layoutAttribute];
@@ -214,7 +214,7 @@ static char kInstalledConstraintsKey;
 
 #if TARGET_OS_MAC && !(TARGET_OS_IPHONE || TARGET_OS_TV)
 
-- (MASConstraint *)animator {
+- (C229CAR_MASConstraint *)animator {
     self.useAnimator = YES;
     return self;
 }
@@ -223,16 +223,16 @@ static char kInstalledConstraintsKey;
 
 #pragma mark - debug helpers
 
-- (MASConstraint * (^)(id))key {
+- (C229CAR_MASConstraint * (^)(id))key {
     return ^id(id key) {
-        self.mas_key = key;
+        self.c229_mas_key = key;
         return self;
     };
 }
 
 #pragma mark - NSLayoutConstraint constant setters
 
-- (void)setInsets:(MASEdgeInsets)insets {
+- (void)setInsets:(C229CAR_MASEdgeInsets)insets {
     NSLayoutAttribute layoutAttribute = self.firstViewAttribute.layoutAttribute;
     switch (layoutAttribute) {
         case NSLayoutAttributeLeft:
@@ -255,7 +255,7 @@ static char kInstalledConstraintsKey;
 }
 
 - (void)setInset:(CGFloat)inset {
-    [self setInsets:(MASEdgeInsets){.top = inset, .left = inset, .bottom = inset, .right = inset}];
+    [self setInsets:(C229CAR_MASEdgeInsets){.top = inset, .left = inset, .bottom = inset, .right = inset}];
 }
 
 - (void)setOffset:(CGFloat)offset {
@@ -290,7 +290,7 @@ static char kInstalledConstraintsKey;
     }
 }
 
-#pragma mark - MASConstraint
+#pragma mark - C229CAR_MASConstraint
 
 - (void)activate {
     [self install];
@@ -307,13 +307,13 @@ static char kInstalledConstraintsKey;
     
     if ([self supportsActiveProperty] && self.layoutConstraint) {
         self.layoutConstraint.active = YES;
-        [self.firstViewAttribute.view.mas_installedConstraints addObject:self];
+        [self.firstViewAttribute.view.c229_mas_installedConstraints addObject:self];
         return;
     }
     
-    MAS_VIEW *firstLayoutItem = self.firstViewAttribute.item;
+    C229CAR_MAS_VIEW *firstLayoutItem = self.firstViewAttribute.item;
     NSLayoutAttribute firstLayoutAttribute = self.firstViewAttribute.layoutAttribute;
-    MAS_VIEW *secondLayoutItem = self.secondViewAttribute.item;
+    C229CAR_MAS_VIEW *secondLayoutItem = self.secondViewAttribute.item;
     NSLayoutAttribute secondLayoutAttribute = self.secondViewAttribute.layoutAttribute;
 
     // alignment attributes must have a secondViewAttribute
@@ -324,8 +324,8 @@ static char kInstalledConstraintsKey;
         secondLayoutAttribute = firstLayoutAttribute;
     }
     
-    MASLayoutConstraint *layoutConstraint
-        = [MASLayoutConstraint constraintWithItem:firstLayoutItem
+    C229CAR_MASLayoutConstraint *layoutConstraint
+        = [C229CAR_MASLayoutConstraint constraintWithItem:firstLayoutItem
                                         attribute:firstLayoutAttribute
                                         relatedBy:self.layoutRelation
                                            toItem:secondLayoutItem
@@ -334,10 +334,10 @@ static char kInstalledConstraintsKey;
                                          constant:self.layoutConstant];
     
     layoutConstraint.priority = self.layoutPriority;
-    layoutConstraint.mas_key = self.mas_key;
+    layoutConstraint.c229_mas_key = self.c229_mas_key;
     
     if (self.secondViewAttribute.view) {
-        MAS_VIEW *closestCommonSuperview = [self.firstViewAttribute.view mas_closestCommonSuperview:self.secondViewAttribute.view];
+        C229CAR_MAS_VIEW *closestCommonSuperview = [self.firstViewAttribute.view c229_mas_closestCommonSuperview:self.secondViewAttribute.view];
         NSAssert(closestCommonSuperview,
                  @"couldn't find a common superview for %@ and %@",
                  self.firstViewAttribute.view, self.secondViewAttribute.view);
@@ -349,7 +349,7 @@ static char kInstalledConstraintsKey;
     }
 
 
-    MASLayoutConstraint *existingConstraint = nil;
+    C229CAR_MASLayoutConstraint *existingConstraint = nil;
     if (self.updateExisting) {
         existingConstraint = [self layoutConstraintSimilarTo:layoutConstraint];
     }
@@ -360,17 +360,17 @@ static char kInstalledConstraintsKey;
     } else {
         [self.installedView addConstraint:layoutConstraint];
         self.layoutConstraint = layoutConstraint;
-        [firstLayoutItem.mas_installedConstraints addObject:self];
+        [firstLayoutItem.c229_mas_installedConstraints addObject:self];
     }
 }
 
-- (MASLayoutConstraint *)layoutConstraintSimilarTo:(MASLayoutConstraint *)layoutConstraint {
+- (C229CAR_MASLayoutConstraint *)layoutConstraintSimilarTo:(C229CAR_MASLayoutConstraint *)layoutConstraint {
     // check if any constraints are the same apart from the only mutable property constant
 
     // go through constraints in reverse as we do not want to match auto-resizing or interface builder constraints
     // and they are likely to be added first.
     for (NSLayoutConstraint *existingConstraint in self.installedView.constraints.reverseObjectEnumerator) {
-        if (![existingConstraint isKindOfClass:MASLayoutConstraint.class]) continue;
+        if (![existingConstraint isKindOfClass:C229CAR_MASLayoutConstraint.class]) continue;
         if (existingConstraint.firstItem != layoutConstraint.firstItem) continue;
         if (existingConstraint.secondItem != layoutConstraint.secondItem) continue;
         if (existingConstraint.firstAttribute != layoutConstraint.firstAttribute) continue;
@@ -387,7 +387,7 @@ static char kInstalledConstraintsKey;
 - (void)uninstall {
     if ([self supportsActiveProperty]) {
         self.layoutConstraint.active = NO;
-        [self.firstViewAttribute.view.mas_installedConstraints removeObject:self];
+        [self.firstViewAttribute.view.c229_mas_installedConstraints removeObject:self];
         return;
     }
     
@@ -395,7 +395,7 @@ static char kInstalledConstraintsKey;
     self.layoutConstraint = nil;
     self.installedView = nil;
     
-    [self.firstViewAttribute.view.mas_installedConstraints removeObject:self];
+    [self.firstViewAttribute.view.c229_mas_installedConstraints removeObject:self];
 }
 
 @end

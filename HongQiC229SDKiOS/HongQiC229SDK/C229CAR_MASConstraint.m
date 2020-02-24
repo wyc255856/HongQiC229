@@ -1,126 +1,126 @@
 //
-//  MASConstraint.m
+//  C229CAR_MASConstraint.m
 //  Masonry
 //
 //  Created by Nick Tymchenko on 1/20/14.
 //
 
-#import "MASConstraint.h"
-#import "MASConstraint+Private.h"
+#import "C229CAR_MASConstraint.h"
+#import "C229CAR_MASConstraint+Private.h"
 
-#define MASMethodNotImplemented() \
+#define C229CAR_MASMethodNotImplemented() \
     @throw [NSException exceptionWithName:NSInternalInconsistencyException \
                                    reason:[NSString stringWithFormat:@"You must override %@ in a subclass.", NSStringFromSelector(_cmd)] \
                                  userInfo:nil]
 
-@implementation MASConstraint
+@implementation C229CAR_MASConstraint
 
 #pragma mark - Init
 
 - (id)init {
-	NSAssert(![self isMemberOfClass:[MASConstraint class]], @"MASConstraint is an abstract class, you should not instantiate it directly.");
+	NSAssert(![self isMemberOfClass:[C229CAR_MASConstraint class]], @"C229CAR_MASConstraint is an abstract class, you should not instantiate it directly.");
 	return [super init];
 }
 
 #pragma mark - NSLayoutRelation proxies
 
-- (MASConstraint * (^)(id))equalTo {
+- (C229CAR_MASConstraint * (^)(id))equalTo {
     return ^id(id attribute) {
         return self.equalToWithRelation(attribute, NSLayoutRelationEqual);
     };
 }
 
-- (MASConstraint * (^)(id))mas_equalTo {
+- (C229CAR_MASConstraint * (^)(id))c229_mas_equalTo {
     return ^id(id attribute) {
         return self.equalToWithRelation(attribute, NSLayoutRelationEqual);
     };
 }
 
-- (MASConstraint * (^)(id))greaterThanOrEqualTo {
+- (C229CAR_MASConstraint * (^)(id))greaterThanOrEqualTo {
     return ^id(id attribute) {
         return self.equalToWithRelation(attribute, NSLayoutRelationGreaterThanOrEqual);
     };
 }
 
-- (MASConstraint * (^)(id))mas_greaterThanOrEqualTo {
+- (C229CAR_MASConstraint * (^)(id))c229_mas_greaterThanOrEqualTo {
     return ^id(id attribute) {
         return self.equalToWithRelation(attribute, NSLayoutRelationGreaterThanOrEqual);
     };
 }
 
-- (MASConstraint * (^)(id))lessThanOrEqualTo {
+- (C229CAR_MASConstraint * (^)(id))lessThanOrEqualTo {
     return ^id(id attribute) {
         return self.equalToWithRelation(attribute, NSLayoutRelationLessThanOrEqual);
     };
 }
 
-- (MASConstraint * (^)(id))mas_lessThanOrEqualTo {
+- (C229CAR_MASConstraint * (^)(id))c229_mas_lessThanOrEqualTo {
     return ^id(id attribute) {
         return self.equalToWithRelation(attribute, NSLayoutRelationLessThanOrEqual);
     };
 }
 
-#pragma mark - MASLayoutPriority proxies
+#pragma mark - C229CAR_MASLayoutPriority proxies
 
-- (MASConstraint * (^)(void))priorityLow {
+- (C229CAR_MASConstraint * (^)(void))priorityLow {
     return ^id{
-        self.priority(MASLayoutPriorityDefaultLow);
+        self.priority(C229CAR_MASLayoutPriorityDefaultLow);
         return self;
     };
 }
 
-- (MASConstraint * (^)(void))priorityMedium {
+- (C229CAR_MASConstraint * (^)(void))priorityMedium {
     return ^id{
-        self.priority(MASLayoutPriorityDefaultMedium);
+        self.priority(C229CAR_MASLayoutPriorityDefaultMedium);
         return self;
     };
 }
 
-- (MASConstraint * (^)(void))priorityHigh {
+- (C229CAR_MASConstraint * (^)(void))priorityHigh {
     return ^id{
-        self.priority(MASLayoutPriorityDefaultHigh);
+        self.priority(C229CAR_MASLayoutPriorityDefaultHigh);
         return self;
     };
 }
 
 #pragma mark - NSLayoutConstraint constant proxies
 
-- (MASConstraint * (^)(MASEdgeInsets))insets {
-    return ^id(MASEdgeInsets insets){
+- (C229CAR_MASConstraint * (^)(C229CAR_MASEdgeInsets))insets {
+    return ^id(C229CAR_MASEdgeInsets insets){
         self.insets = insets;
         return self;
     };
 }
 
-- (MASConstraint * (^)(CGFloat))inset {
+- (C229CAR_MASConstraint * (^)(CGFloat))inset {
     return ^id(CGFloat inset){
         self.inset = inset;
         return self;
     };
 }
 
-- (MASConstraint * (^)(CGSize))sizeOffset {
+- (C229CAR_MASConstraint * (^)(CGSize))sizeOffset {
     return ^id(CGSize offset) {
         self.sizeOffset = offset;
         return self;
     };
 }
 
-- (MASConstraint * (^)(CGPoint))centerOffset {
+- (C229CAR_MASConstraint * (^)(CGPoint))centerOffset {
     return ^id(CGPoint offset) {
         self.centerOffset = offset;
         return self;
     };
 }
 
-- (MASConstraint * (^)(CGFloat))offset {
+- (C229CAR_MASConstraint * (^)(CGFloat))offset {
     return ^id(CGFloat offset){
         self.offset = offset;
         return self;
     };
 }
 
-- (MASConstraint * (^)(NSValue *value))valueOffset {
+- (C229CAR_MASConstraint * (^)(NSValue *value))valueOffset {
     return ^id(NSValue *offset) {
         NSAssert([offset isKindOfClass:NSValue.class], @"expected an NSValue offset, got: %@", offset);
         [self setLayoutConstantWithValue:offset];
@@ -128,7 +128,7 @@
     };
 }
 
-- (MASConstraint * (^)(id offset))mas_offset {
+- (C229CAR_MASConstraint * (^)(id offset))c229_mas_offset {
     // Will never be called due to macro
     return nil;
 }
@@ -146,8 +146,8 @@
         CGSize size;
         [value getValue:&size];
         self.sizeOffset = size;
-    } else if (strcmp(value.objCType, @encode(MASEdgeInsets)) == 0) {
-        MASEdgeInsets insets;
+    } else if (strcmp(value.objCType, @encode(C229CAR_MASEdgeInsets)) == 0) {
+        C229CAR_MASEdgeInsets insets;
         [value getValue:&insets];
         self.insets = insets;
     } else {
@@ -157,70 +157,70 @@
 
 #pragma mark - Semantic properties
 
-- (MASConstraint *)with {
+- (C229CAR_MASConstraint *)with {
     return self;
 }
 
-- (MASConstraint *)and {
+- (C229CAR_MASConstraint *)and {
     return self;
 }
 
 #pragma mark - Chaining
 
-- (MASConstraint *)addConstraintWithLayoutAttribute:(NSLayoutAttribute __unused)layoutAttribute {
-    MASMethodNotImplemented();
+- (C229CAR_MASConstraint *)addConstraintWithLayoutAttribute:(NSLayoutAttribute __unused)layoutAttribute {
+    C229CAR_MASMethodNotImplemented();
 }
 
-- (MASConstraint *)left {
+- (C229CAR_MASConstraint *)left {
     return [self addConstraintWithLayoutAttribute:NSLayoutAttributeLeft];
 }
 
-- (MASConstraint *)top {
+- (C229CAR_MASConstraint *)top {
     return [self addConstraintWithLayoutAttribute:NSLayoutAttributeTop];
 }
 
-- (MASConstraint *)right {
+- (C229CAR_MASConstraint *)right {
     return [self addConstraintWithLayoutAttribute:NSLayoutAttributeRight];
 }
 
-- (MASConstraint *)bottom {
+- (C229CAR_MASConstraint *)bottom {
     return [self addConstraintWithLayoutAttribute:NSLayoutAttributeBottom];
 }
 
-- (MASConstraint *)leading {
+- (C229CAR_MASConstraint *)leading {
     return [self addConstraintWithLayoutAttribute:NSLayoutAttributeLeading];
 }
 
-- (MASConstraint *)trailing {
+- (C229CAR_MASConstraint *)trailing {
     return [self addConstraintWithLayoutAttribute:NSLayoutAttributeTrailing];
 }
 
-- (MASConstraint *)width {
+- (C229CAR_MASConstraint *)width {
     return [self addConstraintWithLayoutAttribute:NSLayoutAttributeWidth];
 }
 
-- (MASConstraint *)height {
+- (C229CAR_MASConstraint *)height {
     return [self addConstraintWithLayoutAttribute:NSLayoutAttributeHeight];
 }
 
-- (MASConstraint *)centerX {
+- (C229CAR_MASConstraint *)centerX {
     return [self addConstraintWithLayoutAttribute:NSLayoutAttributeCenterX];
 }
 
-- (MASConstraint *)centerY {
+- (C229CAR_MASConstraint *)centerY {
     return [self addConstraintWithLayoutAttribute:NSLayoutAttributeCenterY];
 }
 
-- (MASConstraint *)baseline {
+- (C229CAR_MASConstraint *)baseline {
     return [self addConstraintWithLayoutAttribute:NSLayoutAttributeBaseline];
 }
 
 #if (__IPHONE_OS_VERSION_MIN_REQUIRED >= 80000) || (__TV_OS_VERSION_MIN_REQUIRED >= 9000) || (__MAC_OS_X_VERSION_MIN_REQUIRED >= 101100)
 
-- (MASConstraint *)firstBaseline {
+- (C229CAR_MASConstraint *)firstBaseline {
     return [self addConstraintWithLayoutAttribute:NSLayoutAttributeFirstBaseline];
 }
-- (MASConstraint *)lastBaseline {
+- (C229CAR_MASConstraint *)lastBaseline {
     return [self addConstraintWithLayoutAttribute:NSLayoutAttributeLastBaseline];
 }
 
@@ -228,35 +228,35 @@
 
 #if (__IPHONE_OS_VERSION_MIN_REQUIRED >= 80000) || (__TV_OS_VERSION_MIN_REQUIRED >= 9000)
 
-- (MASConstraint *)leftMargin {
+- (C229CAR_MASConstraint *)leftMargin {
     return [self addConstraintWithLayoutAttribute:NSLayoutAttributeLeftMargin];
 }
 
-- (MASConstraint *)rightMargin {
+- (C229CAR_MASConstraint *)rightMargin {
     return [self addConstraintWithLayoutAttribute:NSLayoutAttributeRightMargin];
 }
 
-- (MASConstraint *)topMargin {
+- (C229CAR_MASConstraint *)topMargin {
     return [self addConstraintWithLayoutAttribute:NSLayoutAttributeTopMargin];
 }
 
-- (MASConstraint *)bottomMargin {
+- (C229CAR_MASConstraint *)bottomMargin {
     return [self addConstraintWithLayoutAttribute:NSLayoutAttributeBottomMargin];
 }
 
-- (MASConstraint *)leadingMargin {
+- (C229CAR_MASConstraint *)leadingMargin {
     return [self addConstraintWithLayoutAttribute:NSLayoutAttributeLeadingMargin];
 }
 
-- (MASConstraint *)trailingMargin {
+- (C229CAR_MASConstraint *)trailingMargin {
     return [self addConstraintWithLayoutAttribute:NSLayoutAttributeTrailingMargin];
 }
 
-- (MASConstraint *)centerXWithinMargins {
+- (C229CAR_MASConstraint *)centerXWithinMargins {
     return [self addConstraintWithLayoutAttribute:NSLayoutAttributeCenterXWithinMargins];
 }
 
-- (MASConstraint *)centerYWithinMargins {
+- (C229CAR_MASConstraint *)centerYWithinMargins {
     return [self addConstraintWithLayoutAttribute:NSLayoutAttributeCenterYWithinMargins];
 }
 
@@ -264,38 +264,38 @@
 
 #pragma mark - Abstract
 
-- (MASConstraint * (^)(CGFloat multiplier))multipliedBy { MASMethodNotImplemented(); }
+- (C229CAR_MASConstraint * (^)(CGFloat multiplier))multipliedBy { C229CAR_MASMethodNotImplemented(); }
 
-- (MASConstraint * (^)(CGFloat divider))dividedBy { MASMethodNotImplemented(); }
+- (C229CAR_MASConstraint * (^)(CGFloat divider))dividedBy { C229CAR_MASMethodNotImplemented(); }
 
-- (MASConstraint * (^)(MASLayoutPriority priority))priority { MASMethodNotImplemented(); }
+- (C229CAR_MASConstraint * (^)(C229CAR_MASLayoutPriority priority))priority { C229CAR_MASMethodNotImplemented(); }
 
-- (MASConstraint * (^)(id, NSLayoutRelation))equalToWithRelation { MASMethodNotImplemented(); }
+- (C229CAR_MASConstraint * (^)(id, NSLayoutRelation))equalToWithRelation { C229CAR_MASMethodNotImplemented(); }
 
-- (MASConstraint * (^)(id key))key { MASMethodNotImplemented(); }
+- (C229CAR_MASConstraint * (^)(id key))key { C229CAR_MASMethodNotImplemented(); }
 
-- (void)setInsets:(MASEdgeInsets __unused)insets { MASMethodNotImplemented(); }
+- (void)setInsets:(C229CAR_MASEdgeInsets __unused)insets { C229CAR_MASMethodNotImplemented(); }
 
-- (void)setInset:(CGFloat __unused)inset { MASMethodNotImplemented(); }
+- (void)setInset:(CGFloat __unused)inset { C229CAR_MASMethodNotImplemented(); }
 
-- (void)setSizeOffset:(CGSize __unused)sizeOffset { MASMethodNotImplemented(); }
+- (void)setSizeOffset:(CGSize __unused)sizeOffset { C229CAR_MASMethodNotImplemented(); }
 
-- (void)setCenterOffset:(CGPoint __unused)centerOffset { MASMethodNotImplemented(); }
+- (void)setCenterOffset:(CGPoint __unused)centerOffset { C229CAR_MASMethodNotImplemented(); }
 
-- (void)setOffset:(CGFloat __unused)offset { MASMethodNotImplemented(); }
+- (void)setOffset:(CGFloat __unused)offset { C229CAR_MASMethodNotImplemented(); }
 
 #if TARGET_OS_MAC && !(TARGET_OS_IPHONE || TARGET_OS_TV)
 
-- (MASConstraint *)animator { MASMethodNotImplemented(); }
+- (C229CAR_MASConstraint *)animator { C229CAR_MASMethodNotImplemented(); }
 
 #endif
 
-- (void)activate { MASMethodNotImplemented(); }
+- (void)activate { C229CAR_MASMethodNotImplemented(); }
 
-- (void)deactivate { MASMethodNotImplemented(); }
+- (void)deactivate { C229CAR_MASMethodNotImplemented(); }
 
-- (void)install { MASMethodNotImplemented(); }
+- (void)install { C229CAR_MASMethodNotImplemented(); }
 
-- (void)uninstall { MASMethodNotImplemented(); }
+- (void)uninstall { C229CAR_MASMethodNotImplemented(); }
 
 @end
