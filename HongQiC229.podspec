@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "HongQiC229"
-  s.version      = "1.0.7"
+  s.version      = "1.0.8"
   s.summary      = "A short description of HongQiC229."
 
   s.description  = <<-DESC
@@ -37,9 +37,9 @@ Pod::Spec.new do |s|
 
 
 
-   s.source_files  = "HongQiC229SDK", "HongQiC229SDKiOS/HongQiC229SDK/*.{h,m,c}"
+   s.source_files  = "HongQiC229SDK", "HongQiC229SDKiOS/HongQiC229SDK/*.{h,m,c}","HongQiC229SDKiOS/HongQiC229SDK/c229net*.{h,m}, "HongQiC229SDKiOS/HongQiC229SDK/c229zip*.{h,m,c}, "HongQiC229SDKiOS/HongQiC229SDK/tools*.{h,m},"HongQiC229SDKiOS/HongQiC229SDK/tools/CLPlayer*.{h,m}
 
 
   s.exclude_files = "Classes/Exclude"
-  s.resource = "HongQiC229SDKiOS/HongQiC229SDK/HSC229CarResource.bundle"
+  s.resource = "HongQiC229SDKiOS/HongQiC229SDK/HSC229CarResource.bundle","HongQiC229SDKiOS/HongQiC229SDK/tools/CLPlayer/Resource/CLPlayer.bundle"
 end

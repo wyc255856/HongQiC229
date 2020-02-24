@@ -220,7 +220,7 @@
 		53AEC7EF23FE7AE90076BECD /* ThirdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdView.h; sourceTree = "<group>"; };
 		53AEC7F023FE7AE90076BECD /* FifthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FifthView.h; sourceTree = "<group>"; };
 		53AEC7F123FE7AE90076BECD /* TopTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopTabView.m; sourceTree = "<group>"; };
-		53AEC7F323FE7AE90076BECD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		53AEC7F323FE7AE90076BECD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = fmdb/Info.plist; sourceTree = "<group>"; };
 		53AEC7F423FE7AE90076BECD /* AppFaster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppFaster.h; sourceTree = "<group>"; };
 		53AEC7F523FE7AE90076BECD /* FirstView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstView.m; sourceTree = "<group>"; };
 		53AEC7F623FE7AE90076BECD /* ForthCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForthCollectionViewCell.h; sourceTree = "<group>"; };
@@ -415,7 +415,7 @@
 				53AEC7EF23FE7AE90076BECD /* ThirdView.h */,
 				53AEC7F023FE7AE90076BECD /* FifthView.h */,
 				53AEC7F123FE7AE90076BECD /* TopTabView.m */,
-				53AEC7F223FE7AE90076BECD /* fmdb */,
+				53AEC7F323FE7AE90076BECD /* Info.plist */,
 				53AEC7F423FE7AE90076BECD /* AppFaster.h */,
 				53AEC7F523FE7AE90076BECD /* FirstView.m */,
 				53AEC7F623FE7AE90076BECD /* ForthCollectionViewCell.h */,
@@ -468,14 +468,6 @@
 				53AEC7D523FE7AE90076BECD /* CLPlayer.bundle */,
 			);
 			path = Resource;
-			sourceTree = "<group>";
-		};
-		53AEC7F223FE7AE90076BECD /* fmdb */ = {
-			isa = PBXGroup;
-			children = (
-				53AEC7F323FE7AE90076BECD /* Info.plist */,
-			);
-			path = fmdb;
 			sourceTree = "<group>";
 		};
 		53B601B720FF3DDE000DAC14 /* HongQiC229SDKiOS */ = {
