@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AFHTTPSessionManager.h"
+#import "C229CAR_AFHTTPSessionManager.h"
 
 NS_ASSUME_NONNULL_BEGIN
-@interface NetWorkManager : AFHTTPSessionManager
+@interface NetWorkManager : C229CAR_AFHTTPSessionManager
 
 + (NetWorkManager *)shareIndstance;
 + (void)requestGETSuperAPIWithURLStr:(NSString *)urlStr WithAuthorization:(NSString *)authorization paramDic:(NSDictionary *)paramDic finish:(void(^)(id responseObject))finish enError:(void(^)(NSError *error))enError andShowLoading:(Boolean *)isShow;

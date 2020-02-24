@@ -16,7 +16,7 @@
     dispatch_once(&onceToken, ^{
         NSURL *url = [NSURL URLWithString:HTTP_SERVER];
         manager = [[NetWorkManager alloc] initWithBaseURL:url];
-        manager.requestSerializer = [[AFJSONRequestSerializer alloc] init];
+        manager.requestSerializer = [[C229CAR_AFJSONRequestSerializer alloc] init];
         manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json",@"text/javascript",@"text/json",@"text/plain",@"charset=UTF-8", nil];;
         
     });
@@ -38,7 +38,7 @@
 //                                authorization:@"Authorization",
 //                                @"application/json":@"Accept"
 //                                };
-    [[self shareIndstance] GET:urlStr parameters:paramDic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [[self shareIndstance] GET:urlStr parameters:paramDic success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (isShow) {
 //            [MBProgressHUD hideHUDForView:[UIApplication sharedApplication].delegate.window animated:YES];
         }
@@ -79,8 +79,8 @@
     }
     NSString *imei = [[UIDevice currentDevice]identifierForVendor].UUIDString;
     
-    [self shareIndstance].requestSerializer =  [AFHTTPRequestSerializer serializer];
-    [self shareIndstance].responseSerializer = [AFJSONResponseSerializer serializer];
+    [self shareIndstance].requestSerializer =  [C229CAR_AFHTTPRequestSerializer serializer];
+    [self shareIndstance].responseSerializer = [C229CAR_AFJSONResponseSerializer serializer];
     
     //请求头
     [[self shareIndstance].requestSerializer setValue:@"ios" forHTTPHeaderField:@"new_device_type"];
@@ -89,7 +89,7 @@
    
   
     
-    [[self shareIndstance] POST:urlStr parameters:paramDic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [[self shareIndstance] POST:urlStr parameters:paramDic success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (isShow) {
 //            [MBProgressHUD hideHUDForView:[UIApplication sharedApplication].delegate.window animated:YES];
         }
@@ -121,12 +121,12 @@
     }];
 }
 
-+ (void)getNetStatus:(void(^)(AFNetworkReachabilityStatus status))back{
-    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
++ (void)getNetStatus:(void(^)(C229CAR_AFNetworkReachabilityStatus status))back{
+    [[C229CAR_AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(C229CAR_AFNetworkReachabilityStatus status) {
         back(status);
-        [[AFNetworkReachabilityManager sharedManager] stopMonitoring];
+        [[C229CAR_AFNetworkReachabilityManager sharedManager] stopMonitoring];
     }];
-    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    [[C229CAR_AFNetworkReachabilityManager sharedManager] startMonitoring];
     
 //        switch (status) {
 //            case AFNetworkReachabilityStatusUnknown: // 未知网络

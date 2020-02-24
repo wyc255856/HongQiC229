@@ -7,7 +7,7 @@
 //
 
 #import "DownLoadViewViewController.h"
-#import "SSZipArchive.h"
+#import "C229CAR_SSZipArchive.h"
 @interface DownLoadViewViewController ()<SSZipArchiveDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @end
@@ -57,7 +57,7 @@
    
     [[NSUserDefaults standardUserDefaults] setObject:folderPath forKey:@"localResource"];
      __weak typeof(self) weakSelf = self;
-    [SSZipArchive unzipFileAtPath:zipED toDestination:folderPath overwrite:YES password:nil progressHandler:^(NSString * _Nonnull entry, unz_file_info zipInfo, long entryNumber, long total) {
+    [C229CAR_SSZipArchive unzipFileAtPath:zipED toDestination:folderPath overwrite:YES password:nil progressHandler:^(NSString * _Nonnull entry, unz_file_info zipInfo, long entryNumber, long total) {
 
     } completionHandler:^(NSString * _Nonnull path, BOOL succeeded, NSError * _Nullable error) {
         weakSelf.myPro.progress = 1;

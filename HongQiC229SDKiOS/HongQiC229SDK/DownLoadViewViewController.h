@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SSZipArchive.h"
+#import "C229CAR_SSZipArchive.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DownLoadViewViewController : UIViewController<SSZipArchiveDelegate>
