@@ -108,7 +108,7 @@
         [btn setTitleColor:[UIColor colorWithRed:131/255.0 green:186/255.0 blue:255/255.0 alpha:1] forState:UIControlStateSelected];
         btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         [self addSubview:btn];
-//        [btn addTarget:self action:@selector(leftBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        [btn addTarget:self action:@selector(leftBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     }
     for (UIButton *b in self.subviews) {
         if ([b isKindOfClass:[UIButton class]]) {
