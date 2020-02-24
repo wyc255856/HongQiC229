@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "HongQiC229"
-  s.version      = "1.0.5"
+  s.version      = "1.0.6"
   s.summary      = "A short description of HongQiC229."
 
   s.description  = <<-DESC
@@ -38,12 +38,9 @@ Pod::Spec.new do |s|
 
 
    s.source_files  = "HongQiC229SDK", "HongQiC229SDKiOS/HongQiC229SDK/*.{h,m,c}"
-    s.source_files  = "SSZipArchive/*.{h,m,c}"
-    s.source_files  = "AFNetworking/*.{h,m}"
-    s.source_files  = "Masonry/*.{h,m}"
 
 
   s.exclude_files = "Classes/Exclude"
   s.resource = "HongQiC229SDKiOS/HongQiC229SDK/HSC229CarResource.bundle"
-
+  s.dependency ‘AFNetworking',‘Masonry',‘SSZipArchive'
 end
