@@ -34,6 +34,7 @@
 
 #include "c229_hmac.h"
 #include "c229_brg_types.h"
+#include <memory.h>
 
 #if defined(__cplusplus)
 extern "C"
