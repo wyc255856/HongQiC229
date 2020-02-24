@@ -1,5 +1,5 @@
 #
-#  Be sure to run `pod spec lint HongQiC229SDK.podspec' to ensure this is a
+#  Be sure to run `pod spec lint HongQiC229.podspec' to ensure this is a
 #  valid spec and to remove all comments including this before submitting the spec.
 #
 #  To learn more about Podspec attributes see http://docs.cocoapods.org/specification.html
@@ -16,16 +16,16 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "HongQiC229"
-  s.version      = "1.0.2"
-  s.summary      = "A short description of HongQiC229SDK."
+  s.version      = "1.0.3"
+  s.summary      = "A short description of HongQiC229."
 
   s.description  = <<-DESC
 		   HongQi C229 Easy Fast!
                    DESC
 
-  s.homepage     = "http://EXAMPLE/HongQiC229SDK"
+  s.homepage     = "http://EXAMPLE/HongQiC229"
 
-  s.license      = "Copyright (c) 2019年 HongQiC229SDK. All rights reserved."
+  s.license      = "Copyright (c) 2019年 HongQiC229. All rights reserved."
 
   s.author             = { "wyc255856" => "327250924@qq.com" }
 
