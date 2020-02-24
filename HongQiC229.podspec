@@ -27,13 +27,13 @@ Pod::Spec.new do |s|
 
   s.license      = "Copyright (c) 2019年 HongQiC229SDK. All rights reserved."
 
-  s.author             = { "zhongshan" => "179005767@qq.com.com" }
+  s.author             = { "wyc255856" => "327250924@qq.com" }
 
   s.platform     = :ios, "8.0"
 
   s.ios.deployment_target = "8.0"
 
-   s.source       = { :git => "https://github.com/zhnagsan/HongQiC229.git", :tag => "#{s.version}" }
+   s.source       = { :git => "https://github.com/wyc255856/HongQiC229.git", :tag => "#{s.version}" }
 
 
 
