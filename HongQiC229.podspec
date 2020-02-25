@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "HongQiC229"
-  s.version      = "1.1.4"
+  s.version      = "1.1.5"
   s.summary      = "A short description of HongQiC229."
 
   s.description  = <<-DESC
@@ -35,6 +35,7 @@ Pod::Spec.new do |s|
 
    s.source       = { :git => "https://github.com/wyc255856/HongQiC229.git", :tag => "#{s.version}" }
 
+   s.resources = "HongQiC229SDKiOS/HongQiC229SDK/*.xib"
 
 
    s.source_files  = "HongQiC229SDK", "HongQiC229SDKiOS/HongQiC229SDK/*.{h,m,c}"

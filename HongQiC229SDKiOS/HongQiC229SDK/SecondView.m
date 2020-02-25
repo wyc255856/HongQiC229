@@ -271,12 +271,10 @@
     leftTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-       NSURL *bundleURL = [bundle URLForResource:@"HSC229CarResource" withExtension:@"bundle"];
-       NSBundle *resourceBundle = [NSBundle bundleWithURL: bundleURL];
 
-    [[resourceBundle loadNibNamed:@"SecondTableViewCell" owner:self options:nil] lastObject];
+    [[bundle loadNibNamed:@"SecondTableViewCell" owner:self options:nil] lastObject];
     
-    [leftTableView registerNib:[UINib nibWithNibName:@"SecondTableViewCell" bundle:resourceBundle] forCellReuseIdentifier:@"SecondTableViewCell"];
+    [leftTableView registerNib:[UINib nibWithNibName:@"SecondTableViewCell" bundle:bundle] forCellReuseIdentifier:@"SecondTableViewCell"];
     [self addSubview:leftTableView];
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{

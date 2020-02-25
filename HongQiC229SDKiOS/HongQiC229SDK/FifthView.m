@@ -74,12 +74,9 @@
     
     
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-       NSURL *bundleURL = [bundle URLForResource:@"HSC229CarResource" withExtension:@"bundle"];
-       NSBundle *resourceBundle = [NSBundle bundleWithURL: bundleURL];
-
-    [[resourceBundle loadNibNamed:@"FifTableViewCell" owner:self options:nil] lastObject];
+    [[bundle loadNibNamed:@"FifTableViewCell" owner:self options:nil] lastObject];
     
-    [myTableView registerNib:[UINib nibWithNibName:@"FifTableViewCell" bundle:resourceBundle] forCellReuseIdentifier:@"FifTableViewCell"];
+    [myTableView registerNib:[UINib nibWithNibName:@"FifTableViewCell" bundle:bundle] forCellReuseIdentifier:@"FifTableViewCell"];
     
     [self addSubview:myTableView];
 }
