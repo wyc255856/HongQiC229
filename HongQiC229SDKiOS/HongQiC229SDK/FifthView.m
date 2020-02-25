@@ -72,11 +72,12 @@
     myTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     
-    
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-    [[bundle loadNibNamed:@"FifTableViewCell" owner:self options:nil] lastObject];
+    NSURL *bundleURL = [bundle URLForResource:@"HSC229CarResource" withExtension:@"bundle"];
+    NSBundle *resourceBundle = [NSBundle bundleWithURL: bundleURL];
+    [[resourceBundle loadNibNamed:@"FifTableViewCell" owner:self options:nil] lastObject];
     
-    [myTableView registerNib:[UINib nibWithNibName:@"FifTableViewCell" bundle:bundle] forCellReuseIdentifier:@"FifTableViewCell"];
+    [myTableView registerNib:[UINib nibWithNibName:@"FifTableViewCell" bundle:resourceBundle] forCellReuseIdentifier:@"FifTableViewCell"];
     
     [self addSubview:myTableView];
 }

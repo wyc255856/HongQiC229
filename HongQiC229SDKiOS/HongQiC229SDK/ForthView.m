@@ -157,10 +157,12 @@
     myCollection.dataSource = self;
     [self addSubview:myCollection];
     
- NSBundle *bundle = [NSBundle bundleForClass:[self class]];
- [[bundle loadNibNamed:@"ForthCollectionViewCell" owner:self options:nil] lastObject];
+    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+    NSURL *bundleURL = [bundle URLForResource:@"HSC229CarResource" withExtension:@"bundle"];
+    NSBundle *resourceBundle = [NSBundle bundleWithURL: bundleURL];
+    [[resourceBundle loadNibNamed:@"ForthCollectionViewCell" owner:self options:nil] lastObject];
     
-    [myCollection registerNib:[UINib nibWithNibName:@"ForthCollectionViewCell" bundle:bundle] forCellWithReuseIdentifier:@"ForthCollectionViewCell"];
+    [myCollection registerNib:[UINib nibWithNibName:@"ForthCollectionViewCell" bundle:resourceBundle] forCellWithReuseIdentifier:@"ForthCollectionViewCell"];
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     if (section == 0) {
