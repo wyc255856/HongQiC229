@@ -10,37 +10,20 @@
 		5310ED682403EE1A00EE0707 /* c229_aestab.c in Sources */ = {isa = PBXBuildFile; fileRef = 5310ED342403EE0500EE0707 /* c229_aestab.c */; };
 		5310ED692403EE1A00EE0707 /* c229_zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 5310ED352403EE0600EE0707 /* c229_zip.c */; };
 		5310ED6A2403EE1A00EE0707 /* c229_hmac.c in Sources */ = {isa = PBXBuildFile; fileRef = 5310ED392403EE0600EE0707 /* c229_hmac.c */; };
-		5310ED6B2403EE1A00EE0707 /* C229CAR_AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5310ED3C2403EE0700EE0707 /* C229CAR_AFSecurityPolicy.m */; };
-		5310ED6C2403EE1A00EE0707 /* C229CAR_AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5310ED412403EE0700EE0707 /* C229CAR_AFNetworkReachabilityManager.m */; };
-		5310ED6D2403EE1A00EE0707 /* C229CAR_AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5310ED462403EE0800EE0707 /* C229CAR_AFHTTPRequestOperationManager.m */; };
 		5310ED6E2403EE1A00EE0707 /* c229_unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = 5310ED472403EE0800EE0707 /* c229_unzip.c */; };
 		5310ED6F2403EE1A00EE0707 /* c229_prng.c in Sources */ = {isa = PBXBuildFile; fileRef = 5310ED482403EE0800EE0707 /* c229_prng.c */; };
 		5310ED702403EE1A00EE0707 /* c229_aescrypt.c in Sources */ = {isa = PBXBuildFile; fileRef = 5310ED4A2403EE0900EE0707 /* c229_aescrypt.c */; };
-		5310ED712403EE1A00EE0707 /* C229CAR_AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5310ED4B2403EE0900EE0707 /* C229CAR_AFURLSessionManager.m */; };
-		5310ED722403EE1A00EE0707 /* C229CAR_AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5310ED4D2403EE0900EE0707 /* C229CAR_AFHTTPRequestOperation.m */; };
-		5310ED732403EE1A00EE0707 /* C229CAR_AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5310ED4F2403EE0900EE0707 /* C229CAR_AFURLConnectionOperation.m */; };
 		5310ED742403EE1A00EE0707 /* c229_ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 5310ED502403EE0A00EE0707 /* c229_ioapi.c */; };
 		5310ED752403EE1A00EE0707 /* c229_aeskey.c in Sources */ = {isa = PBXBuildFile; fileRef = 5310ED552403EE1300EE0707 /* c229_aeskey.c */; };
-		5310ED762403EE1A00EE0707 /* C229CAR_AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5310ED562403EE1300EE0707 /* C229CAR_AFHTTPSessionManager.m */; };
 		5310ED772403EE1A00EE0707 /* c229_fileenc.c in Sources */ = {isa = PBXBuildFile; fileRef = 5310ED572403EE1300EE0707 /* c229_fileenc.c */; };
 		5310ED782403EE1A00EE0707 /* c229_sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = 5310ED5E2403EE1900EE0707 /* c229_sha1.c */; };
 		5310ED792403EE1A00EE0707 /* c229_pwd2key.c in Sources */ = {isa = PBXBuildFile; fileRef = 5310ED5F2403EE1900EE0707 /* c229_pwd2key.c */; };
 		5310ED7A2403EE1A00EE0707 /* c229_entropy.c in Sources */ = {isa = PBXBuildFile; fileRef = 5310ED602403EE1900EE0707 /* c229_entropy.c */; };
 		5310ED7B2403EE1A00EE0707 /* c229_mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = 5310ED622403EE1900EE0707 /* c229_mztools.c */; };
 		5310ED7C2403EE1A00EE0707 /* C229CAR_SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 5310ED632403EE1900EE0707 /* C229CAR_SSZipArchive.m */; };
-		5310ED7D2403EE1A00EE0707 /* C229CAR_AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 5310ED642403EE1A00EE0707 /* C229CAR_AFURLRequestSerialization.m */; };
-		5310ED7E2403EE1A00EE0707 /* C229CAR_AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 5310ED652403EE1A00EE0707 /* C229CAR_AFURLResponseSerialization.m */; };
-		5310ED952403EE4000EE0707 /* UITabBarController+CLPlayerRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5310ED812403EE3D00EE0707 /* UITabBarController+CLPlayerRotation.m */; };
 		5310ED962403EE4000EE0707 /* NetWorkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5310ED842403EE3E00EE0707 /* NetWorkManager.m */; };
-		5310ED972403EE4000EE0707 /* UIViewController+CLPlayerRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5310ED872403EE3E00EE0707 /* UIViewController+CLPlayerRotation.m */; };
-		5310ED982403EE4000EE0707 /* UINavigationController+CLPlayerRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5310ED892403EE3E00EE0707 /* UINavigationController+CLPlayerRotation.m */; };
-		5310ED992403EE4000EE0707 /* CLRotateAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5310ED8A2403EE3E00EE0707 /* CLRotateAnimationView.m */; };
 		5310ED9A2403EE4000EE0707 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5310ED8C2403EE3F00EE0707 /* Info.plist */; };
 		5310ED9B2403EE4000EE0707 /* TagBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 5310ED8D2403EE3F00EE0707 /* TagBtn.m */; };
-		5310ED9C2403EE4000EE0707 /* CLPlayerMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5310ED8F2403EE3F00EE0707 /* CLPlayerMaskView.m */; };
-		5310ED9D2403EE4000EE0707 /* CLSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 5310ED902403EE3F00EE0707 /* CLSlider.m */; };
-		5310ED9E2403EE4000EE0707 /* CLGCDTimerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5310ED922403EE3F00EE0707 /* CLGCDTimerManager.m */; };
-		5310ED9F2403EE4000EE0707 /* CLPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5310ED942403EE4000EE0707 /* CLPlayerView.m */; };
 		5310EDBD2404042E00EE0707 /* C229CAR_MASLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 5310EDA42404042C00EE0707 /* C229CAR_MASLayoutConstraint.m */; };
 		5310EDBE2404042E00EE0707 /* C229CAR_MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 5310EDA82404042D00EE0707 /* C229CAR_MASViewAttribute.m */; };
 		5310EDBF2404042E00EE0707 /* ViewController+C229CAR_MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5310EDAA2404042D00EE0707 /* ViewController+C229CAR_MASAdditions.m */; };
@@ -51,6 +34,20 @@
 		5310EDC42404042E00EE0707 /* NSLayoutConstraint+C229CAR_MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5310EDB72404042E00EE0707 /* NSLayoutConstraint+C229CAR_MASDebugAdditions.m */; };
 		5310EDC52404042E00EE0707 /* C229CAR_MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 5310EDBA2404042E00EE0707 /* C229CAR_MASCompositeConstraint.m */; };
 		5310EDC62404042E00EE0707 /* C229CAR_MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 5310EDBB2404042E00EE0707 /* C229CAR_MASConstraint.m */; };
+		5310EDEE2404FCDF00EE0707 /* CLPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5310EDE52404FCDE00EE0707 /* CLPlayerView.m */; };
+		5310EDEF2404FCDF00EE0707 /* CLGCDTimerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5310EDE62404FCDE00EE0707 /* CLGCDTimerManager.m */; };
+		5310EDF02404FCDF00EE0707 /* CLPlayerMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5310EDEA2404FCDE00EE0707 /* CLPlayerMaskView.m */; };
+		5310EDF12404FCDF00EE0707 /* CLRotateAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5310EDEC2404FCDF00EE0707 /* CLRotateAnimationView.m */; };
+		5310EDF22404FCDF00EE0707 /* CLSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 5310EDED2404FCDF00EE0707 /* CLSlider.m */; };
+		5310EE0F2404FE1900EE0707 /* C229CAR_AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5310EDFC2404FE1800EE0707 /* C229CAR_AFHTTPSessionManager.m */; };
+		5310EE102404FE1900EE0707 /* C229CAR_AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5310EDFD2404FE1800EE0707 /* C229CAR_AFURLConnectionOperation.m */; };
+		5310EE112404FE1900EE0707 /* C229CAR_AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 5310EDFE2404FE1800EE0707 /* C229CAR_AFURLResponseSerialization.m */; };
+		5310EE122404FE1900EE0707 /* C229CAR_AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5310EDFF2404FE1800EE0707 /* C229CAR_AFURLSessionManager.m */; };
+		5310EE132404FE1900EE0707 /* C229CAR_AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5310EE012404FE1900EE0707 /* C229CAR_AFSecurityPolicy.m */; };
+		5310EE142404FE1A00EE0707 /* C229CAR_AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 5310EE042404FE1900EE0707 /* C229CAR_AFURLRequestSerialization.m */; };
+		5310EE152404FE1A00EE0707 /* C229CAR_AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5310EE062404FE1900EE0707 /* C229CAR_AFHTTPRequestOperation.m */; };
+		5310EE162404FE1A00EE0707 /* C229CAR_AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5310EE0A2404FE1900EE0707 /* C229CAR_AFHTTPRequestOperationManager.m */; };
+		5310EE172404FE1A00EE0707 /* C229CAR_AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5310EE0C2404FE1900EE0707 /* C229CAR_AFNetworkReachabilityManager.m */; };
 		53AEC7FB23FE7AE90076BECD /* ForthView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEC6CE23FE7AE90076BECD /* ForthView.m */; };
 		53AEC88B23FE7AE90076BECD /* ThirdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEC7D923FE7AE90076BECD /* ThirdView.m */; };
 		53AEC88D23FE7AE90076BECD /* DownLoadViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEC7DC23FE7AE90076BECD /* DownLoadViewViewController.m */; };
@@ -84,39 +81,23 @@
 		4B92A7C420F5AB89005B6EEE /* HongQiC229.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HongQiC229.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5310ED342403EE0500EE0707 /* c229_aestab.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = c229_aestab.c; sourceTree = "<group>"; };
 		5310ED352403EE0600EE0707 /* c229_zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = c229_zip.c; sourceTree = "<group>"; };
-		5310ED362403EE0600EE0707 /* C229CAR_AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = C229CAR_AFHTTPSessionManager.h; sourceTree = "<group>"; };
-		5310ED372403EE0600EE0707 /* C229CAR_AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = C229CAR_AFNetworking.h; sourceTree = "<group>"; };
 		5310ED382403EE0600EE0707 /* c229_Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = c229_Common.h; sourceTree = "<group>"; };
 		5310ED392403EE0600EE0707 /* c229_hmac.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = c229_hmac.c; sourceTree = "<group>"; };
 		5310ED3A2403EE0600EE0707 /* c229_aes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = c229_aes.h; sourceTree = "<group>"; };
 		5310ED3B2403EE0600EE0707 /* c229_pwd2key.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = c229_pwd2key.h; sourceTree = "<group>"; };
-		5310ED3C2403EE0700EE0707 /* C229CAR_AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = C229CAR_AFSecurityPolicy.m; sourceTree = "<group>"; };
 		5310ED3D2403EE0700EE0707 /* c229_unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = c229_unzip.h; sourceTree = "<group>"; };
-		5310ED3E2403EE0700EE0707 /* C229CAR_AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = C229CAR_AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
-		5310ED3F2403EE0700EE0707 /* C229CAR_AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = C229CAR_AFSecurityPolicy.h; sourceTree = "<group>"; };
-		5310ED402403EE0700EE0707 /* C229CAR_AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = C229CAR_AFURLSessionManager.h; sourceTree = "<group>"; };
-		5310ED412403EE0700EE0707 /* C229CAR_AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = C229CAR_AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
-		5310ED422403EE0700EE0707 /* C229CAR_AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = C229CAR_AFURLConnectionOperation.h; sourceTree = "<group>"; };
-		5310ED432403EE0800EE0707 /* C229CAR_AFURLResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = C229CAR_AFURLResponseSerialization.h; sourceTree = "<group>"; };
 		5310ED442403EE0800EE0707 /* c229_aes_via_ace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = c229_aes_via_ace.h; sourceTree = "<group>"; };
-		5310ED452403EE0800EE0707 /* C229CAR_AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = C229CAR_AFURLRequestSerialization.h; sourceTree = "<group>"; };
-		5310ED462403EE0800EE0707 /* C229CAR_AFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = C229CAR_AFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
 		5310ED472403EE0800EE0707 /* c229_unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = c229_unzip.c; sourceTree = "<group>"; };
 		5310ED482403EE0800EE0707 /* c229_prng.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = c229_prng.c; sourceTree = "<group>"; };
 		5310ED492403EE0800EE0707 /* c229_aestab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = c229_aestab.h; sourceTree = "<group>"; };
 		5310ED4A2403EE0900EE0707 /* c229_aescrypt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = c229_aescrypt.c; sourceTree = "<group>"; };
-		5310ED4B2403EE0900EE0707 /* C229CAR_AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = C229CAR_AFURLSessionManager.m; sourceTree = "<group>"; };
 		5310ED4C2403EE0900EE0707 /* c229_prng.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = c229_prng.h; sourceTree = "<group>"; };
-		5310ED4D2403EE0900EE0707 /* C229CAR_AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = C229CAR_AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		5310ED4E2403EE0900EE0707 /* c229_brg_endian.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = c229_brg_endian.h; sourceTree = "<group>"; };
-		5310ED4F2403EE0900EE0707 /* C229CAR_AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = C229CAR_AFURLConnectionOperation.m; sourceTree = "<group>"; };
 		5310ED502403EE0A00EE0707 /* c229_ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = c229_ioapi.c; sourceTree = "<group>"; };
 		5310ED512403EE1200EE0707 /* c229_entropy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = c229_entropy.h; sourceTree = "<group>"; };
 		5310ED522403EE1200EE0707 /* c229_hmac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = c229_hmac.h; sourceTree = "<group>"; };
-		5310ED532403EE1200EE0707 /* C229CAR_AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = C229CAR_AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		5310ED542403EE1200EE0707 /* c229_mztools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = c229_mztools.h; sourceTree = "<group>"; };
 		5310ED552403EE1300EE0707 /* c229_aeskey.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = c229_aeskey.c; sourceTree = "<group>"; };
-		5310ED562403EE1300EE0707 /* C229CAR_AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = C229CAR_AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		5310ED572403EE1300EE0707 /* c229_fileenc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = c229_fileenc.c; sourceTree = "<group>"; };
 		5310ED582403EE1300EE0707 /* c229_fileenc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = c229_fileenc.h; sourceTree = "<group>"; };
 		5310ED592403EE1300EE0707 /* c229_aesopt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = c229_aesopt.h; sourceTree = "<group>"; };
@@ -127,35 +108,16 @@
 		5310ED5E2403EE1900EE0707 /* c229_sha1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = c229_sha1.c; sourceTree = "<group>"; };
 		5310ED5F2403EE1900EE0707 /* c229_pwd2key.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = c229_pwd2key.c; sourceTree = "<group>"; };
 		5310ED602403EE1900EE0707 /* c229_entropy.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = c229_entropy.c; sourceTree = "<group>"; };
-		5310ED612403EE1900EE0707 /* C229CAR_AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = C229CAR_AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
 		5310ED622403EE1900EE0707 /* c229_mztools.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = c229_mztools.c; sourceTree = "<group>"; };
 		5310ED632403EE1900EE0707 /* C229CAR_SSZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = C229CAR_SSZipArchive.m; sourceTree = "<group>"; };
-		5310ED642403EE1A00EE0707 /* C229CAR_AFURLRequestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = C229CAR_AFURLRequestSerialization.m; sourceTree = "<group>"; };
-		5310ED652403EE1A00EE0707 /* C229CAR_AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = C229CAR_AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		5310ED662403EE1A00EE0707 /* c229_brg_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = c229_brg_types.h; sourceTree = "<group>"; };
 		5310ED672403EE1A00EE0707 /* c229_zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = c229_zip.h; sourceTree = "<group>"; };
-		5310ED7F2403EE3D00EE0707 /* CLRotateAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLRotateAnimationView.h; sourceTree = "<group>"; };
 		5310ED802403EE3D00EE0707 /* TagBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagBtn.h; sourceTree = "<group>"; };
-		5310ED812403EE3D00EE0707 /* UITabBarController+CLPlayerRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+CLPlayerRotation.m"; sourceTree = "<group>"; };
 		5310ED822403EE3E00EE0707 /* NetWorkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkManager.h; sourceTree = "<group>"; };
-		5310ED832403EE3E00EE0707 /* CLPlayerMaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLPlayerMaskView.h; sourceTree = "<group>"; };
 		5310ED842403EE3E00EE0707 /* NetWorkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorkManager.m; sourceTree = "<group>"; };
-		5310ED852403EE3E00EE0707 /* UITabBarController+CLPlayerRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarController+CLPlayerRotation.h"; sourceTree = "<group>"; };
-		5310ED862403EE3E00EE0707 /* UIViewController+CLPlayerRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CLPlayerRotation.h"; sourceTree = "<group>"; };
-		5310ED872403EE3E00EE0707 /* UIViewController+CLPlayerRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CLPlayerRotation.m"; sourceTree = "<group>"; };
-		5310ED882403EE3E00EE0707 /* CLSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLSlider.h; sourceTree = "<group>"; };
-		5310ED892403EE3E00EE0707 /* UINavigationController+CLPlayerRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+CLPlayerRotation.m"; sourceTree = "<group>"; };
-		5310ED8A2403EE3E00EE0707 /* CLRotateAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLRotateAnimationView.m; sourceTree = "<group>"; };
-		5310ED8B2403EE3F00EE0707 /* CLGCDTimerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLGCDTimerManager.h; sourceTree = "<group>"; };
 		5310ED8C2403EE3F00EE0707 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5310ED8D2403EE3F00EE0707 /* TagBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagBtn.m; sourceTree = "<group>"; };
-		5310ED8E2403EE3F00EE0707 /* CLPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLPlayerView.h; sourceTree = "<group>"; };
-		5310ED8F2403EE3F00EE0707 /* CLPlayerMaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLPlayerMaskView.m; sourceTree = "<group>"; };
-		5310ED902403EE3F00EE0707 /* CLSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLSlider.m; sourceTree = "<group>"; };
-		5310ED912403EE3F00EE0707 /* UINavigationController+CLPlayerRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+CLPlayerRotation.h"; sourceTree = "<group>"; };
-		5310ED922403EE3F00EE0707 /* CLGCDTimerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLGCDTimerManager.m; sourceTree = "<group>"; };
 		5310ED932403EE3F00EE0707 /* C229ZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = C229ZipArchive.h; sourceTree = "<group>"; };
-		5310ED942403EE4000EE0707 /* CLPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLPlayerView.m; sourceTree = "<group>"; };
 		5310EDA42404042C00EE0707 /* C229CAR_MASLayoutConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = C229CAR_MASLayoutConstraint.m; sourceTree = "<group>"; };
 		5310EDA52404042C00EE0707 /* ViewController+C229CAR_MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+C229CAR_MASAdditions.h"; sourceTree = "<group>"; };
 		5310EDA62404042D00EE0707 /* C229CAR_MASUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = C229CAR_MASUtilities.h; sourceTree = "<group>"; };
@@ -181,6 +143,35 @@
 		5310EDBA2404042E00EE0707 /* C229CAR_MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = C229CAR_MASCompositeConstraint.m; sourceTree = "<group>"; };
 		5310EDBB2404042E00EE0707 /* C229CAR_MASConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = C229CAR_MASConstraint.m; sourceTree = "<group>"; };
 		5310EDBC2404042E00EE0707 /* NSLayoutConstraint+C229CAR_MASDebugAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+C229CAR_MASDebugAdditions.h"; sourceTree = "<group>"; };
+		5310EDE42404FCDE00EE0707 /* CLPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLPlayerView.h; sourceTree = "<group>"; };
+		5310EDE52404FCDE00EE0707 /* CLPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLPlayerView.m; sourceTree = "<group>"; };
+		5310EDE62404FCDE00EE0707 /* CLGCDTimerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLGCDTimerManager.m; sourceTree = "<group>"; };
+		5310EDE72404FCDE00EE0707 /* CLGCDTimerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLGCDTimerManager.h; sourceTree = "<group>"; };
+		5310EDE82404FCDE00EE0707 /* CLRotateAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLRotateAnimationView.h; sourceTree = "<group>"; };
+		5310EDE92404FCDE00EE0707 /* CLPlayerMaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLPlayerMaskView.h; sourceTree = "<group>"; };
+		5310EDEA2404FCDE00EE0707 /* CLPlayerMaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLPlayerMaskView.m; sourceTree = "<group>"; };
+		5310EDEB2404FCDF00EE0707 /* CLSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLSlider.h; sourceTree = "<group>"; };
+		5310EDEC2404FCDF00EE0707 /* CLRotateAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLRotateAnimationView.m; sourceTree = "<group>"; };
+		5310EDED2404FCDF00EE0707 /* CLSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLSlider.m; sourceTree = "<group>"; };
+		5310EDFC2404FE1800EE0707 /* C229CAR_AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = C229CAR_AFHTTPSessionManager.m; sourceTree = "<group>"; };
+		5310EDFD2404FE1800EE0707 /* C229CAR_AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = C229CAR_AFURLConnectionOperation.m; sourceTree = "<group>"; };
+		5310EDFE2404FE1800EE0707 /* C229CAR_AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = C229CAR_AFURLResponseSerialization.m; sourceTree = "<group>"; };
+		5310EDFF2404FE1800EE0707 /* C229CAR_AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = C229CAR_AFURLSessionManager.m; sourceTree = "<group>"; };
+		5310EE002404FE1800EE0707 /* C229CAR_AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = C229CAR_AFHTTPSessionManager.h; sourceTree = "<group>"; };
+		5310EE012404FE1900EE0707 /* C229CAR_AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = C229CAR_AFSecurityPolicy.m; sourceTree = "<group>"; };
+		5310EE022404FE1900EE0707 /* C229CAR_AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = C229CAR_AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
+		5310EE032404FE1900EE0707 /* C229CAR_AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = C229CAR_AFSecurityPolicy.h; sourceTree = "<group>"; };
+		5310EE042404FE1900EE0707 /* C229CAR_AFURLRequestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = C229CAR_AFURLRequestSerialization.m; sourceTree = "<group>"; };
+		5310EE052404FE1900EE0707 /* C229CAR_AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = C229CAR_AFURLRequestSerialization.h; sourceTree = "<group>"; };
+		5310EE062404FE1900EE0707 /* C229CAR_AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = C229CAR_AFHTTPRequestOperation.m; sourceTree = "<group>"; };
+		5310EE072404FE1900EE0707 /* C229CAR_AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = C229CAR_AFURLSessionManager.h; sourceTree = "<group>"; };
+		5310EE082404FE1900EE0707 /* C229CAR_AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = C229CAR_AFNetworking.h; sourceTree = "<group>"; };
+		5310EE092404FE1900EE0707 /* C229CAR_AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = C229CAR_AFHTTPRequestOperation.h; sourceTree = "<group>"; };
+		5310EE0A2404FE1900EE0707 /* C229CAR_AFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = C229CAR_AFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
+		5310EE0B2404FE1900EE0707 /* C229CAR_AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = C229CAR_AFURLConnectionOperation.h; sourceTree = "<group>"; };
+		5310EE0C2404FE1900EE0707 /* C229CAR_AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = C229CAR_AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
+		5310EE0D2404FE1900EE0707 /* C229CAR_AFURLResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = C229CAR_AFURLResponseSerialization.h; sourceTree = "<group>"; };
+		5310EE0E2404FE1900EE0707 /* C229CAR_AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = C229CAR_AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
 		53AEC6CC23FE7AE90076BECD /* AppManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppManager.h; sourceTree = "<group>"; };
 		53AEC6CE23FE7AE90076BECD /* ForthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForthView.m; sourceTree = "<group>"; };
 		53AEC6CF23FE7AE90076BECD /* ShanShuoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShanShuoView.h; sourceTree = "<group>"; };
@@ -257,7 +248,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5310EDA3240403F200EE0707 /* m */ = {
+		5310EDA3240403F200EE0707 /* mas */ = {
 			isa = PBXGroup;
 			children = (
 				5310EDAF2404042D00EE0707 /* C229CAR_MASCompositeConstraint.h */,
@@ -286,35 +277,15 @@
 				5310EDA52404042C00EE0707 /* ViewController+C229CAR_MASAdditions.h */,
 				5310EDAA2404042D00EE0707 /* ViewController+C229CAR_MASAdditions.m */,
 			);
-			name = m;
+			name = mas;
 			sourceTree = "<group>";
 		};
-		53AEC6CB23FE7AE90076BECD /* HongQiC229SDK */ = {
+		5310EDD62404FA8600EE0707 /* zip */ = {
 			isa = PBXGroup;
 			children = (
-				5310EDA3240403F200EE0707 /* m */,
 				5310ED932403EE3F00EE0707 /* C229ZipArchive.h */,
-				5310ED8B2403EE3F00EE0707 /* CLGCDTimerManager.h */,
-				5310ED922403EE3F00EE0707 /* CLGCDTimerManager.m */,
-				5310ED832403EE3E00EE0707 /* CLPlayerMaskView.h */,
-				5310ED8F2403EE3F00EE0707 /* CLPlayerMaskView.m */,
-				5310ED8E2403EE3F00EE0707 /* CLPlayerView.h */,
-				5310ED942403EE4000EE0707 /* CLPlayerView.m */,
-				5310ED7F2403EE3D00EE0707 /* CLRotateAnimationView.h */,
-				5310ED8A2403EE3E00EE0707 /* CLRotateAnimationView.m */,
-				5310ED882403EE3E00EE0707 /* CLSlider.h */,
-				5310ED902403EE3F00EE0707 /* CLSlider.m */,
-				5310ED8C2403EE3F00EE0707 /* Info.plist */,
-				5310ED822403EE3E00EE0707 /* NetWorkManager.h */,
-				5310ED842403EE3E00EE0707 /* NetWorkManager.m */,
-				5310ED802403EE3D00EE0707 /* TagBtn.h */,
-				5310ED8D2403EE3F00EE0707 /* TagBtn.m */,
-				5310ED912403EE3F00EE0707 /* UINavigationController+CLPlayerRotation.h */,
-				5310ED892403EE3E00EE0707 /* UINavigationController+CLPlayerRotation.m */,
-				5310ED852403EE3E00EE0707 /* UITabBarController+CLPlayerRotation.h */,
-				5310ED812403EE3D00EE0707 /* UITabBarController+CLPlayerRotation.m */,
-				5310ED862403EE3E00EE0707 /* UIViewController+CLPlayerRotation.h */,
-				5310ED872403EE3E00EE0707 /* UIViewController+CLPlayerRotation.m */,
+				5310ED5C2403EE1300EE0707 /* C229CAR_SSZipArchive.h */,
+				5310ED632403EE1900EE0707 /* C229CAR_SSZipArchive.m */,
 				5310ED442403EE0800EE0707 /* c229_aes_via_ace.h */,
 				5310ED3A2403EE0600EE0707 /* c229_aes.h */,
 				5310ED4A2403EE0900EE0707 /* c229_aescrypt.c */,
@@ -346,27 +317,65 @@
 				5310ED3D2403EE0700EE0707 /* c229_unzip.h */,
 				5310ED352403EE0600EE0707 /* c229_zip.c */,
 				5310ED672403EE1A00EE0707 /* c229_zip.h */,
-				5310ED532403EE1200EE0707 /* C229CAR_AFHTTPRequestOperation.h */,
-				5310ED4D2403EE0900EE0707 /* C229CAR_AFHTTPRequestOperation.m */,
-				5310ED612403EE1900EE0707 /* C229CAR_AFHTTPRequestOperationManager.h */,
-				5310ED462403EE0800EE0707 /* C229CAR_AFHTTPRequestOperationManager.m */,
-				5310ED362403EE0600EE0707 /* C229CAR_AFHTTPSessionManager.h */,
-				5310ED562403EE1300EE0707 /* C229CAR_AFHTTPSessionManager.m */,
-				5310ED372403EE0600EE0707 /* C229CAR_AFNetworking.h */,
-				5310ED3E2403EE0700EE0707 /* C229CAR_AFNetworkReachabilityManager.h */,
-				5310ED412403EE0700EE0707 /* C229CAR_AFNetworkReachabilityManager.m */,
-				5310ED3F2403EE0700EE0707 /* C229CAR_AFSecurityPolicy.h */,
-				5310ED3C2403EE0700EE0707 /* C229CAR_AFSecurityPolicy.m */,
-				5310ED422403EE0700EE0707 /* C229CAR_AFURLConnectionOperation.h */,
-				5310ED4F2403EE0900EE0707 /* C229CAR_AFURLConnectionOperation.m */,
-				5310ED452403EE0800EE0707 /* C229CAR_AFURLRequestSerialization.h */,
-				5310ED642403EE1A00EE0707 /* C229CAR_AFURLRequestSerialization.m */,
-				5310ED432403EE0800EE0707 /* C229CAR_AFURLResponseSerialization.h */,
-				5310ED652403EE1A00EE0707 /* C229CAR_AFURLResponseSerialization.m */,
-				5310ED402403EE0700EE0707 /* C229CAR_AFURLSessionManager.h */,
-				5310ED4B2403EE0900EE0707 /* C229CAR_AFURLSessionManager.m */,
-				5310ED5C2403EE1300EE0707 /* C229CAR_SSZipArchive.h */,
-				5310ED632403EE1900EE0707 /* C229CAR_SSZipArchive.m */,
+			);
+			name = zip;
+			sourceTree = "<group>";
+		};
+		5310EDD82404FBA400EE0707 /* player */ = {
+			isa = PBXGroup;
+			children = (
+				5310EDE72404FCDE00EE0707 /* CLGCDTimerManager.h */,
+				5310EDE62404FCDE00EE0707 /* CLGCDTimerManager.m */,
+				5310EDE92404FCDE00EE0707 /* CLPlayerMaskView.h */,
+				5310EDEA2404FCDE00EE0707 /* CLPlayerMaskView.m */,
+				5310EDE42404FCDE00EE0707 /* CLPlayerView.h */,
+				5310EDE52404FCDE00EE0707 /* CLPlayerView.m */,
+				5310EDE82404FCDE00EE0707 /* CLRotateAnimationView.h */,
+				5310EDEC2404FCDF00EE0707 /* CLRotateAnimationView.m */,
+				5310EDEB2404FCDF00EE0707 /* CLSlider.h */,
+				5310EDED2404FCDF00EE0707 /* CLSlider.m */,
+			);
+			name = player;
+			sourceTree = "<group>";
+		};
+		5310EDFB2404FDFA00EE0707 /* afnet */ = {
+			isa = PBXGroup;
+			children = (
+				5310EE092404FE1900EE0707 /* C229CAR_AFHTTPRequestOperation.h */,
+				5310EE062404FE1900EE0707 /* C229CAR_AFHTTPRequestOperation.m */,
+				5310EE022404FE1900EE0707 /* C229CAR_AFHTTPRequestOperationManager.h */,
+				5310EE0A2404FE1900EE0707 /* C229CAR_AFHTTPRequestOperationManager.m */,
+				5310EE002404FE1800EE0707 /* C229CAR_AFHTTPSessionManager.h */,
+				5310EDFC2404FE1800EE0707 /* C229CAR_AFHTTPSessionManager.m */,
+				5310EE082404FE1900EE0707 /* C229CAR_AFNetworking.h */,
+				5310EE0E2404FE1900EE0707 /* C229CAR_AFNetworkReachabilityManager.h */,
+				5310EE0C2404FE1900EE0707 /* C229CAR_AFNetworkReachabilityManager.m */,
+				5310EE032404FE1900EE0707 /* C229CAR_AFSecurityPolicy.h */,
+				5310EE012404FE1900EE0707 /* C229CAR_AFSecurityPolicy.m */,
+				5310EE0B2404FE1900EE0707 /* C229CAR_AFURLConnectionOperation.h */,
+				5310EDFD2404FE1800EE0707 /* C229CAR_AFURLConnectionOperation.m */,
+				5310EE052404FE1900EE0707 /* C229CAR_AFURLRequestSerialization.h */,
+				5310EE042404FE1900EE0707 /* C229CAR_AFURLRequestSerialization.m */,
+				5310EE0D2404FE1900EE0707 /* C229CAR_AFURLResponseSerialization.h */,
+				5310EDFE2404FE1800EE0707 /* C229CAR_AFURLResponseSerialization.m */,
+				5310EE072404FE1900EE0707 /* C229CAR_AFURLSessionManager.h */,
+				5310EDFF2404FE1800EE0707 /* C229CAR_AFURLSessionManager.m */,
+			);
+			name = afnet;
+			sourceTree = "<group>";
+		};
+		53AEC6CB23FE7AE90076BECD /* HongQiC229SDK */ = {
+			isa = PBXGroup;
+			children = (
+				5310EDD82404FBA400EE0707 /* player */,
+				5310EDD62404FA8600EE0707 /* zip */,
+				5310EDFB2404FDFA00EE0707 /* afnet */,
+				5310EDA3240403F200EE0707 /* mas */,
+				5310ED8C2403EE3F00EE0707 /* Info.plist */,
+				5310ED822403EE3E00EE0707 /* NetWorkManager.h */,
+				5310ED842403EE3E00EE0707 /* NetWorkManager.m */,
+				5310ED802403EE3D00EE0707 /* TagBtn.h */,
+				5310ED8D2403EE3F00EE0707 /* TagBtn.m */,
 				53AEC6CC23FE7AE90076BECD /* AppManager.h */,
 				53AEC6CE23FE7AE90076BECD /* ForthView.m */,
 				53AEC6CF23FE7AE90076BECD /* ShanShuoView.h */,
@@ -503,37 +512,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5310EE0F2404FE1900EE0707 /* C229CAR_AFHTTPSessionManager.m in Sources */,
 				5310ED772403EE1A00EE0707 /* c229_fileenc.c in Sources */,
-				5310ED982403EE4000EE0707 /* UINavigationController+CLPlayerRotation.m in Sources */,
-				5310ED992403EE4000EE0707 /* CLRotateAnimationView.m in Sources */,
 				5310ED6E2403EE1A00EE0707 /* c229_unzip.c in Sources */,
 				5310ED682403EE1A00EE0707 /* c229_aestab.c in Sources */,
 				5310ED6A2403EE1A00EE0707 /* c229_hmac.c in Sources */,
+				5310EE172404FE1A00EE0707 /* C229CAR_AFNetworkReachabilityManager.m in Sources */,
+				5310EE162404FE1A00EE0707 /* C229CAR_AFHTTPRequestOperationManager.m in Sources */,
 				5310EDC02404042E00EE0707 /* View+C229CAR_MASAdditions.m in Sources */,
-				5310ED952403EE4000EE0707 /* UITabBarController+CLPlayerRotation.m in Sources */,
-				5310ED972403EE4000EE0707 /* UIViewController+CLPlayerRotation.m in Sources */,
-				5310ED9D2403EE4000EE0707 /* CLSlider.m in Sources */,
+				5310EDEF2404FCDF00EE0707 /* CLGCDTimerManager.m in Sources */,
 				53AEC88E23FE7AE90076BECD /* FifTableViewCell.m in Sources */,
 				5310ED782403EE1A00EE0707 /* c229_sha1.c in Sources */,
 				53AEC88B23FE7AE90076BECD /* ThirdView.m in Sources */,
-				5310ED9E2403EE4000EE0707 /* CLGCDTimerManager.m in Sources */,
 				5310EDBF2404042E00EE0707 /* ViewController+C229CAR_MASAdditions.m in Sources */,
 				5310EDBD2404042E00EE0707 /* C229CAR_MASLayoutConstraint.m in Sources */,
+				5310EE142404FE1A00EE0707 /* C229CAR_AFURLRequestSerialization.m in Sources */,
 				53AEC89523FE7AE90076BECD /* SecondView.m in Sources */,
-				5310ED762403EE1A00EE0707 /* C229CAR_AFHTTPSessionManager.m in Sources */,
-				5310ED732403EE1A00EE0707 /* C229CAR_AFURLConnectionOperation.m in Sources */,
 				5310EDBE2404042E00EE0707 /* C229CAR_MASViewAttribute.m in Sources */,
-				5310ED722403EE1A00EE0707 /* C229CAR_AFHTTPRequestOperation.m in Sources */,
+				5310EE122404FE1900EE0707 /* C229CAR_AFURLSessionManager.m in Sources */,
 				5310EDC62404042E00EE0707 /* C229CAR_MASConstraint.m in Sources */,
-				5310ED9F2403EE4000EE0707 /* CLPlayerView.m in Sources */,
+				5310EDEE2404FCDF00EE0707 /* CLPlayerView.m in Sources */,
 				53AEC89C23FE7AE90076BECD /* FirstView.m in Sources */,
 				53AEC88D23FE7AE90076BECD /* DownLoadViewViewController.m in Sources */,
+				5310EE132404FE1900EE0707 /* C229CAR_AFSecurityPolicy.m in Sources */,
 				5310ED692403EE1A00EE0707 /* c229_zip.c in Sources */,
-				5310ED6D2403EE1A00EE0707 /* C229CAR_AFHTTPRequestOperationManager.m in Sources */,
 				53AEC89A23FE7AE90076BECD /* TopTabView.m in Sources */,
-				5310ED6C2403EE1A00EE0707 /* C229CAR_AFNetworkReachabilityManager.m in Sources */,
 				53AEC89623FE7AE90076BECD /* ShanShuoView.m in Sources */,
 				53AEC89223FE7AE90076BECD /* DetailViewController.m in Sources */,
+				5310EDF02404FCDF00EE0707 /* CLPlayerMaskView.m in Sources */,
+				5310EE152404FE1A00EE0707 /* C229CAR_AFHTTPRequestOperation.m in Sources */,
 				5310EDC32404042E00EE0707 /* C229CAR_MASConstraintMaker.m in Sources */,
 				53AEC89823FE7AE90076BECD /* AppManager.m in Sources */,
 				5310ED702403EE1A00EE0707 /* c229_aescrypt.c in Sources */,
@@ -546,20 +553,19 @@
 				53B6021C20FF3DDF000DAC14 /* main.m in Sources */,
 				5310ED752403EE1A00EE0707 /* c229_aeskey.c in Sources */,
 				5310ED6F2403EE1A00EE0707 /* c229_prng.c in Sources */,
+				5310EE112404FE1900EE0707 /* C229CAR_AFURLResponseSerialization.m in Sources */,
+				5310EE102404FE1900EE0707 /* C229CAR_AFURLConnectionOperation.m in Sources */,
 				5310EDC52404042E00EE0707 /* C229CAR_MASCompositeConstraint.m in Sources */,
+				5310EDF22404FCDF00EE0707 /* CLSlider.m in Sources */,
 				5310ED792403EE1A00EE0707 /* c229_pwd2key.c in Sources */,
 				53AEC89923FE7AE90076BECD /* HQ229MainViewController.m in Sources */,
 				53B6021920FF3DDF000DAC14 /* ViewController.m in Sources */,
-				5310ED7E2403EE1A00EE0707 /* C229CAR_AFURLResponseSerialization.m in Sources */,
 				5310ED7B2403EE1A00EE0707 /* c229_mztools.c in Sources */,
-				5310ED6B2403EE1A00EE0707 /* C229CAR_AFSecurityPolicy.m in Sources */,
 				53AEC89123FE7AE90076BECD /* FifthView.m in Sources */,
-				5310ED7D2403EE1A00EE0707 /* C229CAR_AFURLRequestSerialization.m in Sources */,
 				5310EDC22404042E00EE0707 /* C229CAR_MASViewConstraint.m in Sources */,
 				5310ED7C2403EE1A00EE0707 /* C229CAR_SSZipArchive.m in Sources */,
 				5310EDC12404042E00EE0707 /* NSArray+C229CAR_MASAdditions.m in Sources */,
-				5310ED712403EE1A00EE0707 /* C229CAR_AFURLSessionManager.m in Sources */,
-				5310ED9C2403EE4000EE0707 /* CLPlayerMaskView.m in Sources */,
+				5310EDF12404FCDF00EE0707 /* CLRotateAnimationView.m in Sources */,
 				53AEC7FB23FE7AE90076BECD /* ForthView.m in Sources */,
 				53AEC89323FE7AE90076BECD /* SecondTableViewCell.m in Sources */,
 				5310ED962403EE4000EE0707 /* NetWorkManager.m in Sources */,
