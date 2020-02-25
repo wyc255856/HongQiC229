@@ -70,7 +70,12 @@
     myTableView.dataSource = self;
     myTableView.backgroundColor = [UIColor clearColor];
     myTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [myTableView registerNib:[UINib nibWithNibName:@"FifTableViewCell" bundle:nil] forCellReuseIdentifier:@"FifTableViewCell"];
+    
+    #define kZLPhotoBrowserBundle [NSBundle bundleForClass:[self class]]
+    [[kZLPhotoBrowserBundle loadNibNamed:@"FifTableViewCell" owner:self options:nil] lastObject];
+    
+    [myTableView registerNib:[UINib nibWithNibName:@"FifTableViewCell" bundle:kZLPhotoBrowserBundle] forCellReuseIdentifier:@"FifTableViewCell"];
+    
     [self addSubview:myTableView];
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

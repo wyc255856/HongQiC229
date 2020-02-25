@@ -269,7 +269,9 @@
     leftTableView.delegate = self;
     leftTableView.dataSource = self;
     leftTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [leftTableView registerNib:[UINib nibWithNibName:@"SecondTableViewCell" bundle:nil] forCellReuseIdentifier:@"SecondTableViewCell"];
+    #define kZLPhotoBrowserBundle [NSBundle bundleForClass:[self class]]
+    [[kZLPhotoBrowserBundle loadNibNamed:@"SecondTableViewCell" owner:self options:nil] lastObject];
+    [leftTableView registerNib:[UINib nibWithNibName:@"SecondTableViewCell" bundle:kZLPhotoBrowserBundle] forCellReuseIdentifier:@"SecondTableViewCell"];
     [self addSubview:leftTableView];
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{

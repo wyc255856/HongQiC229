@@ -157,9 +157,10 @@
     myCollection.dataSource = self;
     [self addSubview:myCollection];
     
-    
-    
-    [myCollection registerNib:[UINib nibWithNibName:@"ForthCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"ForthCollectionViewCell"];
+    #define kZLPhotoBrowserBundle [NSBundle bundleForClass:[self class]]
+    [[kZLPhotoBrowserBundle loadNibNamed:@"ForthCollectionViewCell" owner:self options:nil] lastObject];
+ 
+    [myCollection registerNib:[UINib nibWithNibName:@"ForthCollectionViewCell" bundle:kZLPhotoBrowserBundle] forCellWithReuseIdentifier:@"ForthCollectionViewCell"];
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     if (section == 0) {
