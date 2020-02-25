@@ -269,9 +269,14 @@
     leftTableView.delegate = self;
     leftTableView.dataSource = self;
     leftTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    #define kZLPhotoBrowserBundle [NSBundle bundleForClass:[self class]]
-    [[kZLPhotoBrowserBundle loadNibNamed:@"SecondTableViewCell" owner:self options:nil] lastObject];
-    [leftTableView registerNib:[UINib nibWithNibName:@"SecondTableViewCell" bundle:kZLPhotoBrowserBundle] forCellReuseIdentifier:@"SecondTableViewCell"];
+    
+    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+       NSURL *bundleURL = [bundle URLForResource:@"HSC229CarResource" withExtension:@"bundle"];
+       NSBundle *resourceBundle = [NSBundle bundleWithURL: bundleURL];
+
+    [[resourceBundle loadNibNamed:@"SecondTableViewCell" owner:self options:nil] lastObject];
+    
+    [leftTableView registerNib:[UINib nibWithNibName:@"SecondTableViewCell" bundle:resourceBundle] forCellReuseIdentifier:@"SecondTableViewCell"];
     [self addSubview:leftTableView];
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{

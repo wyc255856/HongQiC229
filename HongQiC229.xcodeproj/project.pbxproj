@@ -51,13 +51,10 @@
 		5310EDC42404042E00EE0707 /* NSLayoutConstraint+C229CAR_MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5310EDB72404042E00EE0707 /* NSLayoutConstraint+C229CAR_MASDebugAdditions.m */; };
 		5310EDC52404042E00EE0707 /* C229CAR_MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 5310EDBA2404042E00EE0707 /* C229CAR_MASCompositeConstraint.m */; };
 		5310EDC62404042E00EE0707 /* C229CAR_MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 5310EDBB2404042E00EE0707 /* C229CAR_MASConstraint.m */; };
-		53AEC7FA23FE7AE90076BECD /* FifTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53AEC6CD23FE7AE90076BECD /* FifTableViewCell.xib */; };
 		53AEC7FB23FE7AE90076BECD /* ForthView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEC6CE23FE7AE90076BECD /* ForthView.m */; };
 		53AEC88B23FE7AE90076BECD /* ThirdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEC7D923FE7AE90076BECD /* ThirdView.m */; };
-		53AEC88C23FE7AE90076BECD /* DownLoadViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53AEC7DA23FE7AE90076BECD /* DownLoadViewViewController.xib */; };
 		53AEC88D23FE7AE90076BECD /* DownLoadViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEC7DC23FE7AE90076BECD /* DownLoadViewViewController.m */; };
 		53AEC88E23FE7AE90076BECD /* FifTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEC7DD23FE7AE90076BECD /* FifTableViewCell.m */; };
-		53AEC88F23FE7AE90076BECD /* ForthCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53AEC7DF23FE7AE90076BECD /* ForthCollectionViewCell.xib */; };
 		53AEC89023FE7AE90076BECD /* HSC229CarResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 53AEC7E023FE7AE90076BECD /* HSC229CarResource.bundle */; };
 		53AEC89123FE7AE90076BECD /* FifthView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEC7E223FE7AE90076BECD /* FifthView.m */; };
 		53AEC89223FE7AE90076BECD /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEC7E323FE7AE90076BECD /* DetailViewController.m */; };
@@ -65,7 +62,6 @@
 		53AEC89423FE7AE90076BECD /* ForthCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEC7E623FE7AE90076BECD /* ForthCollectionViewCell.m */; };
 		53AEC89523FE7AE90076BECD /* SecondView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEC7E723FE7AE90076BECD /* SecondView.m */; };
 		53AEC89623FE7AE90076BECD /* ShanShuoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEC7E823FE7AE90076BECD /* ShanShuoView.m */; };
-		53AEC89723FE7AE90076BECD /* SecondTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53AEC7EA23FE7AE90076BECD /* SecondTableViewCell.xib */; };
 		53AEC89823FE7AE90076BECD /* AppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEC7EB23FE7AE90076BECD /* AppManager.m */; };
 		53AEC89923FE7AE90076BECD /* HQ229MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEC7EE23FE7AE90076BECD /* HQ229MainViewController.m */; };
 		53AEC89A23FE7AE90076BECD /* TopTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEC7F123FE7AE90076BECD /* TopTabView.m */; };
@@ -186,17 +182,14 @@
 		5310EDBB2404042E00EE0707 /* C229CAR_MASConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = C229CAR_MASConstraint.m; sourceTree = "<group>"; };
 		5310EDBC2404042E00EE0707 /* NSLayoutConstraint+C229CAR_MASDebugAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+C229CAR_MASDebugAdditions.h"; sourceTree = "<group>"; };
 		53AEC6CC23FE7AE90076BECD /* AppManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppManager.h; sourceTree = "<group>"; };
-		53AEC6CD23FE7AE90076BECD /* FifTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FifTableViewCell.xib; sourceTree = "<group>"; };
 		53AEC6CE23FE7AE90076BECD /* ForthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForthView.m; sourceTree = "<group>"; };
 		53AEC6CF23FE7AE90076BECD /* ShanShuoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShanShuoView.h; sourceTree = "<group>"; };
 		53AEC7C023FE7AE90076BECD /* SecondView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondView.h; sourceTree = "<group>"; };
 		53AEC7D923FE7AE90076BECD /* ThirdView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdView.m; sourceTree = "<group>"; };
-		53AEC7DA23FE7AE90076BECD /* DownLoadViewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DownLoadViewViewController.xib; sourceTree = "<group>"; };
 		53AEC7DB23FE7AE90076BECD /* HQ229MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HQ229MainViewController.h; sourceTree = "<group>"; };
 		53AEC7DC23FE7AE90076BECD /* DownLoadViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownLoadViewViewController.m; sourceTree = "<group>"; };
 		53AEC7DD23FE7AE90076BECD /* FifTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FifTableViewCell.m; sourceTree = "<group>"; };
 		53AEC7DE23FE7AE90076BECD /* FirstView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstView.h; sourceTree = "<group>"; };
-		53AEC7DF23FE7AE90076BECD /* ForthCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForthCollectionViewCell.xib; sourceTree = "<group>"; };
 		53AEC7E023FE7AE90076BECD /* HSC229CarResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = HSC229CarResource.bundle; sourceTree = "<group>"; };
 		53AEC7E123FE7AE90076BECD /* TopTabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopTabView.h; sourceTree = "<group>"; };
 		53AEC7E223FE7AE90076BECD /* FifthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FifthView.m; sourceTree = "<group>"; };
@@ -207,7 +200,6 @@
 		53AEC7E723FE7AE90076BECD /* SecondView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondView.m; sourceTree = "<group>"; };
 		53AEC7E823FE7AE90076BECD /* ShanShuoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShanShuoView.m; sourceTree = "<group>"; };
 		53AEC7E923FE7AE90076BECD /* ForthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForthView.h; sourceTree = "<group>"; };
-		53AEC7EA23FE7AE90076BECD /* SecondTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondTableViewCell.xib; sourceTree = "<group>"; };
 		53AEC7EB23FE7AE90076BECD /* AppManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppManager.m; sourceTree = "<group>"; };
 		53AEC7EC23FE7AE90076BECD /* FifTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FifTableViewCell.h; sourceTree = "<group>"; };
 		53AEC7ED23FE7AE90076BECD /* DownLoadViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownLoadViewViewController.h; sourceTree = "<group>"; };
@@ -376,17 +368,14 @@
 				5310ED5C2403EE1300EE0707 /* C229CAR_SSZipArchive.h */,
 				5310ED632403EE1900EE0707 /* C229CAR_SSZipArchive.m */,
 				53AEC6CC23FE7AE90076BECD /* AppManager.h */,
-				53AEC6CD23FE7AE90076BECD /* FifTableViewCell.xib */,
 				53AEC6CE23FE7AE90076BECD /* ForthView.m */,
 				53AEC6CF23FE7AE90076BECD /* ShanShuoView.h */,
 				53AEC7C023FE7AE90076BECD /* SecondView.h */,
 				53AEC7D923FE7AE90076BECD /* ThirdView.m */,
-				53AEC7DA23FE7AE90076BECD /* DownLoadViewViewController.xib */,
 				53AEC7DB23FE7AE90076BECD /* HQ229MainViewController.h */,
 				53AEC7DC23FE7AE90076BECD /* DownLoadViewViewController.m */,
 				53AEC7DD23FE7AE90076BECD /* FifTableViewCell.m */,
 				53AEC7DE23FE7AE90076BECD /* FirstView.h */,
-				53AEC7DF23FE7AE90076BECD /* ForthCollectionViewCell.xib */,
 				53AEC7E023FE7AE90076BECD /* HSC229CarResource.bundle */,
 				53AEC7E123FE7AE90076BECD /* TopTabView.h */,
 				53AEC7E223FE7AE90076BECD /* FifthView.m */,
@@ -397,7 +386,6 @@
 				53AEC7E723FE7AE90076BECD /* SecondView.m */,
 				53AEC7E823FE7AE90076BECD /* ShanShuoView.m */,
 				53AEC7E923FE7AE90076BECD /* ForthView.h */,
-				53AEC7EA23FE7AE90076BECD /* SecondTableViewCell.xib */,
 				53AEC7EB23FE7AE90076BECD /* AppManager.m */,
 				53AEC7EC23FE7AE90076BECD /* FifTableViewCell.h */,
 				53AEC7ED23FE7AE90076BECD /* DownLoadViewViewController.h */,
@@ -498,14 +486,10 @@
 				53AEC89023FE7AE90076BECD /* HSC229CarResource.bundle in Resources */,
 				53B6024A21002819000DAC14 /* bg_splash_2436*1125.png in Resources */,
 				53B6024921002819000DAC14 /* Default-667h@2x.png in Resources */,
-				53AEC7FA23FE7AE90076BECD /* FifTableViewCell.xib in Resources */,
 				53B6021B20FF3DDF000DAC14 /* Main.storyboard in Resources */,
-				53AEC89723FE7AE90076BECD /* SecondTableViewCell.xib in Resources */,
 				53B6024B21002819000DAC14 /* Default-Landscape-736h@3x.png in Resources */,
 				53B6021820FF3DDF000DAC14 /* Assets.xcassets in Resources */,
-				53AEC88F23FE7AE90076BECD /* ForthCollectionViewCell.xib in Resources */,
 				5310ED9A2403EE4000EE0707 /* Info.plist in Resources */,
-				53AEC88C23FE7AE90076BECD /* DownLoadViewViewController.xib in Resources */,
 				53B6024D21002819000DAC14 /*  Default@2x.png in Resources */,
 				53B6024C21002819000DAC14 /* Default-568h.png in Resources */,
 				53B6024E210028DE000DAC14 /* LaunchScreen.storyboard in Resources */,

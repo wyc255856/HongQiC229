@@ -71,10 +71,15 @@
     myTableView.backgroundColor = [UIColor clearColor];
     myTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    #define kZLPhotoBrowserBundle [NSBundle bundleForClass:[self class]]
-    [[kZLPhotoBrowserBundle loadNibNamed:@"FifTableViewCell" owner:self options:nil] lastObject];
     
-    [myTableView registerNib:[UINib nibWithNibName:@"FifTableViewCell" bundle:kZLPhotoBrowserBundle] forCellReuseIdentifier:@"FifTableViewCell"];
+    
+    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+       NSURL *bundleURL = [bundle URLForResource:@"HSC229CarResource" withExtension:@"bundle"];
+       NSBundle *resourceBundle = [NSBundle bundleWithURL: bundleURL];
+
+    [[resourceBundle loadNibNamed:@"FifTableViewCell" owner:self options:nil] lastObject];
+    
+    [myTableView registerNib:[UINib nibWithNibName:@"FifTableViewCell" bundle:resourceBundle] forCellReuseIdentifier:@"FifTableViewCell"];
     
     [self addSubview:myTableView];
 }
