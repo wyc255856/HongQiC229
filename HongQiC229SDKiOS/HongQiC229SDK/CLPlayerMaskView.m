@@ -316,7 +316,7 @@
 }
 #pragma mark - 获取资源图片
 - (UIImage *)getPictureWithName:(NSString *)name{
-    NSBundle *bundle = [NSBundle bundleWithPath:[[NSBundle bundleForClass:[self class]] pathForResource:@"CLPlayer" ofType:@"bundle"]];
+    NSBundle *bundle = [NSBundle bundleWithPath:[[NSBundle bundleForClass:[self class]] pathForResource:@"HSC229CarResource" ofType:@"bundle"]];
     NSString *path   = [bundle pathForResource:name ofType:@"png"];
     return [[UIImage imageWithContentsOfFile:path] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
 }
