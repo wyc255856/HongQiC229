@@ -8,12 +8,22 @@
 
 #import <UIKit/UIKit.h>
 #import "C229CAR_SSZipArchive.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DownLoadViewViewController : UIViewController<SSZipArchiveDelegate>
 
-@property (weak, nonatomic) IBOutlet UIProgressView *myPro;
+//@property (weak, nonatomic) IBOutlet UIProgressView *myPro;
+@property (nonatomic, strong) NSDictionary *myDic;
 
+//ui
+@property (nonatomic ,strong) UIView *backView;
+@property (nonatomic ,strong) UIImageView *backImage;
+@property (nonatomic ,strong) UILabel *titleLabel;
+@property (nonatomic ,strong) UIProgressView *myPro;
+@property (nonatomic ,strong) UIButton *NoBtn;
+@property (nonatomic ,strong) UIButton *YESBtn;
+//
 @end
 
 NS_ASSUME_NONNULL_END

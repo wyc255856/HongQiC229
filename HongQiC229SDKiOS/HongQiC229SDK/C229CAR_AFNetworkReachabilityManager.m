@@ -1,5 +1,5 @@
 // C229CAR_AFNetworkReachabilityManager.m
-// Copyright (c) 2011–2015 Alamofire Software Foundation (http://alamofire.org/)
+// Copyright (c) 2011–2016 Alamofire Software Foundation ( http://alamofire.org/ )
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -94,6 +94,7 @@ static void C229CAR_AFNetworkReachabilityCallback(SCNetworkReachabilityRef __unu
     C229CAR_AFPostReachabilityStatusChange(flags, (__bridge C229CAR_AFNetworkReachabilityStatusBlock)info);
 }
 
+
 static const void * C229CAR_AFNetworkReachabilityRetainCallback(const void *info) {
     return Block_copy(info);
 }
@@ -105,7 +106,7 @@ static void C229CAR_AFNetworkReachabilityReleaseCallback(const void *info) {
 }
 
 @interface C229CAR_AFNetworkReachabilityManager ()
-@property (readwrite, nonatomic, strong) id networkReachability;
+@property (readonly, nonatomic, assign) SCNetworkReachabilityRef networkReachability;
 @property (readwrite, nonatomic, assign) C229CAR_AFNetworkReachabilityStatus networkReachabilityStatus;
 @property (readwrite, nonatomic, copy) C229CAR_AFNetworkReachabilityStatusBlock networkReachabilityStatusBlock;
 @end
@@ -116,35 +117,46 @@ static void C229CAR_AFNetworkReachabilityReleaseCallback(const void *info) {
     static C229CAR_AFNetworkReachabilityManager *_sharedManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        struct sockaddr_in address;
-        bzero(&address, sizeof(address));
-        address.sin_len = sizeof(address);
-        address.sin_family = AF_INET;
-
-        _sharedManager = [self managerForAddress:&address];
+        _sharedManager = [self manager];
     });
 
     return _sharedManager;
 }
 
-#ifndef __clang_analyzer__
 + (instancetype)managerForDomain:(NSString *)domain {
     SCNetworkReachabilityRef reachability = SCNetworkReachabilityCreateWithName(kCFAllocatorDefault, [domain UTF8String]);
 
     C229CAR_AFNetworkReachabilityManager *manager = [[self alloc] initWithReachability:reachability];
+    
+    CFRelease(reachability);
 
     return manager;
 }
-#endif
 
-#ifndef __clang_analyzer__
 + (instancetype)managerForAddress:(const void *)address {
     SCNetworkReachabilityRef reachability = SCNetworkReachabilityCreateWithAddress(kCFAllocatorDefault, (const struct sockaddr *)address);
     C229CAR_AFNetworkReachabilityManager *manager = [[self alloc] initWithReachability:reachability];
 
+    CFRelease(reachability);
+    
     return manager;
 }
+
++ (instancetype)manager
+{
+#if (defined(__IPHONE_OS_VERSION_MIN_REQUIRED) && __IPHONE_OS_VERSION_MIN_REQUIRED >= 90000) || (defined(__MAC_OS_X_VERSION_MIN_REQUIRED) && __MAC_OS_X_VERSION_MIN_REQUIRED >= 101100)
+    struct sockaddr_in6 address;
+    bzero(&address, sizeof(address));
+    address.sin6_len = sizeof(address);
+    address.sin6_family = C229CAR_AF_INET6;
+#else
+    struct sockaddr_in address;
+    bzero(&address, sizeof(address));
+    address.sin_len = sizeof(address);
+    address.sin_family = AF_INET;
 #endif
+    return [self managerForAddress:&address];
+}
 
 - (instancetype)initWithReachability:(SCNetworkReachabilityRef)reachability {
     self = [super init];
@@ -152,7 +164,7 @@ static void C229CAR_AFNetworkReachabilityReleaseCallback(const void *info) {
         return nil;
     }
 
-    self.networkReachability = CFBridgingRelease(reachability);
+    _networkReachability = CFRetain(reachability);
     self.networkReachabilityStatus = C229CAR_AFNetworkReachabilityStatusUnknown;
 
     return self;
@@ -165,6 +177,10 @@ static void C229CAR_AFNetworkReachabilityReleaseCallback(const void *info) {
 
 - (void)dealloc {
     [self stopMonitoring];
+    
+    if (_networkReachability != NULL) {
+        CFRelease(_networkReachability);
+    }
 }
 
 #pragma mark -
@@ -201,14 +217,13 @@ static void C229CAR_AFNetworkReachabilityReleaseCallback(const void *info) {
 
     };
 
-    id networkReachability = self.networkReachability;
     SCNetworkReachabilityContext context = {0, (__bridge void *)callback, C229CAR_AFNetworkReachabilityRetainCallback, C229CAR_AFNetworkReachabilityReleaseCallback, NULL};
-    SCNetworkReachabilitySetCallback((__bridge SCNetworkReachabilityRef)networkReachability, C229CAR_AFNetworkReachabilityCallback, &context);
-    SCNetworkReachabilityScheduleWithRunLoop((__bridge SCNetworkReachabilityRef)networkReachability, CFRunLoopGetMain(), kCFRunLoopCommonModes);
+    SCNetworkReachabilitySetCallback(self.networkReachability, C229CAR_AFNetworkReachabilityCallback, &context);
+    SCNetworkReachabilityScheduleWithRunLoop(self.networkReachability, CFRunLoopGetMain(), kCFRunLoopCommonModes);
 
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),^{
         SCNetworkReachabilityFlags flags;
-        if (SCNetworkReachabilityGetFlags((__bridge SCNetworkReachabilityRef)networkReachability, &flags)) {
+        if (SCNetworkReachabilityGetFlags(self.networkReachability, &flags)) {
             C229CAR_AFPostReachabilityStatusChange(flags, callback);
         }
     });
@@ -219,7 +234,7 @@ static void C229CAR_AFNetworkReachabilityReleaseCallback(const void *info) {
         return;
     }
 
-    SCNetworkReachabilityUnscheduleFromRunLoop((__bridge SCNetworkReachabilityRef)self.networkReachability, CFRunLoopGetMain(), kCFRunLoopCommonModes);
+    SCNetworkReachabilityUnscheduleFromRunLoop(self.networkReachability, CFRunLoopGetMain(), kCFRunLoopCommonModes);
 }
 
 #pragma mark -

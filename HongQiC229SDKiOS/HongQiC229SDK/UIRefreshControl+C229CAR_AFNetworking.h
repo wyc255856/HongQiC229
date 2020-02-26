@@ -1,17 +1,17 @@
-// C229CAR_AFNetworking.h
+// UIRefreshControl+C229CAR_AFNetworking.m
 //
-// Copyright (c) 2013 C229CAR_AFNetworking (http://afnetworking.com/)
-// 
+// Copyright (c) 2011–2016 Alamofire Software Foundation ( http://alamofire.org/ )
+//
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
 // in the Software without restriction, including without limitation the rights
 // to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 // copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
-// 
+//
 // The above copyright notice and this permission notice shall be included in
 // all copies or substantial portions of the Software.
-// 
+//
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 // FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -21,21 +21,33 @@
 // THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
-#import <Availability.h>
+
 #import <TargetConditionals.h>
 
-#ifndef _C229CAR_AFNETWORKING_
-    #define _C229CAR_AFNETWORKING_
+#if TARGET_OS_IOS
 
-    #import "C229CAR_AFURLRequestSerialization.h"
-    #import "C229CAR_AFURLResponseSerialization.h"
-    #import "C229CAR_AFSecurityPolicy.h"
+#import <UIKit/UIKit.h>
 
-#if !TARGET_OS_WATCH
-    #import "C229CAR_AFNetworkReachabilityManager.h"
+NS_ASSUME_NONNULL_BEGIN
+
+/**
+ This category adds methods to the UIKit framework's `UIRefreshControl` class. The methods in this category provide support for automatically beginning and ending refreshing depending on the loading state of a session task.
+ */
+@interface UIRefreshControl (C229CAR_AFNetworking)
+
+///-----------------------------------
+/// @name Refreshing for Session Tasks
+///-----------------------------------
+
+/**
+ Binds the refreshing state to the state of the specified task.
+ 
+ @param task The task. If `nil`, automatic updating from any previously specified operation will be disabled.
+ */
+- (void)setRefreshingWithStateOfTask:(NSURLSessionTask *)task;
+
+@end
+
+NS_ASSUME_NONNULL_END
+
 #endif
-
-    #import "C229CAR_AFURLSessionManager.h"
-    #import "C229CAR_AFHTTPSessionManager.h"
-
-#endif /* _C229CAR_AFNETWORKING_ */

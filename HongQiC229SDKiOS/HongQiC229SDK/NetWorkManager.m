@@ -27,8 +27,8 @@
     if (isShow) {
 //        [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].delegate.window animated:YES];
     }
-    //    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    //    manager.responseSerializer.acceptableContentTypes =  [NSSet setWithObjects:@"text/html",@"application/json",@"text/javascript",@"text/json",@"text/plain",@"charset=UTF-8", nil];
+//        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+//        manager.responseSerializer.acceptableContentTypes =  [NSSet setWithObjects:@"text/html",@"application/json",@"text/javascript",@"text/json",@"text/plain",@"charset=UTF-8", nil];
     
 
 

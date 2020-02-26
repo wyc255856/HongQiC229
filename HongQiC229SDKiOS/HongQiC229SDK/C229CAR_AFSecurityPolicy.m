@@ -1,5 +1,5 @@
 // C229CAR_AFSecurityPolicy.m
-// Copyright (c) 2011–2015 Alamofire Software Foundation (http://alamofire.org/)
+// Copyright (c) 2011–2016 Alamofire Software Foundation ( http://alamofire.org/ )
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -23,7 +23,7 @@
 
 #import <AssertMacros.h>
 
-#if !TARGET_OS_IOS && !TARGET_OS_WATCH
+#if !TARGET_OS_IOS && !TARGET_OS_WATCH && !TARGET_OS_TV
 static NSData * C229CAR_AFSecKeyGetData(SecKeyRef key) {
     CFDataRef data = NULL;
 
@@ -41,7 +41,7 @@ _out:
 #endif
 
 static BOOL C229CAR_AFSecKeyIsEqualToKey(SecKeyRef key1, SecKeyRef key2) {
-#if TARGET_OS_IOS || TARGET_OS_WATCH
+#if TARGET_OS_IOS || TARGET_OS_WATCH || TARGET_OS_TV
     return [(__bridge id)key1 isEqual:(__bridge id)key2];
 #else
     return [C229CAR_AFSecKeyGetData(key1) isEqual:C229CAR_AFSecKeyGetData(key2)];
@@ -150,25 +150,29 @@ static NSArray * C229CAR_AFPublicKeyTrustChainForServerTrust(SecTrustRef serverT
 
 @interface C229CAR_AFSecurityPolicy()
 @property (readwrite, nonatomic, assign) C229CAR_AFSSLPinningMode SSLPinningMode;
-@property (readwrite, nonatomic, strong) NSArray *pinnedPublicKeys;
+@property (readwrite, nonatomic, strong) NSSet *pinnedPublicKeys;
 @end
 
 @implementation C229CAR_AFSecurityPolicy
 
-+ (NSArray *)defaultPinnedCertificates {
-    static NSArray *_defaultPinnedCertificates = nil;
++ (NSSet *)certificatesInBundle:(NSBundle *)bundle {
+    NSArray *paths = [bundle pathsForResourcesOfType:@"cer" inDirectory:@"."];
+
+    NSMutableSet *certificates = [NSMutableSet setWithCapacity:[paths count]];
+    for (NSString *path in paths) {
+        NSData *certificateData = [NSData dataWithContentsOfFile:path];
+        [certificates addObject:certificateData];
+    }
+
+    return [NSSet setWithSet:certificates];
+}
+
++ (NSSet *)defaultPinnedCertificates {
+    static NSSet *_defaultPinnedCertificates = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-        NSArray *paths = [bundle pathsForResourcesOfType:@"cer" inDirectory:@"."];
-
-        NSMutableArray *certificates = [NSMutableArray arrayWithCapacity:[paths count]];
-        for (NSString *path in paths) {
-            NSData *certificateData = [NSData dataWithContentsOfFile:path];
-            [certificates addObject:certificateData];
-        }
-
-        _defaultPinnedCertificates = [[NSArray alloc] initWithArray:certificates];
+        _defaultPinnedCertificates = [self certificatesInBundle:bundle];
     });
 
     return _defaultPinnedCertificates;
@@ -182,15 +186,19 @@ static NSArray * C229CAR_AFPublicKeyTrustChainForServerTrust(SecTrustRef serverT
 }
 
 + (instancetype)policyWithPinningMode:(C229CAR_AFSSLPinningMode)pinningMode {
+    return [self policyWithPinningMode:pinningMode withPinnedCertificates:[self defaultPinnedCertificates]];
+}
+
++ (instancetype)policyWithPinningMode:(C229CAR_AFSSLPinningMode)pinningMode withPinnedCertificates:(NSSet *)pinnedCertificates {
     C229CAR_AFSecurityPolicy *securityPolicy = [[self alloc] init];
     securityPolicy.SSLPinningMode = pinningMode;
 
-    [securityPolicy setPinnedCertificates:[self defaultPinnedCertificates]];
+    [securityPolicy setPinnedCertificates:pinnedCertificates];
 
     return securityPolicy;
 }
 
-- (id)init {
+- (instancetype)init {
     self = [super init];
     if (!self) {
         return nil;
@@ -201,11 +209,11 @@ static NSArray * C229CAR_AFPublicKeyTrustChainForServerTrust(SecTrustRef serverT
     return self;
 }
 
-- (void)setPinnedCertificates:(NSArray *)pinnedCertificates {
-    _pinnedCertificates = [[NSOrderedSet orderedSetWithArray:pinnedCertificates] array];
+- (void)setPinnedCertificates:(NSSet *)pinnedCertificates {
+    _pinnedCertificates = pinnedCertificates;
 
     if (self.pinnedCertificates) {
-        NSMutableArray *mutablePinnedPublicKeys = [NSMutableArray arrayWithCapacity:[self.pinnedCertificates count]];
+        NSMutableSet *mutablePinnedPublicKeys = [NSMutableSet setWithCapacity:[self.pinnedCertificates count]];
         for (NSData *certificate in self.pinnedCertificates) {
             id publicKey = C229CAR_AFPublicKeyForCertificate(certificate);
             if (!publicKey) {
@@ -213,17 +221,13 @@ static NSArray * C229CAR_AFPublicKeyTrustChainForServerTrust(SecTrustRef serverT
             }
             [mutablePinnedPublicKeys addObject:publicKey];
         }
-        self.pinnedPublicKeys = [NSArray arrayWithArray:mutablePinnedPublicKeys];
+        self.pinnedPublicKeys = [NSSet setWithSet:mutablePinnedPublicKeys];
     } else {
         self.pinnedPublicKeys = nil;
     }
 }
 
 #pragma mark -
-
-- (BOOL)evaluateServerTrust:(SecTrustRef)serverTrust {
-    return [self evaluateServerTrust:serverTrust forDomain:nil];
-}
 
 - (BOOL)evaluateServerTrust:(SecTrustRef)serverTrust
                   forDomain:(NSString *)domain
@@ -256,7 +260,6 @@ static NSArray * C229CAR_AFPublicKeyTrustChainForServerTrust(SecTrustRef serverT
         return NO;
     }
 
-    NSArray *serverCertificates = C229CAR_AFCertificateTrustChainForServerTrust(serverTrust);
     switch (self.SSLPinningMode) {
         case C229CAR_AFSSLPinningModeNone:
         default:
@@ -272,13 +275,16 @@ static NSArray * C229CAR_AFPublicKeyTrustChainForServerTrust(SecTrustRef serverT
                 return NO;
             }
 
-            NSUInteger trustedCertificateCount = 0;
-            for (NSData *trustChainCertificate in serverCertificates) {
+            // obtain the chain after being validated, which *should* contain the pinned certificate in the last position (if it's the Root CA)
+            NSArray *serverCertificates = C229CAR_AFCertificateTrustChainForServerTrust(serverTrust);
+            
+            for (NSData *trustChainCertificate in [serverCertificates reverseObjectEnumerator]) {
                 if ([self.pinnedCertificates containsObject:trustChainCertificate]) {
-                    trustedCertificateCount++;
+                    return YES;
                 }
             }
-            return trustedCertificateCount > 0;
+            
+            return NO;
         }
         case C229CAR_AFSSLPinningModePublicKey: {
             NSUInteger trustedPublicKeyCount = 0;

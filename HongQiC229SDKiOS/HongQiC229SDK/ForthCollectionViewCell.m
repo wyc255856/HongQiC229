@@ -18,11 +18,14 @@
 - (void)loadWithDataDic:(NSDictionary *)dic andTag:(NSIndexPath *)index{
     _tittleLabel.text = [NSString stringWithFormat:@"%@",dic[@"title"]];
     NSString *str = [[NSUserDefaults standardUserDefaults] objectForKey:@"localResource"];
-    NSString *file = [NSString stringWithFormat:@"%@/%@",str,dic[@"image1"]];
+    NSString *imageStr = [NSString stringWithFormat:@"%@",dic[@"image1"]];
+    imageStr = [imageStr stringByReplacingOccurrencesOfString:@"../" withString:@""];
+    NSString *file = [NSString stringWithFormat:@"%@/%@",str,imageStr];
     UIImage *image = [UIImage imageWithContentsOfFile:file];
-    if (!image) {
-        image = [UIImage imageNamed:[NSString stringWithFormat:@"%@/%@",str,dic[@"image2"]]];
-    }
-    [self.image setImage:image];
+    UIImage *imagex = [UIImage imageWithData:[NSData dataWithContentsOfFile:file] scale:1];
+//    if (!image) {
+//        image = [UIImage imageNamed:[NSString stringWithFormat:@"%@/%@",str,dic[@"image2"]]];
+//    }
+    [self.image setImage:imagex];
 }
 @end
