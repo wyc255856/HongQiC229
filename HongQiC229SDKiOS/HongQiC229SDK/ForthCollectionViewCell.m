@@ -22,10 +22,11 @@
     imageStr = [imageStr stringByReplacingOccurrencesOfString:@"../" withString:@""];
     NSString *file = [NSString stringWithFormat:@"%@/%@",str,imageStr];
     UIImage *image = [UIImage imageWithContentsOfFile:file];
-    UIImage *imagex = [UIImage imageWithData:[NSData dataWithContentsOfFile:file] scale:1];
+    
+    NSLog(@"%@",file);
 //    if (!image) {
 //        image = [UIImage imageNamed:[NSString stringWithFormat:@"%@/%@",str,dic[@"image2"]]];
 //    }
-    [self.image setImage:imagex];
+    [self.image setImage:image];
 }
 @end
