@@ -25,6 +25,29 @@
 //test
     NSTimer *timer;
 }
+- (BOOL)shouldAutorotate
+
+{
+
+return NO;
+
+}
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
+
+{
+
+return UIInterfaceOrientationMaskLandscape;
+
+}
+
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
+
+{
+
+return UIInterfaceOrientationLandscapeLeft;
+
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    _myPro.hidden = YES;
@@ -148,7 +171,7 @@
     } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
         if (error) {
             NSLog(@"download3 file failed : %@", [error description]);
-
+            
         }else {
             NSLog(@"download3 file success");
 

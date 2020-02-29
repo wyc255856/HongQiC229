@@ -23,22 +23,47 @@
     NSString *newVersion;
 }
 
-- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
-        return UIInterfaceOrientationLandscapeRight;
-}
+//- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
+//        return UIInterfaceOrientationLandscapeRight;
+//}
+//
+//#pragma clang diagnostic push
+//#pragma clang diagnostic ignored "-Woverriding-method-mismatch"
+//#pragma clang diagnostic ignored "-Wmismatched-return-types"
+//- (UIInterfaceOrientationMask)supportedInterfaceOrientations
+//#pragma clang diagnostic pop
+//{
+//    return UIInterfaceOrientationMaskLandscapeRight;
+//}
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Woverriding-method-mismatch"
-#pragma clang diagnostic ignored "-Wmismatched-return-types"
-- (UIInterfaceOrientationMask)supportedInterfaceOrientations
-#pragma clang diagnostic pop
+//-(BOOL)shouldAutorotate {
+//    return NO;
+//}
+- (BOOL)shouldAutorotate
+
 {
-    return UIInterfaceOrientationMaskLandscapeRight;
+
+    return NO;
+
 }
 
--(BOOL)shouldAutorotate {
-    return NO;
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
+
+{
+
+    return UIInterfaceOrientationMaskLandscape;
+
 }
+
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
+
+{
+
+    return UIInterfaceOrientationLandscapeLeft;
+
+}
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];

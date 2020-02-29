@@ -26,6 +26,31 @@
 {
     UIScrollView *myScrollView;
 }
+- (BOOL)shouldAutorotate
+
+{
+
+return NO;
+
+}
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
+
+{
+
+return UIInterfaceOrientationMaskLandscape;
+
+}
+
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
+
+{
+
+return UIInterfaceOrientationLandscapeLeft;
+
+}
+
+
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
 }
@@ -38,7 +63,7 @@
         NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[UIDevice instanceMethodSignatureForSelector:selector]];
         [invocation setSelector:selector];
         [invocation setTarget:[UIDevice currentDevice]];
-        int val = UIInterfaceOrientationLandscapeRight;
+        int val = UIInterfaceOrientationLandscapeLeft;
         [invocation setArgument:&val atIndex:2];
         [invocation invoke];
     }
