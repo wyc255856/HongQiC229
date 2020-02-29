@@ -269,16 +269,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F5FE0385-E7BC-4F53-B802-4614A7D51D64"
+            uuid = "A5DA0580-4925-4B93-B7E1-751DD638F888"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HongQiC229SDKiOS/HongQiC229SDK/DownLoadViewViewController.m"
+            filePath = "HongQiC229SDKiOS/HongQiC229SDK/C229LoadingViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "205"
-            endingLineNumber = "205"
-            landmarkName = "-zipLoad:"
+            startingLineNumber = "241"
+            endingLineNumber = "241"
+            landmarkName = "-jumpMain"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
