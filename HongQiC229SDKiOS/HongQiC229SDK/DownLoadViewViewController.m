@@ -195,7 +195,7 @@ return UIInterfaceOrientationLandscapeLeft;
 
     } completionHandler:^(NSString * _Nonnull path, BOOL succeeded, NSError * _Nullable error) {
         if (!error) {
-            [self downLoadOK];
+            
             [self->downLoad setValue:@"1" forKey:@"zip"];
             if ([self isDownloaded]) {
                 [self downLoadOK];
@@ -236,7 +236,8 @@ return UIInterfaceOrientationLandscapeLeft;
     if ([downLoad[@"js1"] isEqualToString:@"1"]
         &&[downLoad[@"js2"] isEqualToString:@"1"]
         &&[downLoad[@"zip"] isEqualToString:@"1"] ) {
-        [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:@"c229NowVersion"];
+        NSString *version = [NSString stringWithFormat:@"%@",_myDic[@"version"]];
+        [[NSUserDefaults standardUserDefaults] setObject:version forKey:@"c229NowVersion"];
         return YES;
     }else{
         return NO;

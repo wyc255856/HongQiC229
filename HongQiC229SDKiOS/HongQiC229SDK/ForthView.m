@@ -43,9 +43,10 @@
     [myCollection reloadData];
 }
 - (void)loadData{
-    NSArray *catArr = [self readLocalFileWithName:@"229_category"];
-    
+    NSDictionary *catdic = [self readLocalFileWithName:@"229_category"];
+    NSArray *catArr = catdic[@"RECORDS"];
     NSMutableArray *scArr = [NSMutableArray array];
+    
     for (NSDictionary *ds in catArr) {
         if ([[NSString stringWithFormat:@"%@",ds[@"parentid"]] isEqualToString:@"1869"]) {
             [scArr addObject:ds];
@@ -53,8 +54,8 @@
     }
     
     leftArr = scArr;
-    NSArray *newArr = [self readLocalFileWithName:@"229_news"];
-    
+    NSDictionary *newdic = [self readLocalFileWithName:@"229_news"];
+    NSArray *newArr = newdic[@"RECORDS"];
     cellArr0 = [NSMutableArray array];
     cellArr1 = [NSMutableArray array];
     cellArr2 = [NSMutableArray array];
@@ -84,7 +85,7 @@
         }
     }
 }
-- (NSArray *)readLocalFileWithName:(NSString *)name {
+- (NSDictionary *)readLocalFileWithName:(NSString *)name {
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];
     NSURL *bundleURL = [bundle URLForResource:@"HSC229CarResource" withExtension:@"bundle"];
     NSBundle *resourceBundle = [NSBundle bundleWithURL: bundleURL];
@@ -99,7 +100,7 @@
     NSData *data = [[NSData alloc] initWithContentsOfFile:filePath];
     // 对数据进行JSON格式化并返回字典形式
     NSError *error;
-    NSArray *dic = [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:&error];
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:&error];
     if (!error) {
         return dic;
     }else{

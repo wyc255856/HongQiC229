@@ -214,7 +214,7 @@
 
             [downloadTask3 resume];
                 } enError:^(NSError * _Nonnull error) {
-                    
+                    [self jumpMain];
                 } andShowLoading:YES];
     }
     
