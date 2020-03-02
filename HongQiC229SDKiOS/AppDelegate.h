@@ -12,6 +12,10 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+- (void)setNewOrientation:(BOOL)fullscreen;
+
+/** 是否允许转向 */
+@property (nonatomic, assign) BOOL allowRotation;
 
 @end
 

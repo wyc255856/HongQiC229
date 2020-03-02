@@ -10,6 +10,7 @@
 #import "AppFaster.h"
 #import "HQ229MainViewController.h"
 #import "NetWorkManager.h"
+#import "AppDelegate.h"
 
 #import "DownLoadViewViewController.h"
 @interface C229LoadingViewController ()
@@ -23,31 +24,36 @@
     NSString *newVersion;
 }
 
-- (BOOL)shouldAutorotate
+//- (BOOL)shouldAutorotate
+//
+//{
+//
+//    return NO;
+//
+//}
+//
+//- (UIInterfaceOrientationMask)supportedInterfaceOrientations
+//
+//{
+//
+//    return UIInterfaceOrientationMaskLandscape;
+//
+//}
+//
+//- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
+//
+//{
+//
+//    return UIInterfaceOrientationLandscapeLeft;
+//
+//}
 
-{
-
-    return NO;
-
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    appDelegate.allowRotation = YES;//关闭横屏仅允许竖屏
+    [appDelegate setNewOrientation:YES];//调用转屏代码
 }
-
-- (UIInterfaceOrientationMask)supportedInterfaceOrientations
-
-{
-
-    return UIInterfaceOrientationMaskLandscape;
-
-}
-
-- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
-
-{
-
-    return UIInterfaceOrientationLandscapeLeft;
-
-}
-
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -210,7 +216,11 @@
     [self presentViewController:vc animated:YES completion:nil];
 }
 - (void)disMiss{
-    [self dismissViewControllerAnimated:NO completion:nil];
+    [self dismissViewControllerAnimated:NO completion:^{
+        AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+        appDelegate.allowRotation = NO;//关闭横屏仅允许竖屏
+        [appDelegate setNewOrientation:NO];//调用转屏代码
+    }];
 }
 
 - (void)zipLoad:(NSString *)filePath{
@@ -261,4 +271,5 @@
     UIImage *image =  resourceBundle?[UIImage imageNamed:resName inBundle:resourceBundle compatibleWithTraitCollection:nil]:[UIImage imageNamed:resName];
     return image;
 }
+
 @end
