@@ -10,7 +10,7 @@
 #import "ViewController.h"
 
 @interface AppDelegate ()
-
+@property(nonatomic,assign)BOOL allowRotation;//是否允许转
 @end
 
 @implementation AppDelegate
@@ -60,6 +60,21 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+//
+- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(nullable UIWindow *)window
 
+{
+
+    if (_allowRotation == YES) {
+
+        return UIInterfaceOrientationMaskLandscapeLeft;
+
+    }else{
+
+        return (UIInterfaceOrientationMaskPortrait);
+
+    }
+
+}
 
 @end

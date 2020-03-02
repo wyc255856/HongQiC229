@@ -23,22 +23,6 @@
     NSString *newVersion;
 }
 
-//- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
-//        return UIInterfaceOrientationLandscapeRight;
-//}
-//
-//#pragma clang diagnostic push
-//#pragma clang diagnostic ignored "-Woverriding-method-mismatch"
-//#pragma clang diagnostic ignored "-Wmismatched-return-types"
-//- (UIInterfaceOrientationMask)supportedInterfaceOrientations
-//#pragma clang diagnostic pop
-//{
-//    return UIInterfaceOrientationMaskLandscapeRight;
-//}
-
-//-(BOOL)shouldAutorotate {
-//    return NO;
-//}
 - (BOOL)shouldAutorotate
 
 {
@@ -82,6 +66,7 @@
         [invocation setArgument:&val atIndex:2];
         [invocation invoke];
     }
+    
     // Do any additional setup after loading the view.
     UIImageView *back = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
     [back setImage:[self createImageByName:@"c229loading"]];
@@ -156,9 +141,8 @@
                 [downloadTask1 resume];
             }
             
-            //category
-            NSProgress *progress2;
-//            NSLog(@"download2 progress : %.2f%%", 1.0f * downloadProgress.completedUnitCount / downloadProgress.totalUnitCount * 100);
+        
+
             NSString *catUrl = [NSString stringWithFormat:@"%@",responseObject[@"category"]];
             catUrl = [catUrl stringByReplacingOccurrencesOfString:@"http" withString:@"https"];
             NSURL *downloadURL2 = [NSURL URLWithString:catUrl];
@@ -219,23 +203,7 @@
     }
     
 }
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
-    [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
 
-    if ([keyPath isEqualToString:@"fractionCompleted1"] && [object isKindOfClass:[NSProgress class]]) {
-        NSProgress *progress = (NSProgress *)object;
-        //NSLog(@"Progress is %f", progress.fractionCompleted);
-        NSLog(@"download1 progress : %.2f%%", 1.0f * progress.completedUnitCount / progress.totalUnitCount * 100);
-
-    }else if ([keyPath isEqualToString:@"fractionCompleted2"] && [object isKindOfClass:[NSProgress class]]){
-        NSProgress *progress = (NSProgress *)object;
-        NSLog(@"download2 progress : %.2f%%", 1.0f * progress.completedUnitCount / progress.totalUnitCount * 100);
-
-    }else if ([keyPath isEqualToString:@"fractionCompleted3"] && [object isKindOfClass:[NSProgress class]]){
-        NSProgress *progress = (NSProgress *)object;
-        NSLog(@"download1 progress : %.2f%%", 1.0f * progress.completedUnitCount / progress.totalUnitCount * 100);
-    }
-}
 
 - (void)jumpMain{
     HQ229MainViewController *vc = [[HQ229MainViewController alloc] init];

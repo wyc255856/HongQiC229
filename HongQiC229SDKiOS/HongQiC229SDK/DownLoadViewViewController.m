@@ -174,8 +174,10 @@ return UIInterfaceOrientationLandscapeLeft;
             
         }else {
             NSLog(@"download3 file success");
-
-            [self zipLoad:[NSString stringWithFormat:@"%@",filePath]];
+            NSLog(@"%@",filePath);
+            NSString *zipPath = [NSString stringWithFormat:@"%@",filePath];
+            zipPath = [zipPath stringByReplacingOccurrencesOfString:@"file://" withString:@"path://"];
+            [self zipLoad:[NSString stringWithFormat:@"%@",zipPath]];
         }
     }];
    
@@ -194,8 +196,13 @@ return UIInterfaceOrientationLandscapeLeft;
     [C229CAR_SSZipArchive unzipFileAtPath:path toDestination:folderPath overwrite:YES password:nil progressHandler:^(NSString * _Nonnull entry, unz_file_info zipInfo, long entryNumber, long total) {
 
     } completionHandler:^(NSString * _Nonnull path, BOOL succeeded, NSError * _Nullable error) {
+        NSLog(@"%@",error.description);
+        if (error) {
+            self->_titleLabel.text = @"解压缩失败";
+            [self downLoadOK];
+        }
         if (!error) {
-            
+            NSLog(@"zipSuc");
             [self->downLoad setValue:@"1" forKey:@"zip"];
             if ([self isDownloaded]) {
                 [self downLoadOK];
@@ -245,9 +252,9 @@ return UIInterfaceOrientationLandscapeLeft;
 }
 - (void)downLoadOK{
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"unziped" object:nil];
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"unziped" object:nil];
+    }];
 }
 -(UIImage *) createImageByName:(NSString*)sName{
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];
