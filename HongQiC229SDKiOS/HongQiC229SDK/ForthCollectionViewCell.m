@@ -19,7 +19,8 @@
     _tittleLabel.text = [NSString stringWithFormat:@"%@",dic[@"title"]];
     NSString *str = [[NSUserDefaults standardUserDefaults] objectForKey:@"localResource"];
     NSString *imageStr = [NSString stringWithFormat:@"%@",dic[@"head_image"]];
-    imageStr = [imageStr stringByReplacingOccurrencesOfString:@"../" withString:@""];
+    imageStr = [imageStr stringByReplacingOccurrencesOfString:@"HONGQIH9/standard/" withString:@""];
+  
     NSString *file = [NSString stringWithFormat:@"%@/%@",str,imageStr];
     UIImage *image = [UIImage imageWithContentsOfFile:file];
     

@@ -73,8 +73,6 @@
     [backImage setImage:[self createImageByName:@"neirongyebeijingtu1"]];
     [self.view addSubview:backImage];
     [self.view addSubview:backView];
-    
-    
 }
 - (void)closeAction{
     [self.myPlayer pause];
@@ -84,6 +82,7 @@
     if (dataArr.count>1) {
         [self setMore];
     }else{
+        backView.hidden = YES;
         [self addVideo];
     }
 }

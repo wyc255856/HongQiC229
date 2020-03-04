@@ -168,6 +168,12 @@
         
         }else {
             NSLog(@"download2 file success");
+            NSString *fileName = @"229_category.json";
+            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+            NSString *documentsDirectory = [paths objectAtIndex:0];
+            NSString *filePath = [documentsDirectory stringByAppendingPathComponent:fileName];
+            NSError *error;
+//             [[NSFileManager defaultManager] removeItemAtPath:filePath error:&error];
             [self->zipSucDic setValue:@"1" forKey:@"category"];
             [self isDownloadJson];
         }
@@ -196,6 +202,13 @@
         
         }else {
             NSLog(@"download1 file success");
+            NSString *fileName = @"229_news.json";
+            //返回文件的最终存储路径
+            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+            NSString *documentsDirectory = [paths objectAtIndex:0];
+            NSString *filePath = [documentsDirectory stringByAppendingPathComponent:fileName];
+            NSError *error;
+//            [[NSFileManager defaultManager] removeItemAtPath:filePath error:&error];
             [zipSucDic setValue:@"1" forKey:@"news"];
             [self isDownloadJson];
         }
