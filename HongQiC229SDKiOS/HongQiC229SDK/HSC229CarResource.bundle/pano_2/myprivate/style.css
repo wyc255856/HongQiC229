@@ -303,12 +303,14 @@ img {
 	top: -.205rem !important;
 	width: .45rem !important;
 }
+
 .host_1 {
 	height: .45rem !important;
 	left: -.215rem !important;
 	top: -.205rem !important;
 	width: .45rem !important;
 }
+
 .line {
 	position: absolute;
 	left: .4rem;
@@ -371,4 +373,33 @@ img {
 
 .list ul li:first-child {
 	color: #83baff;
+}
+
+
+.loding {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	z-index: 9999999;
+	background-color: #101723;
+	top: 0;
+	left: 0;
+}
+
+.item{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	
+}
+.la-ball-grid-beat{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
 }

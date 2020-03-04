@@ -21,59 +21,22 @@
 	//判断全景图加载完毕 执行自己的代码
 	pano.on("imagesready", function() {
 		myprivate()
+		
 		console.log("Panorama imagesready!");
-
+		$('.loding').hide()
 	});
-	// pano.addListener('touchend',function(){
-	// 	console.log(1)
-	// })
 
-	// pano.addListener("mouseover", function() {
-
-	// 	console.log("Panorama addListener!");
-	// });
-	// pano.addListener('touchend',function(){
-	// 	console.log(1)
-	// })
-	// console.log(pano.on())
+	// console.log(pano.getIsLoaded())
 	// 位置改变时
 	pano.on("positionchanged", function() {
 		// pano.getPan()
 		// console.log(pano.isTouching())//当前是否在移动设备上触摸了全景播放器
 		// console.log(pano.getLastVisitedNode())
-		// console.log(pano.getPositionAngles(1,2))
-		// if(!pano.isTouching()){
-		// 	var anim = document.getElementsByClassName('anim')[0];
-		// 	if (typeof anim != 'undefined') {
-		// 		anim.parentNode.removeChild(anim);
-		// 	}
-		// }
-		// console.log(typeof anim)
-		// console.log("Panorama positionchanged!");
+
 	});
 
 
 	function myprivate() {
-		// 位置
-		// console.log(pano.getPositionAngles())
-
-		// console.log(pano.isTouching())
-
-		// var ggskin_hotspot = document.getElementsByClassName('ggskin_hotspot')[0].parentNode.previousElementSibling.previousElementSibling.firstChild;
-		var ggskin_hotspot = document.getElementsByClassName('Hotspot_1')[0].parentNode;
-		// console.log(ggskin_hotspot)
-		// var host_wrapper_main = document.createElement("div"); //热点容器的容器
-		// ggskin_hotspot.appendChild(host_wrapper_main)
-		// host_wrapper_main.classList.add('host_wrapper_main');
-
-		// var ggskin_hotspot_main = document.getElementsByClassName('host_wrapper_main')[0]
-		// console.log(ggskin_hotspot_main)
-		// ggskin_hotspot.onclick = function() {
-		// 	console.log(1111);
-		// }
-		// ggskin_hotspot.onmouseup = function() {
-		// 	console.log(22222);
-		// }
 		var host_1 = document.getElementsByClassName('host_1')[0];
 		host_1.onclick = function(e) {
 			if (e && e.stopPropagation) { //因此它支持W3C的stopPropagation()方法 
@@ -117,7 +80,7 @@
 					var host_id = this.getAttribute('data-id')
 					// console.log(host_id)
 					doJsTest(host_id)
-					
+
 				}
 			}
 		}
@@ -165,7 +128,7 @@
 					var host_id = this.getAttribute('data-id')
 					// console.log(host_id)
 					doJsTest(host_id)
-		
+
 				}
 			}
 		}
@@ -179,16 +142,12 @@
 			if (isAndroid()) {
 				window.Android.JsTest(type)
 			} else {
+				//JS给OC传值。'JsTest'为双方自定义的统一方法名；'type'为要传的值； response为OC收到后给JS的回调
+				// bridge.callHandler('JsTest', type)
+				//  "objc://"为自定义协议头;
 				window.location.href = "objc://JsTest=" + type;
-        }
+			}
 		}
-
-		// //ios端传数据
-		// function doJsTest2(type) {
-		// 	console.log(type)
-			
-		// 	bridge.callHandler('JsTest', type)
-		// }
 
 		// 判断安卓
 		function isAndroid() {
