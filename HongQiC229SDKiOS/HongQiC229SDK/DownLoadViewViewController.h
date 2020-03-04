@@ -23,6 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic ,strong) UIProgressView *myPro;
 @property (nonatomic ,strong) UIButton *NoBtn;
 @property (nonatomic ,strong) UIButton *YESBtn;
+@property (nonatomic ,strong) UIButton *reTry;
+
 //
 @end
 

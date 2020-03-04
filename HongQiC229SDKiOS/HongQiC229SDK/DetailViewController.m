@@ -116,7 +116,7 @@
 - (void)addTuWen:(int)index{
     UIView *bk = [[UIView alloc] initWithFrame:CGRectMake((index-1)*myScroll.frame.size.width, 0, myScroll.frame.size.width, myScroll.frame.size.height)];
     UIImageView *image = [[UIImageView alloc]initWithFrame:CGRectMake(31, 0, scrollHEIGHT, scrollHEIGHT)];
-    image.backgroundColor = [UIColor redColor];
+    image.backgroundColor = [UIColor clearColor];
     NSString *key = [NSString stringWithFormat:@"image%d",index];
     NSString *iPath = [NSString stringWithFormat:@"%@",allDic[key]];
     NSString *str = [[NSUserDefaults standardUserDefaults] objectForKey:@"localResource"];

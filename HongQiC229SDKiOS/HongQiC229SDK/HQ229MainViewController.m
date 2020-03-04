@@ -26,29 +26,6 @@
 {
     UIScrollView *myScrollView;
 }
-- (BOOL)shouldAutorotate
-
-{
-
-return NO;
-
-}
-
-- (UIInterfaceOrientationMask)supportedInterfaceOrientations
-
-{
-
-return UIInterfaceOrientationMaskLandscape;
-
-}
-
-- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
-
-{
-
-return UIInterfaceOrientationLandscapeLeft;
-
-}
 
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -58,6 +35,8 @@ return UIInterfaceOrientationLandscapeLeft;
     [super viewDidLoad];
     
     //横屏
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
     if ( [[UIDevice currentDevice] respondsToSelector:@selector(setOrientation:)] ) {
         SEL selector = NSSelectorFromString(@"setOrientation:");
         NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[UIDevice instanceMethodSignatureForSelector:selector]];
@@ -114,14 +93,26 @@ return UIInterfaceOrientationLandscapeLeft;
     
     ThirdView *third = [[ThirdView alloc] initWithFrame:CGRectMake(kScreenWidth*2, 0, kScreenWidth, kScreenHeight-TopHeight)];
     third.jumpToDetail = ^(NSDictionary * dataDic) {
-        DetailViewController *detail = [[DetailViewController alloc] init];
-        self.definesPresentationContext = YES;
-        detail.modalPresentationStyle =UIModalPresentationOverFullScreen;
-        detail.dataDic = dataDic;
-        [self presentViewController:detail animated:YES completion:nil];
+//        DetailViewController *detail = [[DetailViewController alloc] init];
+//        self.definesPresentationContext = YES;
+//        detail.modalPresentationStyle =UIModalPresentationOverFullScreen;
+//        detail.dataDic = dataDic;
+//        [self presentViewController:detail animated:YES completion:nil];
+        UIWebView *web = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
+        NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+        NSURL *bundleURL = [bundle URLForResource:@"HSC229CarResource" withExtension:@"bundle"];
+        NSBundle *resourceBundle = [NSBundle bundleWithURL: bundleURL];
+        
+        NSString *str = [resourceBundle pathForResource:@"web_mobile/index" ofType:@"html"];
+        NSURLRequest *req = [NSURLRequest requestWithURL:[NSURL URLWithString:str]];
+        web.delegate = self;
+        
+        [self.view addSubview:web];
+        
+        [web loadRequest:req];
     };
     [myScrollView addSubview:third];
-    
+    self.automaticallyAdjustsScrollViewInsets = NO;
     ForthView *forth = [[ForthView alloc] initWithFrame:CGRectMake(kScreenWidth, 0, kScreenWidth, kScreenHeight-TopHeight)];
     forth.push = ^(NSDictionary * dataDic) {
         DetailViewController *detail = [[DetailViewController alloc] init];

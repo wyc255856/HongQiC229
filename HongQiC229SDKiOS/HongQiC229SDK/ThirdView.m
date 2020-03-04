@@ -21,14 +21,15 @@
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];
     NSURL *bundleURL = [bundle URLForResource:@"HSC229CarResource" withExtension:@"bundle"];
     NSBundle *resourceBundle = [NSBundle bundleWithURL: bundleURL];
-
-    UIWebView *web = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+    
+    UIWebView *web = [[UIWebView alloc] initWithFrame:CGRectMake(-50, 0, self.frame.size.width+100, self.frame.size.height+50)];
+    
     NSString *str = [resourceBundle pathForResource:@"pano_2/index" ofType:@"html"];
     NSURLRequest *req = [NSURLRequest requestWithURL:[NSURL URLWithString:str]];
     web.delegate = self;
     
     [self addSubview:web];
-
+    self.clipsToBounds = YES;
     [web loadRequest:req];
 
 }

@@ -18,7 +18,7 @@
 - (void)loadWithDataDic:(NSDictionary *)dic andTag:(NSIndexPath *)index{
     _tittleLabel.text = [NSString stringWithFormat:@"%@",dic[@"title"]];
     NSString *str = [[NSUserDefaults standardUserDefaults] objectForKey:@"localResource"];
-    NSString *imageStr = [NSString stringWithFormat:@"%@",dic[@"image1"]];
+    NSString *imageStr = [NSString stringWithFormat:@"%@",dic[@"head_image"]];
     imageStr = [imageStr stringByReplacingOccurrencesOfString:@"../" withString:@""];
     NSString *file = [NSString stringWithFormat:@"%@/%@",str,imageStr];
     UIImage *image = [UIImage imageWithContentsOfFile:file];
