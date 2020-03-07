@@ -30,10 +30,13 @@
     CGFloat carWidth;
     CGFloat carHeight;
     UIScrollView *scroll;
+    //
+    BOOL hiddenAble;
 }
 - (id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     self.backgroundColor = [UIColor clearColor];
+    hiddenAble = NO;
     carHeight = 270;
     carWidth = 270*1920/900;
     total = 4;
@@ -46,10 +49,13 @@
     [self setAllLineAndImageFrame:total];
     
     [self allShow];
+    
     change = 1;
+    scroll.showsHorizontalScrollIndicator = NO;
     return self;
     
 }
+
 - (void)allocAllLineAndImage{
     ss1 = [[ShanShuoView alloc] initWithFrame:CGRectMake(0, 0, 4, 4)];
     ss2 = [[ShanShuoView alloc] initWithFrame:CGRectMake(0, 0, 4, 4)];
@@ -107,18 +113,20 @@
     [self addSubview:scroll];
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-//    NSLog(@"%f",scrollView.contentOffset.x);
-    
-    CGFloat offY = scrollView.contentOffset.x;
-    if (offY-now>=jianju) {
-        [self addOne];
-        now = offY;
-    }else if(offY-now<=-jianju){
-        [self delOne];
-        now = offY;
+    NSLog(@"%f",scrollView.contentOffset.x);
+    if (hiddenAble) {
+        CGFloat offY = scrollView.contentOffset.x;
+        if (offY-now>=jianju) {
+            [self addOne];
+            now = offY;
+        }else if(offY-now<=-jianju){
+            [self delOne];
+            now = offY;
+        }
+        [self allHide];
     }
-    [self allHide];
 }
+
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
     [scrollView setContentOffset:CGPointMake(self.frame.size.width, 0)];
     now = 736;
@@ -130,6 +138,7 @@
 }
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
     change = 1;
+    hiddenAble = YES;
     
 }
 
@@ -145,6 +154,7 @@
     ssImg3.hidden = NO;
 }
 - (void)allHide{
+    
     ss1.hidden = YES;
     ss2.hidden = YES;
     ss3.hidden = YES;
@@ -154,6 +164,8 @@
     ssImg1.hidden = YES;
     ssImg2.hidden = YES;
     ssImg3.hidden = YES;
+    
+    
 }
 - (void)setAllLineAndImageFrame:(int)x{
     NSLog(@"%d",x);
@@ -248,6 +260,7 @@
             [ss3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {make.right.equalTo(_carImage.c229_mas_right).offset(-170);
                 make.top.equalTo(_carImage.c229_mas_bottom).offset(-135);
             }];
+          
             
             break;
         }

@@ -26,17 +26,20 @@
     self = [super initWithFrame:frame];
     self.backgroundColor = [UIColor clearColor];
     [self loadData];
-    [self setLeftView];
+    UIImageView *downYinYing = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.frame.size.height-kScreenWidth*192/1920, kScreenWidth, kScreenWidth*192/1920)];
+    
     [self setCollectionView];
+    [downYinYing setImage:[self createImageByName:@"downYinYing"]];
+    [self addSubview:downYinYing];
+    [self setLeftView];
+    
     jianting = 1;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getNoty) name:@"unziped" object:nil];
     UIImageView *upYinYing = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenWidth*159/1920)];
     [upYinYing setImage:[self createImageByName:@"upYinYing"]];
     [self addSubview:upYinYing];
     
-    UIImageView *downYinYing = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.frame.size.height-kScreenWidth*192/1920, kScreenWidth, kScreenWidth*192/1920)];
-    [downYinYing setImage:[self createImageByName:@"downYinYing"]];
-//    [self addSubview:downYinYing];
+    
     return self;
 }
 - (void)getNoty{
@@ -63,27 +66,28 @@
     cellArr4 = [NSMutableArray array];
     
     for (NSDictionary *dic in newArr) {
-        NSString *str0 = [NSString stringWithFormat:@"%@",scArr[0][@"caid"]];
-        NSString *str1 = [NSString stringWithFormat:@"%@",scArr[1][@"caid"]];
-        NSString *str2 = [NSString stringWithFormat:@"%@",scArr[2][@"caid"]];
-        NSString *str3 = [NSString stringWithFormat:@"%@",scArr[3][@"caid"]];
-        NSString *str4 = [NSString stringWithFormat:@"%@",scArr[4][@"caid"]];
-        if ([[NSString stringWithFormat:@"%@",dic[@"caid"]] isEqualToString:str0]) {
+        NSString *str0 = [NSString stringWithFormat:@"%@",scArr[0][@"catid"]];
+        NSString *str1 = [NSString stringWithFormat:@"%@",scArr[1][@"catid"]];
+        NSString *str2 = [NSString stringWithFormat:@"%@",scArr[2][@"catid"]];
+        NSString *str3 = [NSString stringWithFormat:@"%@",scArr[3][@"catid"]];
+        NSString *str4 = [NSString stringWithFormat:@"%@",scArr[4][@"catid"]];
+        if ([[NSString stringWithFormat:@"%@",dic[@"catid"]] isEqualToString:str0]) {
             [cellArr0 addObject:dic];
         }
-        if ([[NSString stringWithFormat:@"%@",dic[@"caid"]] isEqualToString:str1]) {
+        if ([[NSString stringWithFormat:@"%@",dic[@"catid"]] isEqualToString:str1]) {
             [cellArr1 addObject:dic];
         }
-        if ([[NSString stringWithFormat:@"%@",dic[@"caid"]] isEqualToString:str2]) {
+        if ([[NSString stringWithFormat:@"%@",dic[@"catid"]] isEqualToString:str2]) {
             [cellArr2 addObject:dic];
         }
-        if ([[NSString stringWithFormat:@"%@",dic[@"caid"]] isEqualToString:str3]) {
+        if ([[NSString stringWithFormat:@"%@",dic[@"catid"]] isEqualToString:str3]) {
             [cellArr3 addObject:dic];
         }
-        if ([[NSString stringWithFormat:@"%@",dic[@"caid"]] isEqualToString:str4]) {
+        if ([[NSString stringWithFormat:@"%@",dic[@"catid"]] isEqualToString:str4]) {
             [cellArr4 addObject:dic];
         }
     }
+    
 }
 - (NSDictionary *)readLocalFileWithName:(NSString *)name {
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];
@@ -108,12 +112,12 @@
     }
 }
 - (void)setLeftView{
-    selImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 30, 48, 300)];
+    selImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 14, 48, 300)];
     [selImage setImage:[self createImageByName:@"left0"]];
     [self addSubview: selImage];
     
     for (int i = 0; i < 5; i++) {
-        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(45, 56+48*i, 80, 48)];
+        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(45, 40+48*i, 80, 48)];
         NSDictionary *dic = leftArr[i];
         [btn setTitle:[NSString stringWithFormat:@"%@",dic[@"catname"]] forState:UIControlStateNormal];
         btn.titleLabel.font = [UIFont systemFontOfSize:14];

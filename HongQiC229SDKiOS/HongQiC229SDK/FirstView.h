@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface FirstView : UIView<UIScrollViewDelegate>
 @property (nonatomic, copy)void(^jumpToDetail)(NSDictionary *);
 @property (nonatomic, strong)UIImageView *carImage;
+- (void)allShow;
 @end
 
 NS_ASSUME_NONNULL_END

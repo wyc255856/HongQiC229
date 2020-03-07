@@ -11,7 +11,6 @@
 #import "HQ229MainViewController.h"
 #import "NetWorkManager.h"
 #import "AppDelegate.h"
-
 #import "DownLoadViewViewController.h"
 @interface C229LoadingViewController ()
 
@@ -25,35 +24,16 @@
     NSDictionary *updateResponse;
 }
 
-//- (BOOL)shouldAutorotate
-//
-//{
-//
-//    return NO;
-//
-//}
-//
-//- (UIInterfaceOrientationMask)supportedInterfaceOrientations
-//
-//{
-//
-//    return UIInterfaceOrientationMaskLandscape;
-//
-//}
-//
-//- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
-//
-//{
-//
-//    return UIInterfaceOrientationLandscapeLeft;
-//
-//}
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    
     AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     appDelegate.allowRotation = YES;//关闭横屏仅允许竖屏
     [appDelegate setNewOrientation:YES];//调用转屏代码
+    
+    
+    
 }
 
 - (void)viewDidLoad {
@@ -89,8 +69,8 @@
             [self presentViewController:vc animated:NO completion:nil];
 
         } enError:^(NSError * _Nonnull error) {
-            
-        } andShowLoading:YES];
+            [self disMiss];
+        } andShowLoading:NO];
     }else{
         NSString *version = [user objectForKey:@"c229NowVersion"];
         
@@ -220,9 +200,10 @@
 
 - (void)jumpMain{
     HQ229MainViewController *vc = [[HQ229MainViewController alloc] init];
-    [self presentViewController:vc animated:YES completion:nil];
+    [self presentViewController:vc animated:NO completion:nil];
 }
 - (void)disMiss{
+    
     [self dismissViewControllerAnimated:NO completion:^{
         AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
         appDelegate.allowRotation = NO;//关闭横屏仅允许竖屏

@@ -34,6 +34,7 @@
     [self initUI];
     [self downLoad];
 }
+
 - (void)initUI{
     CGFloat height = kScreenHeight-60;
     CGFloat width = height*208/121;

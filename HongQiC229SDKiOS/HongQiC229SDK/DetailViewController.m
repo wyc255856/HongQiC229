@@ -79,11 +79,17 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (void)setUi{
-    if (dataArr.count>1) {
-        [self setMore];
-    }else{
-        backView.hidden = YES;
+//    if (dataArr.count>1) {
+//        [self setMore];
+//    }else{
+//        backView.hidden = YES;
+//        [self addVideo];
+//    }
+    NSString *str = [dataArr objectAtIndex:0];
+    if ([str isEqualToString:@"6"]) {
         [self addVideo];
+    }else{
+        [self setMore];
     }
 }
 - (void)setMore{
@@ -120,6 +126,7 @@
     NSString *iPath = [NSString stringWithFormat:@"%@",allDic[key]];
     NSString *str = [[NSUserDefaults standardUserDefaults] objectForKey:@"localResource"];
     NSString *file = [NSString stringWithFormat:@"%@/%@",str,iPath];
+    file = [file stringByReplacingOccurrencesOfString:@"HONGQIH9/standard/" withString:@""];
     [image setImage:[UIImage imageWithContentsOfFile:file]];
     [bk addSubview:image];
     
@@ -162,9 +169,12 @@
     NSString *iPath = [NSString stringWithFormat:@"%@",allDic[key]];
     NSString *str = [[NSUserDefaults standardUserDefaults] objectForKey:@"localResource"];
     NSString *file = [NSString stringWithFormat:@"%@/%@",str,iPath];
+    file = [file stringByReplacingOccurrencesOfString:@"HONGQIH9/standard/" withString:@""];
     UIImage *theImage = [UIImage imageWithContentsOfFile:file];
     
-    
+    if (!theImage) {
+        return;
+    }
     UIImageView *image = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, myScroll.frame.size.width-62, (myScroll.frame.size.width-62)*theImage.size.height/theImage.size.width)];
     
     image.backgroundColor = [UIColor clearColor];
@@ -185,6 +195,7 @@
     NSString *iPath = @"images/2019-03-12/5c870f97c6e23.mp4";
     NSString *str = [[NSUserDefaults standardUserDefaults] objectForKey:@"localResource"];
     NSString *file = [NSString stringWithFormat:@"%@/%@",str,iPath];
+    file = [file stringByReplacingOccurrencesOfString:@"HONGQIH9/standard/" withString:@""];
     NSURL *url = [NSURL fileURLWithPath:file];
 
     self.item = [AVPlayerItem playerItemWithURL:url];

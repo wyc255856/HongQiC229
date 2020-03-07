@@ -15,6 +15,7 @@
     UITableView *myTableView;
     NSMutableArray *dataArr;
     NSString *keyWords;
+    
 }
 - (id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
@@ -34,18 +35,19 @@
     searchTf.textColor = [UIColor whiteColor];
     searchTf.leftViewMode = UITextFieldViewModeAlways;
     searchTf.tintColor = [UIColor whiteColor];
+    [searchTf addTarget:self action:@selector(textdidchange:) forControlEvents:UIControlEventEditingChanged];
     searchTf.returnKeyType = UIReturnKeySearch;
     searchTf.delegate = self;
     [self addSubview:searchTf];
     
     UIImageView *fdj = [[UIImageView alloc] initWithFrame:CGRectMake(10, 7, 15, 15)];
-    [fdj setImage:[UIImage imageNamed:@"fdjimage"]];
+    [fdj setImage:[self getPictureWithName:@"fdjimage"]];
     [searchTf addSubview:fdj];
     
     UIView *rightView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 26, 16)];
 //    UIButton *closeBtn = [[UIButton alloc] initWithFrame:CGRectMake(searchTf.frame.size.width-16-10, 7, 16, 16)];
     UIButton *closeBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 16, 16)];
-    [closeBtn setImage:[UIImage imageNamed:@"searchTFX"] forState:UIControlStateNormal];
+    [closeBtn setImage:[self getPictureWithName:@"searchTFX"] forState:UIControlStateNormal];
     [closeBtn addTarget:self action:@selector(searchX) forControlEvents:UIControlEventTouchUpInside];
 //    [searchTf addSubview:closeBtn];
     searchTf.rightView = rightView;
@@ -53,13 +55,20 @@
     searchTf.rightViewMode = UITextFieldViewModeAlways;
     
 }
+- (void)textdidchange:(UITextField *)textField{
+    if (textField.text.length==0) {
+        [self createTableHeader];
+    }
+}
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     [searchTf resignFirstResponder];
+    
     [self searchGo:textField.text];
     return YES;
 }
 - (void)searchX{
     searchTf.text = @"";
+    [self createTableHeader];
     [searchTf resignFirstResponder];
     [dataArr removeAllObjects];
     [myTableView reloadData];
@@ -80,8 +89,14 @@
     [myTableView registerNib:[UINib nibWithNibName:@"FifTableViewCell" bundle:resourceBundle] forCellReuseIdentifier:@"FifTableViewCell"];
     
     [self addSubview:myTableView];
+    if (dataArr.count==0) {
+        [self createTableHeader];
+    }else{
+        myTableView.tableHeaderView = nil;
+    }
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
     return dataArr.count;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -96,6 +111,7 @@
     return 50;
 }
 - (void)searchGo:(NSString *)str{
+    myTableView.tableHeaderView = nil;
     NSString *searcH = [self removeSpaceAndNewline:str];
     keyWords = searcH;
     NSDictionary *all = [self readLocalFileWithName:@"zy_news"];
@@ -107,6 +123,23 @@
         if ([title containsString:searcH]) {
             [dataArr addObject:d];
         }
+    }
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    NSString *keysStr =[user objectForKey:@"c229gpch"];
+    NSArray *keyArr = [keysStr componentsSeparatedByString:@","];
+    if (![keyArr containsObject:str]) {
+        NSMutableArray *arr = [NSMutableArray arrayWithArray:keyArr];
+        [arr insertObject:str atIndex:0];
+        [arr removeObjectAtIndex:arr.count-1];
+        NSMutableString *str = [NSMutableString string];
+        for (int i =0; i<arr.count; i++) {
+            if (i == arr.count-1) {
+                 str =[str stringByAppendingFormat:@"%@",arr[i]];
+            }else{
+                 str =[str stringByAppendingFormat:@"%@,",arr[i]];
+            }
+        }
+        [user setObject:str forKey:@"c229gpch"];
     }
     [myTableView reloadData];
 }
@@ -136,5 +169,53 @@
     }else{
         return nil;
     }
+}
+- (UIImage *)getPictureWithName:(NSString *)name{
+    NSBundle *bundle = [NSBundle bundleWithPath:[[NSBundle bundleForClass:[self class]] pathForResource:@"HSC229CarResource" ofType:@"bundle"]];
+    NSString *path   = [bundle pathForResource:name ofType:@"png"];
+    return [[UIImage imageWithContentsOfFile:path] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+}
+-(void )createTableHeader{
+    _tableHeader = nil;
+    _tableHeader = [[UIView alloc] initWithFrame:CGRectMake(0, 0, myTableView.frame.size.width, 300)];
+    _tableHeader.backgroundColor = [UIColor clearColor];
+    
+    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(10, 3, 100, 13)];
+    title.text = @"高频搜索";
+    title.font = [UIFont systemFontOfSize:13];
+    title.textColor = [UIColor colorWithRed:131/255.0 green:135/255.0 blue:142/255.0 alpha:1];
+    [_tableHeader addSubview:title];
+    
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    NSString *keysStr =[user objectForKey:@"c229gpch"];
+    
+    if (!keysStr) {
+        NSString *gpch = @"方向盘,雾灯,爆胎,安全带";
+        [[NSUserDefaults standardUserDefaults] setObject:gpch forKey:@"c229gpch"];
+        keysStr = gpch;
+    }else{
+        keysStr = [user objectForKey:@"c229gpch"];
+    }
+    NSArray *keyArr = [keysStr componentsSeparatedByString:@","];
+    for (int i =0; i<keyArr.count; i++) {
+        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(8+(95+28)*i, 33, 95, 30)];
+        [btn setTitle:keyArr[i] forState:UIControlStateNormal];
+        btn.titleLabel.font = [UIFont systemFontOfSize:13];
+        [btn setTitleColor:[UIColor colorWithRed:131/255.0 green:135/255.0 blue:142/255.0 alpha:1] forState:UIControlStateNormal];
+        [_tableHeader addSubview:btn];
+        btn.layer.cornerRadius =3;
+        btn.layer.borderColor =[[UIColor colorWithRed:197.0f/255.0f green:223.0f/255.0f blue:255.0f/255.0f alpha:1.0f] CGColor];
+        btn.layer.borderWidth = 0.5;
+        btn.backgroundColor = ([UIColor colorWithRed:21/255.0 green:24/255.0 blue:30/255.0 alpha:1]);
+        btn.tag = i;
+        [btn addTarget:self action:@selector(keySearch:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    myTableView.tableHeaderView = _tableHeader;
+}
+- (void)keySearch:(UIButton *)btn
+{
+    
+    [self searchGo:btn.titleLabel.text];
+    searchTf.text = btn.titleLabel.text;
 }
 @end

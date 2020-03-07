@@ -19,6 +19,7 @@
     NSMutableDictionary *allDic;
     UITableView *leftTableView;
     NSMutableArray *cateGGArr;
+    UIScrollView *leftScroll;
 }
 - (id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
@@ -38,59 +39,42 @@
 - (void)loadData{
     NSDictionary *categoryDic = [self readLocalFileWithName:@"zy_category"];
     NSArray *catArr = categoryDic[@"RECORDS"];
-    NSMutableArray *scArr = [NSMutableArray array];
+    NSMutableArray *catIdArr = [NSMutableArray array];
     cateGGArr = [NSMutableArray array];
     for (NSDictionary *ds in catArr) {
         if ([[NSString stringWithFormat:@"%@",ds[@"parentid"]] isEqualToString:@"1855"]) {
-            [scArr addObject:[NSString stringWithFormat:@"%@",ds[@"caid"]]];
+            [catIdArr addObject:[NSString stringWithFormat:@"%@",ds[@"caid"]]];
             [cateGGArr addObject:ds];
         }
     }
     
-    leftArr = scArr;
+    leftArr = catIdArr;
     NSDictionary *newsDic = [self readLocalFileWithName:@"zy_news"];
     NSArray *newArr = newsDic[@"RECORDS"];
    
     //
     allDic =[NSMutableDictionary dictionary];
-    for (NSString *catID in scArr) {
+    for (NSString *catID in catIdArr) {
         NSMutableArray *catArr = [NSMutableArray array];
         [allDic setObject:catArr forKey:catID];
     }
     for (NSDictionary *dic in newArr) {
-        for (NSString *catID in scArr) {
-            NSString *catId = catID;
+        for (NSString *catID in catIdArr) {
+            
             NSString *newId = [NSString stringWithFormat:@"%@",dic[@"caid"]];
-            if ([catId isEqualToString:newId]) {
-                NSMutableArray *newArr = [allDic objectForKey:newId];
+            if ([catID isEqualToString:newId]) {
+                NSMutableArray *newArr;
+                if (![allDic objectForKey:newId]) {
+                    newArr = [NSMutableArray array];
+                }else{
+                    newArr = [allDic objectForKey:newId];
+                }
                 [newArr addObject:dic];
                 [allDic setObject:newArr forKey:newId];
             }
         }
     }
-    //
-//    for (NSDictionary *dic in newArr) {
-//        NSString *str0 = [NSString stringWithFormat:@"%@",scArr[0][@"caid"]];
-//        NSString *str1 = [NSString stringWithFormat:@"%@",scArr[1][@"caid"]];
-//        NSString *str2 = [NSString stringWithFormat:@"%@",scArr[2][@"caid"]];
-//        NSString *str3 = [NSString stringWithFormat:@"%@",scArr[3][@"caid"]];
-//        NSString *str4 = [NSString stringWithFormat:@"%@",scArr[4][@"caid"]];
-//        if ([[NSString stringWithFormat:@"%@",dic[@"caid"]] isEqualToString:str0]) {
-//            [cellArr0 addObject:dic];
-//        }
-//        if ([[NSString stringWithFormat:@"%@",dic[@"caid"]] isEqualToString:str1]) {
-//            [cellArr1 addObject:dic];
-//        }
-//        if ([[NSString stringWithFormat:@"%@",dic[@"caid"]] isEqualToString:str2]) {
-//            [cellArr2 addObject:dic];
-//        }
-//        if ([[NSString stringWithFormat:@"%@",dic[@"caid"]] isEqualToString:str3]) {
-//            [cellArr3 addObject:dic];
-//        }
-//        if ([[NSString stringWithFormat:@"%@",dic[@"caid"]] isEqualToString:str4]) {
-//            [cellArr4 addObject:dic];
-//        }
-//    }
+    
 }
 - (void)setLeftView{
     
@@ -98,16 +82,21 @@
     [selImage setImage:[UIImage imageNamed:@"left0"]];
     [self addSubview: selImage];
     
-    for (int i = 0; i < 5; i++) {
-        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(45, 56+48*i, 80, 48)];
-        NSDictionary *dic = leftArr[i];
+    leftScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 30, 128, 300)];
+    leftScroll.showsVerticalScrollIndicator = NO;
+    leftScroll.contentSize = CGSizeMake(128, 48*12);
+    [self addSubview: leftScroll];
+    
+    for (int i = 0; i < cateGGArr.count; i++) {
+        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(40, 48*i, 128-40, 48)];
+        NSDictionary *dic = cateGGArr[i];
         [btn setTitle:[NSString stringWithFormat:@"%@",dic[@"catname"]] forState:UIControlStateNormal];
         btn.titleLabel.font = [UIFont systemFontOfSize:14];
         btn.tag = 1000+i;
         [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [btn setTitleColor:[UIColor colorWithRed:131/255.0 green:186/255.0 blue:255/255.0 alpha:1] forState:UIControlStateSelected];
         btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-        [self addSubview:btn];
+        [leftScroll addSubview:btn];
         [btn addTarget:self action:@selector(leftBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     }
     for (UIButton *b in self.subviews) {
@@ -117,6 +106,20 @@
             }
         }
     }
+}
+- (void)leftBtnClick:(UIButton *)btn
+{
+    jianting = 0;
+    for (UIButton *b in leftScroll.subviews) {
+        if ([b isKindOfClass:[UIButton class]]) {
+            b.selected = NO;
+        }
+    }
+//    NSString *imgName = [NSString stringWithFormat:@"left%ld",btn.tag-1000];
+//    [selImage setImage:[self createImageByName:imgName]];
+    NSIndexPath *index = [NSIndexPath indexPathForRow:0 inSection:btn.tag-1000];
+    [myCollection scrollToItemAtIndexPath:index atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:YES];
+    btn.selected = YES;
 }
 - (NSDictionary *)readLocalFileWithName:(NSString *)name {
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];
@@ -147,7 +150,12 @@
     myCollection.dataSource = self;
     [self addSubview:myCollection];
     
-    [myCollection registerNib:[UINib nibWithNibName:@"ForthCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"ForthCollectionViewCell"];
+    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+    NSURL *bundleURL = [bundle URLForResource:@"HSC229CarResource" withExtension:@"bundle"];
+    NSBundle *resourceBundle = [NSBundle bundleWithURL: bundleURL];
+    [[resourceBundle loadNibNamed:@"ForthCollectionViewCell" owner:self options:nil] lastObject];
+     
+    [myCollection registerNib:[UINib nibWithNibName:@"ForthCollectionViewCell" bundle:resourceBundle] forCellWithReuseIdentifier:@"ForthCollectionViewCell"];
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     for (int i = 0; i<leftArr.count; i++) {
@@ -182,102 +190,51 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    CGFloat ySet = scrollView.contentOffset.y;
-//    NSInteger num0 = cellArr0.count/4;
-//    if(cellArr0.count%4>0){
-//        num0++;
-//    }
-//    NSInteger num1 = cellArr1.count/4;
-//    if(cellArr1.count%4>0){
-//        num1++;
-//    }
-//    NSInteger num2 = cellArr2.count/4;
-//    if(cellArr2.count%4>0){
-//        num2++;
-//    }
-//    NSInteger num3 = cellArr3.count/4;
-//    if(cellArr3.count%4>0){
-//        num3++;
-//    }
-//    NSInteger num4 = cellArr4.count/4;
-//    if(cellArr4.count%4>0){
-//        num4++;
-//    }
     if (jianting == 0) {
         return;
     }
-    UIButton *b0;UIButton *b1;UIButton *b2;UIButton *b3;UIButton *b4;
-    for (UIButton *b in self.subviews) {
-        if ([b isKindOfClass:[UIButton class]]) {
-            switch (b.tag) {
-                case 1000:
-                    b0 = b;
-                    break;
-                 case 1001:
-                    b1 = b;
-                    break;
-                case 1002:
-                    b2 = b;
-                    break;
-                case 1003:
-                    b3 = b;
-                    break;
-                case 1004:
-                    b4 = b;
-                    break;
-                default:
-                    break;
-            }
-            b.selected = NO;
+    CGFloat ySet = scrollView.contentOffset.y;
+    NSLog(@"%f",ySet);
+    NSMutableArray *everyGroupCountNum = [NSMutableArray array];
+    
+    for (NSString *id in leftArr) {
+        NSArray *everyArr = [allDic objectForKey:id];
+        int count = everyArr.count/4;
+        if (everyArr.count%4>0) {
+            count = count+1;
+        }
+        CGFloat they = count *100.00;
+        NSString *str;
+        if (everyGroupCountNum.count>0) {
+            str = [NSString stringWithFormat:@"%.2f",they+[[everyGroupCountNum lastObject] floatValue]];
+        }else{
+            str = [NSString stringWithFormat:@"%.2f",they];
+        }
+        
+        [everyGroupCountNum addObject:str];
+    }
+    NSString *one = @"0.00";
+    [everyGroupCountNum insertObject:one atIndex:0];
+    for (int tap = 0; tap<everyGroupCountNum.count-1; tap++) {
+        NSString *str = everyGroupCountNum[tap];
+        CGFloat xxx = [str floatValue];
+        
+        NSString *str1 = everyGroupCountNum[tap+1];
+        CGFloat xxx1 = [str1 floatValue];
+        if (ySet>=xxx&&ySet&&ySet<xxx1) {
+            NSLog(@"------%d",tap);
+            [self reSetLeftView:tap];
         }
     }
+
     
     
-    UIButton *lastBtn;
-    if (ySet<=151) {
-        NSLog(@"0");
-        lastBtn = b0;
-    }
-    if (151<ySet&&ySet<=350) {
-        NSLog(@"1");
-        lastBtn = b1;
-    }
-    if(350<ySet&&ySet<=449){
-        NSLog(@"2");
-        lastBtn = b2;
-    }
-    if (449<ySet&&ySet<=635) {
-        NSLog(@"3");
-        lastBtn = b3;
-    }
-    if (ySet>635) {
-        NSLog(@"4");
-        lastBtn = b4;
-    }
-    NSString *imgName = [NSString stringWithFormat:@"left%ld",lastBtn.tag-1000];
-    [selImage setImage:[UIImage imageNamed:imgName]];
-    lastBtn.selected = YES;
 }
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
     jianting = 1;
     
 }
 
-- (void)setTableView{
-    leftTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 30, 128, 300) style:UITableViewStylePlain];
-    leftTableView.backgroundColor = [UIColor clearColor];
-    leftTableView.delegate = self;
-    leftTableView.dataSource = self;
-    leftTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
-    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-    NSURL *bundleURL = [bundle URLForResource:@"HSC229CarResource" withExtension:@"bundle"];
-    NSBundle *resourceBundle = [NSBundle bundleWithURL: bundleURL];
-    [[resourceBundle loadNibNamed:@"SecondTableViewCell" owner:self options:nil] lastObject];
-    
-    [leftTableView registerNib:[UINib nibWithNibName:@"SecondTableViewCell" bundle:bundle] forCellReuseIdentifier:@"SecondTableViewCell"];
-    [self addSubview:leftTableView];
-}
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
@@ -291,5 +248,42 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 48;
+}
+- (void)reSetLeftView:(NSInteger)x{
+    
+        for (UIButton *b in leftScroll.subviews) {
+            if ([b isKindOfClass:[UIButton class]]) {
+                b.selected = NO;
+            }
+            if (b.tag-1000==x) {
+                b.selected = YES;
+                NSLog(@"%f---%f",leftScroll.contentOffset.y,b.frame.origin.y+48);
+                //
+                [UIView animateWithDuration:0.5 animations:^{
+                    [leftScroll setContentOffset:CGPointMake(0, b.frame.origin.y)];
+                                                             }];
+                
+                //
+                if (b.frame.origin.y+48>300) {
+                    
+                    [UIView animateWithDuration:0.5 animations:^{
+                        if (b.frame.origin.y+50>leftScroll.contentSize.width-300) {
+
+                            [leftScroll setContentOffset:CGPointMake(0, leftScroll.contentSize.height-300)];
+                            
+                        }else{
+                            [leftScroll setContentOffset:CGPointMake(0, b.frame.origin.y+50)];
+                            
+                        }
+                    }];
+                    
+                }
+            }
+        }
+    
+    //    NSString *imgName = [NSString stringWithFormat:@"left%ld",btn.tag-1000];
+    //    [selImage setImage:[self createImageByName:imgName]];
+        
+        
 }
 @end
