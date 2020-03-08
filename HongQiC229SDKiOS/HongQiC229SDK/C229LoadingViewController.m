@@ -10,7 +10,7 @@
 #import "AppFaster.h"
 #import "HQ229MainViewController.h"
 #import "NetWorkManager.h"
-#import "AppDelegate.h"
+//#import "AppDelegate.h"
 #import "DownLoadViewViewController.h"
 @interface C229LoadingViewController ()
 
@@ -27,13 +27,9 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
-    AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    appDelegate.allowRotation = YES;//关闭横屏仅允许竖屏
-    [appDelegate setNewOrientation:YES];//调用转屏代码
-    
-    
-    
+//    AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+//    appDelegate.allowRotation = YES;//关闭横屏仅允许竖屏
+//    [appDelegate setNewOrientation:YES];//调用转屏代码    
 }
 
 - (void)viewDidLoad {
@@ -205,9 +201,11 @@
 - (void)disMiss{
     
     [self dismissViewControllerAnimated:NO completion:^{
-        AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-        appDelegate.allowRotation = NO;//关闭横屏仅允许竖屏
-        [appDelegate setNewOrientation:NO];//调用转屏代码
+//        AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+//        appDelegate.allowRotation = NO;//关闭横屏仅允许竖屏
+//        [appDelegate setNewOrientation:NO];//调用转屏代码
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"C229NotificationPortrait" object:nil];
+
     }];
 }
 

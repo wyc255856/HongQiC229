@@ -26,6 +26,9 @@
     button.layer.borderWidth = 1.0;
     [self.view addSubview:button];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification:) name:@"C229NotificationPortrait" object:nil];
+
+    
 }
 
 - (void)buttonClicked {
@@ -44,5 +47,15 @@
     // Dispose of any resources that can be recreated.
 }
 
+/*!
+* @brief   接收通知(BYNotificationTest)
+* @param   note NSNotification通知对象
+*/
+- (void)handleNotification:(NSNotification *)note
+{
+        AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+        appDelegate.allowRotation = NO;//关闭横屏仅允许竖屏
+        [appDelegate setNewOrientation:NO];//调用转屏代码
+}
 
 @end
