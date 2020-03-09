@@ -36,17 +36,17 @@
     [super viewDidLoad];
     
     //横屏
-    self.automaticallyAdjustsScrollViewInsets = NO;
+   // self.automaticallyAdjustsScrollViewInsets = NO;
     
-    if ( [[UIDevice currentDevice] respondsToSelector:@selector(setOrientation:)] ) {
-        SEL selector = NSSelectorFromString(@"setOrientation:");
-        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[UIDevice instanceMethodSignatureForSelector:selector]];
-        [invocation setSelector:selector];
-        [invocation setTarget:[UIDevice currentDevice]];
-        int val = UIInterfaceOrientationLandscapeLeft;
-        [invocation setArgument:&val atIndex:2];
-        [invocation invoke];
-    }
+//    if ( [[UIDevice currentDevice] respondsToSelector:@selector(setOrientation:)] ) {
+//        SEL selector = NSSelectorFromString(@"setOrientation:");
+//        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[UIDevice instanceMethodSignatureForSelector:selector]];
+//        [invocation setSelector:selector];
+//        [invocation setTarget:[UIDevice currentDevice]];
+//        int val = UIInterfaceOrientationLandscapeLeft;
+//        [invocation setArgument:&val atIndex:2];
+//        [invocation invoke];
+//    }
     //background
     UIImageView *backGround = [[UIImageView alloc] initWithFrame:self.view.bounds];
     [backGround setImage:[self createImageByName:@"homeBackground"]];

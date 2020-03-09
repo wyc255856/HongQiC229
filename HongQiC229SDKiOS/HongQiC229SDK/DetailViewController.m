@@ -41,7 +41,22 @@
     nowDeadLine = 10;
     restartIsShow = 0;
 }
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
+        return UIInterfaceOrientationLandscapeRight;
+}
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Woverriding-method-mismatch"
+#pragma clang diagnostic ignored "-Wmismatched-return-types"
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
+#pragma clang diagnostic pop
+{
+    return UIInterfaceOrientationMaskLandscapeRight;
+}
+
+-(BOOL)shouldAutorotate {
+    return NO;
+}
 - (void)setDataDic:(NSDictionary *)dataDic{
     [self setback];
     NSMutableArray *temArr = [NSMutableArray array];
