@@ -42,13 +42,13 @@
         NSLog(@"%@",str);
         NSDictionary *all = [self readLocalFileWithName:@"zy_news"];
         NSArray *array = [all objectForKey:@"RECORDS"];
-    
-        for (NSDictionary *d in array) {
-            NSString *caid = [NSString stringWithFormat:@"%@",d[@"caid"]];
-            if ([caid isEqualToString:@"1896"]) {
-                self.jumpToDetail(d);
-            }
-        }
+        self.jumpToDetail(nil);
+//        for (NSDictionary *d in array) {
+//            NSString *caid = [NSString stringWithFormat:@"%@",d[@"caid"]];
+//            if ([caid isEqualToString:@"1896"]) {
+//                self.jumpToDetail(d);
+//            }
+//        }
     }
     
     return YES;

@@ -25,31 +25,40 @@
     self = [super initWithFrame:frame];
     self.backgroundColor = [UIColor clearColor];
     [self loadData];
-    [self setLeftView];
+    
     [self setCollectionView];
 //    [self setTableView];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getNoty) name:@"unziped" object:nil];
     jianting = 1;
+    UIImageView *downYinYing = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.frame.size.height-kScreenWidth*192/1920, kScreenWidth, kScreenWidth*192/1920)];
     
+    
+    [downYinYing setImage:[self createImageByName:@"downYinYing"]];
+    [self addSubview:downYinYing];
+    [self setLeftView];
+    UIImageView *upYinYing = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenWidth*159/1920)];
+    [upYinYing setImage:[self createImageByName:@"upYinYing"]];
+    [self addSubview:upYinYing];
+    [self reSetLeftView:0];
     return self;
 }
 - (void)getNoty{
     [myCollection reloadData];
 }
 - (void)loadData{
-    NSDictionary *categoryDic = [self readLocalFileWithName:@"zy_category"];
+    NSDictionary *categoryDic = [self readLocalFileWithName:@"229_category"];
     NSArray *catArr = categoryDic[@"RECORDS"];
     NSMutableArray *catIdArr = [NSMutableArray array];
     cateGGArr = [NSMutableArray array];
     for (NSDictionary *ds in catArr) {
         if ([[NSString stringWithFormat:@"%@",ds[@"parentid"]] isEqualToString:@"1855"]) {
-            [catIdArr addObject:[NSString stringWithFormat:@"%@",ds[@"caid"]]];
+            [catIdArr addObject:[NSString stringWithFormat:@"%@",ds[@"catid"]]];
             [cateGGArr addObject:ds];
         }
     }
     
     leftArr = catIdArr;
-    NSDictionary *newsDic = [self readLocalFileWithName:@"zy_news"];
+    NSDictionary *newsDic = [self readLocalFileWithName:@"229_news"];
     NSArray *newArr = newsDic[@"RECORDS"];
    
     //
@@ -61,7 +70,7 @@
     for (NSDictionary *dic in newArr) {
         for (NSString *catID in catIdArr) {
             
-            NSString *newId = [NSString stringWithFormat:@"%@",dic[@"caid"]];
+            NSString *newId = [NSString stringWithFormat:@"%@",dic[@"catid"]];
             if ([catID isEqualToString:newId]) {
                 NSMutableArray *newArr;
                 if (![allDic objectForKey:newId]) {
@@ -78,17 +87,18 @@
 }
 - (void)setLeftView{
     
-    selImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 30, 48, 300)];
-    [selImage setImage:[UIImage imageNamed:@"left0"]];
-    [self addSubview: selImage];
+    selImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 48, 48*12)];
+    [selImage setImage:[self createImageByName:@"secondLeft0"]];
+    
     
     leftScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 30, 128, 300)];
     leftScroll.showsVerticalScrollIndicator = NO;
     leftScroll.contentSize = CGSizeMake(128, 48*12);
     [self addSubview: leftScroll];
+    [leftScroll addSubview: selImage];
     
     for (int i = 0; i < cateGGArr.count; i++) {
-        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(40, 48*i, 128-40, 48)];
+        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(40, 25+41.4*i, 128-40, 48)];
         NSDictionary *dic = cateGGArr[i];
         [btn setTitle:[NSString stringWithFormat:@"%@",dic[@"catname"]] forState:UIControlStateNormal];
         btn.titleLabel.font = [UIFont systemFontOfSize:14];
@@ -115,8 +125,8 @@
             b.selected = NO;
         }
     }
-//    NSString *imgName = [NSString stringWithFormat:@"left%ld",btn.tag-1000];
-//    [selImage setImage:[self createImageByName:imgName]];
+    NSString *imgName = [NSString stringWithFormat:@"secondLeft%ld",btn.tag-1000];
+    [selImage setImage:[self createImageByName:imgName]];
     NSIndexPath *index = [NSIndexPath indexPathForRow:0 inSection:btn.tag-1000];
     [myCollection scrollToItemAtIndexPath:index atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:YES];
     btn.selected = YES;
@@ -125,13 +135,18 @@
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];
     NSURL *bundleURL = [bundle URLForResource:@"HSC229CarResource" withExtension:@"bundle"];
     NSBundle *resourceBundle = [NSBundle bundleWithURL: bundleURL];
+
     // 获取文件路径
+    NSString *docDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+    NSString *fileDir = [docDir stringByAppendingPathComponent:@""];
+    NSString *filePath = [fileDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.json",name]];
     NSString *path = [resourceBundle pathForResource:name ofType:@"json"];
     // 将文件数据化
-    NSData *data = [[NSData alloc] initWithContentsOfFile:path];
+    NSData *jsonData = [[NSFileManager defaultManager] contentsAtPath:filePath];
+    NSData *data = [[NSData alloc] initWithContentsOfFile:filePath];
     // 对数据进行JSON格式化并返回字典形式
     NSError *error;
-    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:&error];
     if (!error) {
         return dic;
     }else{
@@ -182,6 +197,13 @@
     
     return cell;
 }
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSArray *arr = [allDic objectForKey:leftArr[indexPath.section]];
+    NSDictionary *dic = arr[indexPath.row];
+    if (self) {
+        self.push(dic);
+    }
+}
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section;{
     return 10;
 }
@@ -203,7 +225,7 @@
         if (everyArr.count%4>0) {
             count = count+1;
         }
-        CGFloat they = count *100.00;
+        CGFloat they = count *85.00;
         NSString *str;
         if (everyGroupCountNum.count>0) {
             str = [NSString stringWithFormat:@"%.2f",they+[[everyGroupCountNum lastObject] floatValue]];
@@ -225,8 +247,12 @@
             NSLog(@"------%d",tap);
             [self reSetLeftView:tap];
         }
+        
     }
 
+    if (ySet>=scrollView.contentSize.height-scrollView.frame.size.height-10) {
+        [self reSetLeftView:11];
+    }
     
     
 }
@@ -257,7 +283,8 @@
             }
             if (b.tag-1000==x) {
                 b.selected = YES;
-                NSLog(@"%f---%f",leftScroll.contentOffset.y,b.frame.origin.y+48);
+                NSString *imgName = [NSString stringWithFormat:@"secondLeft%d",x];
+               [selImage setImage:[self createImageByName:imgName]]; NSLog(@"%f---%f",leftScroll.contentOffset.y,b.frame.origin.y+48);
                 //
                 [UIView animateWithDuration:0.5 animations:^{
                     [leftScroll setContentOffset:CGPointMake(0, b.frame.origin.y)];
@@ -285,5 +312,13 @@
     //    [selImage setImage:[self createImageByName:imgName]];
         
         
+}
+-(UIImage *) createImageByName:(NSString*)sName{
+    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+    NSURL *bundleURL = [bundle URLForResource:@"HSC229CarResource" withExtension:@"bundle"];
+    NSBundle *resourceBundle = [NSBundle bundleWithURL: bundleURL];
+    NSString *resName = sName;
+    UIImage *image =  resourceBundle?[UIImage imageNamed:resName inBundle:resourceBundle compatibleWithTraitCollection:nil]:[UIImage imageNamed:resName];
+    return image;
 }
 @end

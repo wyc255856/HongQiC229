@@ -21,6 +21,7 @@
     NSMutableArray *cellArr3;
     NSMutableArray *cellArr4;
     int jianting;
+    NSMutableDictionary *allDic;
 }
 - (id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
@@ -64,6 +65,7 @@
     cellArr2 = [NSMutableArray array];
     cellArr3 = [NSMutableArray array];
     cellArr4 = [NSMutableArray array];
+    allDic = [NSMutableDictionary dictionary];
     
     for (NSDictionary *dic in newArr) {
         NSString *str0 = [NSString stringWithFormat:@"%@",scArr[0][@"catid"]];
@@ -86,7 +88,14 @@
         if ([[NSString stringWithFormat:@"%@",dic[@"catid"]] isEqualToString:str4]) {
             [cellArr4 addObject:dic];
         }
+        [allDic setObject:cellArr0 forKey:str0];
+        [allDic setObject:cellArr1 forKey:str1];
+        [allDic setObject:cellArr2 forKey:str2];
+        [allDic setObject:cellArr3 forKey:str3];
+        [allDic setObject:cellArr4 forKey:str4];
     }
+    
+    
     
 }
 - (NSDictionary *)readLocalFileWithName:(NSString *)name {
@@ -245,81 +254,46 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     CGFloat ySet = scrollView.contentOffset.y;
-//    NSLog(@"%f",ySet);
-//    NSInteger num0 = cellArr0.count/4;
-//    if(cellArr0.count%4>0){
-//        num0++;
-//    }
-//    NSInteger num1 = cellArr1.count/4;
-//    if(cellArr1.count%4>0){
-//        num1++;
-//    }
-//    NSInteger num2 = cellArr2.count/4;
-//    if(cellArr2.count%4>0){
-//        num2++;
-//    }
-//    NSInteger num3 = cellArr3.count/4;
-//    if(cellArr3.count%4>0){
-//        num3++;
-//    }
-//    NSInteger num4 = cellArr4.count/4;
-//    if(cellArr4.count%4>0){
-//        num4++;
-//    }
-    if (jianting == 0) {
+    NSLog(@"%f",ySet);
+    if (jianting==0) {
         return;
     }
-    UIButton *b0;UIButton *b1;UIButton *b2;UIButton *b3;UIButton *b4;
-    for (UIButton *b in self.subviews) {
-        if ([b isKindOfClass:[UIButton class]]) {
-            switch (b.tag) {
-                case 1000:
-                    b0 = b;
-                    break;
-                 case 1001:
-                    b1 = b;
-                    break;
-                case 1002:
-                    b2 = b;
-                    break;
-                case 1003:
-                    b3 = b;
-                    break;
-                case 1004:
-                    b4 = b;
-                    break;
-                default:
-                    break;
-            }
-            b.selected = NO;
+    NSMutableArray *everyGroupCountNum = [NSMutableArray array];
+    
+    for (NSDictionary *dic in leftArr) {
+        NSString *key = [NSString stringWithFormat:@"%@",dic[@"catid"]];
+        NSArray *everyArr = [allDic objectForKey:key];
+        int count = everyArr.count/4;
+        if (everyArr.count%4>0) {
+            count = count+1;
+        }
+        CGFloat they = count *85.00;
+        NSString *str;
+        if (everyGroupCountNum.count>0) {
+            str = [NSString stringWithFormat:@"%.2f",they+[[everyGroupCountNum lastObject] floatValue]];
+        }else{
+            str = [NSString stringWithFormat:@"%.2f",they];
+        }
+
+        [everyGroupCountNum addObject:str];
+    }
+    NSString *one = @"0.00";
+    [everyGroupCountNum insertObject:one atIndex:0];
+    for (int tap = 0; tap<everyGroupCountNum.count-1; tap++) {
+        NSString *str = everyGroupCountNum[tap];
+        CGFloat xxx = [str floatValue];
+
+        NSString *str1 = everyGroupCountNum[tap+1];
+        CGFloat xxx1 = [str1 floatValue];
+        if (ySet>=xxx&&ySet&&ySet<xxx1) {
+            NSLog(@"------%d",tap);
+            [self reSetLeftView:tap];
         }
     }
-    
-    
-    UIButton *lastBtn;
-    if (ySet<=160) {
-//        NSLog(@"0");
-        lastBtn = b0;
+    if (ySet+scrollView.frame.size.height>=scrollView.contentSize.height-10) {
+        [self reSetLeftView:4];
     }
-    if (160<ySet&&ySet<=355) {
-//        NSLog(@"1");
-        lastBtn = b1;
-    }
-    if(355<ySet&&ySet<=442){
-//        NSLog(@"2");
-        lastBtn = b2;
-    }
-    if (442<ySet&&ySet<=636) {
-//        NSLog(@"3");
-        lastBtn = b3;
-    }
-    if (ySet>636) {
-//        NSLog(@"4");
-        lastBtn = b4;
-    }
-    NSString *imgName = [NSString stringWithFormat:@"left%ld",lastBtn.tag-1000];
-    [selImage setImage:[self createImageByName:imgName]];
-    lastBtn.selected = YES;
+
 }
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
     jianting = 1;
@@ -356,5 +330,21 @@
     NSString *resName = sName;
     UIImage *image =  resourceBundle?[UIImage imageNamed:resName inBundle:resourceBundle compatibleWithTraitCollection:nil]:[UIImage imageNamed:resName];
     return image;
+}
+- (void)reSetLeftView:(NSInteger)x{
+    
+        for (UIButton *b in self.subviews) {
+            if ([b isKindOfClass:[UIButton class]]) {
+                b.selected = NO;
+            }
+            if (b.tag-1000==x) {
+                b.selected = YES;
+                NSString *imgName = [NSString stringWithFormat:@"left%ld",x];
+                [selImage setImage:[self createImageByName:imgName]];
+            }
+            }
+        
+    
+        
 }
 @end

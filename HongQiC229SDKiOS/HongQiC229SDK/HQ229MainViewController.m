@@ -25,6 +25,7 @@
 @implementation HQ229MainViewController
 {
     UIScrollView *myScrollView;
+    UIWebView *web;
 }
 
 
@@ -89,6 +90,14 @@
 //    SecondView *second = [[SecondView alloc] initWithFrame:CGRectMake(kScreenWidth*3, 0, kScreenWidth, kScreenHeight-TopHeight)];
 //    [myScrollView addSubview:second];
     SecondView *second = [[SecondView alloc] initWithFrame:CGRectMake(kScreenWidth*3, 0, kScreenWidth, kScreenHeight-TopHeight)];
+    second.push = ^(NSDictionary * dataDic
+                    ) {
+        DetailViewController *detail = [[DetailViewController alloc] init];
+        self.definesPresentationContext = YES;
+        detail.modalPresentationStyle =UIModalPresentationOverFullScreen;
+        detail.dataDic = dataDic;
+        [self presentViewController:detail animated:YES completion:nil];
+    };
     [myScrollView addSubview:second];
     
     ThirdView *third = [[ThirdView alloc] initWithFrame:CGRectMake(kScreenWidth*2, 0, kScreenWidth, kScreenHeight-TopHeight)];
@@ -98,7 +107,7 @@
 //        detail.modalPresentationStyle =UIModalPresentationOverFullScreen;
 //        detail.dataDic = dataDic;
 //        [self presentViewController:detail animated:YES completion:nil];
-        UIWebView *web = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
+        web = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
         NSBundle *bundle = [NSBundle bundleForClass:[self class]];
         NSURL *bundleURL = [bundle URLForResource:@"HSC229CarResource" withExtension:@"bundle"];
         NSBundle *resourceBundle = [NSBundle bundleWithURL: bundleURL];
@@ -108,6 +117,11 @@
         web.delegate = self;
         
         [self.view addSubview:web];
+        
+        UIButton *closeBtn = [[UIButton alloc] initWithFrame:CGRectMake(16, 19, 21, 19)];
+        [closeBtn setImage:[self createImageByName:@"neirongguanbianniu"] forState:UIControlStateNormal];
+        [closeBtn addTarget:self action:@selector(closeAction) forControlEvents:UIControlEventTouchUpInside];
+        [self->web addSubview:closeBtn];
         
         [web loadRequest:req];
     };
@@ -126,6 +140,9 @@
     FifthView *fifth = [[FifthView alloc] initWithFrame:CGRectMake(kScreenWidth*4, 0, kScreenWidth, kScreenHeight-TopHeight)];
     
     [myScrollView addSubview:fifth];
+}
+- (void)closeAction{
+    [web removeFromSuperview];
 }
 - (void)getJson{
     NSDictionary *dicOne = [self readLocalFileWithName:@"zy_category"];

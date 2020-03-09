@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SecondView : UIView<UICollectionViewDelegate,UICollectionViewDataSource,UITableViewDelegate,UITableViewDataSource>
-
+@property (nonatomic, copy)void(^push)(NSDictionary *);
 @end
 
 NS_ASSUME_NONNULL_END

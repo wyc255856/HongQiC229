@@ -37,7 +37,7 @@
     [appDelegate setNewOrientation:YES];//调用转屏代码
     C229LoadingViewController *vc = [[C229LoadingViewController alloc] init];
     [self presentViewController:vc animated:NO completion:nil];
-
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
