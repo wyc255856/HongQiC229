@@ -24,12 +24,29 @@
     NSDictionary *updateResponse;
 }
 
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
+        return UIInterfaceOrientationLandscapeRight;
+}
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Woverriding-method-mismatch"
+#pragma clang diagnostic ignored "-Wmismatched-return-types"
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
+#pragma clang diagnostic pop
+{
+    return UIInterfaceOrientationMaskLandscapeRight;
+}
+
+-(BOOL)shouldAutorotate {
+    return NO;
+}
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
 //    AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
 //    appDelegate.allowRotation = YES;//关闭横屏仅允许竖屏
-//    [appDelegate setNewOrientation:YES];//调用转屏代码    
+//    [appDelegate setNewOrientation:YES];//调用转屏代码
+    
 }
 
 - (void)viewDidLoad {
@@ -40,16 +57,16 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(jumpMain) name:@"unziped" object:nil];
     
     //横屏
-    if ( [[UIDevice currentDevice] respondsToSelector:@selector(setOrientation:)] ) {
-        SEL selector = NSSelectorFromString(@"setOrientation:");
-        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[UIDevice instanceMethodSignatureForSelector:selector]];
-        [invocation setSelector:selector];
-        [invocation setTarget:[UIDevice currentDevice]];
-        int val = UIInterfaceOrientationLandscapeLeft;
-        [invocation setArgument:&val atIndex:2];
-        [invocation invoke];
-    }
-    
+//    if ( [[UIDevice currentDevice] respondsToSelector:@selector(setOrientation:)] ) {
+//        SEL selector = NSSelectorFromString(@"setOrientation:");
+//        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[UIDevice instanceMethodSignatureForSelector:selector]];
+//        [invocation setSelector:selector];
+//        [invocation setTarget:[UIDevice currentDevice]];
+//        int val = UIInterfaceOrientationLandscapeLeft;
+//        [invocation setArgument:&val atIndex:2];
+//        [invocation invoke];
+//    }
+//
     // Do any additional setup after loading the view.
     UIImageView *back = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
     [back setImage:[self createImageByName:@"c229loading"]];
@@ -204,7 +221,7 @@
 //        AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
 //        appDelegate.allowRotation = NO;//关闭横屏仅允许竖屏
 //        [appDelegate setNewOrientation:NO];//调用转屏代码
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"C229NotificationPortrait" object:nil];
+        //[[NSNotificationCenter defaultCenter] postNotificationName:@"C229NotificationPortrait" object:nil];
 
     }];
 }
