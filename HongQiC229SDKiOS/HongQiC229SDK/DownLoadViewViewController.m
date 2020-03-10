@@ -225,7 +225,9 @@
             {
                 //手机自带网络
                 NSLog(@"当前使用的是2g/3g/4g网络");
-                [self.downloadTask3 suspend];
+                if (self.downloadTask3) {
+                    [self.downloadTask3 suspend];
+                }
                 [self setUI:4];
             }
                 break;
