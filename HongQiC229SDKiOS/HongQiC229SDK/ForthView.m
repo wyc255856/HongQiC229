@@ -112,6 +112,9 @@
     NSData *jsonData = [[NSFileManager defaultManager] contentsAtPath:filePath];
     NSData *data = [[NSData alloc] initWithContentsOfFile:filePath];
     // 对数据进行JSON格式化并返回字典形式
+    if (!data) {
+        return nil;
+    }
     NSError *error;
     NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:&error];
     if (!error) {

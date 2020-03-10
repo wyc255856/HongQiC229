@@ -73,7 +73,10 @@
     [self.view addSubview:back];
     
     NSUserDefaults *user =  [NSUserDefaults standardUserDefaults];
+
     if (![user objectForKey:@"c229NowVersion"]) {
+        
+        
         [NetWorkManager requestGETSuperAPIWithURLStr:@"hongqih9_admin/index.php?m=home&c=index&a=get_first_version" WithAuthorization:@"" paramDic:nil finish:^(id  _Nonnull responseObject) {
             
             DownLoadViewViewController *vc = [[DownLoadViewViewController alloc] init];
@@ -151,22 +154,34 @@
     } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
         NSString *fileName = @"229_category.json";
         //返回文件的最终存储路径
+        NSString *allPath = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES)[0];
+        //    NSString *folderPath = [allPath stringByAppendingPathComponent:@"c229App/images/ppp"];
+            NSString *temPath = [NSString stringWithFormat:@"temZip"];
+            NSString *folderPath = [allPath stringByAppendingPathComponent:temPath];
+            NSString *last = [folderPath stringByAppendingPathComponent:fileName];
+        return [NSURL fileURLWithPath:last];
+    } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
+        NSString *fileName = @"229_category.json";
+        //返回文件的最终存储路径
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *documentsDirectory = [paths objectAtIndex:0];
-        NSString *filePath = [documentsDirectory stringByAppendingPathComponent:fileName];
-        return [NSURL fileURLWithPath:filePath];
-    } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
+        NSString *oldPath = [documentsDirectory stringByAppendingPathComponent:fileName];
+        
+        NSString *allPath = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES)[0];
+        NSString *temPath = [NSString stringWithFormat:@"temZip"];
+        NSString *folderPath = [allPath stringByAppendingPathComponent:temPath];
+        NSString *last = [folderPath stringByAppendingPathComponent:fileName];
+        
+        
+        
         if (error) {
             NSLog(@"download2 file failed : %@", [error description]);
         
         }else {
             NSLog(@"download2 file success");
-            NSString *fileName = @"229_category.json";
-            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-            NSString *documentsDirectory = [paths objectAtIndex:0];
-            NSString *filePath = [documentsDirectory stringByAppendingPathComponent:fileName];
+            
             NSError *error;
-//             [[NSFileManager defaultManager] removeItemAtPath:filePath error:&error];
+            [self moveItemAtPath:last toPath:oldPath overwrite:YES error:&error];
             [self->zipSucDic setValue:@"1" forKey:@"category"];
             [self isDownloadJson];
         }
@@ -185,10 +200,12 @@
     } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
         NSString *fileName = @"229_news.json";
         //返回文件的最终存储路径
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *documentsDirectory = [paths objectAtIndex:0];
-        NSString *filePath = [documentsDirectory stringByAppendingPathComponent:fileName];
-        return [NSURL fileURLWithPath:filePath];
+        NSString *allPath = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES)[0];
+        //    NSString *folderPath = [allPath stringByAppendingPathComponent:@"c229App/images/ppp"];
+            NSString *temPath = [NSString stringWithFormat:@"temZip"];
+            NSString *folderPath = [allPath stringByAppendingPathComponent:temPath];
+            NSString *last = [folderPath stringByAppendingPathComponent:fileName];
+        return [NSURL fileURLWithPath:last];
     } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
         if (error) {
             NSLog(@"download1 file failed : %@", [error description]);
@@ -199,9 +216,14 @@
             //返回文件的最终存储路径
             NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
             NSString *documentsDirectory = [paths objectAtIndex:0];
-            NSString *filePath = [documentsDirectory stringByAppendingPathComponent:fileName];
+            NSString *oldPath = [documentsDirectory stringByAppendingPathComponent:fileName];
+            NSString *allPath = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES)[0];
+            //    NSString *folderPath = [allPath stringByAppendingPathComponent:@"c229App/images/ppp"];
+                NSString *temPath = [NSString stringWithFormat:@"temZip"];
+                NSString *folderPath = [allPath stringByAppendingPathComponent:temPath];
+                NSString *last = [folderPath stringByAppendingPathComponent:fileName];
             NSError *error;
-//            [[NSFileManager defaultManager] removeItemAtPath:filePath error:&error];
+            [self moveItemAtPath:last toPath:oldPath overwrite:YES error:&error];
             [zipSucDic setValue:@"1" forKey:@"news"];
             [self isDownloadJson];
         }
@@ -244,11 +266,26 @@
             
             NSString *fromStr = [NSString stringWithFormat:@"%@/temZip/HONGQIH9/standard/images",allPath];
             NSString *toSTR = [NSString stringWithFormat:@"%@/c229App/images",allPath];
+            [self->zipSucDic setValue:@"1" forKey:fileName];
             NSError *error;
             
-            if ([self moveItemAtPath:fromStr toPath:toSTR overwrite:YES error:&error]) {
-                [self->zipSucDic setValue:@"1" forKey:fileName];
+            NSFileManager *defaultManager = [NSFileManager defaultManager];
+            
+            NSArray *array = [defaultManager contentsOfDirectoryAtPath:fromStr error:nil];
+            if (array.count>0) {
+                for (NSString *str in array) {
+                    NSLog(@"%@",str);
+                    if ([self isExistsAtPath:[NSString stringWithFormat:@"%@/%@",toSTR,str]]) {
+                        NSArray *newArray = [defaultManager contentsOfDirectoryAtPath:[NSString stringWithFormat:@"%@/%@",fromStr,str] error:nil];
+                        for (NSString *imageStr in newArray) {
+                            [self moveItemAtPath:[NSString stringWithFormat:@"%@/%@/%@",fromStr,str,imageStr] toPath:[NSString stringWithFormat:@"%@/%@/%@",toSTR,str,imageStr] overwrite:YES error:nil];
+                        }
+                    }else{
+                        [self moveItemAtPath:[NSString stringWithFormat:@"%@/%@",fromStr,str] toPath:[NSString stringWithFormat:@"%@/%@",toSTR,str] overwrite:YES error:nil];
+                    }
+                }
             }
+
             [self isDownloaded];
         }
     }];
@@ -312,7 +349,7 @@
             //删掉目标路径文件
             [self removeItemAtPath:toPath error:error];
         }else {
-           //删掉被移动文件
+//           删掉被移动文件
             [self removeItemAtPath:path error:error];
             return YES;
         }
@@ -344,4 +381,56 @@
 - (BOOL)removeItemAtPath:(NSString *)path error:(NSError *__autoreleasing *)error {
     return [[NSFileManager defaultManager] removeItemAtPath:path error:error];
 }
+-(void)copyFileFromPath:(NSString *)sourcePath toPath:(NSString *)toPath
+
+{
+
+NSFileManager *fileManager = [[NSFileManager alloc] init];
+
+NSArray* array = [fileManager contentsOfDirectoryAtPath:sourcePath error:nil];
+
+for(int i = 0; i<[array count]; i++)
+
+{
+
+NSString *fullPath = [sourcePath stringByAppendingPathComponent:[array objectAtIndex:i]];
+
+NSString *fullToPath = [toPath stringByAppendingPathComponent:[array objectAtIndex:i]];
+
+NSLog(@"%@",fullPath);
+
+NSLog(@"%@",fullToPath);
+
+//判断是不是文件夹
+
+BOOL isFolder = NO;
+
+//判断是不是存在路径 并且是不是文件夹
+
+BOOL isExist = [fileManager fileExistsAtPath:fullPath isDirectory:&isFolder];
+
+if (isExist)
+
+{
+
+NSError *err = nil;
+
+[[NSFileManager defaultManager] copyItemAtPath:fullPath toPath:fullToPath error:&err];
+
+NSLog(@"%@",err);
+
+if (isFolder)
+
+{
+
+[self copyFileFromPath:fullPath toPath:fullToPath];
+
+}
+
+}
+
+}
+
+}
+
 @end

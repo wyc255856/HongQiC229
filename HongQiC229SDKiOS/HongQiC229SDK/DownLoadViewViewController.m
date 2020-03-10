@@ -85,7 +85,9 @@
     if (resumeData) {
         [self goOnDownLoad];
     }else{
-        [self.downloadTask3 suspend];
+        if (self.downloadTask3) {
+            [self.downloadTask3 suspend];
+        }
         [self createDownLoad3];
         [self.downloadTask3 resume];
     }
@@ -156,7 +158,9 @@
     } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
         if (error) {
             NSLog(@"download1 file failed : %@", [error description]);
-            [self->_downloadTask3 suspend];
+            if (self.downloadTask3) {
+                [self->_downloadTask3 suspend];
+            }
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self setUI:2];
             });
@@ -186,7 +190,10 @@
     } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
         if (error) {
             NSLog(@"download2 file failed : %@", [error description]);
-            [self->_downloadTask3 suspend];
+            if (self.downloadTask3) {
+                [self->_downloadTask3 suspend];
+            }
+            
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self setUI:2];
             });
