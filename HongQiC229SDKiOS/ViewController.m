@@ -26,20 +26,17 @@
     button.layer.borderWidth = 1.0;
     [self.view addSubview:button];
     
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification:) name:@"C229NotificationPortrait" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification:) name:@"C229NotificationPortrait" object:nil];
 
     
 }
 
 - (void)buttonClicked {
-    //HS7WelcomeViewController *vc = [[HS7WelcomeViewController alloc] initWithCarName:@"EV_1"];
-//    HS7WelcomeViewController *vc = [[HS7WelcomeViewController alloc] initWithCarName:@""];
-//    [self presentViewController:vc animated:YES completion:nil];
-//    AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-//    appDelegate.allowRotation = YES;//关闭横屏仅允许竖屏
-//    [appDelegate setNewOrientation:YES];//调用转屏代码
+    AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    appDelegate.allowRotation = YES;//关闭横屏仅允许竖屏
+    [appDelegate setNewOrientation:YES];//调用转屏代码
     C229LoadingViewController *vc = [[C229LoadingViewController alloc] init];
-    vc.modalPresentationStyle = 0;
+    //vc.modalPresentationStyle = 0;
     [self presentViewController:vc animated:NO completion:nil];
     
 }
