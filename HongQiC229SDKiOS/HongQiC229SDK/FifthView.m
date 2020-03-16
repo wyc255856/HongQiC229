@@ -143,6 +143,11 @@
     }
     [myTableView reloadData];
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (self) {
+        self.push(dataArr[indexPath.row]);
+    }
+}
 - (NSString *)removeSpaceAndNewline:(NSString *)str{
     
     NSString *temp = [str stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];

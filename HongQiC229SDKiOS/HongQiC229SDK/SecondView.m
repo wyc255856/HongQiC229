@@ -248,7 +248,7 @@
         NSString *str1 = everyGroupCountNum[tap+1];
         CGFloat xxx1 = [str1 floatValue];
         if (ySet>=xxx&&ySet&&ySet<xxx1) {
-            NSLog(@"------%d",tap);
+//            NSLog(@"------%d",tap);
             [self reSetLeftView:tap];
         }
         
@@ -288,8 +288,10 @@
             if (b.tag-1000==x) {
                 b.selected = YES;
                 NSString *imgName = [NSString stringWithFormat:@"secondLeft%d",x];
-               [selImage setImage:[self createImageByName:imgName]]; NSLog(@"%f---%f",leftScroll.contentOffset.y,b.frame.origin.y+48);
-                //
+                [selImage setImage:[self createImageByName:imgName]];
+                
+//            NSLog(@"%f---%f",leftScroll.contentOffset.y,b.frame.origin.y+48);
+                
                 [UIView animateWithDuration:0.5 animations:^{
                     [leftScroll setContentOffset:CGPointMake(0, b.frame.origin.y)];
                                                              }];

@@ -257,7 +257,7 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     CGFloat ySet = scrollView.contentOffset.y;
-    NSLog(@"%f",ySet);
+//    NSLog(@"%f",ySet);
     if (jianting==0) {
         return;
     }
@@ -289,7 +289,7 @@
         NSString *str1 = everyGroupCountNum[tap+1];
         CGFloat xxx1 = [str1 floatValue];
         if (ySet>=xxx&&ySet&&ySet<xxx1) {
-            NSLog(@"------%d",tap);
+//            NSLog(@"------%d",tap);
             [self reSetLeftView:tap];
         }
     }

@@ -41,7 +41,7 @@
     nowDeadLine = 10;
     restartIsShow = 0;
 }
-/*
+
 - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
         return UIInterfaceOrientationLandscapeRight;
 }
@@ -58,7 +58,7 @@
 -(BOOL)shouldAutorotate {
     return NO;
 }
- */
+ 
 - (void)setDataDic:(NSDictionary *)dataDic{
     [self setback];
     NSMutableArray *temArr = [NSMutableArray array];

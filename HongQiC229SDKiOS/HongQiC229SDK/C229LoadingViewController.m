@@ -115,7 +115,7 @@
                 NSURLRequest *request1 = [NSURLRequest requestWithURL:downloadURL1];
                 NSURLSessionDownloadTask *downloadTask1 =
                 [[C229CAR_AFHTTPSessionManager manager] downloadTaskWithRequest:request1 progress:^(NSProgress * _Nonnull downloadProgress) {
-                    NSLog(@"download progress : %.2f%%", 1.0f * downloadProgress.completedUnitCount / downloadProgress.totalUnitCount * 100);
+//                    NSLog(@"download progress : %.2f%%", 1.0f * downloadProgress.completedUnitCount / downloadProgress.totalUnitCount * 100);
                 } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
                     NSString *fileName = response.suggestedFilename;
                     //返回文件的最终存储路径
@@ -150,7 +150,7 @@
     NSURL *downloadURL2 = [NSURL URLWithString:catUrl];
     NSURLRequest *request2 = [NSURLRequest requestWithURL:downloadURL2];
     NSURLSessionDownloadTask *downloadTask2 = [[C229CAR_AFHTTPSessionManager manager] downloadTaskWithRequest:request2 progress:^(NSProgress * _Nonnull downloadProgress) {
-        NSLog(@"download progress : %.2f%%", 1.0f * downloadProgress.completedUnitCount / downloadProgress.totalUnitCount * 100);
+//        NSLog(@"download progress : %.2f%%", 1.0f * downloadProgress.completedUnitCount / downloadProgress.totalUnitCount * 100);
     } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
         NSString *fileName = @"229_category.json";
         //返回文件的最终存储路径

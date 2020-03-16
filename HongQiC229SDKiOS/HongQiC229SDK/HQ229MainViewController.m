@@ -138,7 +138,13 @@
     [myScrollView addSubview:forth];
     
     FifthView *fifth = [[FifthView alloc] initWithFrame:CGRectMake(kScreenWidth*4, 0, kScreenWidth, kScreenHeight-TopHeight)];
-    
+    fifth.push = ^(NSDictionary * dataDic) {
+        DetailViewController *detail = [[DetailViewController alloc] init];
+        self.definesPresentationContext = YES;
+        detail.modalPresentationStyle =UIModalPresentationOverFullScreen;
+        detail.dataDic = dataDic;
+        [self presentViewController:detail animated:YES completion:nil];
+    };
     [myScrollView addSubview:fifth];
 }
 - (void)closeAction{

@@ -51,7 +51,8 @@
     [self allShow];
     
     change = 1;
-    scroll.showsHorizontalScrollIndicator = NO;
+    
+    scroll.showsVerticalScrollIndicator = NO;
     return self;
     
 }
