@@ -27,7 +27,22 @@
     UIScrollView *myScrollView;
     UIWebView *web;
 }
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
+        return UIInterfaceOrientationLandscapeLeft;
+}
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Woverriding-method-mismatch"
+#pragma clang diagnostic ignored "-Wmismatched-return-types"
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
+#pragma clang diagnostic pop
+{
+    return UIInterfaceOrientationMaskLandscapeLeft;
+}
+
+-(BOOL)shouldAutorotate {
+    return NO;
+}
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -35,18 +50,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //横屏
-   // self.automaticallyAdjustsScrollViewInsets = NO;
-    
-//    if ( [[UIDevice currentDevice] respondsToSelector:@selector(setOrientation:)] ) {
-//        SEL selector = NSSelectorFromString(@"setOrientation:");
-//        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[UIDevice instanceMethodSignatureForSelector:selector]];
-//        [invocation setSelector:selector];
-//        [invocation setTarget:[UIDevice currentDevice]];
-//        int val = UIInterfaceOrientationLandscapeLeft;
-//        [invocation setArgument:&val atIndex:2];
-//        [invocation invoke];
-//    }
+
     //background
     UIImageView *backGround = [[UIImageView alloc] initWithFrame:self.view.bounds];
     [backGround setImage:[self createImageByName:@"homeBackground"]];

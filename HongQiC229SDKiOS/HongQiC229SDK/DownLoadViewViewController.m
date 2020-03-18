@@ -24,6 +24,22 @@
     
     NSData *resumeData;
 }
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
+        return UIInterfaceOrientationLandscapeLeft;
+}
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Woverriding-method-mismatch"
+#pragma clang diagnostic ignored "-Wmismatched-return-types"
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
+#pragma clang diagnostic pop
+{
+    return UIInterfaceOrientationMaskLandscapeLeft;
+}
+
+-(BOOL)shouldAutorotate {
+    return NO;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    _myPro.hidden = YES;
@@ -86,7 +102,7 @@
         [self goOnDownLoad];
     }else{
         if (self.downloadTask3) {
-            [self.downloadTask3 suspend];
+//            [self.downloadTask3 suspend];
         }
         [self createDownLoad3];
         [self.downloadTask3 resume];
@@ -159,7 +175,7 @@
         if (error) {
             NSLog(@"download1 file failed : %@", [error description]);
             if (self.downloadTask3) {
-                [self->_downloadTask3 suspend];
+//                [self->_downloadTask3 suspend];
             }
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self setUI:2];
@@ -191,7 +207,7 @@
         if (error) {
             NSLog(@"download2 file failed : %@", [error description]);
             if (self.downloadTask3) {
-                [self->_downloadTask3 suspend];
+//                [self->_downloadTask3 suspend];
             }
             
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -233,7 +249,7 @@
                 //手机自带网络
                 NSLog(@"当前使用的是2g/3g/4g网络");
                 if (self.downloadTask3) {
-                    [self.downloadTask3 suspend];
+//                    [self.downloadTask3 suspend];
                 }
                 [self setUI:4];
             }
