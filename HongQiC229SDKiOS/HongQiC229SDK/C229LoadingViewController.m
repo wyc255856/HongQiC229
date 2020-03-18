@@ -43,7 +43,9 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
+    UIImageView *back = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
+    [back setImage:[self createImageByName:@"c229loading"]];
+    [self.view addSubview:back];
 }
 
 - (void)viewDidLoad {
@@ -52,12 +54,7 @@
     fileNameArr = [NSMutableArray array];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(disMiss) name:@"dismiss" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(jumpMain) name:@"unziped" object:nil];
-    
 
-    // Do any additional setup after loading the view.
-    UIImageView *back = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
-    [back setImage:[self createImageByName:@"c229loading"]];
-    [self.view addSubview:back];
     
     NSUserDefaults *user =  [NSUserDefaults standardUserDefaults];
 
