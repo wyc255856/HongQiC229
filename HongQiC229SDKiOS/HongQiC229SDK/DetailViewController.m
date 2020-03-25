@@ -216,7 +216,7 @@
     UIImageView *image = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, myScroll.frame.size.width-62, (myScroll.frame.size.width-62)*theImage.size.height/theImage.size.width)];
     
     image.backgroundColor = [UIColor clearColor];
-    UIScrollView *imageScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(31, 0, myScroll.frame.size.width-62, myScroll.frame.size.height)];
+    UIScrollView *imageScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(31, 0, myScroll.frame.size.width-62+4, myScroll.frame.size.height)];
     [image setImage:theImage];
     imageScroll.contentSize = image.frame.size;
     imageScroll.indicatorStyle = UIScrollViewIndicatorStyleWhite;
