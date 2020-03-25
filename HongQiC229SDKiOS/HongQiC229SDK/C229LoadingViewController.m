@@ -65,7 +65,7 @@
             
             DownLoadViewViewController *vc = [[DownLoadViewViewController alloc] init];
             vc.myDic = responseObject;
-
+            
             [self presentViewController:vc animated:NO completion:nil];
 
         } enError:^(NSError * _Nonnull error) {

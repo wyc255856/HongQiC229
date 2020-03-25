@@ -113,6 +113,7 @@
     myScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 70, backView.frame.size.width, scrollHEIGHT)];
     myScroll.delegate = self;
     myScroll.showsHorizontalScrollIndicator = NO;
+    
     myScroll.contentSize = CGSizeMake(backView.frame.size.width*dataArr.count, scrollHEIGHT);
     myScroll.pagingEnabled = YES;
     pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake((backView.frame.size.width-100)/2, backView.frame.size.height - 50, 100, 30)];
@@ -154,10 +155,20 @@
     [web loadHTMLString:contentStr baseURL:nil];
     web.backgroundColor = [UIColor clearColor];
     web.opaque = NO; //不设置这个值 页面背景始终是白色
+    for (UIView *subView in [web subviews])
+    {
+        if ([subView isKindOfClass:[UIScrollView class]])
+        {
+            UIScrollView *sc = (UIScrollView *)subView;
+            sc.indicatorStyle = UIScrollViewIndicatorStyleWhite;
+            [sc setBounces:NO];
+        }
+    }
     web.delegate = self;
     [bk addSubview:web];
     
     [myScroll addSubview:bk];
+    
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
     //字体大小
@@ -177,6 +188,15 @@
     web.backgroundColor = [UIColor clearColor];
     web.opaque = NO; //不设置这个值 页面背景始终是白色
     web.delegate = self;
+    for (UIView *subView in [web subviews])
+    {
+        if ([subView isKindOfClass:[UIScrollView class]])
+        {
+            UIScrollView *sc = (UIScrollView *)subView;
+            sc.indicatorStyle = UIScrollViewIndicatorStyleWhite;
+            [sc setBounces:NO];
+        }
+    }
     [bk addSubview:web];
 }
 - (void)addTuPian:(int)xx{
@@ -199,9 +219,12 @@
     UIScrollView *imageScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(31, 0, myScroll.frame.size.width-62, myScroll.frame.size.height)];
     [image setImage:theImage];
     imageScroll.contentSize = image.frame.size;
+    imageScroll.indicatorStyle = UIScrollViewIndicatorStyleWhite;
+    [imageScroll setBounces:NO];
     [imageScroll addSubview:image];
     [bk addSubview:imageScroll];
     [myScroll addSubview:bk];
+    
 }
 - (void)addVideo{
     myScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 70, backView.frame.size.width, scrollHEIGHT)];
