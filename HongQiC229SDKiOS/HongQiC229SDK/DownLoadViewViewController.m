@@ -63,7 +63,7 @@
     [self.backImage setImage:[self createImageByName:@"downLoadBackGround.png"]];
     [self.backView addSubview:self.backImage];
     //title
-    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, height-72-112, width, 23)];
+    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, height-72-112-30, width, 23)];
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
     self.titleLabel.font = [UIFont systemFontOfSize:19];
     self.titleLabel.textColor = [UIColor whiteColor];
@@ -71,7 +71,10 @@
     //progress
     self.myPro = [[UIProgressView alloc] initWithFrame:CGRectMake(114, height-110-2, width-228, 2)];
     [self.backView addSubview:self.myPro];
-    
+    _cancelBtn = [[UIButton alloc] initWithFrame:CGRectMake((width-95)/2, height-72-112+23+50+30, 95, 30)];
+    [_cancelBtn setImage:[self createImageByName:@"downloadCancelBtn"] forState:UIControlStateNormal];
+    [_backView addSubview:_cancelBtn];
+    [_cancelBtn addTarget:self action:@selector(stopDownload) forControlEvents:UIControlEventTouchUpInside];
     //yes
     _YESBtn = [[UIButton alloc] initWithFrame:CGRectMake((width-78)/2-69, height-72-112+23+50, 69, 30)];
     [_YESBtn setBackgroundImage:[self createImageByName:@"Btn_N1"] forState:UIControlStateNormal];
@@ -92,8 +95,15 @@
     [self.backView addSubview:_reTry];
     
 }
+- (void)stopDownload{
+    [_downloadTask3 cancel];
+    [self dismissViewControllerAnimated:NO completion:^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"dismiss" object:nil];
+    }];
+}
 - (void)reTryAction{
     [_downloadTask3 resume];
+    _cancelBtn.hidden = NO;
     [self downLoad];
 }
 - (void)yesBtnAcTion{
@@ -102,10 +112,12 @@
         [self goOnDownLoad];
     }else{
         if (self.downloadTask3) {
-//            [self.downloadTask3 suspend];
+            //tagx
+            [self.downloadTask3 cancel];
         }
         [self createDownLoad3];
         [self.downloadTask3 resume];
+        _cancelBtn.hidden = NO;
     }
 }
 - (void)goOnDownLoad{
@@ -173,15 +185,16 @@
         return [NSURL fileURLWithPath:filePath];
     } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
         if (error) {
-            NSLog(@"download1 file failed : %@", [error description]);
+//            NSLog(@"download1 file failed : %@", [error description]);
             if (self.downloadTask3) {
-//                [self->_downloadTask3 suspend];
+                //tagx
+                [self->_downloadTask3 cancel];
             }
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self setUI:2];
             });
         }else {
-            NSLog(@"download1 file success");
+//            NSLog(@"download1 file success");
             [self->downLoad setValue:@"1" forKey:@"js1"];
             if ([self isDownloaded]) {
                 [self downLoadOK];
@@ -205,16 +218,17 @@
         return [NSURL fileURLWithPath:filePath];
     } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
         if (error) {
-            NSLog(@"download2 file failed : %@", [error description]);
+//            NSLog(@"download2 file failed : %@", [error description]);
             if (self.downloadTask3) {
-//                [self->_downloadTask3 suspend];
+                //tagx
+                [self.downloadTask3 cancel];
             }
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self setUI:2];
             });
         }else {
-            NSLog(@"download2 file success");
+//            NSLog(@"download2 file success");
             [self->downLoad setValue:@"1" forKey:@"js2"];
             if ([self isDownloaded]) {
                 [self downLoadOK];
@@ -249,7 +263,8 @@
                 //手机自带网络
                 NSLog(@"当前使用的是2g/3g/4g网络");
                 if (self.downloadTask3) {
-//                    [self.downloadTask3 suspend];
+                    //tagx
+                    [self.downloadTask3 suspend];
                 }
                 [self setUI:4];
             }
@@ -263,6 +278,7 @@
                     [self goOnDownLoad];
                 }else{
                     [self.downloadTask3 resume];
+                    _cancelBtn.hidden = NO;
                 }
                 
             }
@@ -304,17 +320,21 @@
     _NoBtn.hidden = YES;
     _myPro.hidden = NO;
     _reTry.hidden = YES;
+    _cancelBtn.hidden = YES;
     switch (x) {
         case 0:  //下载中
             self.titleLabel.text = @"正在下载资源包，请勿退出";
+            _cancelBtn.hidden = NO;
             break;
         case 1:  //解压中
         self.titleLabel.text = @"正在解压，请勿退出";
+            _cancelBtn.hidden = NO;
             break;
         case 2:  //断网
         self.titleLabel.text = @"当前网络断开，请检查网络...";
             _myPro.hidden = YES;
             _reTry.hidden =NO;
+            _cancelBtn.hidden = YES;
             break;
         case 3:  //验证资源
         self.titleLabel.text = @"正在验证资源文件完整性";
@@ -324,6 +344,7 @@
             _YESBtn.hidden = NO;
             _NoBtn.hidden = NO;
             _myPro.hidden = YES;
+            _cancelBtn.hidden = YES;
             break;
         default:
             break;

@@ -313,9 +313,6 @@
                 }
             }
         }
-    
-    //    NSString *imgName = [NSString stringWithFormat:@"left%ld",btn.tag-1000];
-    //    [selImage setImage:[self createImageByName:imgName]];
         
         
 }

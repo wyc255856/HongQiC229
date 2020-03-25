@@ -42,7 +42,7 @@
 //    [appDelegate setNewOrientation:YES];//调用转屏代码
 
     C229LoadingViewController *vc = [[C229LoadingViewController alloc] init];
-    //vc.modalPresentationStyle = 0;
+    vc.modalPresentationStyle = 0;
     [self presentViewController:vc animated:NO completion:nil];
     
 }

@@ -25,9 +25,6 @@
     UIImage *image = [UIImage imageWithContentsOfFile:file];
     
     NSLog(@"%@",file);
-//    if (!image) {
-//        image = [UIImage imageNamed:[NSString stringWithFormat:@"%@/%@",str,dic[@"image2"]]];
-//    }
     [self.image setImage:image];
 }
 @end

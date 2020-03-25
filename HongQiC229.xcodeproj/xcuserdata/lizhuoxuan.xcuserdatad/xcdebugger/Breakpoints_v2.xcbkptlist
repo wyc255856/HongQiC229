@@ -5,140 +5,17 @@
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
-         <BreakpointContent
-            uuid = "6235D939-6470-4DEB-BC9C-8A4635DB3A7C"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            scope = "1"
-            stopOnStyle = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3CB8825D-4792-4BE6-A2CA-641EBCE7DAB7"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HongQiC229SDKiOS/HongQiC229SDK/SecondView.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
-            landmarkName = "-leftBtnClick:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E27C3C37-4CE4-4F11-99AB-40E52B16F63A"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HongQiC229SDKiOS/HongQiC229SDK/ForthView.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "296"
-            endingLineNumber = "296"
-            landmarkName = "-scrollViewDidScroll:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9D01B5CD-1340-408A-8AC4-F48DF2926FD2"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HongQiC229SDKiOS/HongQiC229SDK/HQ229MainViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
-            landmarkName = "-setScrollView"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "9D01B5CD-1340-408A-8AC4-F48DF2926FD2 - 95e6a8da14ef6cc4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[HQ229MainViewController setScrollView]"
-                  moduleName = "HongQiC229"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lizhuoxuan/Desktop/229%E6%8B%B7%E8%B4%9D%E5%8C%85/HongQiC229/HongQiC229SDKiOS/HongQiC229SDK/HQ229MainViewController.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "145"
-                  endingLineNumber = "145"
-                  offsetFromSymbolStart = "7729">
-               </Location>
-               <Location
-                  uuid = "9D01B5CD-1340-408A-8AC4-F48DF2926FD2 - 2b06adab315e2f23"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__40-[HQ229MainViewController setScrollView]_block_invoke_4"
-                  moduleName = "HongQiC229"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lizhuoxuan/Desktop/229%E6%8B%B7%E8%B4%9D%E5%8C%85/HongQiC229/HongQiC229SDKiOS/HongQiC229SDK/HQ229MainViewController.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "145"
-                  endingLineNumber = "145"
-                  offsetFromSymbolStart = "12">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2AC6BAAF-BD57-4156-814F-1214C4A7B2E9"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HongQiC229SDKiOS/HongQiC229SDK/HQ229MainViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
-            landmarkName = "-setScrollView"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A0AD9D4E-660E-47DD-B7EB-FD5277026FD1"
+            uuid = "6E580353-7B55-48D4-BE11-5CDDF08CD8B6"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HongQiC229SDKiOS/HongQiC229SDK/DownLoadViewViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "321"
-            endingLineNumber = "321"
-            landmarkName = "-setUI:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "6B2D483F-3228-4CFF-814D-6E0EA3375E04"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HongQiC229SDKiOS/HongQiC229SDK/DownLoadViewViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "271"
-            endingLineNumber = "271"
+            startingLineNumber = "190"
+            endingLineNumber = "190"
             landmarkName = "-downLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -146,31 +23,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "47F18449-72A1-46DE-B32E-8E8F50D1862A"
+            uuid = "705BEAA3-61F0-44C7-9256-49828159BBAC"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HongQiC229SDKiOS/HongQiC229SDK/DownLoadViewViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "277"
-            endingLineNumber = "277"
-            landmarkName = "-zipLoad:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "6D1EC0EC-605F-4F56-9BF1-21E51CD54FF1"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HongQiC229SDKiOS/HongQiC229SDK/DownLoadViewViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
+            startingLineNumber = "223"
+            endingLineNumber = "223"
             landmarkName = "-downLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -178,15 +39,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DB63AB0F-406F-4999-8E63-165334447EF2"
+            uuid = "E77D01A0-6903-4B3A-9070-8F41C49605BC"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HongQiC229SDKiOS/HongQiC229SDK/DownLoadViewViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "191"
-            endingLineNumber = "191"
+            startingLineNumber = "266"
+            endingLineNumber = "266"
             landmarkName = "-downLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -194,384 +55,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8B320761-C6A5-4D11-93E8-ACE087607467"
+            uuid = "7D2DA963-A3E5-44BB-AE4C-3EDCD039CA84"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HongQiC229SDKiOS/HongQiC229SDK/DownLoadViewViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "374"
-            endingLineNumber = "374"
-            landmarkName = "-createDownLoad3"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A97978BE-0D16-420C-B35A-7649BE69EA31"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HongQiC229SDKiOS/HongQiC229SDK/DownLoadViewViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "351"
-            endingLineNumber = "351"
-            landmarkName = "-createImageByName:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "775EBAAB-1ED2-4F82-931F-FE2AD14D0CDD"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HongQiC229SDKiOS/HongQiC229SDK/C229LoadingViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
-            landmarkName = "-downLoadJson"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "761B47B8-B631-4C49-BE37-1145C36A07AD"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HongQiC229SDKiOS/HongQiC229SDK/C229LoadingViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
-            landmarkName = "-downLoadJson"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2DE834C9-AA9C-4055-B25E-075781C874E0"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HongQiC229SDKiOS/HongQiC229SDK/C229LoadingViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "174"
-            endingLineNumber = "174"
-            landmarkName = "-downLoadJson"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "356259AC-D41A-4D01-9696-626E46C8DADD"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HongQiC229SDKiOS/HongQiC229SDK/C229LoadingViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D231E9F8-70CB-4CBE-95B8-7DA9A83A15EC"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HongQiC229SDKiOS/HongQiC229SDK/C229LoadingViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "312"
-            endingLineNumber = "312"
-            landmarkName = "-createImageByName:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "5C9CA40F-9EE9-4A1E-98F7-CDF3A1838FE6"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HongQiC229SDKiOS/HongQiC229SDK/C229LoadingViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "267"
-            endingLineNumber = "267"
-            landmarkName = "-zipLoad:and:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "5C9CA40F-9EE9-4A1E-98F7-CDF3A1838FE6 - 37829379ef8971f2"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__41-[C229LoadingViewController zipLoad:and:]_block_invoke_2"
-                  moduleName = "HongQiC229"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lizhuoxuan/Desktop/229%E6%8B%B7%E8%B4%9D%E5%8C%85/HongQiC229/HongQiC229SDKiOS/HongQiC229SDK/C229LoadingViewController.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "267"
-                  endingLineNumber = "267"
-                  offsetFromSymbolStart = "1928">
-               </Location>
-               <Location
-                  uuid = "5C9CA40F-9EE9-4A1E-98F7-CDF3A1838FE6 - 37829379ef8971f2"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__41-[C229LoadingViewController zipLoad:and:]_block_invoke_2"
-                  moduleName = "HongQiC229"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lizhuoxuan/Desktop/229%E6%8B%B7%E8%B4%9D%E5%8C%85/HongQiC229/HongQiC229SDKiOS/HongQiC229SDK/C229LoadingViewController.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "267"
-                  endingLineNumber = "267"
-                  offsetFromSymbolStart = "1943">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "AE5D16C0-CD70-4900-BE65-2C37FFD8AF45"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HongQiC229SDKiOS/HongQiC229SDK/C229LoadingViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "183"
-            endingLineNumber = "183"
-            landmarkName = "-downLoadJson"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "AE5D16C0-CD70-4900-BE65-2C37FFD8AF45 - 4fe457c7147a10a8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__41-[C229LoadingViewController downLoadJson]_block_invoke_4"
-                  moduleName = "HongQiC229"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lizhuoxuan/Desktop/229%E6%8B%B7%E8%B4%9D%E5%8C%85/HongQiC229/HongQiC229SDKiOS/HongQiC229SDK/C229LoadingViewController.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "184"
-                  endingLineNumber = "184"
-                  offsetFromSymbolStart = "48">
-               </Location>
-               <Location
-                  uuid = "AE5D16C0-CD70-4900-BE65-2C37FFD8AF45 - 4fe457c7647a10af"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__41-[C229LoadingViewController downLoadJson]_block_invoke_5"
-                  moduleName = "HongQiC229"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lizhuoxuan/Desktop/229%E6%8B%B7%E8%B4%9D%E5%8C%85/HongQiC229/HongQiC229SDKiOS/HongQiC229SDK/C229LoadingViewController.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "185"
-                  endingLineNumber = "185"
-                  offsetFromSymbolStart = "83">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "88DA14CB-F1B1-4B02-B9CA-CC402B4F6D3F"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HongQiC229SDKiOS/HongQiC229SDK/C229LoadingViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "199"
-            endingLineNumber = "199"
-            landmarkName = "-downLoadJson"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "10558D8F-EDA2-4043-8738-36E424BAAF68"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HongQiC229SDKiOS/HongQiC229SDK/C229LoadingViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "207"
-            endingLineNumber = "207"
-            landmarkName = "-downLoadJson"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D2CD59F0-CC2D-43A8-ACA2-E80040685371"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HongQiC229SDKiOS/HongQiC229SDK/C229LoadingViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165"
-            landmarkName = "-downLoadJson"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "95946604-DCC1-4FEC-9FFB-D47E18759A21"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HongQiC229SDKiOS/HongQiC229SDK/C229LoadingViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
-            landmarkName = "-downLoadJson"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "EFE4818F-E831-48B5-9F10-679F23DA5020"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HongQiC229SDKiOS/HongQiC229SDK/DetailViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "-setDataDic:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "EB52BCBA-7D54-4CF2-BD35-BE1D01639E92"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HongQiC229SDKiOS/HongQiC229SDK/DownLoadViewViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
-            landmarkName = "-goOnDownLoad"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "01166E63-80DD-46CA-8428-93D4DA42FD30"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HongQiC229SDKiOS/HongQiC229SDK/FifthView.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
-            landmarkName = "-tableView:didSelectRowAtIndexPath:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "189EEB60-1EB7-42D0-8878-B26E328502B0"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HongQiC229SDKiOS/HongQiC229SDK/SecondView.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "283"
-            endingLineNumber = "283"
-            landmarkName = "-reSetLeftView:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "189EEB60-1EB7-42D0-8878-B26E328502B0 - 28dec3b711957ff6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[SecondView reSetLeftView:]"
-                  moduleName = "HongQiC229"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lizhuoxuan/Desktop/229%E6%8B%B7%E8%B4%9D%E5%8C%85/HongQiC229/HongQiC229SDKiOS/HongQiC229SDK/SecondView.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "284"
-                  endingLineNumber = "284"
-                  offsetFromSymbolStart = "48">
-               </Location>
-               <Location
-                  uuid = "189EEB60-1EB7-42D0-8878-B26E328502B0 - 28dec3b711957ff6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[SecondView reSetLeftView:]"
-                  moduleName = "HongQiC229"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lizhuoxuan/Desktop/229%E6%8B%B7%E8%B4%9D%E5%8C%85/HongQiC229/HongQiC229SDKiOS/HongQiC229SDK/SecondView.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "284"
-                  endingLineNumber = "284"
-                  offsetFromSymbolStart = "77">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "6C216554-C447-423F-B4B0-F517392CE70E"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HongQiC229SDKiOS/HongQiC229SDK/DownLoadViewViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "336"
-            endingLineNumber = "336"
-            landmarkName = "-isDownloaded"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "-yesBtnAcTion"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

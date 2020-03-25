@@ -138,6 +138,7 @@
 - (void)addTuWen:(int)index{
     UIView *bk = [[UIView alloc] initWithFrame:CGRectMake((index-1)*myScroll.frame.size.width, 0, myScroll.frame.size.width, myScroll.frame.size.height)];
     UIImageView *image = [[UIImageView alloc]initWithFrame:CGRectMake(31, 0, scrollHEIGHT, scrollHEIGHT)];
+    image.layer.cornerRadius = 10;
     image.backgroundColor = [UIColor clearColor];
     NSString *key = [NSString stringWithFormat:@"image%d",index];
     NSString *iPath = [NSString stringWithFormat:@"%@",allDic[key]];
@@ -209,10 +210,11 @@
     
     pageControl.hidden = YES;
 
-    NSString *iPath = @"images/2019-03-12/5c870f97c6e23.mp4";
+    NSString *iPath = [NSString stringWithFormat:@"%@",_dataDic[@"video1"]];
+    NSString *avPath = [iPath stringByReplacingOccurrencesOfString:@"HONGQIH9/standard/" withString:@""];
     NSString *str = [[NSUserDefaults standardUserDefaults] objectForKey:@"localResource"];
-    NSString *file = [NSString stringWithFormat:@"%@/%@",str,iPath];
-    file = [file stringByReplacingOccurrencesOfString:@"HONGQIH9/standard/" withString:@""];
+    NSString *file = [NSString stringWithFormat:@"%@/%@",str,avPath];
+//    file = [file stringByReplacingOccurrencesOfString:@"HONGQIH9/standard/" withString:@""];
     NSURL *url = [NSURL fileURLWithPath:file];
 
     self.item = [AVPlayerItem playerItemWithURL:url];
