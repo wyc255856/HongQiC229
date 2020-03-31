@@ -122,6 +122,9 @@
     pageControl.numberOfPages = dataArr.count;
     [backView addSubview:myScroll];
     [backView addSubview:pageControl];
+    if (dataArr.count==1) {
+        pageControl.hidden = YES;
+    }
     for (int i = 1; i<=dataArr.count; i++) {
         NSString *type = dataArr[i-1];
         if ([type isEqualToString:@"0"]) {
@@ -228,12 +231,18 @@
 }
 - (void)addVideo{
     myScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 70, backView.frame.size.width, scrollHEIGHT)];
-    [backView addSubview:myScroll];
-    
+
+//    [backView addSubview:myScroll];
+    for (UIView *view in self.view.subviews) {
+        [view removeFromSuperview];
+    }
+    UIView *black = [[UIView alloc] initWithFrame:self.view.bounds];
+    black.backgroundColor = [UIColor blackColor];
+    [self.view addSubview:black];
     
     pageControl.hidden = YES;
 
-    NSString *iPath = [NSString stringWithFormat:@"%@",_dataDic[@"video1"]];
+    NSString *iPath = [NSString stringWithFormat:@"%@",allDic[@"video1"]];
     NSString *avPath = [iPath stringByReplacingOccurrencesOfString:@"HONGQIH9/standard/" withString:@""];
     NSString *str = [[NSUserDefaults standardUserDefaults] objectForKey:@"localResource"];
     NSString *file = [NSString stringWithFormat:@"%@/%@",str,avPath];

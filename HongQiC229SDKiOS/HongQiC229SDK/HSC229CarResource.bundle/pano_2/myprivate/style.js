@@ -21,9 +21,13 @@
 	//判断全景图加载完毕 执行自己的代码
 	pano.on("imagesready", function() {
 		myprivate()
-		
+		// $('.loding').hide()
+		var loading = setTimeout(function(){
+			$('.loding').hide()
+			console.log("clearTimeout");
+			clearTimeout(loading)
+		},2000)
 		console.log("Panorama imagesready!");
-		$('.loding').hide()
 	});
 
 	// console.log(pano.getIsLoaded())
@@ -32,7 +36,7 @@
 		// pano.getPan()
 		// console.log(pano.isTouching())//当前是否在移动设备上触摸了全景播放器
 		// console.log(pano.getLastVisitedNode())
-
+		// $('.loding').hide()
 	});
 
 

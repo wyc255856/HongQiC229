@@ -95,6 +95,7 @@
     leftScroll.showsVerticalScrollIndicator = NO;
     leftScroll.contentSize = CGSizeMake(128, 48*12);
     [self addSubview: leftScroll];
+    
     [leftScroll addSubview: selImage];
     
     for (int i = 0; i < cateGGArr.count; i++) {
@@ -129,7 +130,9 @@
     [selImage setImage:[self createImageByName:imgName]];
     NSIndexPath *index = [NSIndexPath indexPathForRow:0 inSection:btn.tag-1000];
     [myCollection scrollToItemAtIndexPath:index atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:YES];
+    [self leftViewScrollTo:btn.tag];
     btn.selected = YES;
+    
 }
 - (NSDictionary *)readLocalFileWithName:(NSString *)name {
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];
@@ -220,7 +223,7 @@
         return;
     }
     CGFloat ySet = scrollView.contentOffset.y;
-//    NSLog(@"%f",ySet);
+    
     NSMutableArray *everyGroupCountNum = [NSMutableArray array];
     
     for (NSString *id in leftArr) {
@@ -260,6 +263,7 @@
     
     
 }
+
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
     jianting = 1;
     
@@ -290,31 +294,40 @@
                 NSString *imgName = [NSString stringWithFormat:@"secondLeft%d",x];
                 [selImage setImage:[self createImageByName:imgName]];
                 
-//            NSLog(@"%f---%f",leftScroll.contentOffset.y,b.frame.origin.y+48);
+            NSLog(@"%f---%f",leftScroll.contentOffset.y,b.frame.origin.y+48);
                 
-                [UIView animateWithDuration:0.5 animations:^{
-                    [leftScroll setContentOffset:CGPointMake(0, b.frame.origin.y)];
-                                                             }];
-                
-                //
-                if (b.frame.origin.y+48>300) {
-                    
-                    [UIView animateWithDuration:0.5 animations:^{
-                        if (b.frame.origin.y+50>leftScroll.contentSize.width-300) {
-
-                            [leftScroll setContentOffset:CGPointMake(0, leftScroll.contentSize.height-300)];
-                            
-                        }else{
-                            [leftScroll setContentOffset:CGPointMake(0, b.frame.origin.y+50)];
-                            
-                        }
-                    }];
-                    
-                }
+                [self leftViewScrollTo:b.tag];
             }
         }
         
         
+}
+- (void)leftViewScrollTo:(NSInteger)x{
+    UIButton *b ;
+    for (UIButton *btn in leftScroll.subviews) {
+        if (btn.tag==x) {
+            b = btn;
+        }
+    }
+    NSLog(@"%f---%f",leftScroll.contentOffset.y,b.frame.origin.y+48);
+        
+    if (b.frame.origin.y-140<=0) {
+        [UIView animateWithDuration:0.5 animations:^{
+        [leftScroll setContentOffset:CGPointMake(0, 0)];
+        }];
+    }else if (b.frame.origin.y-140>=leftScroll.contentSize.height-300){
+        [UIView animateWithDuration:0.5 animations:^{
+        [leftScroll setContentOffset:CGPointMake(0, leftScroll.contentSize.height-300)];
+        }];
+    }
+    else{
+        [UIView animateWithDuration:0.5 animations:^{
+        [leftScroll setContentOffset:CGPointMake(0, b.frame.origin.y-140)];
+        }];
+    }
+        
+        
+    
 }
 -(UIImage *) createImageByName:(NSString*)sName{
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];

@@ -21,7 +21,7 @@
     float jindu;
     NSString *zipLocal;
     NSMutableDictionary *downLoad;
-    
+    int all4g;
     NSData *resumeData;
 }
 - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
@@ -43,6 +43,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    _myPro.hidden = YES;
+    all4g = 0;
     downLoad = [NSMutableDictionary dictionary];
     _YESBtn.hidden = YES;
     _NoBtn.hidden = YES;
@@ -107,6 +108,7 @@
     [self downLoad];
 }
 - (void)yesBtnAcTion{
+    all4g = 1;
     [self setUI:0];
     if (resumeData) {
         [self goOnDownLoad];
@@ -262,9 +264,12 @@
             {
                 //手机自带网络
                 NSLog(@"当前使用的是2g/3g/4g网络");
+                if (self->all4g == 1) {
+                    break;
+                }
                 if (self.downloadTask3) {
                     //tagx
-                    [self.downloadTask3 suspend];
+//                    [self.downloadTask3 cancel];
                 }
                 [self setUI:4];
             }
@@ -309,6 +314,7 @@
             [self->downLoad setValue:@"1" forKey:@"zip"];
             if ([self isDownloaded]) {
                 [self downLoadOK];
+                
             }
         }
     }];
@@ -401,10 +407,15 @@
             NSLog(@"download3 file failed : %@", [error description]);
             self->resumeData = [error.userInfo objectForKey:@"NSURLSessionDownloadTaskResumeData"];
             NSLog(@"%@",self->resumeData);
+            NSString *errorDes = [NSString stringWithFormat:@"%@",error.userInfo[@"NSLocalizedDescription"]];
+            if ([errorDes isEqualToString:@"cancelled"]) {
+                
+            }else{
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self setUI:2];
+                });
+            }
             
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self setUI:2];
-            });
         }else {
             NSLog(@"download3 file success");
             NSLog(@"%@",filePath);
