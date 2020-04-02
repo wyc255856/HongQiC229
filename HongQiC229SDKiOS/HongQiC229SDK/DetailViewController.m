@@ -77,9 +77,17 @@
 
     
     UIButton *closeBtn = [[UIButton alloc] initWithFrame:CGRectMake(16, 19, 21, 19)];
-    [closeBtn setImage:[self createImageByName:@"neirongguanbianniu"] forState:UIControlStateNormal];
+//    [closeBtn setImage:[self createImageByName:@"neirongguanbianniu"] forState:UIControlStateNormal];
+    UIImageView *closeImg = [[UIImageView alloc] initWithFrame:CGRectMake(16, 19, 13, 20)];
+    [closeImg setImage:[self createImageByName:@"neirongguanbianniu"]];
+    [backView addSubview:closeImg];
     [closeBtn addTarget:self action:@selector(closeAction) forControlEvents:UIControlEventTouchUpInside];
     [backView addSubview:closeBtn];
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(16+13+8, 19, 200, 20)];
+    titleLabel.textColor = [UIColor whiteColor];
+    titleLabel.font = [UIFont systemFontOfSize:18];
+    titleLabel.text = allDic[@"title"];
+    [backView addSubview:titleLabel];
     
 }
 - (void)setback{
@@ -269,9 +277,19 @@
     [self.view addSubview:_right];
     [self.view addSubview:_left];
     UIButton *closeBtn = [[UIButton alloc] initWithFrame:CGRectMake(16, 19, 21, 19)];
-    [closeBtn setImage:[self createImageByName:@"neirongguanbianniu"] forState:UIControlStateNormal];
+//    [closeBtn setImage:[self createImageByName:@"neirongguanbianniu"] forState:UIControlStateNormal];
+    UIImageView *closeImg = [[UIImageView alloc] initWithFrame:CGRectMake(16, 19, 13, 20)];
+    [closeImg setImage:[self createImageByName:@"neirongguanbianniu"]];
+    [self.view addSubview:closeImg];
     [closeBtn addTarget:self action:@selector(closeAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:closeBtn];
+    
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(16+13+8, 19, 200, 20)];
+    titleLabel.textColor = [UIColor whiteColor];
+    titleLabel.font = [UIFont systemFontOfSize:18];
+    titleLabel.text = allDic[@"title"];
+    [self.view addSubview:titleLabel];
+    
     __weak __typeof(self) weakSelf = self;
     _myTimeObserve = [self.myPlayer addPeriodicTimeObserverForInterval:CMTimeMake(1, 60) queue:NULL usingBlock:^(CMTime time) {
 

@@ -84,6 +84,7 @@
 		53B6024C21002819000DAC14 /* Default-568h.png in Resources */ = {isa = PBXBuildFile; fileRef = 53B6024721002819000DAC14 /* Default-568h.png */; };
 		53B6024D21002819000DAC14 /*  Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53B6024821002819000DAC14 /*  Default@2x.png */; };
 		53B6024E210028DE000DAC14 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53B601BB20FF3DDE000DAC14 /* LaunchScreen.storyboard */; };
+		744F65E124347A78007E7C11 /* C229SectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 744F65E024347A78007E7C11 /* C229SectionHeader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -248,6 +249,8 @@
 		53B6024621002818000DAC14 /* Default-Landscape-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape-736h@3x.png"; sourceTree = "<group>"; };
 		53B6024721002819000DAC14 /* Default-568h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h.png"; sourceTree = "<group>"; };
 		53B6024821002819000DAC14 /*  Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = " Default@2x.png"; sourceTree = "<group>"; };
+		744F65DF24347A78007E7C11 /* C229SectionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = C229SectionHeader.h; sourceTree = "<group>"; };
+		744F65E024347A78007E7C11 /* C229SectionHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = C229SectionHeader.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -442,6 +445,8 @@
 				53AEC7E523FE7AE90076BECD /* C229LoadingViewController.h */,
 				53AEC7E623FE7AE90076BECD /* ForthCollectionViewCell.m */,
 				53AEC7E723FE7AE90076BECD /* SecondView.m */,
+				744F65DF24347A78007E7C11 /* C229SectionHeader.h */,
+				744F65E024347A78007E7C11 /* C229SectionHeader.m */,
 				53AEC7E823FE7AE90076BECD /* ShanShuoView.m */,
 				53AEC7E923FE7AE90076BECD /* ForthView.h */,
 				53AEC7EB23FE7AE90076BECD /* AppManager.m */,
@@ -621,6 +626,7 @@
 				53AEC89123FE7AE90076BECD /* FifthView.m in Sources */,
 				5310EDC22404042E00EE0707 /* C229CAR_MASViewConstraint.m in Sources */,
 				5310ED7C2403EE1A00EE0707 /* C229CAR_SSZipArchive.m in Sources */,
+				744F65E124347A78007E7C11 /* C229SectionHeader.m in Sources */,
 				5310EDC12404042E00EE0707 /* NSArray+C229CAR_MASAdditions.m in Sources */,
 				5310EDF12404FCDF00EE0707 /* CLRotateAnimationView.m in Sources */,
 				5310EE7A240666E200EE0707 /* C229CAR_AFImageDownloader.m in Sources */,

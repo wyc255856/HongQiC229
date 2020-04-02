@@ -10,6 +10,7 @@
 #import "AppFaster.h"
 #import "ForthCollectionViewCell.h"
 #import "SecondTableViewCell.h"
+#import "C229SectionHeader.h"
 @implementation SecondView
 {
     UIImageView *selImage;
@@ -165,7 +166,7 @@
     layout.minimumLineSpacing = 5.0;
     layout.minimumInteritemSpacing = 5.0;
     layout.sectionInset = UIEdgeInsetsMake(5.0, 5.0, 5.0, 5.0);
-    
+//    layout.headerReferenceSize = CGSizeMake(kScreenWidth-50-80-10, 50);
     myCollection = [[UICollectionView alloc] initWithFrame:CGRectMake(50+80, 33, kScreenWidth-50-80-10, self.frame.size.height-33-33) collectionViewLayout:layout];
     myCollection.backgroundColor = [UIColor clearColor];
     myCollection.delegate = self;
@@ -176,7 +177,7 @@
     NSURL *bundleURL = [bundle URLForResource:@"HSC229CarResource" withExtension:@"bundle"];
     NSBundle *resourceBundle = [NSBundle bundleWithURL: bundleURL];
     [[resourceBundle loadNibNamed:@"ForthCollectionViewCell" owner:self options:nil] lastObject];
-     
+     [myCollection registerClass:[C229SectionHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier: @"C229SectionHeader"];
     [myCollection registerNib:[UINib nibWithNibName:@"ForthCollectionViewCell" bundle:resourceBundle] forCellWithReuseIdentifier:@"ForthCollectionViewCell"];
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
@@ -217,7 +218,22 @@
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
     return 5;
 }
+- (UICollectionReusableView *) collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionReusableView *reusableview = nil;
+    
+    if (kind == UICollectionElementKindSectionHeader)
+    {
+        C229SectionHeader *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"C229SectionHeader" forIndexPath:indexPath];
+        headerView.titleLabel.text = @"xxx";
+        
+        reusableview = headerView;
+    }
+    
 
+    
+    return reusableview;
+}
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     if (jianting == 0) {
         return;
@@ -337,4 +353,5 @@
     UIImage *image =  resourceBundle?[UIImage imageNamed:resName inBundle:resourceBundle compatibleWithTraitCollection:nil]:[UIImage imageNamed:resName];
     return image;
 }
+
 @end
