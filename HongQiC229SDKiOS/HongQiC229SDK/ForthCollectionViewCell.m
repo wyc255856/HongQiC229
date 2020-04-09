@@ -23,7 +23,7 @@
   
     NSString *file = [NSString stringWithFormat:@"%@/%@",str,imageStr];
     UIImage *image = [UIImage imageWithContentsOfFile:file];
-    
+    self.image.backgroundColor = [UIColor blueColor];
     NSLog(@"%@",file);
     [self.image setImage:image];
 }

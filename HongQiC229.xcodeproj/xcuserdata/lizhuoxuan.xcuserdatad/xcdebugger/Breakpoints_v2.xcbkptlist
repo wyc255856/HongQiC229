@@ -7,7 +7,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
          <BreakpointContent
-            uuid = "F309F4AE-2023-4CFF-BCA2-24DFCC08A5BE"
+            uuid = "31FD7931-9AAB-42BC-8590-E854B5FD6345"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -18,16 +18,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3A127667-DC7E-4205-B919-5BF140591682"
+            uuid = "E8715B22-06E7-4F29-A6B9-D7426EBE1478"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HongQiC229SDKiOS/HongQiC229SDK/C229LoadingViewController.m"
+            filePath = "HongQiC229SDKiOS/HongQiC229SDK/SecondView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
-            landmarkName = "-viewDidLoad"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
+            landmarkName = "-leftBtnClick:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -10,6 +10,7 @@
 #import "AppFaster.h"
 #import "ForthCollectionViewCell.h"
 #import "DetailViewController.h"
+#import "C229SectionHeader.h"
 @implementation ForthView
 {
     UIImageView *selImage;
@@ -167,7 +168,7 @@
     layout.minimumInteritemSpacing = 5.0;
     layout.sectionInset = UIEdgeInsetsMake(5.0, 5.0, 5.0, 5.0);
     
-    myCollection = [[UICollectionView alloc] initWithFrame:CGRectMake(50+80, 33, kScreenWidth-50-80-10, self.frame.size.height-33-33) collectionViewLayout:layout];
+    myCollection = [[UICollectionView alloc] initWithFrame:CGRectMake(50+80, 33, kScreenWidth-50-80-10, self.frame.size.height-33-33+40) collectionViewLayout:layout];
     myCollection.backgroundColor = [UIColor clearColor];
     myCollection.delegate = self;
     myCollection.dataSource = self;
@@ -177,6 +178,7 @@
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];
     NSURL *bundleURL = [bundle URLForResource:@"HSC229CarResource" withExtension:@"bundle"];
     NSBundle *resourceBundle = [NSBundle bundleWithURL: bundleURL];
+    [myCollection registerClass:[C229SectionHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier: @"C229SectionHeader"];
     [[resourceBundle loadNibNamed:@"ForthCollectionViewCell" owner:self options:nil] lastObject];
      
     [myCollection registerNib:[UINib nibWithNibName:@"ForthCollectionViewCell" bundle:resourceBundle] forCellWithReuseIdentifier:@"ForthCollectionViewCell"];
@@ -204,19 +206,33 @@
 
 //header的大小
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-    if (section==0) {
-        return CGSizeMake(100, 20);
-    }else{
-        return CGSizeZero;
-    }
+   
+    return CGSizeMake(100, 50);
     
 }
+- (UICollectionReusableView *) collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionReusableView *reusableview = nil;
 
+//    if (kind == UICollectionElementKindSectionHeader)
+//    {
+        C229SectionHeader *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"C229SectionHeader" forIndexPath:indexPath];
+
+        NSDictionary *dic = leftArr[indexPath.section];
+
+        headerView.titleLabel.text = [NSString stringWithFormat:@"%@",dic[@"catname"]];
+        reusableview = headerView;
+//    }
+
+
+
+    return reusableview;
+}
 //footer的大小
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section{
     
     if (section==4) {
-        return CGSizeMake(100, 20);
+        return CGSizeMake(100, 30);
     }else{
         return CGSizeZero;
     }

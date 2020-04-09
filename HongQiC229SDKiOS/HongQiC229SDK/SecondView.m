@@ -21,6 +21,7 @@
     UITableView *leftTableView;
     NSMutableArray *cateGGArr;
     UIScrollView *leftScroll;
+    NSMutableArray *everyXY;
 }
 - (id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
@@ -121,6 +122,28 @@
 }
 - (void)leftBtnClick:(UIButton *)btn
 {
+    NSMutableArray *everyGroupCountNum = [NSMutableArray array];
+    
+    for (NSString *id in leftArr) {
+        NSArray *everyArr = [allDic objectForKey:id];
+        int count = everyArr.count/4;
+        if (everyArr.count%4>0) {
+            count = count+1;
+        }
+        CGFloat they = count *98.00+50;
+        NSString *str;
+        if (everyGroupCountNum.count>0) {
+            str = [NSString stringWithFormat:@"%.2f",they+[[everyGroupCountNum lastObject] floatValue]];
+        }else{
+            str = [NSString stringWithFormat:@"%.2f",they];
+        }
+        
+        [everyGroupCountNum addObject:str];
+    }
+    NSString *one = @"0.00";
+    [everyGroupCountNum insertObject:one atIndex:0];
+    everyXY = everyGroupCountNum;
+    
     jianting = 0;
     for (UIButton *b in leftScroll.subviews) {
         if ([b isKindOfClass:[UIButton class]]) {
@@ -130,7 +153,10 @@
     NSString *imgName = [NSString stringWithFormat:@"secondLeft%ld",btn.tag-1000];
     [selImage setImage:[self createImageByName:imgName]];
     NSIndexPath *index = [NSIndexPath indexPathForRow:0 inSection:btn.tag-1000];
-    [myCollection scrollToItemAtIndexPath:index atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:YES];
+//    [myCollection scrollToItemAtIndexPath:index atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:YES];
+    NSString *yStr = [everyXY objectAtIndex:btn.tag-1000];
+    CGFloat yyy = [yStr floatValue];
+    [myCollection setContentOffset:CGPointMake(0, yyy) animated:YES];
     [self leftViewScrollTo:btn.tag];
     btn.selected = YES;
     
@@ -165,9 +191,10 @@
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
     layout.minimumLineSpacing = 5.0;
     layout.minimumInteritemSpacing = 5.0;
-    layout.sectionInset = UIEdgeInsetsMake(5.0, 5.0, 5.0, 5.0);
-//    layout.headerReferenceSize = CGSizeMake(kScreenWidth-50-80-10, 50);
-    myCollection = [[UICollectionView alloc] initWithFrame:CGRectMake(50+80, 33, kScreenWidth-50-80-10, self.frame.size.height-33-33) collectionViewLayout:layout];
+//    layout.sectionInset = UIEdgeInsetsMake(5.0, 5.0, 5.0, 5.0);
+    layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    layout.headerReferenceSize = CGSizeMake(kScreenWidth-50-80-10, 50);
+    myCollection = [[UICollectionView alloc] initWithFrame:CGRectMake(50+80, 33, kScreenWidth-50-80-10, self.frame.size.height-33-33+40) collectionViewLayout:layout];
     myCollection.backgroundColor = [UIColor clearColor];
     myCollection.delegate = self;
     myCollection.dataSource = self;
@@ -178,6 +205,7 @@
     NSBundle *resourceBundle = [NSBundle bundleWithURL: bundleURL];
     [[resourceBundle loadNibNamed:@"ForthCollectionViewCell" owner:self options:nil] lastObject];
      [myCollection registerClass:[C229SectionHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier: @"C229SectionHeader"];
+    
     [myCollection registerNib:[UINib nibWithNibName:@"ForthCollectionViewCell" bundle:resourceBundle] forCellWithReuseIdentifier:@"ForthCollectionViewCell"];
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
@@ -218,20 +246,39 @@
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
     return 5;
 }
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
+    if (section==0) {
+        return CGSizeMake(100, 50);
+    }else{
+        return CGSizeMake(100, 50);
+    }
+    
+}
+//footer的大小
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section{
+    
+    if (section==11) {
+        return CGSizeMake(100, 30);
+    }else{
+        return CGSizeZero;
+    }
+}
 - (UICollectionReusableView *) collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionReusableView *reusableview = nil;
-    
-    if (kind == UICollectionElementKindSectionHeader)
-    {
-        C229SectionHeader *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"C229SectionHeader" forIndexPath:indexPath];
-        headerView.titleLabel.text = @"xxx";
-        
-        reusableview = headerView;
-    }
-    
 
-    
+//    if (kind == UICollectionElementKindSectionHeader)
+//    {
+        C229SectionHeader *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"C229SectionHeader" forIndexPath:indexPath];
+
+        NSDictionary *dic = cateGGArr[indexPath.section];
+
+        headerView.titleLabel.text = [NSString stringWithFormat:@"%@",dic[@"catname"]];
+        reusableview = headerView;
+//    }
+
+
+
     return reusableview;
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
@@ -248,7 +295,7 @@
         if (everyArr.count%4>0) {
             count = count+1;
         }
-        CGFloat they = count *85.00;
+        CGFloat they = count *98.00+50;
         NSString *str;
         if (everyGroupCountNum.count>0) {
             str = [NSString stringWithFormat:@"%.2f",they+[[everyGroupCountNum lastObject] floatValue]];
@@ -260,6 +307,7 @@
     }
     NSString *one = @"0.00";
     [everyGroupCountNum insertObject:one atIndex:0];
+    everyXY = everyGroupCountNum;
     for (int tap = 0; tap<everyGroupCountNum.count-1; tap++) {
         NSString *str = everyGroupCountNum[tap];
         CGFloat xxx = [str floatValue];
