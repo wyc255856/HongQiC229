@@ -22,11 +22,11 @@
 	pano.on("imagesready", function() {
 		myprivate()
 		// $('.loding').hide()
-		var loading = setTimeout(function(){
+		var loading = setTimeout(function() {
 			$('.loding').hide()
 			console.log("clearTimeout");
 			clearTimeout(loading)
-		},2000)
+		}, 2000)
 		console.log("Panorama imagesready!");
 	});
 
@@ -139,36 +139,55 @@
 
 
 
-
-		//安卓端传数据
+		//安卓ios传数据
 		function doJsTest(type) {
+			var u = navigator.userAgent,
+				app = navigator.appVersion;
+			var isXiaomi = u.indexOf('XiaoMi') > -1; // 小米手机
+			var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; // 其它安卓
+			var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); // ios
 			console.log(type)
-			if (isAndroid()) {
-				window.Android.JsTest(type)
-			} else {
+			console.log(u)
+			if (isIOS) {
 				//JS给OC传值。'JsTest'为双方自定义的统一方法名；'type'为要传的值； response为OC收到后给JS的回调
 				// bridge.callHandler('JsTest', type)
 				//  "objc://"为自定义协议头;
 				window.location.href = "objc://JsTest=" + type;
+			} else {
+				// 安卓
+				window.Android.JsTest(type)
 			}
 		}
 
-		// 判断安卓
-		function isAndroid() {
-			var u = navigator.userAgent;
-			if (u.indexOf("Android") > -1 || u.indexOf("Linux") > -1) {
-				if (window.ShowFitness !== undefined) return true;
-			}
-			return false;
-		}
-		// 判断设备为 ios
-		function isIos() {
-			var u = navigator.userAgent;
-			if (u.indexOf("iPhone") > -1 || u.indexOf("iOS") > -1) {
-				return true;
-			}
-			return false;
-		}
+		//安卓端传数据
+		// function doJsTest(type) {
+		// 	console.log(type)
+		// 	if (isIos()) {
+		// 		//JS给OC传值。'JsTest'为双方自定义的统一方法名；'type'为要传的值； response为OC收到后给JS的回调
+		// 		// bridge.callHandler('JsTest', type)
+		// 		//  "objc://"为自定义协议头;
+		// 		window.location.href = "objc://JsTest=" + type;
+		// 	} else {
+		// 		window.Android.JsTest(type)
+		// 	}
+		// }
+
+		// // 判断安卓
+		// function isAndroid() {
+		// 	var u = navigator.userAgent;
+		// 	if (u.indexOf("Android") > -1 || u.indexOf("Linux") > -1) {
+		// 		if (window.ShowFitness !== undefined) return true;
+		// 	}
+		// 	return false;
+		// }
+		// // 判断设备为 ios
+		// function isIos() {
+		// 	var u = navigator.userAgent;
+		// 	if (u.indexOf("iPhone") > -1 || u.indexOf("iOS") > -1) {
+		// 		return true;
+		// 	}
+		// 	return false;
+		// }
 	}
 
 

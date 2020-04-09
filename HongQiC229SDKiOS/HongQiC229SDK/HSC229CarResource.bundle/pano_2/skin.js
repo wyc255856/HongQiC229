@@ -1,7 +1,7 @@
 // Garden Gnome Software - Skin
 // Pano2VR 6.0.6/17336
 // Filename: car.ggsk
-// Generated 2020-04-01T11:33:09
+// Generated 2020-04-09T10:02:26
 
 function pano2vrSkin(player,base) {
 	var me=this;

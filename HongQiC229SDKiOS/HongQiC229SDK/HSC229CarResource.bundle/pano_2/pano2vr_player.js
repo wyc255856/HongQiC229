@@ -6919,20 +6919,20 @@ var W = !1;
 				var b = this.qe(),
 					d = !1;
 				this.bf && this.zh();
+				//新加  touchend 触摸 抬起事件
+				     console.log(this.zc(this.pb))
+				     if (this.zc(this.pb)) {
+				     	var anim = document.getElementsByClassName('anim')[0];
+				    	 if (typeof anim != 'undefined') {
+				       		 anim.parentNode.removeChild(anim);
+				      	   }
+				     }
 				if (!this.C.Ab) {
 					this.P.Ya && (a.preventDefault(), this.wa());
 					var f = (new Date).getTime();
 					var g = void 0;
 					var h = !1;
 					g = Math.abs(this.P.start.x - this.P.ea.x) + Math.abs(this.P.start.y - this.P.ea.y);
-					     console.log(this.zc(this.pb))
-					     if (this.zc(this.pb)) {
-					     	var anim = document.getElementsByClassName('anim')[0];
-					    	 if (typeof anim != 'undefined') {
-					       		 anim.parentNode.removeChild(anim);
-					      	   }
-					     }
-
 					if (0 <= g && 20 > g) {
 						d = !0;
 						this.zc(this.pb) && (a.preventDefault(),
