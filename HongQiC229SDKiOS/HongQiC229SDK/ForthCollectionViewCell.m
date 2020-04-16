@@ -7,24 +7,26 @@
 //
 
 #import "ForthCollectionViewCell.h"
-
+#import "AppManager.h"
+#import "AppFaster.h"
 @implementation ForthCollectionViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
     self.image.layer.cornerRadius = 8;
+    [self.image setImage:[AppManager createImageByName:@"c229imagePlace"]];
 }
 - (void)loadWithDataDic:(NSDictionary *)dic andTag:(NSIndexPath *)index{
     _tittleLabel.text = [NSString stringWithFormat:@"%@",dic[@"title"]];
-    NSString *str = [[NSUserDefaults standardUserDefaults] objectForKey:@"localResource"];
+    NSString *str = C229HttpServer;
     NSString *imageStr = [NSString stringWithFormat:@"%@",dic[@"head_image"]];
-    imageStr = [imageStr stringByReplacingOccurrencesOfString:@"HONGQIH9/standard/" withString:@""];
   
     NSString *file = [NSString stringWithFormat:@"%@/%@",str,imageStr];
-    UIImage *image = [UIImage imageWithContentsOfFile:file];
-    self.image.backgroundColor = [UIColor blueColor];
-    NSLog(@"%@",file);
-    [self.image setImage:image];
+
+    self.image.backgroundColor = [UIColor lightGrayColor];
+    
+    [self.image sd_setImageWithURL:[NSURL URLWithString:file] placeholderImage:[AppManager createImageByName:@"c229imagePlace"]];
+
 }
 @end

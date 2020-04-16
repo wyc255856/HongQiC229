@@ -148,7 +148,7 @@ static void C229CAR_AFNetworkReachabilityReleaseCallback(const void *info) {
     struct sockaddr_in6 address;
     bzero(&address, sizeof(address));
     address.sin6_len = sizeof(address);
-    address.sin6_family = C229CAR_AF_INET6;
+    address.sin6_family = CAR_AF_INET6;
 #else
     struct sockaddr_in address;
     bzero(&address, sizeof(address));

@@ -8,9 +8,10 @@
 
 #import "DetailViewController.h"
 #import "AppFaster.h"
-#import "CLPlayerView.h"
+
 #import <AVFoundation/AVFoundation.h>
 #import "ShanShuoView.h"
+
 @interface DetailViewController ()<UIScrollViewDelegate,UIWebViewDelegate>
 @property (strong, nonatomic)AVPlayer *myPlayer;//播放器
 @property (strong, nonatomic)AVPlayerItem *item;//播放单元
@@ -76,7 +77,7 @@
     [self setUi];
 
     
-    UIButton *closeBtn = [[UIButton alloc] initWithFrame:CGRectMake(16, 19, 21, 19)];
+    UIButton *closeBtn = [[UIButton alloc] initWithFrame:CGRectMake(16, 19, 25, 25)];
 //    [closeBtn setImage:[self createImageByName:@"neirongguanbianniu"] forState:UIControlStateNormal];
     UIImageView *closeImg = [[UIImageView alloc] initWithFrame:CGRectMake(16, 19, 13, 20)];
     [closeImg setImage:[self createImageByName:@"neirongguanbianniu"]];
@@ -154,10 +155,10 @@
     image.backgroundColor = [UIColor clearColor];
     NSString *key = [NSString stringWithFormat:@"image%d",index];
     NSString *iPath = [NSString stringWithFormat:@"%@",allDic[key]];
-    NSString *str = [[NSUserDefaults standardUserDefaults] objectForKey:@"localResource"];
-    NSString *file = [NSString stringWithFormat:@"%@/%@",str,iPath];
-    file = [file stringByReplacingOccurrencesOfString:@"HONGQIH9/standard/" withString:@""];
+    NSString *file = [NSString stringWithFormat:@"%@/%@",C229HttpServer,iPath];
+   
     [image setImage:[UIImage imageWithContentsOfFile:file]];
+    [image sd_setImageWithURL:[NSURL URLWithString:file] placeholderImage:[AppManager createImageByName:@"c229tuwenPlace"]];
     [bk addSubview:image];
     
     NSString *cKey = [NSString stringWithFormat:@"content%d",index];
@@ -217,24 +218,33 @@
     NSString *key = [NSString stringWithFormat:@"image%d",xx];
     NSString *iPath = [NSString stringWithFormat:@"%@",allDic[key]];
     NSString *str = [[NSUserDefaults standardUserDefaults] objectForKey:@"localResource"];
-    NSString *file = [NSString stringWithFormat:@"%@/%@",str,iPath];
-    file = [file stringByReplacingOccurrencesOfString:@"HONGQIH9/standard/" withString:@""];
-    UIImage *theImage = [UIImage imageWithContentsOfFile:file];
+    NSString *file = [NSString stringWithFormat:@"%@/%@",C229HttpServer,iPath];
     
-    if (!theImage) {
-        return;
-    }
-    UIImageView *image = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, myScroll.frame.size.width-62, (myScroll.frame.size.width-62)*theImage.size.height/theImage.size.width)];
+
+    UIImageView *image = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
     
-    image.backgroundColor = [UIColor clearColor];
-    UIScrollView *imageScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(31, 0, myScroll.frame.size.width-62+4, myScroll.frame.size.height)];
-    [image setImage:theImage];
-    imageScroll.contentSize = image.frame.size;
-    imageScroll.indicatorStyle = UIScrollViewIndicatorStyleWhite;
-    [imageScroll setBounces:NO];
-    [imageScroll addSubview:image];
-    [bk addSubview:imageScroll];
-    [myScroll addSubview:bk];
+    [image sd_setImageWithURL:[NSURL URLWithString:file] completed:^(UIImage * _Nullable pimage, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        if (error) {
+           
+            image.frame = CGRectMake(31, 0, myScroll.frame.size.width-62+4, myScroll.frame.size.height);
+            [image setImage:[AppManager createImageByName:@"c229chuntuPlace"]];
+            [bk addSubview:image];
+            [myScroll addSubview:bk];
+        }else{
+            
+            image.frame = CGRectMake(0, 0, myScroll.frame.size.width-62, (myScroll.frame.size.width-62)*pimage.size.height/pimage.size.width);
+            image.backgroundColor = [UIColor clearColor];
+                UIScrollView *imageScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(31, 0, myScroll.frame.size.width-62+4, myScroll.frame.size.height)];
+            //    [image setImage:theImage];
+                imageScroll.contentSize = image.frame.size;
+                imageScroll.indicatorStyle = UIScrollViewIndicatorStyleWhite;
+                [imageScroll setBounces:NO];
+                [imageScroll addSubview:image];
+                [bk addSubview:imageScroll];
+                [myScroll addSubview:bk];
+        }
+    }];
+    
     
 }
 - (void)addVideo{
@@ -251,13 +261,14 @@
     pageControl.hidden = YES;
 
     NSString *iPath = [NSString stringWithFormat:@"%@",allDic[@"video1"]];
-    NSString *avPath = [iPath stringByReplacingOccurrencesOfString:@"HONGQIH9/standard/" withString:@""];
-    NSString *str = [[NSUserDefaults standardUserDefaults] objectForKey:@"localResource"];
-    NSString *file = [NSString stringWithFormat:@"%@/%@",str,avPath];
-//    file = [file stringByReplacingOccurrencesOfString:@"HONGQIH9/standard/" withString:@""];
+
+    NSString *file = [NSString stringWithFormat:@"%@/%@",C229HttpServer,iPath];
+    
     NSURL *url = [NSURL fileURLWithPath:file];
 
-    self.item = [AVPlayerItem playerItemWithURL:url];
+    
+    AVURLAsset *urlAsset = [AVURLAsset assetWithURL:url];
+    self.item = [AVPlayerItem playerItemWithAsset:urlAsset];
     self.myPlayer = [AVPlayer playerWithPlayerItem:self.item];
     self.playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.myPlayer];
     self.playerLayer.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);

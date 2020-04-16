@@ -12,6 +12,7 @@
 #import "NetWorkManager.h"
 //#import "AppDelegate.h"
 #import "DownLoadViewViewController.h"
+#import "C229NetWorkFailViewController.h"
 @interface C229LoadingViewController ()
 
 @end
@@ -51,82 +52,36 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     zipSucDic = [NSMutableDictionary dictionary];
+    [zipSucDic setValue:@"0" forKey:@"category"];
+    [zipSucDic setValue:@"0" forKey:@"news"];
     fileNameArr = [NSMutableArray array];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(disMiss) name:@"dismiss" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(jumpMain) name:@"unziped" object:nil];
-
     
-    NSUserDefaults *user =  [NSUserDefaults standardUserDefaults];
-
-    if (![user objectForKey:@"c229NowVersion"]) {
-        
-        
-        [NetWorkManager requestGETSuperAPIWithURLStr:@"hongqih9_admin/index.php?m=home&c=index&a=get_first_version" WithAuthorization:@"" paramDic:nil finish:^(id  _Nonnull responseObject) {
-            
-            DownLoadViewViewController *vc = [[DownLoadViewViewController alloc] init];
-            vc.myDic = responseObject;
-            
-            [self presentViewController:vc animated:NO completion:nil];
-
-        } enError:^(NSError * _Nonnull error) {
-            [self disMiss];
-        } andShowLoading:NO];
-    }else{
-        NSString *version = [user objectForKey:@"c229NowVersion"];
-        
-        NSString *uri = [NSString stringWithFormat:@"hongqih9_admin/index.php?m=home&c=index&a=get_new_info&version_no=%@",version];
-        [NetWorkManager requestGETSuperAPIWithURLStr:uri WithAuthorization:@"" paramDic:nil finish:^(id  _Nonnull responseObject) {
-           [self jumpMain];
-            updateResponse = responseObject;
-            if ([version isEqualToString:[NSString stringWithFormat:@"%@",responseObject[@"version"]]]) {
-                return ;
-            }
-            self->newVersion = [NSString stringWithFormat:@"%@",responseObject[@"version"]];
-            [self->zipSucDic setValue:@"0" forKey:@"category"];
-            [self->zipSucDic setValue:@"0" forKey:@"news"];
-            if ([[NSString stringWithFormat:@"%@",responseObject[@"version"]] length]==0) {
-                return;
-            }
-            NSArray *urlArr = responseObject[@"zip_address"];
-            for (int x = 0; x<urlArr.count; x++) {
-                NSString *longFile = urlArr[x];
-                NSString *fileName = [[longFile componentsSeparatedByString:@"/"] lastObject];
-                [self->fileNameArr addObject:fileName];
-                [self->zipSucDic setValue:@"0" forKey:fileName];
-                NSString *zipUrl = [urlArr[x] stringByReplacingOccurrencesOfString:@"http" withString:@"https"];
-                
-                NSURL *downloadURL1 = [NSURL URLWithString:zipUrl];
-                NSURLRequest *request1 = [NSURLRequest requestWithURL:downloadURL1];
-                NSURLSessionDownloadTask *downloadTask1 =
-                [[C229CAR_AFHTTPSessionManager manager] downloadTaskWithRequest:request1 progress:^(NSProgress * _Nonnull downloadProgress) {
-//                    NSLog(@"download progress : %.2f%%", 1.0f * downloadProgress.completedUnitCount / downloadProgress.totalUnitCount * 100);
-                } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
-                    NSString *fileName = response.suggestedFilename;
-                    //返回文件的最终存储路径
-                    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-                    NSString *documentsDirectory = [paths objectAtIndex:0];
-                    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:fileName];
-                    
-                    return [NSURL fileURLWithPath:filePath];
-                } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
-                    if (error) {
-                        NSLog(@"download1 file failed : %@", [error description]);
-                    
-                    }else {
-                        NSString *filePathhStr = [NSString stringWithFormat:@"%@",filePath];
-                        NSString *fileName = [[filePathhStr componentsSeparatedByString:@"/"] lastObject];
-                        [self zipLoad:[NSString stringWithFormat:@"%@",filePath] and:fileName];
-                    }
-                }];
-               
-                [downloadTask1 resume];
-            }
-            
-                } enError:^(NSError * _Nonnull error) {
-                    [self jumpMain];
-                } andShowLoading:YES];
+    //创建临时路径
+    NSString *allPath = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES)[0];
+        NSString *temPath = [NSString stringWithFormat:@"temZip"];
+        NSString *folderPath = [allPath stringByAppendingPathComponent:temPath];
+    if (![self isExistsAtPath:folderPath]) {
+        [self createDirectoryAtPath:folderPath error:nil];
     }
-    
+    [self initNetWork];
+}
+- (void)initNetWork{
+    [NetWorkManager requestGETSuperAPIWithURLStr:@"hongqih9_admin/index.php?m=home&c=index&a=get_first_version" WithAuthorization:@"" paramDic:nil finish:^(id  _Nonnull responseObject) {
+        updateResponse = responseObject;
+        [self downLoadJson];
+
+    } enError:^(NSError * _Nonnull error) {
+        C229NetWorkFailViewController *fail =[[C229NetWorkFailViewController alloc] init];
+        [fail addBtn:2];
+        fail.retry = ^(NSString *str) {
+            [self initNetWork];
+        };
+        fail.back = ^(NSString * str) {
+            [self disMiss];
+        };
+        [self presentViewController:fail animated:NO completion:nil];
+    } andShowLoading:NO];
 }
 - (void)downLoadJson{
     NSString *catUrl = [NSString stringWithFormat:@"%@",updateResponse[@"category"]];
@@ -134,7 +89,7 @@
     NSURL *downloadURL2 = [NSURL URLWithString:catUrl];
     NSURLRequest *request2 = [NSURLRequest requestWithURL:downloadURL2];
     NSURLSessionDownloadTask *downloadTask2 = [[C229CAR_AFHTTPSessionManager manager] downloadTaskWithRequest:request2 progress:^(NSProgress * _Nonnull downloadProgress) {
-//        NSLog(@"download progress : %.2f%%", 1.0f * downloadProgress.completedUnitCount / downloadProgress.totalUnitCount * 100);
+        NSLog(@"download progress : %.2f%%", 1.0f * downloadProgress.completedUnitCount / downloadProgress.totalUnitCount * 100);
     } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
         NSString *fileName = @"229_category.json";
         //返回文件的最终存储路径
@@ -150,27 +105,27 @@
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *documentsDirectory = [paths objectAtIndex:0];
         NSString *oldPath = [documentsDirectory stringByAppendingPathComponent:fileName];
-        
+
         NSString *allPath = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES)[0];
         NSString *temPath = [NSString stringWithFormat:@"temZip"];
         NSString *folderPath = [allPath stringByAppendingPathComponent:temPath];
         NSString *last = [folderPath stringByAppendingPathComponent:fileName];
-        
-        
-        
+
+
+
         if (error) {
             NSLog(@"download2 file failed : %@", [error description]);
-        
+
         }else {
             NSLog(@"download2 file success");
-            
+
             NSError *error;
             [self moveItemAtPath:last toPath:oldPath overwrite:YES error:&error];
             [self->zipSucDic setValue:@"1" forKey:@"category"];
             [self isDownloadJson];
         }
     }];
-    
+
     [downloadTask2 resume];
     //news
 
@@ -180,7 +135,7 @@
     NSURL *downloadURL3 = [NSURL URLWithString:newUrl];
     NSURLRequest *request3 = [NSURLRequest requestWithURL:downloadURL3];
     NSURLSessionDownloadTask *downloadTask3 = [[C229CAR_AFHTTPSessionManager manager]downloadTaskWithRequest:request3 progress:^(NSProgress * _Nonnull downloadProgress) {
-        
+        NSLog(@"download3 progress : %.2f%%", 1.0f * downloadProgress.completedUnitCount / downloadProgress.totalUnitCount * 100);
     } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
         NSString *fileName = @"229_news.json";
         //返回文件的最终存储路径
@@ -192,17 +147,17 @@
         return [NSURL fileURLWithPath:last];
     } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
         if (error) {
-            NSLog(@"download1 file failed : %@", [error description]);
+            NSLog(@"download3 file failed : %@", [error description]);
         
         }else {
-            NSLog(@"download1 file success");
+            NSLog(@"download3 file success");
             NSString *fileName = @"229_news.json";
             //返回文件的最终存储路径
             NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
             NSString *documentsDirectory = [paths objectAtIndex:0];
             NSString *oldPath = [documentsDirectory stringByAppendingPathComponent:fileName];
             NSString *allPath = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES)[0];
-            //    NSString *folderPath = [allPath stringByAppendingPathComponent:@"c229App/images/ppp"];
+
                 NSString *temPath = [NSString stringWithFormat:@"temZip"];
                 NSString *folderPath = [allPath stringByAppendingPathComponent:temPath];
                 NSString *last = [folderPath stringByAppendingPathComponent:fileName];
@@ -224,57 +179,11 @@
 - (void)disMiss{
     
     [self dismissViewControllerAnimated:NO completion:^{
-//        AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-//        appDelegate.allowRotation = NO;//关闭横屏仅允许竖屏
-//        [appDelegate setNewOrientation:NO];//调用转屏代码
         [[NSNotificationCenter defaultCenter] postNotificationName:@"C229NotificationPortrait" object:nil];
 
     }];
 }
 
-- (void)zipLoad:(NSString *)filePath and:(NSString *)name{
-    
-    NSString *allPath = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES)[0];
-//    NSString *folderPath = [allPath stringByAppendingPathComponent:@"c229App/images/ppp"];
-    NSString *temPath = [NSString stringWithFormat:@"temZip/noBody"];
-    NSString *folderPath = [allPath stringByAppendingPathComponent:temPath];
-    
-    NSString *fromFile = [filePath substringFromIndex:7];
-    
-    
-    [C229CAR_SSZipArchive unzipFileAtPath:fromFile toDestination:folderPath overwrite:YES password:nil progressHandler:^(NSString * _Nonnull entry, unz_file_info zipInfo, long entryNumber, long total) {
-
-    } completionHandler:^(NSString * _Nonnull path, BOOL succeeded, NSError * _Nullable error) {
-        if (!error) {
-            NSString *fileName = [[path componentsSeparatedByString:@"/"] lastObject];
-            
-            NSString *fromStr = [NSString stringWithFormat:@"%@/temZip/HONGQIH9/standard/images",allPath];
-            NSString *toSTR = [NSString stringWithFormat:@"%@/c229App/images",allPath];
-            [self->zipSucDic setValue:@"1" forKey:fileName];
-            NSError *error;
-            
-            NSFileManager *defaultManager = [NSFileManager defaultManager];
-            
-            NSArray *array = [defaultManager contentsOfDirectoryAtPath:fromStr error:nil];
-            if (array.count>0) {
-                for (NSString *str in array) {
-                    NSLog(@"%@",str);
-                    if ([self isExistsAtPath:[NSString stringWithFormat:@"%@/%@",toSTR,str]]) {
-                        NSArray *newArray = [defaultManager contentsOfDirectoryAtPath:[NSString stringWithFormat:@"%@/%@",fromStr,str] error:nil];
-                        for (NSString *imageStr in newArray) {
-                            [self moveItemAtPath:[NSString stringWithFormat:@"%@/%@/%@",fromStr,str,imageStr] toPath:[NSString stringWithFormat:@"%@/%@/%@",toSTR,str,imageStr] overwrite:YES error:nil];
-                        }
-                    }else{
-                        [self moveItemAtPath:[NSString stringWithFormat:@"%@/%@",fromStr,str] toPath:[NSString stringWithFormat:@"%@/%@",toSTR,str] overwrite:YES error:nil];
-                    }
-                }
-            }
-
-            [self isDownloaded];
-        }
-    }];
-
-}
 - (BOOL)isDownloadJson{
     BOOL x = YES;
     if ([[zipSucDic objectForKey:@"news"] isEqualToString:@"0"]) {
@@ -284,7 +193,7 @@
         x = NO;
     }
     if (x) {
-        [[NSUserDefaults standardUserDefaults] setObject:newVersion forKey:@"c229NowVersion"];
+        [self jumpMain];
     }
     return x;
 }

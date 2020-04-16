@@ -267,15 +267,20 @@
 {
     UICollectionReusableView *reusableview = nil;
 
-//    if (kind == UICollectionElementKindSectionHeader)
-//    {
+    if (kind == UICollectionElementKindSectionHeader)
+    {
         C229SectionHeader *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"C229SectionHeader" forIndexPath:indexPath];
 
         NSDictionary *dic = cateGGArr[indexPath.section];
 
         headerView.titleLabel.text = [NSString stringWithFormat:@"%@",dic[@"catname"]];
         reusableview = headerView;
-//    }
+    }else{
+        C229SectionHeader *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"C229SectionHeader" forIndexPath:indexPath];
+
+        headerView.titleLabel.text = @"";
+        reusableview = headerView;
+    }
 
 
 

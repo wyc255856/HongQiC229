@@ -7,14 +7,15 @@
 //
 
 #import "NetWorkManager.h"
-#define HTTP_SERVER @"https://www.haoweisys.com/"
+#import "AppFaster.h"
+
 @implementation NetWorkManager
 +(NetWorkManager *)shareIndstance{
     static NetWorkManager *manager = nil;
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        NSURL *url = [NSURL URLWithString:HTTP_SERVER];
+        NSURL *url = [NSURL URLWithString:C229HttpServer];
         manager = [[NetWorkManager alloc] initWithBaseURL:url];
         manager.requestSerializer = [[C229CAR_AFJSONRequestSerializer alloc] init];
         manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json",@"text/javascript",@"text/json",@"text/plain",@"charset=UTF-8", nil];;

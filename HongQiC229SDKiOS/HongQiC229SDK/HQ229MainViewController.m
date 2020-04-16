@@ -14,8 +14,9 @@
 #import "ThirdView.h"
 #import "ForthView.h"
 #import "FifthView.h"
+#import "C229CAR_AFNetworking.h"
 #define TopHeight 60
-
+#import "C229NetWorkFailViewController.h"
 #import "DetailViewController.h"
 #import "DownLoadViewViewController.h"
 @interface HQ229MainViewController ()
@@ -50,7 +51,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-
+    [self checkNetWork];
     //background
     UIImageView *backGround = [[UIImageView alloc] initWithFrame:self.view.bounds];
     [backGround setImage:[self createImageByName:@"homeBackground"]];
@@ -72,7 +73,38 @@
     [self setScrollView];
     [self getJson];
 }
+- (void)checkNetWork{
+    C229CAR_AFNetworkReachabilityManager *manager = [C229CAR_AFNetworkReachabilityManager sharedManager];
+        [manager startMonitoring];
+        [manager setReachabilityStatusChangeBlock:^(C229CAR_AFNetworkReachabilityStatus status) {
+            switch (status) {
+                case C229CAR_AFNetworkReachabilityStatusUnknown:
+                {
+                    //未知网络
+                    NSLog(@"未知网络");
+                    C229NetWorkFailViewController *fail =
+                    [[C229NetWorkFailViewController alloc] init];
+                    [fail addBtn:1];
+                    [self presentViewController:fail animated:NO completion:nil];
+                }
+                    break;
+                case C229CAR_AFNetworkReachabilityStatusNotReachable:
+                {
+                    //无法联网
+                    NSLog(@"无法联网");
+                    C229NetWorkFailViewController *fail =
+                    [[C229NetWorkFailViewController alloc] init];
+                    [fail addBtn:1];
+                    [self presentViewController:fail animated:NO completion:nil];
+                }
+                    break;
 
+                
+               
+                    
+            }
+        }];
+}
 - (void)setScrollView{
     myScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 60, kScreenWidth, kScreenHeight-TopHeight)];
     [self.view addSubview:myScrollView];
@@ -105,11 +137,7 @@
     
     ThirdView *third = [[ThirdView alloc] initWithFrame:CGRectMake(kScreenWidth*2, 0, kScreenWidth, kScreenHeight-TopHeight)];
     third.jumpToDetail = ^(NSDictionary * dataDic) {
-//        DetailViewController *detail = [[DetailViewController alloc] init];
-//        self.definesPresentationContext = YES;
-//        detail.modalPresentationStyle =UIModalPresentationOverFullScreen;
-//        detail.dataDic = dataDic;
-//        [self presentViewController:detail animated:YES completion:nil];
+
         web = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
         NSBundle *bundle = [NSBundle bundleForClass:[self class]];
         NSURL *bundleURL = [bundle URLForResource:@"HSC229CarResource" withExtension:@"bundle"];
@@ -121,7 +149,7 @@
         
         [self.view addSubview:web];
         
-        UIButton *closeBtn = [[UIButton alloc] initWithFrame:CGRectMake(16, 19, 21, 19)];
+        UIButton *closeBtn = [[UIButton alloc] initWithFrame:CGRectMake(16, 19, 13, 19)];
         [closeBtn setImage:[self createImageByName:@"neirongguanbianniu"] forState:UIControlStateNormal];
         [closeBtn addTarget:self action:@selector(closeAction) forControlEvents:UIControlEventTouchUpInside];
         [self->web addSubview:closeBtn];

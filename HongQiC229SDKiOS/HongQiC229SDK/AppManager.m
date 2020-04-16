@@ -39,4 +39,12 @@
                          context:nil].size;
     return labelsize.height;
 }
++(UIImage *) createImageByName:(NSString*)sName{
+    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+    NSURL *bundleURL = [bundle URLForResource:@"HSC229CarResource" withExtension:@"bundle"];
+    NSBundle *resourceBundle = [NSBundle bundleWithURL: bundleURL];
+    NSString *resName = sName;
+    UIImage *image =  resourceBundle?[UIImage imageNamed:resName inBundle:resourceBundle compatibleWithTraitCollection:nil]:[UIImage imageNamed:resName];
+    return image;
+}
 @end

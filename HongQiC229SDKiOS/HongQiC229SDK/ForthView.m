@@ -14,7 +14,7 @@
 @implementation ForthView
 {
     UIImageView *selImage;
-    NSArray *leftArr;
+    NSMutableArray *leftArr;
     UICollectionView *myCollection;
     NSMutableArray *cellArr0;
     NSMutableArray *cellArr1;
@@ -27,6 +27,7 @@
 - (id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     self.backgroundColor = [UIColor clearColor];
+    leftArr = [NSMutableArray array];
     [self loadData];
     UIImageView *downYinYing = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.frame.size.height-kScreenWidth*192/1920, kScreenWidth, kScreenWidth*192/1920)];
     
@@ -57,8 +58,26 @@
             [scArr addObject:ds];
         }
     }
+    for (NSDictionary *dc in scArr) {
+        [leftArr addObject:dc];
+    }
+    for (NSDictionary *dc in scArr) {
+        int x = [[dc objectForKey:@"catid"] intValue];
+        [leftArr removeObject:dc];
+        for (int i=0; i<leftArr.count;i++ ) {
+            int y = [[leftArr[i] objectForKey:@"catid"] intValue];
+            if (x<y) {
+                [leftArr insertObject:dc atIndex:i];
+                break;
+            }
+            if (i==leftArr.count-1&&leftArr.count<scArr.count) {
+                [leftArr insertObject:dc atIndex:i];
+            }
+        }
+    }
     
-    leftArr = scArr;
+    
+//    leftArr = scArr;
     NSDictionary *newdic = [self readLocalFileWithName:@"229_news"];
     NSArray *newArr = newdic[@"RECORDS"];
     cellArr0 = [NSMutableArray array];
@@ -69,11 +88,11 @@
     allDic = [NSMutableDictionary dictionary];
     
     for (NSDictionary *dic in newArr) {
-        NSString *str0 = [NSString stringWithFormat:@"%@",scArr[0][@"catid"]];
-        NSString *str1 = [NSString stringWithFormat:@"%@",scArr[1][@"catid"]];
-        NSString *str2 = [NSString stringWithFormat:@"%@",scArr[2][@"catid"]];
-        NSString *str3 = [NSString stringWithFormat:@"%@",scArr[3][@"catid"]];
-        NSString *str4 = [NSString stringWithFormat:@"%@",scArr[4][@"catid"]];
+        NSString *str0 = [NSString stringWithFormat:@"%@",leftArr[0][@"catid"]];
+        NSString *str1 = [NSString stringWithFormat:@"%@",leftArr[1][@"catid"]];
+        NSString *str2 = [NSString stringWithFormat:@"%@",leftArr[2][@"catid"]];
+        NSString *str3 = [NSString stringWithFormat:@"%@",leftArr[3][@"catid"]];
+        NSString *str4 = [NSString stringWithFormat:@"%@",leftArr[4][@"catid"]];
         if ([[NSString stringWithFormat:@"%@",dic[@"catid"]] isEqualToString:str0]) {
             [cellArr0 addObject:dic];
         }
@@ -150,6 +169,29 @@
     }
 }
 - (void)leftBtnClick:(UIButton *)btn{
+    NSMutableArray *everyGroupCountNum = [NSMutableArray array];
+    
+    for (NSDictionary *dic in leftArr) {
+        NSString *key = [NSString stringWithFormat:@"%@",dic[@"catid"]];
+        NSArray *everyArr = [allDic objectForKey:key];
+        int count = everyArr.count/4;
+        if (everyArr.count%4>0) {
+            count = count+1;
+        }
+        CGFloat they = count *98.00+50;
+        NSString *str;
+        if (everyGroupCountNum.count>0) {
+            str = [NSString stringWithFormat:@"%.2f",they+[[everyGroupCountNum lastObject] floatValue]];
+        }else{
+            str = [NSString stringWithFormat:@"%.2f",they];
+        }
+
+        [everyGroupCountNum addObject:str];
+    }
+    NSString *one = @"0.00";
+    [everyGroupCountNum insertObject:one atIndex:0];
+    
+    
     jianting = 0;
     for (UIButton *b in self.subviews) {
         if ([b isKindOfClass:[UIButton class]]) {
@@ -159,7 +201,9 @@
     NSString *imgName = [NSString stringWithFormat:@"left%ld",btn.tag-1000];
     [selImage setImage:[self createImageByName:imgName]];
     NSIndexPath *index = [NSIndexPath indexPathForRow:0 inSection:btn.tag-1000];
-    [myCollection scrollToItemAtIndexPath:index atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:YES];
+    NSString *yStr = [everyGroupCountNum objectAtIndex:btn.tag-1000];
+    CGFloat yyy = [yStr floatValue];
+    [myCollection setContentOffset:CGPointMake(0, yyy) animated:YES];
     btn.selected = YES;
 }
 - (void)setCollectionView{
@@ -214,15 +258,19 @@
 {
     UICollectionReusableView *reusableview = nil;
 
-//    if (kind == UICollectionElementKindSectionHeader)
-//    {
+    if (kind == UICollectionElementKindSectionHeader)
+    {
         C229SectionHeader *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"C229SectionHeader" forIndexPath:indexPath];
 
         NSDictionary *dic = leftArr[indexPath.section];
 
         headerView.titleLabel.text = [NSString stringWithFormat:@"%@",dic[@"catname"]];
         reusableview = headerView;
-//    }
+    }else{
+        C229SectionHeader *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"C229SectionHeader" forIndexPath:indexPath];
+        headerView.titleLabel.text = @"";
+        reusableview = headerView;
+    }
 
 
 
@@ -286,7 +334,7 @@
         if (everyArr.count%4>0) {
             count = count+1;
         }
-        CGFloat they = count *85.00;
+        CGFloat they = count *98.00+50;
         NSString *str;
         if (everyGroupCountNum.count>0) {
             str = [NSString stringWithFormat:@"%.2f",they+[[everyGroupCountNum lastObject] floatValue]];
