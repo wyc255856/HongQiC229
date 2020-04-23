@@ -71,7 +71,7 @@
     
     [self.view addSubview:top];
     [self setScrollView];
-    [self getJson];
+//    [self getJson];
 }
 - (void)checkNetWork{
     C229CAR_AFNetworkReachabilityManager *manager = [C229CAR_AFNetworkReachabilityManager sharedManager];
@@ -138,23 +138,23 @@
     ThirdView *third = [[ThirdView alloc] initWithFrame:CGRectMake(kScreenWidth*2, 0, kScreenWidth, kScreenHeight-TopHeight)];
     third.jumpToDetail = ^(NSDictionary * dataDic) {
 
-        web = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
+        self->web = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
         NSBundle *bundle = [NSBundle bundleForClass:[self class]];
         NSURL *bundleURL = [bundle URLForResource:@"HSC229CarResource" withExtension:@"bundle"];
         NSBundle *resourceBundle = [NSBundle bundleWithURL: bundleURL];
         
         NSString *str = [resourceBundle pathForResource:@"web_mobile/index" ofType:@"html"];
         NSURLRequest *req = [NSURLRequest requestWithURL:[NSURL URLWithString:str]];
-        web.delegate = self;
+        self->web.delegate = self;
         
-        [self.view addSubview:web];
+        [self.view addSubview:self->web];
         
         UIButton *closeBtn = [[UIButton alloc] initWithFrame:CGRectMake(16, 19, 13, 19)];
         [closeBtn setImage:[self createImageByName:@"neirongguanbianniu"] forState:UIControlStateNormal];
         [closeBtn addTarget:self action:@selector(closeAction) forControlEvents:UIControlEventTouchUpInside];
         [self->web addSubview:closeBtn];
         
-        [web loadRequest:req];
+        [self->web loadRequest:req];
     };
     [myScrollView addSubview:third];
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -182,7 +182,7 @@
     [web removeFromSuperview];
 }
 - (void)getJson{
-    NSDictionary *dicOne = [self readLocalFileWithName:@"zy_category"];
+    NSDictionary *dicOne = [self readLocalFileWithName:@"229_category"];
     NSArray *dataArr = dicOne[@"RECORDS"];
     NSString *sqlStr = [self returnSqlKeys:dataArr[0]];
     

@@ -23,7 +23,12 @@
     NSBundle *resourceBundle = [NSBundle bundleWithURL: bundleURL];
     
     UIWebView *web = [[UIWebView alloc] initWithFrame:CGRectMake(-50, 0, self.frame.size.width+100, self.frame.size.height+50)];
-    
+  
+            
+//    if (@available(iOS 11.0, *)) {
+//        web.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+//    }
+        
     NSString *str = [resourceBundle pathForResource:@"pano_2/index" ofType:@"html"];
     NSURLRequest *req = [NSURLRequest requestWithURL:[NSURL URLWithString:str]];
     web.delegate = self;
@@ -40,8 +45,8 @@
     if ([str containsString:@"JsTest="]) {
         [str substringFromIndex:6];
         NSLog(@"%@",str);
-        NSDictionary *all = [self readLocalFileWithName:@"zy_news"];
-        NSArray *array = [all objectForKey:@"RECORDS"];
+//        NSDictionary *all = [self readLocalFileWithName:@"229_news"];
+//        NSArray *array = [all objectForKey:@"RECORDS"];
         self.jumpToDetail(nil);
 //        for (NSDictionary *d in array) {
 //            NSString *caid = [NSString stringWithFormat:@"%@",d[@"caid"]];

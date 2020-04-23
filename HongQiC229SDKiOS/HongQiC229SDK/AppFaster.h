@@ -27,5 +27,5 @@
 #define IsiPhone8 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(750, 1334), [[UIScreen mainScreen] currentMode].size) : NO)
 //iphoneMax
 #define IsiPhone8 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2688), [[UIScreen mainScreen] currentMode].size) : NO)
-#define C229HttpServer @"http://www.haoweisys.com"
+#define C229HttpServer @"https://www.haoweisys.com"
 #endif /* AppFaster_h */

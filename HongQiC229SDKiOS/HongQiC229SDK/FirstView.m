@@ -188,413 +188,1643 @@
     switch (x) {
             
         case 1:{
-            ss1.frame = CGRectMake(_carImage.frame.origin.x+205, _carImage.frame.origin.y+120, 4, 4);
-            ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-250, _carImage.frame.origin.y+115, 4, 4);
+            ss1.frame = CGRectMake(_carImage.frame.origin.x+215, _carImage.frame.origin.y+128, 4, 4);
+            ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-250+40, _carImage.frame.origin.y+117, 4, 4);
             
-            ss3.frame = CGRectMake(_carImage.frame.origin.x+205, _carImage.frame.origin.y+138, 4, 4);
-            [ssImg1 setImage:[self createImageByName:@"车灯近.png"]];
+            ss3.frame = CGRectMake(_carImage.frame.origin.x+210, _carImage.frame.origin.y+142, 4, 4);
+            [ssImg1 setImage:[self createImageByName:@"229line-1/229line-1-img1.png"]];
             [ssImg1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.size.c229_mas_equalTo(CGSizeMake(200, 200*118/314));
-                make.right.equalTo(ss1.c229_mas_right);
-                make.bottom.equalTo(ss1.c229_mas_bottom);
+                make.size.c229_mas_equalTo(CGSizeMake(210, 210*153/574));
+                make.right.equalTo(ss1.c229_mas_right).offset(-6);
+                make.bottom.equalTo(ss1.c229_mas_bottom).offset(-2);
 
             }];
             
-            [ssImg2 setImage:[self createImageByName:@"后备箱近.png"]];
+            [ssImg2 setImage:[self createImageByName:@"229line-1/229line-1-img2"]];
             [ssImg2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.size.c229_mas_equalTo(CGSizeMake(200, 200*107/327));
-                make.left.equalTo(ss2.c229_mas_left).offset(+8);
-                make.bottom.equalTo(ss2.c229_mas_bottom).offset(-1);
+                make.size.c229_mas_equalTo(CGSizeMake(200, 200*93/538));
+                make.left.equalTo(ss2.c229_mas_right).offset(+1);
+                make.top.equalTo(ss2.c229_mas_bottom).offset(-1);
             }];
             
-            [ssImg3 setImage:[self createImageByName:@"车轮远"]];
+            [ssImg3 setImage:[self createImageByName:@"229line-1/229line-1-img3"]];
             [ssImg3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.size.c229_mas_equalTo(CGSizeMake(200, 200*81/409));
+                make.size.c229_mas_equalTo(CGSizeMake(200, 200*115/555));
                 make.right.equalTo(ss3.c229_mas_right).offset(-10);
                 make.top.equalTo(ss3.c229_mas_top).offset(+2);
             }];
 
             [ssBtn1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
                 make.left.equalTo(ssImg1.c229_mas_left).offset(+20);
-                make.bottom.equalTo(ssImg1.c229_mas_top).offset(+30);
+                make.bottom.equalTo(ssImg1.c229_mas_top).offset(+20);
                 make.size.c229_mas_equalTo(CGSizeMake(100, 30));
             }];
 
             [ssBtn2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.left.equalTo(ssImg2.c229_mas_left).offset(+110);
-                make.bottom.equalTo(ssImg2.c229_mas_top).offset(+30);
+                make.left.equalTo(ssImg2.c229_mas_left).offset(+100);
+                make.bottom.equalTo(ssImg2.c229_mas_top).offset(+25);
                 make.size.c229_mas_equalTo(CGSizeMake(100, 30));
             }];
 
             [ssBtn3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.left.equalTo(ssImg3.c229_mas_left).offset(+10);
+                make.left.equalTo(ssImg3.c229_mas_left).offset(+20);
                 make.bottom.equalTo(ssImg3.c229_mas_top).offset(+30);
                 make.size.c229_mas_equalTo(CGSizeMake(100, 30));
             }];
             break;
         }
         case 2:{
-            ss1.frame = CGRectMake(_carImage.frame.origin.x+197, _carImage.frame.origin.y+120, 4, 4);
-            ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-260, _carImage.frame.origin.y+115, 4, 4);
+            ss1.frame = CGRectMake(_carImage.frame.origin.x+197, _carImage.frame.origin.y+120+5, 4, 4);
+            ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-260+40, _carImage.frame.origin.y+115, 4, 4);
             
-            ss3.frame = CGRectMake(_carImage.frame.origin.x+176, _carImage.frame.origin.y+140, 4, 4);
-            [ssImg1 setImage:[self createImageByName:@"车灯近.png"]];
+            ss3.frame = CGRectMake(_carImage.frame.origin.x+186, _carImage.frame.origin.y+140, 4, 4);
+            [ssImg1 setImage:[self createImageByName:@"229line-2/229line-2-img1"]];
             [ssImg1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.size.c229_mas_equalTo(CGSizeMake(200, 200*118/314));
-                make.right.equalTo(ss1.c229_mas_right);
-                make.bottom.equalTo(ss1.c229_mas_bottom);
+                make.size.c229_mas_equalTo(CGSizeMake(230, 230*153/516));
+                make.right.equalTo(ss1.c229_mas_right).offset(-7);
+                make.bottom.equalTo(ss1.c229_mas_bottom).offset(-2);
 
             }];
             
-            [ssImg2 setImage:[self createImageByName:@"后备箱近.png"]];
+            [ssImg2 setImage:[self createImageByName:@"229line-2/229line-2-img2"]];
             [ssImg2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.size.c229_mas_equalTo(CGSizeMake(200, 200*107/327));
-                make.left.equalTo(ss2.c229_mas_left).offset(+8);
-                make.bottom.equalTo(ss2.c229_mas_bottom).offset(-1);
+                make.size.c229_mas_equalTo(CGSizeMake(200, 200*93/556));
+                make.left.equalTo(ss2.c229_mas_left).offset(+6);
+                make.top.equalTo(ss2.c229_mas_bottom).offset(-3);
             }];
             
-            [ssImg3 setImage:[self createImageByName:@"车轮远"]];
+            [ssImg3 setImage:[self createImageByName:@"229line-2/229line-2-img3"]];
             [ssImg3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.size.c229_mas_equalTo(CGSizeMake(200, 200*81/409));
+                make.size.c229_mas_equalTo(CGSizeMake(220, 115*220/486));
                 make.right.equalTo(ss3.c229_mas_right).offset(-8);
-                make.top.equalTo(ss3.c229_mas_top).offset(+1);
+                make.top.equalTo(ss3.c229_mas_top).offset(+3);
             }];
 
             [ssBtn1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.left.equalTo(ssImg1.c229_mas_left).offset(+20);
-                make.bottom.equalTo(ssImg1.c229_mas_top).offset(+30);
+                make.left.equalTo(ssImg1.c229_mas_left).offset(+30);
+                make.bottom.equalTo(ssImg1.c229_mas_top).offset(+25);
                 make.size.c229_mas_equalTo(CGSizeMake(100, 30));
             }];
 
             [ssBtn2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.left.equalTo(ssImg2.c229_mas_left).offset(+110);
-                make.bottom.equalTo(ssImg2.c229_mas_top).offset(+30);
+                make.left.equalTo(ssImg2.c229_mas_left).offset(+90);
+                make.bottom.equalTo(ssImg2.c229_mas_top).offset(+25);
                 make.size.c229_mas_equalTo(CGSizeMake(100, 30));
             }];
 
             [ssBtn3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.left.equalTo(ssImg3.c229_mas_left).offset(+10);
-                make.bottom.equalTo(ssImg3.c229_mas_top).offset(+30);
+                make.left.equalTo(ssImg3.c229_mas_left).offset(+30);
+                make.bottom.equalTo(ssImg3.c229_mas_top).offset(+43);
                 make.size.c229_mas_equalTo(CGSizeMake(100, 30));
             }];
             break;
         }
-            
         case 3:{
-            ss1.frame = CGRectMake(_carImage.frame.origin.x+194, _carImage.frame.origin.y+118, 4, 4);
-            ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-260, _carImage.frame.origin.y+86, 4, 4);
+            ss1.frame = CGRectMake(_carImage.frame.origin.x+194-30, _carImage.frame.origin.y+118+8, 4, 4);
+            ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-270+40, _carImage.frame.origin.y+116, 4, 4);
             
-            ss3.frame = CGRectMake(_carImage.frame.origin.x+155, _carImage.frame.origin.y+140, 4, 4);
-            [ssImg1 setImage:[self createImageByName:@"车灯近.png"]];
+            ss3.frame = CGRectMake(_carImage.frame.origin.x+155-10, _carImage.frame.origin.y+140, 4, 4);
+            [ssImg1 setImage:[self createImageByName:@"229line-3/229line-3-img1"]];
             [ssImg1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.size.c229_mas_equalTo(CGSizeMake(200, 200*118/314));
-                make.right.equalTo(ss1.c229_mas_right);
-                make.bottom.equalTo(ss1.c229_mas_bottom);
+                make.size.c229_mas_equalTo(CGSizeMake(180, 180*153/475));
+                make.right.equalTo(ss1.c229_mas_right).offset(-4);
+                make.bottom.equalTo(ss1.c229_mas_bottom).offset(-3);
 
             }];
             
-            [ssImg2 setImage:[self createImageByName:@"无名近.png"]];
+            [ssImg2 setImage:[self createImageByName:@"229line-3/229line-3-img2"]];
             [ssImg2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.size.c229_mas_equalTo(CGSizeMake(200, 200*56/314));
+                make.size.c229_mas_equalTo(CGSizeMake(190, 190*93/583));
                 make.left.equalTo(ss2.c229_mas_left).offset(+8);
                 make.top.equalTo(ss2.c229_mas_bottom).offset(-1);
             }];
             
-            [ssImg3 setImage:[self createImageByName:@"车轮远"]];
+            [ssImg3 setImage:[self createImageByName:@"229line-3/229line-3-img3"]];
             [ssImg3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.size.c229_mas_equalTo(CGSizeMake(200, 200*81/409));
+                make.size.c229_mas_equalTo(CGSizeMake(165, 165*115/414));
                 make.right.equalTo(ss3.c229_mas_right).offset(-8);
                 make.top.equalTo(ss3.c229_mas_top).offset(+1);
             }];
 
             [ssBtn1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
                 make.left.equalTo(ssImg1.c229_mas_left).offset(+20);
-                make.bottom.equalTo(ssImg1.c229_mas_top).offset(+30);
+                make.bottom.equalTo(ssImg1.c229_mas_top).offset(+20);
                 make.size.c229_mas_equalTo(CGSizeMake(100, 30));
             }];
 
             [ssBtn2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.left.equalTo(ssImg2.c229_mas_left).offset(+110);
-                make.top.equalTo(ssImg2.c229_mas_top).offset(+0);
+                make.left.equalTo(ssImg2.c229_mas_left).offset(+95);
+                make.top.equalTo(ssImg2.c229_mas_top).offset(-5);
                 make.size.c229_mas_equalTo(CGSizeMake(100, 30));
             }];
 
             [ssBtn3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.left.equalTo(ssImg3.c229_mas_left).offset(+10);
-                make.bottom.equalTo(ssImg3.c229_mas_top).offset(+30);
+                make.left.equalTo(ssImg3.c229_mas_left).offset(+25);
+                make.bottom.equalTo(ssImg3.c229_mas_top).offset(+38);
                 make.size.c229_mas_equalTo(CGSizeMake(100, 30));
             }];
             break;
         }
         case 4:{
-            ss1.frame = CGRectMake(_carImage.frame.origin.x+240, _carImage.frame.origin.y+92, 4, 4);
-            ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-170, _carImage.frame.origin.y+176, 4, 4);
+            ss1.frame = CGRectMake(_carImage.frame.origin.x+150, _carImage.frame.origin.y+125, 4, 4);
+            ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-245, _carImage.frame.origin.y+120, 4, 4);
             
-            ss3.frame = CGRectMake(_carImage.frame.origin.x+123, _carImage.frame.origin.y+138, 4, 4);
-            [ssImg1 setImage:[self createImageByName:@"车灯近.png"]];
+            ss3.frame = CGRectMake(_carImage.frame.origin.x+128, _carImage.frame.origin.y+140, 4, 4);
+            [ssImg1 setImage:[self createImageByName:@"229line-4/229line-4-img1"]];
             [ssImg1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.size.c229_mas_equalTo(CGSizeMake(200, 200*118/314));
-                make.right.equalTo(ss1.c229_mas_right);
-                make.bottom.equalTo(ss1.c229_mas_bottom);
+                make.size.c229_mas_equalTo(CGSizeMake(180, 180*153/445));
+                make.right.equalTo(ss1.c229_mas_right).offset(-6);
+                make.bottom.equalTo(ss1.c229_mas_bottom).offset(-2);
 
             }];
             
-            [ssImg2 setImage:[self createImageByName:@"后备箱近.png"]];
+            [ssImg2 setImage:[self createImageByName:@"229line-4/229line-4-img2"]];
             [ssImg2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.size.c229_mas_equalTo(CGSizeMake(200, 200*107/327));
+                make.size.c229_mas_equalTo(CGSizeMake(200, 200*93/617));
                 make.left.equalTo(ss2.c229_mas_left).offset(+8);
-                make.bottom.equalTo(ss2.c229_mas_bottom).offset(-1);
+                make.top.equalTo(ss2.c229_mas_bottom).offset(-3);
             }];
             
-            [ssImg3 setImage:[self createImageByName:@"车轮近"]];
+            [ssImg3 setImage:[self createImageByName:@"229line-4/229line-4-img3"]];
             [ssImg3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.size.c229_mas_equalTo(CGSizeMake(200, 200*81/357));
-                make.right.equalTo(ss3.c229_mas_right).offset(-8);
+                make.size.c229_mas_equalTo(CGSizeMake(160, 160*115/382));
+                make.right.equalTo(ss3.c229_mas_right).offset(-10);
                 make.top.equalTo(ss3.c229_mas_top).offset(+1);
             }];
 
             [ssBtn1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.left.equalTo(ssImg1.c229_mas_left).offset(+20);
-                make.bottom.equalTo(ssImg1.c229_mas_top).offset(+30);
+                make.left.equalTo(ssImg1.c229_mas_left).offset(+25);
+                make.bottom.equalTo(ssImg1.c229_mas_top).offset(+25);
                 make.size.c229_mas_equalTo(CGSizeMake(100, 30));
             }];
 
             [ssBtn2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.left.equalTo(ssImg2.c229_mas_left).offset(+110);
-                make.bottom.equalTo(ssImg2.c229_mas_top).offset(+30);
+                make.left.equalTo(ssImg2.c229_mas_left).offset(+100);
+                make.bottom.equalTo(ssImg2.c229_mas_top).offset(+25);
                 make.size.c229_mas_equalTo(CGSizeMake(100, 30));
             }];
 
             [ssBtn3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.left.equalTo(ssImg3.c229_mas_left).offset(+14);
-                make.bottom.equalTo(ssImg3.c229_mas_top).offset(+30);
+                make.left.equalTo(ssImg3.c229_mas_left).offset(+20);
+                make.bottom.equalTo(ssImg3.c229_mas_top).offset(+43);
                 make.size.c229_mas_equalTo(CGSizeMake(100, 30));
             }];
             break;
         }
         case 5:{
             
-            ss1.frame = CGRectMake(_carImage.frame.origin.x+110, _carImage.frame.origin.y+140, 4, 4);
-            [ss2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.right.equalTo(_carImage.c229_mas_right).offset(-180);
-                make.top.equalTo(_carImage.c229_mas_bottom).offset(-100);
-            }];
-            [ss3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {make.right.equalTo(_carImage.c229_mas_right).offset(-150);
-                make.top.equalTo(_carImage.c229_mas_bottom).offset(-135);
+            [ss1 removeFromSuperview];
+            [ssImg1 removeFromSuperview];
+            [ssBtn1 removeFromSuperview];
+            
+            ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-250, _carImage.frame.origin.y+88, 4, 4);
+            
+            ss3.frame = CGRectMake(_carImage.frame.origin.x+197, _carImage.frame.origin.y+118, 4, 4);
+            [ssImg1 setImage:[self createImageByName:@"229line-5/229line-5-img1"]];
+            
+            
+            [ssImg2 setImage:[self createImageByName:@"229line-5/229line-5-img2"]];
+            [ssImg2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(230, 230*93/690));
+                make.left.equalTo(ss2.c229_mas_left).offset(+8);
+                make.top.equalTo(ss2.c229_mas_bottom).offset(-3);
             }];
             
+            [ssImg3 setImage:[self createImageByName:@"229line-5/229line-5-img3"]];
+            [ssImg3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(230, 230*80/576));
+                make.right.equalTo(ss3.c229_mas_right).offset(-10);
+                make.top.equalTo(ss3.c229_mas_top).offset(+1);
+            }];
+
+            
+
+            [ssBtn2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg2.c229_mas_left).offset(+133);
+                make.bottom.equalTo(ssImg2.c229_mas_top).offset(+25);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg3.c229_mas_left).offset(+30);
+                make.bottom.equalTo(ssImg3.c229_mas_top).offset(+30);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+            
+            break;
+        }
+        case 6:{
+            [ss1 removeFromSuperview];
+                [ssImg1 removeFromSuperview];
+                [ssBtn1 removeFromSuperview];
+                
+                ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-245, _carImage.frame.origin.y+88, 4, 4);
+                
+                ss3.frame = CGRectMake(_carImage.frame.origin.x+200, _carImage.frame.origin.y+115, 4, 4);
+                [ssImg1 setImage:[self createImageByName:@"229line-4/229line-4-img1"]];
+                
+                
+                [ssImg2 setImage:[self createImageByName:@"229line-5/229line-5-img2"]];
+                [ssImg2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                    make.size.c229_mas_equalTo(CGSizeMake(230, 230*93/690));
+                    make.left.equalTo(ss2.c229_mas_left).offset(+8);
+                    make.top.equalTo(ss2.c229_mas_bottom).offset(-3);
+                }];
+                
+                [ssImg3 setImage:[self createImageByName:@"229line-5/229line-5-img3"]];
+                [ssImg3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                    make.size.c229_mas_equalTo(CGSizeMake(230, 230*80/576));
+                    make.right.equalTo(ss3.c229_mas_right).offset(-10);
+                    make.top.equalTo(ss3.c229_mas_top).offset(+1);
+                }];
+
+                
+
+                [ssBtn2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                    make.left.equalTo(ssImg2.c229_mas_left).offset(+130);
+                    make.bottom.equalTo(ssImg2.c229_mas_top).offset(+25);
+                    make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+                }];
+
+                [ssBtn3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                    make.left.equalTo(ssImg3.c229_mas_left).offset(+30);
+                    make.bottom.equalTo(ssImg3.c229_mas_top).offset(+30);
+                    make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+                }];
+                
+                break;
+            
+        }
+        case 7:{
+            [ss1 removeFromSuperview];
+                [ssImg1 removeFromSuperview];
+                [ssBtn1 removeFromSuperview];
+                
+                ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-250, _carImage.frame.origin.y+88, 4, 4);
+                
+                ss3.frame = CGRectMake(_carImage.frame.origin.x+205, _carImage.frame.origin.y+115, 4, 4);
+                [ssImg1 setImage:[self createImageByName:@"229line-4/229line-4-img1"]];
+                
+                
+                [ssImg2 setImage:[self createImageByName:@"229line-5/229line-5-img2"]];
+                [ssImg2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                    make.size.c229_mas_equalTo(CGSizeMake(230, 230*93/690));
+                    make.left.equalTo(ss2.c229_mas_left).offset(+8);
+                    make.top.equalTo(ss2.c229_mas_bottom).offset(-3);
+                }];
+                
+                [ssImg3 setImage:[self createImageByName:@"229line-5/229line-5-img3"]];
+                [ssImg3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                    make.size.c229_mas_equalTo(CGSizeMake(230, 230*80/576));
+                    make.right.equalTo(ss3.c229_mas_right).offset(-10);
+                    make.top.equalTo(ss3.c229_mas_top).offset(+1);
+                }];
+
+                
+
+                [ssBtn2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                    make.left.equalTo(ssImg2.c229_mas_left).offset(+130);
+                    make.bottom.equalTo(ssImg2.c229_mas_top).offset(+25);
+                    make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+                }];
+
+                [ssBtn3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                    make.left.equalTo(ssImg3.c229_mas_left).offset(+30);
+                    make.bottom.equalTo(ssImg3.c229_mas_top).offset(+30);
+                    make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+                }];
+                
+                break;
+            
+        }
+        case 8:{
+            [ss1 removeFromSuperview];
+                [ssImg1 removeFromSuperview];
+                [ssBtn1 removeFromSuperview];
+                
+                ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-250, _carImage.frame.origin.y+88, 4, 4);
+                
+                ss3.frame = CGRectMake(_carImage.frame.origin.x+208, _carImage.frame.origin.y+115, 4, 4);
+                [ssImg1 setImage:[self createImageByName:@"229line-4/229line-4-img1"]];
+                
+                
+                [ssImg2 setImage:[self createImageByName:@"229line-5/229line-5-img2"]];
+                [ssImg2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                    make.size.c229_mas_equalTo(CGSizeMake(230, 230*93/690));
+                    make.left.equalTo(ss2.c229_mas_left).offset(+8);
+                    make.top.equalTo(ss2.c229_mas_bottom).offset(-3);
+                }];
+                
+                [ssImg3 setImage:[self createImageByName:@"229line-8/229line-8-img3"]];
+                [ssImg3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                    make.size.c229_mas_equalTo(CGSizeMake(230, 230*80/600));
+                    make.right.equalTo(ss3.c229_mas_right).offset(-10);
+                    make.top.equalTo(ss3.c229_mas_top).offset(+1);
+                }];
+
+                
+
+                [ssBtn2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                    make.left.equalTo(ssImg2.c229_mas_left).offset(+130);
+                    make.bottom.equalTo(ssImg2.c229_mas_top).offset(+25);
+                    make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+                }];
+
+                [ssBtn3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                    make.left.equalTo(ssImg3.c229_mas_left).offset(+27);
+                    make.bottom.equalTo(ssImg3.c229_mas_top).offset(+30);
+                    make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+                }];
+                
+                break;
+            
+        }
+        case 9:{
+            ss1.frame = CGRectMake(_carImage.frame.origin.x+230, _carImage.frame.origin.y+122, 4, 4);
+            ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-190, _carImage.frame.origin.y+143, 4, 4);
+            
+            ss3.frame = CGRectMake(_carImage.frame.origin.x+163, _carImage.frame.origin.y+170, 4, 4);
+            [ssImg1 setImage:[self createImageByName:@"229line-9/229line-9-img1"]];
+            [ssImg1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(180, 180*153/445));
+                make.right.equalTo(ss1.c229_mas_right).offset(-6);
+                make.bottom.equalTo(ss1.c229_mas_bottom).offset(-2);
+
+            }];
+            
+            [ssImg2 setImage:[self createImageByName:@"229line-9/229line-9-img2"]];
+            [ssImg2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(200, 200*93/617));
+                make.left.equalTo(ss2.c229_mas_left).offset(+8);
+                make.bottom.equalTo(ss2.c229_mas_bottom).offset(-3);
+            }];
+            
+            [ssImg3 setImage:[self createImageByName:@"229line-8/229line-8-img3"]];
+            [ssImg3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(160, 160*115/382));
+                make.right.equalTo(ss3.c229_mas_right).offset(-10);
+                make.top.equalTo(ss3.c229_mas_top).offset(+1);
+            }];
+
+            [ssBtn1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg1.c229_mas_left).offset(+25);
+                make.bottom.equalTo(ssImg1.c229_mas_top).offset(+25);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg2.c229_mas_left).offset(+110);
+                make.bottom.equalTo(ssImg2.c229_mas_top).offset(+15);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg3.c229_mas_left).offset(-10);
+                make.bottom.equalTo(ssImg3.c229_mas_top).offset(+43);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
             break;
         }
         case 10:{
-            ss1.frame = CGRectMake(_carImage.frame.origin.x+100, _carImage.frame.origin.y+140, 4, 4);
-            [ss2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.right.equalTo(_carImage.c229_mas_right).offset(-180);
-                make.top.equalTo(_carImage.c229_mas_bottom).offset(-80);
-            }];
-            [ss3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {make.right.equalTo(_carImage.c229_mas_right).offset(-108);
-                make.top.equalTo(_carImage.c229_mas_bottom).offset(-145);
-            }];
-            [ssImg1 setImage:[self createImageByName:@"车灯近.png"]];
+            ss1.frame = CGRectMake(_carImage.frame.origin.x+230, _carImage.frame.origin.y+122, 4, 4);
+            ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-200, _carImage.frame.origin.y+133, 4, 4);
+            
+            ss3.frame = CGRectMake(_carImage.frame.origin.x+163, _carImage.frame.origin.y+170, 4, 4);
+            [ssImg1 setImage:[self createImageByName:@"229line-9/229line-9-img1"]];
             [ssImg1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.size.c229_mas_equalTo(CGSizeMake(150, 150*118/314));
-                make.right.equalTo(ss1.c229_mas_right);
-                make.bottom.equalTo(ss1.c229_mas_bottom);
+                make.size.c229_mas_equalTo(CGSizeMake(180, 180*153/445));
+                make.right.equalTo(ss1.c229_mas_right).offset(-6);
+                make.bottom.equalTo(ss1.c229_mas_bottom).offset(-2);
+
             }];
             
-            [ssImg2 setImage:[self createImageByName:@"后备箱近.png"]];
+            [ssImg2 setImage:[self createImageByName:@"229line-9/229line-9-img2"]];
             [ssImg2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.size.c229_mas_equalTo(CGSizeMake(150, 150*107/327));
-                make.left.equalTo(ss3.c229_mas_left).offset(+6);
-                make.bottom.equalTo(ss3.c229_mas_bottom).offset(+4);
+                make.size.c229_mas_equalTo(CGSizeMake(200, 200*93/617));
+                make.left.equalTo(ss2.c229_mas_left).offset(+8);
+                make.bottom.equalTo(ss2.c229_mas_bottom).offset(-3);
             }];
+            
+            [ssImg3 setImage:[self createImageByName:@"229line-8/229line-8-img3"]];
+            [ssImg3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(160, 160*115/382));
+                make.right.equalTo(ss3.c229_mas_right).offset(-10);
+                make.top.equalTo(ss3.c229_mas_top).offset(+1);
+            }];
+
+            [ssBtn1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg1.c229_mas_left).offset(+15);
+                make.bottom.equalTo(ssImg1.c229_mas_top).offset(+25);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
             [ssBtn2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.left.equalTo(ssImg2.c229_mas_left).offset(+70);
+                make.left.equalTo(ssImg2.c229_mas_left).offset(+120);
+                make.bottom.equalTo(ssImg2.c229_mas_top).offset(+15);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg3.c229_mas_left).offset(-10);
+                make.bottom.equalTo(ssImg3.c229_mas_top).offset(+43);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+            break;
+        }
+        case 11:{
+            ss1.frame = CGRectMake(_carImage.frame.origin.x+218, _carImage.frame.origin.y+120, 4, 4);
+            ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-210, _carImage.frame.origin.y+133, 4, 4);
+            
+            ss3.frame = CGRectMake(_carImage.frame.origin.x+153, _carImage.frame.origin.y+170, 4, 4);
+            [ssImg1 setImage:[self createImageByName:@"229line-9/229line-9-img1"]];
+            [ssImg1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(180, 180*153/445));
+                make.right.equalTo(ss1.c229_mas_right).offset(-6);
+                make.bottom.equalTo(ss1.c229_mas_bottom).offset(-2);
+
+            }];
+            
+            [ssImg2 setImage:[self createImageByName:@"229line-9/229line-9-img2"]];
+            [ssImg2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(200, 200*93/617));
+                make.left.equalTo(ss2.c229_mas_left).offset(+8);
+                make.bottom.equalTo(ss2.c229_mas_bottom).offset(-3);
+            }];
+            
+            [ssImg3 setImage:[self createImageByName:@"229line-8/229line-8-img3"]];
+            [ssImg3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(160, 160*115/382));
+                make.right.equalTo(ss3.c229_mas_right).offset(-10);
+                make.top.equalTo(ss3.c229_mas_top).offset(+1);
+            }];
+
+            [ssBtn1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg1.c229_mas_left).offset(+15);
+                make.bottom.equalTo(ssImg1.c229_mas_top).offset(+25);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg2.c229_mas_left).offset(+120);
+                make.bottom.equalTo(ssImg2.c229_mas_top).offset(+15);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg3.c229_mas_left).offset(-10);
+                make.bottom.equalTo(ssImg3.c229_mas_top).offset(+43);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+            break;
+        }
+        case 12:{
+            ss1.frame = CGRectMake(_carImage.frame.origin.x+212, _carImage.frame.origin.y+118, 4, 4);
+            ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-225, _carImage.frame.origin.y+133, 4, 4);
+            
+            ss3.frame = CGRectMake(_carImage.frame.origin.x+153, _carImage.frame.origin.y+170, 4, 4);
+            [ssImg1 setImage:[self createImageByName:@"229line-9/229line-9-img1"]];
+            [ssImg1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(180, 180*153/445));
+                make.right.equalTo(ss1.c229_mas_right).offset(-6);
+                make.bottom.equalTo(ss1.c229_mas_bottom).offset(-2);
+
+            }];
+            
+            [ssImg2 setImage:[self createImageByName:@"229line-9/229line-9-img2"]];
+            [ssImg2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(200, 200*93/617));
+                make.left.equalTo(ss2.c229_mas_left).offset(+8);
+                make.bottom.equalTo(ss2.c229_mas_bottom).offset(-3);
+            }];
+            
+            [ssImg3 setImage:[self createImageByName:@"229line-8/229line-8-img3"]];
+            [ssImg3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(160, 160*115/382));
+                make.right.equalTo(ss3.c229_mas_right).offset(-10);
+                make.top.equalTo(ss3.c229_mas_top).offset(+1);
+            }];
+
+            [ssBtn1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg1.c229_mas_left).offset(+15);
+                make.bottom.equalTo(ssImg1.c229_mas_top).offset(+25);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg2.c229_mas_left).offset(+120);
+                make.bottom.equalTo(ssImg2.c229_mas_top).offset(+15);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg3.c229_mas_left).offset(-10);
+                make.bottom.equalTo(ssImg3.c229_mas_top).offset(+43);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+            break;
+        }
+        case 13:{
+            ss1.frame = CGRectMake(_carImage.frame.origin.x+202, _carImage.frame.origin.y+118, 4, 4);
+            ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-235, _carImage.frame.origin.y+123, 4, 4);
+            
+            ss3.frame = CGRectMake(_carImage.frame.origin.x+153, _carImage.frame.origin.y+170, 4, 4);
+            [ssImg1 setImage:[self createImageByName:@"229line-9/229line-9-img1"]];
+            [ssImg1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(180, 180*153/445));
+                make.right.equalTo(ss1.c229_mas_right).offset(-6);
+                make.bottom.equalTo(ss1.c229_mas_bottom).offset(-2);
+
+            }];
+            
+            [ssImg2 setImage:[self createImageByName:@"229line-9/229line-9-img2"]];
+            [ssImg2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(200, 200*93/617));
+                make.left.equalTo(ss2.c229_mas_left).offset(+8);
+                make.bottom.equalTo(ss2.c229_mas_bottom).offset(-3);
+            }];
+            
+            [ssImg3 setImage:[self createImageByName:@"229line-8/229line-8-img3"]];
+            [ssImg3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(160, 160*115/382));
+                make.right.equalTo(ss3.c229_mas_right).offset(-10);
+                make.top.equalTo(ss3.c229_mas_top).offset(+1);
+            }];
+
+            [ssBtn1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg1.c229_mas_left).offset(+15);
+                make.bottom.equalTo(ssImg1.c229_mas_top).offset(+25);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg2.c229_mas_left).offset(+120);
+                make.bottom.equalTo(ssImg2.c229_mas_top).offset(+15);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg3.c229_mas_left).offset(-10);
+                make.bottom.equalTo(ssImg3.c229_mas_top).offset(+43);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+            break;
+        }
+        case 14:{
+            ss1.frame = CGRectMake(_carImage.frame.origin.x+200, _carImage.frame.origin.y+118, 4, 4);
+            ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-255, _carImage.frame.origin.y+123, 4, 4);
+            
+            ss3.frame = CGRectMake(_carImage.frame.origin.x+153, _carImage.frame.origin.y+170, 4, 4);
+            [ssImg1 setImage:[self createImageByName:@"229line-9/229line-9-img1"]];
+            [ssImg1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(180, 180*153/445));
+                make.right.equalTo(ss1.c229_mas_right).offset(-6);
+                make.bottom.equalTo(ss1.c229_mas_bottom).offset(-2);
+
+            }];
+            
+            [ssImg2 setImage:[self createImageByName:@"229line-9/229line-9-img2"]];
+            [ssImg2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(200, 200*93/617));
+                make.left.equalTo(ss2.c229_mas_left).offset(+8);
+                make.bottom.equalTo(ss2.c229_mas_bottom).offset(-3);
+            }];
+            
+            [ssImg3 setImage:[self createImageByName:@"229line-8/229line-8-img3"]];
+            [ssImg3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(160, 160*115/382));
+                make.right.equalTo(ss3.c229_mas_right).offset(-10);
+                make.top.equalTo(ss3.c229_mas_top).offset(+1);
+            }];
+
+            [ssBtn1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg1.c229_mas_left).offset(+15);
+                make.bottom.equalTo(ssImg1.c229_mas_top).offset(+25);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg2.c229_mas_left).offset(+120);
+                make.bottom.equalTo(ssImg2.c229_mas_top).offset(+15);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg3.c229_mas_left).offset(-10);
+                make.bottom.equalTo(ssImg3.c229_mas_top).offset(+43);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+            break;
+        }
+        case 15:{
+            ss1.frame = CGRectMake(_carImage.frame.origin.x+197, _carImage.frame.origin.y+118, 4, 4);
+            ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-175, _carImage.frame.origin.y+147, 4, 4);
+            
+            ss3.frame = CGRectMake(_carImage.frame.origin.x+153, _carImage.frame.origin.y+170, 4, 4);
+            [ssImg1 setImage:[self createImageByName:@"229line-9/229line-9-img1"]];
+            [ssImg1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(180, 180*153/445));
+                make.right.equalTo(ss1.c229_mas_right).offset(-6);
+                make.bottom.equalTo(ss1.c229_mas_bottom).offset(-2);
+
+            }];
+            
+            [ssImg2 setImage:[self createImageByName:@"229line-9/229line-9-img3"]];
+            [ssImg2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(200, 200*93/617));
+                make.left.equalTo(ss2.c229_mas_left).offset(+8);
+                make.top.equalTo(ss2.c229_mas_bottom).offset(-3);
+            }];
+            
+            [ssImg3 setImage:[self createImageByName:@"229line-8/229line-8-img3"]];
+            [ssImg3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(160, 160*115/382));
+                make.right.equalTo(ss3.c229_mas_right).offset(-10);
+                make.top.equalTo(ss3.c229_mas_top).offset(+1);
+            }];
+
+            [ssBtn1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg1.c229_mas_left).offset(+15);
+                make.bottom.equalTo(ssImg1.c229_mas_top).offset(+25);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg2.c229_mas_left).offset(+90);
+                make.bottom.equalTo(ssImg2.c229_mas_top).offset(+15);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg3.c229_mas_left).offset(-10);
+                make.bottom.equalTo(ssImg3.c229_mas_top).offset(+43);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+            break;
+        }
+        case 16:{
+            ss1.frame = CGRectMake(_carImage.frame.origin.x+197, _carImage.frame.origin.y+118, 4, 4);
+            ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-175, _carImage.frame.origin.y+147, 4, 4);
+            
+            ss3.frame = CGRectMake(_carImage.frame.origin.x+188, _carImage.frame.origin.y+170, 4, 4);
+            [ssImg1 setImage:[self createImageByName:@"229line-9/229line-9-img1"]];
+            [ssImg1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(180, 180*153/445));
+                make.right.equalTo(ss1.c229_mas_right).offset(-6);
+                make.bottom.equalTo(ss1.c229_mas_bottom).offset(-2);
+
+            }];
+            
+            [ssImg2 setImage:[self createImageByName:@"229line-9/229line-9-img3"]];
+            [ssImg2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(200, 200*93/617));
+                make.left.equalTo(ss2.c229_mas_left).offset(+8);
+                make.top.equalTo(ss2.c229_mas_bottom).offset(-3);
+            }];
+            
+            [ssImg3 setImage:[self createImageByName:@"229line-8/229line-8-img3"]];
+            [ssImg3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(160, 160*115/382));
+                make.right.equalTo(ss3.c229_mas_right).offset(-10);
+                make.top.equalTo(ss3.c229_mas_top).offset(+1);
+            }];
+
+            [ssBtn1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg1.c229_mas_left).offset(+15);
+                make.bottom.equalTo(ssImg1.c229_mas_top).offset(+25);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg2.c229_mas_left).offset(+90);
+                make.bottom.equalTo(ssImg2.c229_mas_top).offset(+15);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg3.c229_mas_left).offset(+10);
+                make.bottom.equalTo(ssImg3.c229_mas_top).offset(+43);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+            break;
+        }
+        case 17:{
+            ss1.frame = CGRectMake(_carImage.frame.origin.x+197, _carImage.frame.origin.y+118, 4, 4);
+            ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-175, _carImage.frame.origin.y+147, 4, 4);
+            
+            ss3.frame = CGRectMake(_carImage.frame.origin.x+198, _carImage.frame.origin.y+170, 4, 4);
+            [ssImg1 setImage:[self createImageByName:@"229line-9/229line-9-img1"]];
+            [ssImg1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(180, 180*153/445));
+                make.right.equalTo(ss1.c229_mas_right).offset(-6);
+                make.bottom.equalTo(ss1.c229_mas_bottom).offset(-2);
+
+            }];
+            
+            [ssImg2 setImage:[self createImageByName:@"229line-9/229line-9-img3"]];
+            [ssImg2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(200, 200*93/617));
+                make.left.equalTo(ss2.c229_mas_left).offset(+8);
+                make.top.equalTo(ss2.c229_mas_bottom).offset(-3);
+            }];
+            
+            [ssImg3 setImage:[self createImageByName:@"229line-8/229line-8-img3"]];
+            [ssImg3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(160, 160*115/382));
+                make.right.equalTo(ss3.c229_mas_right).offset(-10);
+                make.top.equalTo(ss3.c229_mas_top).offset(+1);
+            }];
+
+            [ssBtn1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg1.c229_mas_left).offset(+15);
+                make.bottom.equalTo(ssImg1.c229_mas_top).offset(+25);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg2.c229_mas_left).offset(+90);
+                make.bottom.equalTo(ssImg2.c229_mas_top).offset(+15);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg3.c229_mas_left).offset(+10);
+                make.bottom.equalTo(ssImg3.c229_mas_top).offset(+43);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+            break;
+        }
+        case 18:{
+            ss1.frame = CGRectMake(_carImage.frame.origin.x+202, _carImage.frame.origin.y+118, 4, 4);
+            ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-205, _carImage.frame.origin.y+147, 4, 4);
+            
+            ss3.frame = CGRectMake(_carImage.frame.origin.x+215, _carImage.frame.origin.y+170, 4, 4);
+            [ssImg1 setImage:[self createImageByName:@"229line-9/229line-9-img1"]];
+            [ssImg1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(180, 180*153/445));
+                make.right.equalTo(ss1.c229_mas_right).offset(-6);
+                make.bottom.equalTo(ss1.c229_mas_bottom).offset(-2);
+
+            }];
+            
+            [ssImg2 setImage:[self createImageByName:@"229line-9/229line-9-img3"]];
+            [ssImg2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(200, 200*93/617));
+                make.left.equalTo(ss2.c229_mas_left).offset(+8);
+                make.top.equalTo(ss2.c229_mas_bottom).offset(-3);
+            }];
+            
+            [ssImg3 setImage:[self createImageByName:@"229line-8/229line-8-img3"]];
+            [ssImg3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(160, 160*115/382));
+                make.right.equalTo(ss3.c229_mas_right).offset(-10);
+                make.top.equalTo(ss3.c229_mas_top).offset(+1);
+            }];
+
+            [ssBtn1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg1.c229_mas_left).offset(+15);
+                make.bottom.equalTo(ssImg1.c229_mas_top).offset(+25);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg2.c229_mas_left).offset(+90);
+                make.bottom.equalTo(ssImg2.c229_mas_top).offset(+15);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg3.c229_mas_left).offset(+10);
+                make.bottom.equalTo(ssImg3.c229_mas_top).offset(+43);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+            break;
+        }
+        case 19:{
+            ss1.frame = CGRectMake(_carImage.frame.origin.x+207, _carImage.frame.origin.y+118, 4, 4);
+            ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-238, _carImage.frame.origin.y+147, 4, 4);
+            
+            ss3.frame = CGRectMake(_carImage.frame.origin.x+215, _carImage.frame.origin.y+170, 4, 4);
+            [ss3 removeFromSuperview];
+            [ssBtn3 removeFromSuperview];
+            [ssImg1 setImage:[self createImageByName:@"229line-9/229line-9-img1"]];
+            [ssImg1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(180, 180*153/445));
+                make.right.equalTo(ss1.c229_mas_right).offset(-6);
+                make.bottom.equalTo(ss1.c229_mas_bottom).offset(-2);
+
+            }];
+            
+            [ssImg2 setImage:[self createImageByName:@"229line-9/229line-9-img3"]];
+            [ssImg2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(200, 200*93/617));
+                make.left.equalTo(ss2.c229_mas_left).offset(+8);
+                make.top.equalTo(ss2.c229_mas_bottom).offset(-3);
+            }];
+            
+
+            [ssBtn1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg1.c229_mas_left).offset(+15);
+                make.bottom.equalTo(ssImg1.c229_mas_top).offset(+25);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg2.c229_mas_left).offset(+90);
+                make.bottom.equalTo(ssImg2.c229_mas_top).offset(+15);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+           
+            break;
+        }
+        case 20:{
+            ss1.frame = CGRectMake(_carImage.frame.origin.x+360, _carImage.frame.origin.y+120, 4, 4);
+            ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-220, _carImage.frame.origin.y+157, 4, 4);
+            
+            ss3.frame = CGRectMake(_carImage.frame.origin.x+200, _carImage.frame.origin.y+150, 4, 4);
+            [ssImg1 setImage:[self createImageByName:@"229line-9/229line-9-img2"]];
+            [ssImg1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(180, 180*153/445));
+                make.left.equalTo(ss1.c229_mas_right).offset(+4);
+                make.bottom.equalTo(ss1.c229_mas_bottom).offset(-2);
+
+            }];
+            
+            [ssImg2 setImage:[self createImageByName:@"229line-9/229line-9-img3"]];
+            [ssImg2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(200, 200*93/617));
+                make.left.equalTo(ss2.c229_mas_left).offset(+8);
+                make.top.equalTo(ss2.c229_mas_bottom).offset(-3);
+            }];
+            
+            [ssImg3 setImage:[self createImageByName:@"229line-2/229line-2-img3"]];
+            [ssImg3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(160, 160*115/382));
+                make.right.equalTo(ss3.c229_mas_right).offset(-10);
+                make.top.equalTo(ss3.c229_mas_top).offset(+1);
+            }];
+
+            [ssBtn1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.right.equalTo(ssImg1.c229_mas_right).offset(+15);
+                make.bottom.equalTo(ssImg1.c229_mas_top).offset(+25);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg2.c229_mas_left).offset(+100);
                 make.bottom.equalTo(ssImg2.c229_mas_top).offset(+20);
                 make.size.c229_mas_equalTo(CGSizeMake(100, 30));
             }];
-            if (IsiPhone8) {
-                [ssImg2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                    make.size.c229_mas_equalTo(CGSizeMake(130, 130*107/327));
-                    make.left.equalTo(ss3.c229_mas_left).offset(+6);
-                    make.bottom.equalTo(ss3.c229_mas_bottom).offset(+4);
-                }];
-                [ssBtn2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                    make.left.equalTo(ssImg2.c229_mas_left).offset(+60);
-                    make.bottom.equalTo(ssImg2.c229_mas_top).offset(+20);
-                    make.size.c229_mas_equalTo(CGSizeMake(100, 30));
-                }];
-            }
+
+            [ssBtn3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg3.c229_mas_left).offset(+10);
+                make.bottom.equalTo(ssImg3.c229_mas_top).offset(+43);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+            break;
+        }
+        case 21:{
+            ss1.frame = CGRectMake(_carImage.frame.origin.x+315, _carImage.frame.origin.y+130, 4, 4);
+            ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-190, _carImage.frame.origin.y+157, 4, 4);
             
+            ss3.frame = CGRectMake(_carImage.frame.origin.x+180, _carImage.frame.origin.y+150, 4, 4);
+            [ssImg1 setImage:[self createImageByName:@"229line-9/229line-9-img2"]];
+            [ssImg1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(180, 180*153/445));
+                make.left.equalTo(ss1.c229_mas_right).offset(+4);
+                make.bottom.equalTo(ss1.c229_mas_bottom).offset(-2);
+
+            }];
+            
+            [ssImg2 setImage:[self createImageByName:@"229line-9/229line-9-img3"]];
+            [ssImg2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(200, 200*93/617));
+                make.left.equalTo(ss2.c229_mas_left).offset(+8);
+                make.top.equalTo(ss2.c229_mas_bottom).offset(-3);
+            }];
+            
+            [ssImg3 setImage:[self createImageByName:@"229line-2/229line-2-img3"]];
+            [ssImg3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(160, 160*115/382));
+                make.right.equalTo(ss3.c229_mas_right).offset(-10);
+                make.top.equalTo(ss3.c229_mas_top).offset(+1);
+            }];
+
+            [ssBtn1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.right.equalTo(ssImg1.c229_mas_right).offset(+15);
+                make.bottom.equalTo(ssImg1.c229_mas_top).offset(+25);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg2.c229_mas_left).offset(+100);
+                make.bottom.equalTo(ssImg2.c229_mas_top).offset(+20);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg3.c229_mas_left).offset(+10);
+                make.bottom.equalTo(ssImg3.c229_mas_top).offset(+43);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+            break;
+        }
+        case 22:{
+            ss1.frame = CGRectMake(_carImage.frame.origin.x+285, _carImage.frame.origin.y+130, 4, 4);
+            ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-180, _carImage.frame.origin.y+157, 4, 4);
+            
+            ss3.frame = CGRectMake(_carImage.frame.origin.x+160, _carImage.frame.origin.y+150, 4, 4);
+            [ssImg1 setImage:[self createImageByName:@"229line-9/229line-9-img2"]];
+            [ssImg1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(180, 180*153/445));
+                make.left.equalTo(ss1.c229_mas_right).offset(+4);
+                make.bottom.equalTo(ss1.c229_mas_bottom).offset(-2);
+
+            }];
+            
+            [ssImg2 setImage:[self createImageByName:@"229line-9/229line-9-img3"]];
+            [ssImg2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(200, 200*93/617));
+                make.left.equalTo(ss2.c229_mas_left).offset(+8);
+                make.top.equalTo(ss2.c229_mas_bottom).offset(-3);
+            }];
+            
+            [ssImg3 setImage:[self createImageByName:@"229line-2/229line-2-img3"]];
+            [ssImg3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(160, 160*115/382));
+                make.right.equalTo(ss3.c229_mas_right).offset(-10);
+                make.top.equalTo(ss3.c229_mas_top).offset(+1);
+            }];
+
+            [ssBtn1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.right.equalTo(ssImg1.c229_mas_right).offset(+15);
+                make.bottom.equalTo(ssImg1.c229_mas_top).offset(+25);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg2.c229_mas_left).offset(+100);
+                make.bottom.equalTo(ssImg2.c229_mas_top).offset(+20);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg3.c229_mas_left).offset(+10);
+                make.bottom.equalTo(ssImg3.c229_mas_top).offset(+43);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+            break;
+        }
+        case 23:{
+            ss1.frame = CGRectMake(_carImage.frame.origin.x+247, _carImage.frame.origin.y+130, 4, 4);
+            ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-195, _carImage.frame.origin.y+147, 4, 4);
+            
+            ss3.frame = CGRectMake(_carImage.frame.origin.x+153, _carImage.frame.origin.y+150, 4, 4);
+            [ssImg1 setImage:[self createImageByName:@"229line-23/229line-23-img1"]];
+            [ssImg1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(200, 200*153/720));
+                make.right.equalTo(ss1.c229_mas_right).offset(-6);
+                make.bottom.equalTo(ss1.c229_mas_bottom).offset(-2);
+
+            }];
+            
+            [ssImg2 setImage:[self createImageByName:@"229line-9/229line-9-img3"]];
+            [ssImg2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(200, 200*93/617));
+                make.left.equalTo(ss2.c229_mas_left).offset(+8);
+                make.top.equalTo(ss2.c229_mas_bottom).offset(-3);
+            }];
+            
+            [ssImg3 setImage:[self createImageByName:@"229line-2/229line-2-img3"]];
+            [ssImg3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(160, 160*115/382));
+                make.right.equalTo(ss3.c229_mas_right).offset(-10);
+                make.top.equalTo(ss3.c229_mas_top).offset(+1);
+            }];
+
+            [ssBtn1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg1.c229_mas_left).offset(+15);
+                make.bottom.equalTo(ssImg1.c229_mas_top).offset(+25);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg2.c229_mas_left).offset(+110);
+                make.bottom.equalTo(ssImg2.c229_mas_top).offset(+25);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg3.c229_mas_left).offset(+5);
+                make.bottom.equalTo(ssImg3.c229_mas_top).offset(+43);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+            break;
+        }
+        case 24:{
+            ss1.frame = CGRectMake(_carImage.frame.origin.x+223, _carImage.frame.origin.y+127, 4, 4);
+            ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-195, _carImage.frame.origin.y+147, 4, 4);
+            
+            ss3.frame = CGRectMake(_carImage.frame.origin.x+133, _carImage.frame.origin.y+150, 4, 4);
+            [ss3 removeFromSuperview];
+            [ssBtn3 removeFromSuperview];
+            [ssImg1 setImage:[self createImageByName:@"229line-23/229line-23-img1"]];
+            [ssImg1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(200, 200*153/720));
+                make.right.equalTo(ss1.c229_mas_right).offset(-6);
+                make.bottom.equalTo(ss1.c229_mas_bottom).offset(-2);
+
+            }];
+            
+            [ssImg2 setImage:[self createImageByName:@"229line-9/229line-9-img3"]];
+            [ssImg2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(200, 200*93/617));
+                make.left.equalTo(ss2.c229_mas_left).offset(+8);
+                make.top.equalTo(ss2.c229_mas_bottom).offset(-3);
+            }];
+            
+            [ssImg3 setImage:[self createImageByName:@"229line-2/229line-2-img3"]];
+           
+            [ssBtn1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg1.c229_mas_left).offset(+15);
+                make.bottom.equalTo(ssImg1.c229_mas_top).offset(+25);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg2.c229_mas_left).offset(+110);
+                make.bottom.equalTo(ssImg2.c229_mas_top).offset(+25);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+
+            break;
+        }
+        case 25:{
+            ss1.frame = CGRectMake(_carImage.frame.origin.x+195, _carImage.frame.origin.y+127, 4, 4);
+            ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-195, _carImage.frame.origin.y+147, 4, 4);
+            
+            ss3.frame = CGRectMake(_carImage.frame.origin.x+133, _carImage.frame.origin.y+150, 4, 4);
+            [ss3 removeFromSuperview];
+            [ssBtn3 removeFromSuperview];
+            [ssImg1 setImage:[self createImageByName:@"229line-23/229line-23-img1"]];
+            [ssImg1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(200, 200*153/720));
+                make.right.equalTo(ss1.c229_mas_right).offset(-6);
+                make.bottom.equalTo(ss1.c229_mas_bottom).offset(-2);
+
+            }];
+            
+            [ssImg2 setImage:[self createImageByName:@"229line-24/c229-24-img2"]];
+            [ssImg2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(240, 240*93/690));
+                make.left.equalTo(ss2.c229_mas_left).offset(+8);
+                make.top.equalTo(ss2.c229_mas_bottom).offset(-3);
+            }];
+            
+            [ssImg3 setImage:[self createImageByName:@"229line-2/229line-2-img3"]];
+           
+            [ssBtn1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg1.c229_mas_left).offset(+15);
+                make.bottom.equalTo(ssImg1.c229_mas_top).offset(+25);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg2.c229_mas_left).offset(+150);
+                make.bottom.equalTo(ssImg2.c229_mas_top).offset(+25);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+
+            break;
+        }
+        case 26:{
+            ss1.frame = CGRectMake(_carImage.frame.origin.x+174, _carImage.frame.origin.y+127, 4, 4);
+            ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-195, _carImage.frame.origin.y+147, 4, 4);
+            
+            ss3.frame = CGRectMake(_carImage.frame.origin.x+133, _carImage.frame.origin.y+150, 4, 4);
+            [ss3 removeFromSuperview];
+            [ssBtn3 removeFromSuperview];
+            [ssImg1 setImage:[self createImageByName:@"229line-23/229line-23-img1"]];
+            [ssImg1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(200, 200*153/720));
+                make.right.equalTo(ss1.c229_mas_right).offset(-6);
+                make.bottom.equalTo(ss1.c229_mas_bottom).offset(-2);
+
+            }];
+            
+            [ssImg2 setImage:[self createImageByName:@"229line-24/c229-24-img2"]];
+            [ssImg2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(240, 240*93/690));
+                make.left.equalTo(ss2.c229_mas_left).offset(+8);
+                make.top.equalTo(ss2.c229_mas_bottom).offset(-3);
+            }];
+            
+            [ssImg3 setImage:[self createImageByName:@"229line-2/229line-2-img3"]];
+           
+            [ssBtn1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg1.c229_mas_left).offset(+15);
+                make.bottom.equalTo(ssImg1.c229_mas_top).offset(+25);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg2.c229_mas_left).offset(+150);
+                make.bottom.equalTo(ssImg2.c229_mas_top).offset(+25);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+
+            break;
+        }
+        case 27:{
+            ss1.frame = CGRectMake(_carImage.frame.origin.x+168, _carImage.frame.origin.y+127, 4, 4);
+            ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-195, _carImage.frame.origin.y+147, 4, 4);
+            
+            ss3.frame = CGRectMake(_carImage.frame.origin.x+133, _carImage.frame.origin.y+150, 4, 4);
+            [ss3 removeFromSuperview];
+            [ssBtn3 removeFromSuperview];
+            [ssImg1 setImage:[self createImageByName:@"229line-23/229line-23-img1"]];
+            [ssImg1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(200, 200*153/720));
+                make.right.equalTo(ss1.c229_mas_right).offset(-6);
+                make.bottom.equalTo(ss1.c229_mas_bottom).offset(-2);
+
+            }];
+            
+            [ssImg2 setImage:[self createImageByName:@"229line-24/c229-24-img2"]];
+            [ssImg2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(240, 240*93/690));
+                make.left.equalTo(ss2.c229_mas_left).offset(+8);
+                make.top.equalTo(ss2.c229_mas_bottom).offset(-3);
+            }];
+            
+            [ssImg3 setImage:[self createImageByName:@"229line-2/229line-2-img3"]];
+           
+            [ssBtn1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg1.c229_mas_left).offset(+15);
+                make.bottom.equalTo(ssImg1.c229_mas_top).offset(+25);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg2.c229_mas_left).offset(+150);
+                make.bottom.equalTo(ssImg2.c229_mas_top).offset(+25);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+
             break;
         }
         case 28:{
-            ss1.frame = CGRectMake(_carImage.frame.origin.x+100, _carImage.frame.origin.y+140, 4, 4);
-            [ss2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.right.equalTo(_carImage.c229_mas_right).offset(-138);
-                make.top.equalTo(_carImage.c229_mas_bottom).offset(-70);
-            }];
-            [ss3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {make.right.equalTo(_carImage.c229_mas_right).offset(-108);
-                make.top.equalTo(_carImage.c229_mas_bottom).offset(-130);
-            }];
-            [ssImg1 setImage:[self createImageByName:@"车灯近.png"]];
-            [ssImg1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.size.c229_mas_equalTo(CGSizeMake(200, 200*118/314));
-                make.right.equalTo(ss1.c229_mas_right);
-                make.bottom.equalTo(ss1.c229_mas_bottom);
-            }];
-
-            [ssImg2 setImage:[self createImageByName:@"后备箱近.png"]];
-            [ssImg2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.size.c229_mas_equalTo(CGSizeMake(200, 200*107/327));
-                make.left.equalTo(ss3.c229_mas_left).offset(+6);
-                make.bottom.equalTo(ss3.c229_mas_bottom).offset(+4);
-            }];
-
-            [ssImg3 setImage:[self createImageByName:@"无名近.png"]];
-            [ssImg3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.size.c229_mas_equalTo(CGSizeMake(200, 200*56/314));
-                make.left.equalTo(ss2.c229_mas_right).offset(+4);
-                make.top.equalTo(ss2.c229_mas_top).offset(+2);
-            }];
-
+            ss1.frame = CGRectMake(_carImage.frame.origin.x+158, _carImage.frame.origin.y+127, 4, 4);
+            ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-210, _carImage.frame.origin.y+147, 4, 4);
             
+            ss3.frame = CGRectMake(_carImage.frame.origin.x+133, _carImage.frame.origin.y+150, 4, 4);
+            [ss3 removeFromSuperview];
+            [ssBtn3 removeFromSuperview];
+            [ssImg1 setImage:[self createImageByName:@"229line-23/229line-23-img1"]];
+            [ssImg1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(200, 200*153/720));
+                make.right.equalTo(ss1.c229_mas_right).offset(-6);
+                make.bottom.equalTo(ss1.c229_mas_bottom).offset(-2);
+
+            }];
+            
+            [ssImg2 setImage:[self createImageByName:@"229line-24/c229-24-img2"]];
+            [ssImg2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(240, 240*93/690));
+                make.left.equalTo(ss2.c229_mas_left).offset(+8);
+                make.top.equalTo(ss2.c229_mas_bottom).offset(-3);
+            }];
+            
+            [ssImg3 setImage:[self createImageByName:@"229line-2/229line-2-img3"]];
+           
             [ssBtn1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.left.equalTo(ssImg1.c229_mas_left).offset(+20);
-                make.bottom.equalTo(ssImg1.c229_mas_top).offset(+30);
+                make.left.equalTo(ssImg1.c229_mas_left).offset(+15);
+                make.bottom.equalTo(ssImg1.c229_mas_top).offset(+25);
                 make.size.c229_mas_equalTo(CGSizeMake(100, 30));
             }];
 
             [ssBtn2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.left.equalTo(ssImg2.c229_mas_left).offset(+110);
-                make.bottom.equalTo(ssImg2.c229_mas_top).offset(+30);
+                make.left.equalTo(ssImg2.c229_mas_left).offset(+150);
+                make.bottom.equalTo(ssImg2.c229_mas_top).offset(+25);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+
+            break;
+        }
+        case 29:{
+            ss1.frame = CGRectMake(_carImage.frame.origin.x+147, _carImage.frame.origin.y+130, 4, 4);
+            ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-180, _carImage.frame.origin.y+127, 4, 4);
+            
+            ss3.frame = CGRectMake(_carImage.frame.origin.x+163, _carImage.frame.origin.y+175, 4, 4);
+            [ssImg1 setImage:[self createImageByName:@"229line-1/229line-1-img1"]];
+            [ssImg1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(160, 160*153/445));
+                make.right.equalTo(ss1.c229_mas_right).offset(-6);
+                make.bottom.equalTo(ss1.c229_mas_bottom).offset(-2);
+
+            }];
+            
+            [ssImg2 setImage:[self createImageByName:@"229line-9/229line-9-img2"]];
+            [ssImg2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(200, 200*93/617));
+                make.left.equalTo(ss2.c229_mas_left).offset(+8);
+                make.bottom.equalTo(ss2.c229_mas_bottom).offset(-3);
+            }];
+            
+            [ssImg3 setImage:[self createImageByName:@"229line-8/229line-8-img3"]];
+            [ssImg3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(160, 160*115/382));
+                make.right.equalTo(ss3.c229_mas_right).offset(-10);
+                make.top.equalTo(ss3.c229_mas_top).offset(+1);
+            }];
+
+            [ssBtn1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg1.c229_mas_left).offset(+15);
+                make.bottom.equalTo(ssImg1.c229_mas_top).offset(+25);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg2.c229_mas_left).offset(+115);
+                make.bottom.equalTo(ssImg2.c229_mas_top).offset(+15);
                 make.size.c229_mas_equalTo(CGSizeMake(100, 30));
             }];
 
             [ssBtn3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.left.equalTo(ssImg3.c229_mas_left).offset(+110);
+                make.left.equalTo(ssImg3.c229_mas_left).offset(-10);
+                make.bottom.equalTo(ssImg3.c229_mas_top).offset(+43);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+            break;
+        }
+        case 30:{
+            ss1.frame = CGRectMake(_carImage.frame.origin.x+147, _carImage.frame.origin.y+130, 4, 4);
+            ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-180, _carImage.frame.origin.y+127, 4, 4);
+            
+            ss3.frame = CGRectMake(_carImage.frame.origin.x+163, _carImage.frame.origin.y+175, 4, 4);
+            [ssImg1 setImage:[self createImageByName:@"229line-1/229line-1-img1"]];
+            [ssImg1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(160, 160*153/445));
+                make.right.equalTo(ss1.c229_mas_right).offset(-6);
+                make.bottom.equalTo(ss1.c229_mas_bottom).offset(-2);
+
+            }];
+            
+            [ssImg2 setImage:[self createImageByName:@"229line-9/229line-9-img2"]];
+            [ssImg2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(200, 200*93/617));
+                make.left.equalTo(ss2.c229_mas_left).offset(+8);
+                make.bottom.equalTo(ss2.c229_mas_bottom).offset(-3);
+            }];
+            
+            [ssImg3 setImage:[self createImageByName:@"229line-8/229line-8-img3"]];
+            [ssImg3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(160, 160*115/382));
+                make.right.equalTo(ss3.c229_mas_right).offset(-10);
+                make.top.equalTo(ss3.c229_mas_top).offset(+1);
+            }];
+
+            [ssBtn1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg1.c229_mas_left).offset(+15);
+                make.bottom.equalTo(ssImg1.c229_mas_top).offset(+25);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg2.c229_mas_left).offset(+115);
+                make.bottom.equalTo(ssImg2.c229_mas_top).offset(+15);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg3.c229_mas_left).offset(-10);
+                make.bottom.equalTo(ssImg3.c229_mas_top).offset(+43);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+            break;
+        }
+        case 31:{
+            ss1.frame = CGRectMake(_carImage.frame.origin.x+147, _carImage.frame.origin.y+130, 4, 4);
+            ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-180, _carImage.frame.origin.y+127, 4, 4);
+            
+            ss3.frame = CGRectMake(_carImage.frame.origin.x+163, _carImage.frame.origin.y+175, 4, 4);
+            [ssImg1 setImage:[self createImageByName:@"229line-1/229line-1-img1"]];
+            [ssImg1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(160, 160*153/445));
+                make.right.equalTo(ss1.c229_mas_right).offset(-6);
+                make.bottom.equalTo(ss1.c229_mas_bottom).offset(-2);
+
+            }];
+            
+            [ssImg2 setImage:[self createImageByName:@"229line-9/229line-9-img2"]];
+            [ssImg2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(200, 200*93/617));
+                make.left.equalTo(ss2.c229_mas_left).offset(+8);
+                make.bottom.equalTo(ss2.c229_mas_bottom).offset(-3);
+            }];
+            
+            [ssImg3 setImage:[self createImageByName:@"229line-8/229line-8-img3"]];
+            [ssImg3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(160, 160*115/382));
+                make.right.equalTo(ss3.c229_mas_right).offset(-10);
+                make.top.equalTo(ss3.c229_mas_top).offset(+1);
+            }];
+
+            [ssBtn1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg1.c229_mas_left).offset(+15);
+                make.bottom.equalTo(ssImg1.c229_mas_top).offset(+25);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg2.c229_mas_left).offset(+115);
+                make.bottom.equalTo(ssImg2.c229_mas_top).offset(+15);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg3.c229_mas_left).offset(-10);
+                make.bottom.equalTo(ssImg3.c229_mas_top).offset(+43);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+            break;
+        }
+        case 32:{
+            ss1.frame = CGRectMake(_carImage.frame.origin.x+147, _carImage.frame.origin.y+130, 4, 4);
+            ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-180, _carImage.frame.origin.y+127, 4, 4);
+            
+            ss3.frame = CGRectMake(_carImage.frame.origin.x+163, _carImage.frame.origin.y+175, 4, 4);
+            [ssImg1 setImage:[self createImageByName:@"229line-1/229line-1-img1"]];
+            [ssImg1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(160, 160*153/445));
+                make.right.equalTo(ss1.c229_mas_right).offset(-6);
+                make.bottom.equalTo(ss1.c229_mas_bottom).offset(-2);
+
+            }];
+            
+            [ssImg2 setImage:[self createImageByName:@"229line-9/229line-9-img2"]];
+            [ssImg2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(200, 200*93/617));
+                make.left.equalTo(ss2.c229_mas_left).offset(+8);
+                make.bottom.equalTo(ss2.c229_mas_bottom).offset(-3);
+            }];
+            
+            [ssImg3 setImage:[self createImageByName:@"229line-8/229line-8-img3"]];
+            [ssImg3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(160, 160*115/382));
+                make.right.equalTo(ss3.c229_mas_right).offset(-10);
+                make.top.equalTo(ss3.c229_mas_top).offset(+1);
+            }];
+
+            [ssBtn1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg1.c229_mas_left).offset(+15);
+                make.bottom.equalTo(ssImg1.c229_mas_top).offset(+25);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg2.c229_mas_left).offset(+115);
+                make.bottom.equalTo(ssImg2.c229_mas_top).offset(+15);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg3.c229_mas_left).offset(-10);
+                make.bottom.equalTo(ssImg3.c229_mas_top).offset(+43);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+            break;
+        }
+        case 33:{
+            
+            [ss1 removeFromSuperview];
+            [ssImg1 removeFromSuperview];
+            [ssBtn1 removeFromSuperview];
+            
+            ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-260, _carImage.frame.origin.y+93, 4, 4);
+            
+            ss3.frame = CGRectMake(_carImage.frame.origin.x+167, _carImage.frame.origin.y+130, 4, 4);
+            [ssImg1 setImage:[self createImageByName:@"229line-5/229line-5-img1"]];
+            
+            
+            [ssImg2 setImage:[self createImageByName:@"229line-5/229line-5-img2"]];
+            [ssImg2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(230, 230*93/690));
+                make.left.equalTo(ss2.c229_mas_left).offset(+8);
+                make.top.equalTo(ss2.c229_mas_bottom).offset(-3);
+            }];
+            
+            [ssImg3 setImage:[self createImageByName:@"229line-33/229line-33-img3"]];
+            [ssImg3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(190, 190*120/576));
+                make.right.equalTo(ss3.c229_mas_right).offset(-10);
+                make.bottom.equalTo(ss3.c229_mas_top).offset(+1);
+            }];
+
+            
+
+            [ssBtn2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg2.c229_mas_left).offset(+133);
+                make.bottom.equalTo(ssImg2.c229_mas_top).offset(+25);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg3.c229_mas_left).offset(+30);
+                make.bottom.equalTo(ssImg3.c229_mas_top).offset(+15);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+            
+            break;
+        }
+        case 34:{
+            
+            [ss1 removeFromSuperview];
+            [ssImg1 removeFromSuperview];
+            [ssBtn1 removeFromSuperview];
+            
+            ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-260, _carImage.frame.origin.y+93, 4, 4);
+            
+            ss3.frame = CGRectMake(_carImage.frame.origin.x+177, _carImage.frame.origin.y+130, 4, 4);
+            [ssImg1 setImage:[self createImageByName:@"229line-5/229line-5-img1"]];
+            
+            
+            [ssImg2 setImage:[self createImageByName:@"229line-5/229line-5-img2"]];
+            [ssImg2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(230, 230*93/690));
+                make.left.equalTo(ss2.c229_mas_left).offset(+8);
+                make.top.equalTo(ss2.c229_mas_bottom).offset(-3);
+            }];
+            
+            [ssImg3 setImage:[self createImageByName:@"229line-33/229line-33-img3"]];
+            [ssImg3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(190, 190*120/576));
+                make.right.equalTo(ss3.c229_mas_right).offset(-10);
+                make.bottom.equalTo(ss3.c229_mas_top).offset(+1);
+            }];
+
+            
+
+            [ssBtn2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg2.c229_mas_left).offset(+133);
+                make.bottom.equalTo(ssImg2.c229_mas_top).offset(+25);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg3.c229_mas_left).offset(+30);
+                make.bottom.equalTo(ssImg3.c229_mas_top).offset(+15);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+            
+            break;
+        }
+        case 35:{
+            
+            [ss1 removeFromSuperview];
+            [ssImg1 removeFromSuperview];
+            [ssBtn1 removeFromSuperview];
+            
+            ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-260, _carImage.frame.origin.y+90, 4, 4);
+            
+            ss3.frame = CGRectMake(_carImage.frame.origin.x+210, _carImage.frame.origin.y+130, 4, 4);
+            [ssImg1 setImage:[self createImageByName:@"229line-5/229line-5-img1"]];
+            
+            
+            [ssImg2 setImage:[self createImageByName:@"229line-5/229line-5-img2"]];
+            [ssImg2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(230, 230*93/690));
+                make.left.equalTo(ss2.c229_mas_left).offset(+8);
+                make.top.equalTo(ss2.c229_mas_bottom).offset(-3);
+            }];
+            
+            [ssImg3 setImage:[self createImageByName:@"229line-33/229line-33-img3"]];
+            [ssImg3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(190, 190*120/576));
+                make.right.equalTo(ss3.c229_mas_right).offset(-10);
+                make.bottom.equalTo(ss3.c229_mas_top).offset(+1);
+            }];
+
+            
+
+            [ssBtn2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg2.c229_mas_left).offset(+133);
+                make.bottom.equalTo(ssImg2.c229_mas_top).offset(+25);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg3.c229_mas_left).offset(+30);
+                make.bottom.equalTo(ssImg3.c229_mas_top).offset(+15);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+            
+            break;
+        }
+        case 36:{
+            
+            [ss1 removeFromSuperview];
+            [ssImg1 removeFromSuperview];
+            [ssBtn1 removeFromSuperview];
+            
+            ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-255, _carImage.frame.origin.y+90, 4, 4);
+            
+            ss3.frame = CGRectMake(_carImage.frame.origin.x+247, _carImage.frame.origin.y+118, 4, 4);
+            [ssImg1 setImage:[self createImageByName:@"229line-5/229line-5-img1"]];
+            
+            
+            [ssImg2 setImage:[self createImageByName:@"229line-5/229line-5-img2"]];
+            [ssImg2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(230, 230*93/690));
+                make.left.equalTo(ss2.c229_mas_left).offset(+8);
+                make.top.equalTo(ss2.c229_mas_bottom).offset(-3);
+            }];
+            
+            [ssImg3 setImage:[self createImageByName:@"229line-5/229line-5-img3"]];
+            [ssImg3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(230, 230*80/576));
+                make.right.equalTo(ss3.c229_mas_right).offset(-10);
+                make.top.equalTo(ss3.c229_mas_top).offset(+1);
+            }];
+
+            
+
+            [ssBtn2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg2.c229_mas_left).offset(+133);
+                make.bottom.equalTo(ssImg2.c229_mas_top).offset(+25);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg3.c229_mas_left).offset(+30);
                 make.bottom.equalTo(ssImg3.c229_mas_top).offset(+30);
                 make.size.c229_mas_equalTo(CGSizeMake(100, 30));
             }];
             
             break;
         }
-        default:{
-            
-            ss1.frame = CGRectMake(_carImage.frame.origin.x+130, _carImage.frame.origin.y+140, 4, 4);
-            [ss2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.right.equalTo(_carImage.c229_mas_right).offset(-180);
-                make.top.equalTo(_carImage.c229_mas_bottom).offset(-100);
-            }];
-            [ss3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {make.right.equalTo(_carImage.c229_mas_right).offset(-170);
-                make.top.equalTo(_carImage.c229_mas_bottom).offset(-135);
-            }];
-            [ssImg1 setImage:[self createImageByName:@"车灯近.png"]];
-            [ssImg1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.size.c229_mas_equalTo(CGSizeMake(200, 200*118/314));
-                make.right.equalTo(ss1.c229_mas_right);
-                make.bottom.equalTo(ss1.c229_mas_bottom);
-
-            }];
-            
-            [ssImg2 setImage:[self createImageByName:@"后备箱近.png"]];
-            [ssImg2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.size.c229_mas_equalTo(CGSizeMake(200, 200*107/327));
-                make.left.equalTo(ss3.c229_mas_left).offset(+6);
-                make.bottom.equalTo(ss3.c229_mas_bottom).offset(+4);
-            }];
-            
-            [ssImg3 setImage:[self createImageByName:@"无名近.png"]];
-            [ssImg3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.size.c229_mas_equalTo(CGSizeMake(200, 200*56/314));
-                make.left.equalTo(ss2.c229_mas_right).offset(+4);
-                make.top.equalTo(ss2.c229_mas_top).offset(+2);
-            }];
-            
-            
-            [ssBtn1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.left.equalTo(ssImg1.c229_mas_left).offset(+20);
-                make.bottom.equalTo(ssImg1.c229_mas_top).offset(+30);
-                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
-            }];
-            
-            [ssBtn2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.left.equalTo(ssImg2.c229_mas_left).offset(+110);
-                make.bottom.equalTo(ssImg2.c229_mas_top).offset(+30);
-                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
-            }];
-            
-            [ssBtn3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.left.equalTo(ssImg3.c229_mas_left).offset(+110);
-                make.bottom.equalTo(ssImg3.c229_mas_top).offset(+30);
-                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
-            }];
-            break;
-        }
+        
+        
             break;
     }
-//    [ssImg1 setImage:[self createImageByName:@"车灯近.png"]];
-//    [ssImg1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-//        make.size.c229_mas_equalTo(CGSizeMake(200, 200*118/314));
-//        make.right.equalTo(ss1.c229_mas_right);
-//        make.bottom.equalTo(ss1.c229_mas_bottom);
-//
-//    }];
-//
-//    [ssImg2 setImage:[self createImageByName:@"后备箱近.png"]];
-//    [ssImg2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-//        make.size.c229_mas_equalTo(CGSizeMake(200, 200*107/327));
-//        make.left.equalTo(ss3.c229_mas_left).offset(+6);
-//        make.bottom.equalTo(ss3.c229_mas_bottom).offset(+4);
-//    }];
-//
-//    [ssImg3 setImage:[self createImageByName:@"无名近.png"]];
-//    [ssImg3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-//        make.size.c229_mas_equalTo(CGSizeMake(200, 200*56/314));
-//        make.left.equalTo(ss2.c229_mas_right).offset(+4);
-//        make.top.equalTo(ss2.c229_mas_top).offset(+2);
-//    }];
-//
-//
-//    [ssBtn1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-//        make.left.equalTo(ssImg1.c229_mas_left).offset(+20);
-//        make.bottom.equalTo(ssImg1.c229_mas_top).offset(+30);
-//        make.size.c229_mas_equalTo(CGSizeMake(100, 30));
-//    }];
-//
-//    [ssBtn2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-//        make.left.equalTo(ssImg2.c229_mas_left).offset(+110);
-//        make.bottom.equalTo(ssImg2.c229_mas_top).offset(+30);
-//        make.size.c229_mas_equalTo(CGSizeMake(100, 30));
-//    }];
-//
-//    [ssBtn3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-//        make.left.equalTo(ssImg3.c229_mas_left).offset(+110);
-//        make.bottom.equalTo(ssImg3.c229_mas_top).offset(+30);
-//        make.size.c229_mas_equalTo(CGSizeMake(100, 30));
-//    }];
+
 }
-- (void)goJump{
+- (void)goJump:(TagBtn *)btn{
     
  
-        NSDictionary *all = [self readLocalFileWithName:@"zy_news"];
+        NSDictionary *all = [self readLocalFileWithName:@"229_news"];
         NSArray *array = [all objectForKey:@"RECORDS"];
-    
-        for (NSDictionary *d in array) {
-            NSString *caid = [NSString stringWithFormat:@"%@",d[@"caid"]];
-            if ([caid isEqualToString:@"1896"]) {
+    NSString *itemID;
+    if ([btn.myTitle isEqualToString:@"车轮/轮胎"]) {
+        itemID = @"42";
+    }else if ([btn.myTitle isEqualToString:@"发动机舱"]){
+        itemID = @"38";
+    }else if ([btn.myTitle isEqualToString:@"外后视镜"]){
+        itemID = @"40";
+    }else if ([btn.myTitle isEqualToString:@"刮水器"]){
+        itemID = @"39";
+    }else if ([btn.myTitle isEqualToString:@"天窗"]){
+        itemID = @"43";
+    }else if ([btn.myTitle isEqualToString:@"前照灯"]){
+        itemID = @"59";
+    }else if ([btn.myTitle isEqualToString:@"油箱盖"]){
+        itemID = @"44";
+    }else if ([btn.myTitle isEqualToString:@"行李箱盖"]){
+        itemID = @"25";
+    }else if ([btn.myTitle isEqualToString:@"车门"]){
+        itemID = @"86";
+    }
+        
+    NSMutableArray *dataArr = [NSMutableArray array];
+    [dataArr removeAllObjects];
+    for (NSDictionary *d in array) {
+        NSString *tid = [NSString stringWithFormat:@"%@",d[@"id"]];
+        if ([itemID isEqualToString:tid]) {
+            if (self) {
                 self.jumpToDetail(d);
             }
         }
+    }
+
 }
 - (NSDictionary *)readLocalFileWithName:(NSString *)name {
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];
     NSURL *bundleURL = [bundle URLForResource:@"HSC229CarResource" withExtension:@"bundle"];
     NSBundle *resourceBundle = [NSBundle bundleWithURL: bundleURL];
 
+    
     // 获取文件路径
+    NSString *docDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+    NSString *fileDir = [docDir stringByAppendingPathComponent:@""];
+    NSString *filePath = [fileDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.json",name]];
     NSString *path = [resourceBundle pathForResource:name ofType:@"json"];
     // 将文件数据化
-    NSData *data = [[NSData alloc] initWithContentsOfFile:path];
+    NSData *data = [[NSData alloc] initWithContentsOfFile:filePath];
     // 对数据进行JSON格式化并返回字典形式
     NSError *error;
     NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
@@ -610,29 +1840,125 @@
         
         case 1:
         case 2:
-            ssBtn1 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
-            [ssBtn1 setImage:@"houbeixiang.png" AndTitle:@"后视镜"];
-            ssBtn2 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
-            [ssBtn2 setImage:@"dengguang.png" AndTitle:@"刮水器"];
-            ssBtn3 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
-            [ssBtn3 setImage:@"chelun.png" AndTitle:@"车灯"];
-            break;
         case 3:
-            ssBtn1 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
-            [ssBtn1 setImage:@"houbeixiang.png" AndTitle:@"后视镜"];
-            ssBtn2 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
-            [ssBtn2 setImage:@"dengguang.png" AndTitle:@"天窗"];
-            ssBtn3 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
-            [ssBtn3 setImage:@"chelun.png" AndTitle:@"车灯"];
-            break;
         case 4:
             ssBtn1 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
-            [ssBtn1 setImage:@"houbeixiang.png" AndTitle:@"天窗"];
+            [ssBtn1 setImage:@"229-360-icon/229-360-jicang" AndTitle:@"发动机舱"];
             ssBtn2 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
-            [ssBtn2 setImage:@"dengguang.png" AndTitle:@"车轮"];
+            [ssBtn2 setImage:@"229-360-icon/229-360-houshijing" AndTitle:@"外后视镜"];
             ssBtn3 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
-            [ssBtn3 setImage:@"chelun.png" AndTitle:@"车灯"];
+            
+            [ssBtn3 setImage:@"229-360-icon/229-360-dengguang" AndTitle:@"前照灯"];
+        break;
+        case 5:
+        case 6:
+        case 7:
+        case 8:
+            ssBtn1 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
+            [ssBtn1 setImage:@"229-360-icon/229-360-tianchuang" AndTitle:@"天窗"];
+            ssBtn2 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
+            [ssBtn2 setImage:@"229-360-icon/229-360-tianchuang" AndTitle:@"天窗"];
+            ssBtn3 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
+            [ssBtn3 setImage:@"229-360-icon/229-360-yushua" AndTitle:@"刮水器"];
             break;
+        case 9:
+        case 10:
+        case 11:
+        case 12:
+        case 13:
+        case 14:
+            ssBtn1 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
+            [ssBtn1 setImage:@"229-360-icon/229-360-houshijing" AndTitle:@"外后视镜"];
+            ssBtn2 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
+            [ssBtn2 setImage:@"229-360-icon/229-360-chemen" AndTitle:@"车门"];
+            ssBtn3 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
+            [ssBtn3 setImage:@"229-360-icon/229-360-chelun" AndTitle:@"轮胎/车轮"];
+        break;
+        case 15:
+            ssBtn1 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
+            [ssBtn1 setImage:@"229-360-icon/229-360-houshijing" AndTitle:@"外后视镜"];
+            ssBtn2 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
+            [ssBtn2 setImage:@"229-360-icon/229-360-houbeixiang" AndTitle:@"行李箱盖"];
+            ssBtn3 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
+            [ssBtn3 setImage:@"229-360-icon/229-360-chelun" AndTitle:@"轮胎/车轮"];
+        break;
+        case 16:
+        case 17:
+        case 18:
+        case 19:
+            ssBtn1 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
+            [ssBtn1 setImage:@"229-360-icon/229-360-houshijing" AndTitle:@"外后视镜"];
+            ssBtn2 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
+            [ssBtn2 setImage:@"229-360-icon/229-360-houbeixiang" AndTitle:@"行李箱盖"];
+            ssBtn3 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
+            [ssBtn3 setImage:@"229-360-icon/229-360-chemen" AndTitle:@"车门"];
+        break;
+        case 20:
+            ssBtn1 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
+            [ssBtn1 setImage:@"229-360-icon/229-360-houshijing" AndTitle:@"外后视镜"];
+            ssBtn2 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
+            [ssBtn2 setImage:@"229-360-icon/229-360-chemen" AndTitle:@"车门"];
+            ssBtn3 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
+            [ssBtn3 setImage:@"229-360-icon/229-360-houbeixiang" AndTitle:@"行李箱盖"];
+        break;
+        case 21:
+        case 22:
+            ssBtn1 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
+            [ssBtn1 setImage:@"229-360-icon/229-360-youxianggai" AndTitle:@"油箱盖"];
+            ssBtn2 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
+            [ssBtn2 setImage:@"229-360-icon/229-360-chelun" AndTitle:@"轮胎/车轮"];
+            ssBtn3 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
+            [ssBtn3 setImage:@"229-360-icon/229-360-houbeixiang" AndTitle:@"行李箱盖"];
+        break;
+        case 23:
+        case 24:
+        case 25:
+        case 26:
+        case 27:
+        case 28:
+            ssBtn1 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
+            [ssBtn1 setImage:@"229-360-icon/229-360-youxianggai" AndTitle:@"油箱盖"];
+            ssBtn2 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
+            [ssBtn2 setImage:@"229-360-icon/229-360-chemen" AndTitle:@"车门"];
+            ssBtn3 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
+            [ssBtn3 setImage:@"229-360-icon/229-360-houbeixiang" AndTitle:@"行李箱盖"];
+        break;
+        case 29:
+        case 30:
+        case 31:
+        case 32:
+            ssBtn1 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
+            [ssBtn1 setImage:@"229-360-icon/229-360-youxianggai" AndTitle:@"油箱盖"];
+            ssBtn2 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
+            [ssBtn2 setImage:@"229-360-icon/229-360-jicang" AndTitle:@"发动机舱"];
+            ssBtn3 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
+            [ssBtn3 setImage:@"229-360-icon/229-360-chelun" AndTitle:@"轮胎/车轮"];
+        break;
+        case 33:
+        case 34:
+            ssBtn2 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
+            ssBtn2 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
+            [ssBtn2 setImage:@"229-360-icon/229-360-tianchuang" AndTitle:@"天窗"];
+            ssBtn3 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
+            [ssBtn3 setImage:@"229-360-icon/229-360-youxianggai" AndTitle:@"油箱盖"];
+            
+        break;
+        case 35:
+            ssBtn2 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
+            ssBtn2 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
+            [ssBtn2 setImage:@"229-360-icon/229-360-tianchuang" AndTitle:@"天窗"];
+            ssBtn3 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
+            [ssBtn3 setImage:@"229-360-icon/229-360-chemen" AndTitle:@"车门"];
+        break;
+        case 36:
+        ssBtn2 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
+        ssBtn2 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
+        [ssBtn2 setImage:@"229-360-icon/229-360-tianchuang" AndTitle:@"天窗"];
+        ssBtn3 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
+        [ssBtn3 setImage:@"229-360-icon/229-360-yushua" AndTitle:@"刮水器"];
+            
+        break;
+        
         default:
             ssBtn1 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
             [ssBtn1 setImage:@"houbeixiang.png" AndTitle:@"1"];
@@ -645,9 +1971,9 @@
     [self addSubview:ssBtn1];
     [self addSubview:ssBtn2];
     [self addSubview:ssBtn3];
-    [ssBtn1 addTarget:self action:@selector(goJump) forControlEvents:UIControlEventTouchUpInside];
-    [ssBtn2 addTarget:self action:@selector(goJump) forControlEvents:UIControlEventTouchUpInside];
-    [ssBtn3 addTarget:self action:@selector(goJump) forControlEvents:UIControlEventTouchUpInside];
+    [ssBtn1 addTarget:self action:@selector(goJump:) forControlEvents:UIControlEventTouchUpInside];
+    [ssBtn2 addTarget:self action:@selector(goJump:) forControlEvents:UIControlEventTouchUpInside];
+    [ssBtn3 addTarget:self action:@selector(goJump:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 -(UIImage *) createImageByName:(NSString*)sName{

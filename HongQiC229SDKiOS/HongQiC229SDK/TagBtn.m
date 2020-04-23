@@ -16,6 +16,7 @@
     return self;
 }
 - (void)setImage:(NSString *)name AndTitle:(NSString *)str{
+    _myTitle = str;
     CGFloat imgWidth = self.frame.size.height-6;
     UIImage *image = [self createImageByName:name];
     CGFloat imgHeight = imgWidth*image.size.height/image.size.width;

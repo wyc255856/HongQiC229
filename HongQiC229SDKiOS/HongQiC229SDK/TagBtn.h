@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TagBtn : UIButton
+@property (nonatomic, strong)NSString *myTitle;
 - (void)setImage:(NSString *)name AndTitle:(NSString *)str;
 @end
 

@@ -35,7 +35,7 @@
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
         [self addSubview:button];
     }
-    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height-1, self.frame.size.width, 1)];
+    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height-1, self.frame.size.width, 0)];
     line.backgroundColor = [UIColor colorWithRed:26/255.0 green:27/255.0 blue:28/255.0 alpha:1];
     [self addSubview:line];
     

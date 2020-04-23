@@ -114,7 +114,7 @@
     myTableView.tableHeaderView = nil;
     NSString *searcH = [self removeSpaceAndNewline:str];
     keyWords = searcH;
-    NSDictionary *all = [self readLocalFileWithName:@"zy_news"];
+    NSDictionary *all = [self readLocalFileWithName:@"229_news"];
     NSArray *array = [all objectForKey:@"RECORDS"];
     dataArr = [NSMutableArray array];
     [dataArr removeAllObjects];
@@ -163,9 +163,13 @@
     NSBundle *resourceBundle = [NSBundle bundleWithURL: bundleURL];
 
     // 获取文件路径
+    // 获取文件路径
+    NSString *docDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+    NSString *fileDir = [docDir stringByAppendingPathComponent:@""];
+    NSString *filePath = [fileDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.json",name]];
     NSString *path = [resourceBundle pathForResource:name ofType:@"json"];
     // 将文件数据化
-    NSData *data = [[NSData alloc] initWithContentsOfFile:path];
+    NSData *data = [[NSData alloc] initWithContentsOfFile:filePath];
     // 对数据进行JSON格式化并返回字典形式
     NSError *error;
     NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
