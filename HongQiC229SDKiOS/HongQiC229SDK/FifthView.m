@@ -121,7 +121,12 @@
     for (NSDictionary *d in array) {
         NSString *title = [NSString stringWithFormat:@"%@",d[@"title"]];
         if ([title containsString:searcH]) {
-            [dataArr addObject:d];
+            NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+            NSString *model = [d objectForKey:[user objectForKey:@"c229ModelChoose"]];
+            if ([model isEqualToString:@"1"]) {
+                [dataArr addObject:d];
+            }
+            
         }
     }
     NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
@@ -186,7 +191,7 @@
 }
 -(void )createTableHeader{
     _tableHeader = nil;
-    _tableHeader = [[UIView alloc] initWithFrame:CGRectMake(0, 0, myTableView.frame.size.width, 300)];
+    _tableHeader = [[UIView alloc] initWithFrame:CGRectMake(0, 0, myTableView.frame.size.width, 100)];
     _tableHeader.backgroundColor = [UIColor clearColor];
     
     UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(10, 3, 100, 13)];

@@ -34,7 +34,6 @@
     jianting = 1;
     UIImageView *downYinYing = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.frame.size.height-kScreenWidth*192/1920, kScreenWidth, kScreenWidth*192/1920)];
     
-    
     [downYinYing setImage:[self createImageByName:@"downYinYing"]];
     [self addSubview:downYinYing];
     [self setLeftView];
@@ -42,6 +41,7 @@
     [upYinYing setImage:[self createImageByName:@"upYinYing"]];
     [self addSubview:upYinYing];
     [self reSetLeftView:0];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadData) name:@"c229chooseModel" object:nil];
     return self;
 }
 - (void)getNoty{
@@ -54,6 +54,7 @@
     cateGGArr = [NSMutableArray array];
     for (NSDictionary *ds in catArr) {
         if ([[NSString stringWithFormat:@"%@",ds[@"parentid"]] isEqualToString:@"1855"]) {
+            
             [catIdArr addObject:[NSString stringWithFormat:@"%@",ds[@"catid"]]];
             [cateGGArr addObject:ds];
         }
@@ -80,12 +81,16 @@
                 }else{
                     newArr = [allDic objectForKey:newId];
                 }
-                [newArr addObject:dic];
+                NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+                NSString *model = [dic objectForKey:[user objectForKey:@"c229ModelChoose"]];
+                if ([model isEqualToString:@"1"]) {
+                    [newArr addObject:dic];
+                }
                 [allDic setObject:newArr forKey:newId];
             }
         }
     }
-    
+    [myCollection reloadData];
 }
 - (void)setLeftView{
     
@@ -130,7 +135,7 @@
         if (everyArr.count%4>0) {
             count = count+1;
         }
-        CGFloat they = count *98.00+50;
+        CGFloat they = count *100.00+50;
         NSString *str;
         if (everyGroupCountNum.count>0) {
             str = [NSString stringWithFormat:@"%.2f",they+[[everyGroupCountNum lastObject] floatValue]];
@@ -300,7 +305,7 @@
         if (everyArr.count%4>0) {
             count = count+1;
         }
-        CGFloat they = count *98.00+50;
+        CGFloat they = count *100.00+50;
         NSString *str;
         if (everyGroupCountNum.count>0) {
             str = [NSString stringWithFormat:@"%.2f",they+[[everyGroupCountNum lastObject] floatValue]];
@@ -363,7 +368,7 @@
                 NSString *imgName = [NSString stringWithFormat:@"secondLeft%d",x];
                 [selImage setImage:[self createImageByName:imgName]];
                 
-            NSLog(@"%f---%f",leftScroll.contentOffset.y,b.frame.origin.y+48);
+//            NSLog(@"%f---%f",leftScroll.contentOffset.y,b.frame.origin.y+48);
                 
                 [self leftViewScrollTo:b.tag];
             }
@@ -378,7 +383,7 @@
             b = btn;
         }
     }
-    NSLog(@"%f---%f",leftScroll.contentOffset.y,b.frame.origin.y+48);
+//    NSLog(@"%f---%f",leftScroll.contentOffset.y,b.frame.origin.y+48);
         
     if (b.frame.origin.y-140<=0) {
         [UIView animateWithDuration:0.5 animations:^{

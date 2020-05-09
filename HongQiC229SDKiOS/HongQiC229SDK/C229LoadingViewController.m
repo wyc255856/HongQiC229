@@ -65,6 +65,7 @@
         [self createDirectoryAtPath:folderPath error:nil];
     }
     [self initNetWork];
+    
 }
 - (void)initNetWork{
     [NetWorkManager requestGETSuperAPIWithURLStr:@"hongqih9_admin/index.php?m=home&c=index&a=get_first_version" WithAuthorization:@"" paramDic:nil finish:^(id  _Nonnull responseObject) {
@@ -193,6 +194,7 @@
         x = NO;
     }
     if (x) {
+        
         [self jumpMain];
     }
     return x;

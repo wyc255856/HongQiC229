@@ -42,6 +42,7 @@
     [upYinYing setImage:[self createImageByName:@"upYinYing"]];
     [self addSubview:upYinYing];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadData) name:@"c229chooseModel" object:nil];
     
     return self;
 }
@@ -58,6 +59,7 @@
             [scArr addObject:ds];
         }
     }
+    leftArr = [NSMutableArray array];
     for (NSDictionary *dc in scArr) {
         [leftArr addObject:dc];
     }
@@ -93,20 +95,37 @@
         NSString *str2 = [NSString stringWithFormat:@"%@",leftArr[2][@"catid"]];
         NSString *str3 = [NSString stringWithFormat:@"%@",leftArr[3][@"catid"]];
         NSString *str4 = [NSString stringWithFormat:@"%@",leftArr[4][@"catid"]];
+        NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
         if ([[NSString stringWithFormat:@"%@",dic[@"catid"]] isEqualToString:str0]) {
-            [cellArr0 addObject:dic];
+            NSString *model = [dic objectForKey:[user objectForKey:@"c229ModelChoose"]];
+            if ([model isEqualToString:@"1"]) {
+                [cellArr0 addObject:dic];
+            }
         }
         if ([[NSString stringWithFormat:@"%@",dic[@"catid"]] isEqualToString:str1]) {
-            [cellArr1 addObject:dic];
+            NSString *model = [dic objectForKey:[user objectForKey:@"c229ModelChoose"]];
+            if ([model isEqualToString:@"1"]) {
+                [cellArr1 addObject:dic];
+            }
+            
         }
         if ([[NSString stringWithFormat:@"%@",dic[@"catid"]] isEqualToString:str2]) {
-            [cellArr2 addObject:dic];
+            NSString *model = [dic objectForKey:[user objectForKey:@"c229ModelChoose"]];
+            if ([model isEqualToString:@"1"]) {
+                [cellArr2 addObject:dic];
+            }
         }
         if ([[NSString stringWithFormat:@"%@",dic[@"catid"]] isEqualToString:str3]) {
-            [cellArr3 addObject:dic];
+            NSString *model = [dic objectForKey:[user objectForKey:@"c229ModelChoose"]];
+            if ([model isEqualToString:@"1"]) {
+                [cellArr3 addObject:dic];
+            }
         }
         if ([[NSString stringWithFormat:@"%@",dic[@"catid"]] isEqualToString:str4]) {
-            [cellArr4 addObject:dic];
+            NSString *model = [dic objectForKey:[user objectForKey:@"c229ModelChoose"]];
+            if ([model isEqualToString:@"1"]) {
+                [cellArr4 addObject:dic];
+            }
         }
         [allDic setObject:cellArr0 forKey:str0];
         [allDic setObject:cellArr1 forKey:str1];
@@ -115,7 +134,7 @@
         [allDic setObject:cellArr4 forKey:str4];
     }
     
-    
+    [myCollection reloadData];
     
 }
 - (NSDictionary *)readLocalFileWithName:(NSString *)name {
@@ -144,7 +163,7 @@
     }
 }
 - (void)setLeftView{
-    selImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 14, 48, 300)];
+    selImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 18, 48, 300)];
     [selImage setImage:[self createImageByName:@"left0"]];
     [self addSubview: selImage];
     

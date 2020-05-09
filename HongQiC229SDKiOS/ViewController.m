@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "HQ229MainViewController.h"
 #import "C229LoadingViewController.h"
+
 #import "AppDelegate.h"
 @interface ViewController ()
 
@@ -33,13 +34,7 @@
 
 - (void)buttonClicked {
 
-    //HS7WelcomeViewController *vc = [[HS7WelcomeViewController alloc] initWithCarName:@"EV_1"];
-//    HS7WelcomeViewController *vc = [[HS7WelcomeViewController alloc] initWithCarName:@""];
-////    [self presentViewController:vc animated:YES completion:nil];
-
-//    AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-//    appDelegate.allowRotation = Y ES;//关闭横屏仅允许竖屏
-//    [appDelegate setNewOrientation:YES];//调用转屏代码
+ 
 
     C229LoadingViewController *vc = [[C229LoadingViewController alloc] init];
     vc.modalPresentationStyle = 0;

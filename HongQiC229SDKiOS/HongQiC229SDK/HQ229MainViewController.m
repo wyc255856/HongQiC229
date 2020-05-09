@@ -19,6 +19,7 @@
 #import "C229NetWorkFailViewController.h"
 #import "DetailViewController.h"
 #import "DownLoadViewViewController.h"
+#import "C229ChooseModelViewController.h"
 @interface HQ229MainViewController ()
 
 @end
@@ -27,6 +28,7 @@
 {
     UIScrollView *myScrollView;
     UIWebView *web;
+    ThirdView *third;
 }
 - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
         return UIInterfaceOrientationLandscapeLeft;
@@ -47,7 +49,15 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    if (![user objectForKey:@"c229ModelChoose"]) {
+        C229ChooseModelViewController *choose = [[C229ChooseModelViewController alloc] init];
+        [self presentViewController:choose animated:NO completion:nil];
+    }else{
+        
+    }
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -115,6 +125,10 @@
     
     FirstView *first = [[FirstView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-TopHeight)];
     [myScrollView addSubview:first];
+    first.jumpChooseModel = ^(NSDictionary * dic) {
+        C229ChooseModelViewController *choose = [[C229ChooseModelViewController alloc] init];
+        [self presentViewController:choose animated:NO completion:nil];
+    };
     first.jumpToDetail = ^(NSDictionary * dataDic) {
         DetailViewController *detail = [[DetailViewController alloc] init];
         self.definesPresentationContext = YES;
@@ -122,8 +136,7 @@
         detail.dataDic = dataDic;
         [self presentViewController:detail animated:YES completion:nil];
     };
-//    SecondView *second = [[SecondView alloc] initWithFrame:CGRectMake(kScreenWidth*3, 0, kScreenWidth, kScreenHeight-TopHeight)];
-//    [myScrollView addSubview:second];
+
     SecondView *second = [[SecondView alloc] initWithFrame:CGRectMake(kScreenWidth*3, 0, kScreenWidth, kScreenHeight-TopHeight)];
     second.push = ^(NSDictionary * dataDic
                     ) {
@@ -134,27 +147,19 @@
         [self presentViewController:detail animated:YES completion:nil];
     };
     [myScrollView addSubview:second];
-    
-    ThirdView *third = [[ThirdView alloc] initWithFrame:CGRectMake(kScreenWidth*2, 0, kScreenWidth, kScreenHeight-TopHeight)];
+//
+    third = [[ThirdView alloc] initWithFrame:CGRectMake(kScreenWidth*2, 0, kScreenWidth, kScreenHeight-TopHeight)];
     third.jumpToDetail = ^(NSDictionary * dataDic) {
+        if ([[NSString stringWithFormat:@"%@",dataDic[@"id"]] isEqualToString:@"213"]) {
+            [self openNewWeb];
+            return;
+        }
+        DetailViewController *detail = [[DetailViewController alloc] init];
+        self.definesPresentationContext = YES;
+        detail.modalPresentationStyle =UIModalPresentationOverFullScreen;
+        detail.dataDic = dataDic;
+        [self presentViewController:detail animated:YES completion:nil];
 
-        self->web = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
-        NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-        NSURL *bundleURL = [bundle URLForResource:@"HSC229CarResource" withExtension:@"bundle"];
-        NSBundle *resourceBundle = [NSBundle bundleWithURL: bundleURL];
-        
-        NSString *str = [resourceBundle pathForResource:@"web_mobile/index" ofType:@"html"];
-        NSURLRequest *req = [NSURLRequest requestWithURL:[NSURL URLWithString:str]];
-        self->web.delegate = self;
-        
-        [self.view addSubview:self->web];
-        
-        UIButton *closeBtn = [[UIButton alloc] initWithFrame:CGRectMake(16, 19, 13, 19)];
-        [closeBtn setImage:[self createImageByName:@"neirongguanbianniu"] forState:UIControlStateNormal];
-        [closeBtn addTarget:self action:@selector(closeAction) forControlEvents:UIControlEventTouchUpInside];
-        [self->web addSubview:closeBtn];
-        
-        [self->web loadRequest:req];
     };
     [myScrollView addSubview:third];
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -167,7 +172,7 @@
         [self presentViewController:detail animated:YES completion:nil];
     };
     [myScrollView addSubview:forth];
-    
+//
     FifthView *fifth = [[FifthView alloc] initWithFrame:CGRectMake(kScreenWidth*4, 0, kScreenWidth, kScreenHeight-TopHeight)];
     fifth.push = ^(NSDictionary * dataDic) {
         DetailViewController *detail = [[DetailViewController alloc] init];
@@ -233,6 +238,7 @@
     return valueArr;
 }
 - (void)goDonwLoad{
+    
     [self dismissViewControllerAnimated:NO completion:nil];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"dismiss" object:nil];
@@ -249,5 +255,25 @@
     UIImage *image =  resourceBundle?[UIImage imageNamed:resName inBundle:resourceBundle compatibleWithTraitCollection:nil]:[UIImage imageNamed:resName];
     return image;
 }
+-(void)openNewWeb{
+        web = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
+        NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+        NSURL *bundleURL = [bundle URLForResource:@"HSC229CarResource" withExtension:@"bundle"];
+        NSBundle *resourceBundle = [NSBundle bundleWithURL: bundleURL];
 
+        NSString *str = [resourceBundle pathForResource:@"webmobile/index" ofType:@"html"];
+    NSString *xxx = [NSString stringWithFormat:@"%@",bundleURL];
+    NSString *yyy = [xxx stringByAppendingFormat:@"carGame/web_mobile/index.html"];
+        NSURLRequest *req = [NSURLRequest requestWithURL:[NSURL URLWithString:str]];
+//         web.delegate = self;
+
+        [self.view addSubview:web];
+
+        UIButton *closeBtn = [[UIButton alloc] initWithFrame:CGRectMake(16, 19, 13, 19)];
+        [closeBtn setImage:[self createImageByName:@"neirongguanbianniu"] forState:UIControlStateNormal];
+        [closeBtn addTarget:self action:@selector(closeAction) forControlEvents:UIControlEventTouchUpInside];
+        [web addSubview:closeBtn];
+
+        [web loadRequest:req];
+}
 @end

@@ -41,6 +41,7 @@
 
 
 	function myprivate() {
+		//车门
 		var host_1 = document.getElementsByClassName('host_1')[0];
 		host_1.onclick = function(e) {
 			if (e && e.stopPropagation) { //因此它支持W3C的stopPropagation()方法 
@@ -54,23 +55,8 @@
 			if (typeof anim == 'undefined') {
 				//热点名称
 				var host_list = [{
-					'text': '一体屏',
-					'id': '987'
-				}, {
-					'text': '屏幕',
-					'id': '654'
-				}, {
-					'text': '亮度',
-					'id': '321'
-				}, {
-					'text': '显示',
-					'id': '987654'
-				}, {
-					'text': '屏幕',
-					'id': '654321'
-				}, {
-					'text': '一体屏',
-					'id': '321987'
+					'text': '组合开关',
+					'id': '232'
 				}];
 				host_main(host_1, host_list)
 			} else {
@@ -88,6 +74,7 @@
 				}
 			}
 		}
+		//转向灯手柄
 		var host_2 = document.getElementsByClassName('host_2')[0];
 		host_2.onclick = function(e) {
 			if (e && e.stopPropagation) { //因此它支持W3C的stopPropagation()方法
@@ -101,23 +88,8 @@
 			if (typeof anim == 'undefined') {
 				//热点名称
 				var host_list = [{
-					'text': '一体屏2',
-					'id': '123'
-				}, {
-					'text': '屏幕2',
-					'id': '456'
-				}, {
-					'text': '亮度2',
-					'id': '789'
-				}, {
-					'text': '显示2',
-					'id': '123456'
-				}, {
-					'text': '屏幕2',
-					'id': '456789'
-				}, {
-					'text': '一体屏2',
-					'id': '789123'
+					'text': '高级巡航',
+					'id': '228'
 				}];
 				host_main(host_2, host_list)
 			} else {
@@ -136,9 +108,171 @@
 				}
 			}
 		}
-
-
-
+		//座椅
+		var host_3 = document.getElementsByClassName('host_3')[0];
+		host_3.onclick = function(e) {
+			if (e && e.stopPropagation) { //因此它支持W3C的stopPropagation()方法
+				e.stopPropagation();
+			} else {
+				//否则，我们需要使用IE的方式来取消事件冒泡 
+				window.event.cancelBubble = true;
+			}
+			var anim = document.getElementsByClassName('anim')[0];
+			// console.log(typeof anim)
+			if (typeof anim == 'undefined') {
+				//热点名称
+				var host_list = [{
+					'text': '多屏互动',
+					'id': '230'
+				},{
+					'text': '座椅记忆',
+					'id': '231'
+				}];
+				host_main(host_3, host_list)
+			} else {
+				anim.parentNode.removeChild(anim);
+				return
+			}
+		
+			var list_class = document.getElementsByClassName('list_class');
+			for (var i = 0; i < list_class.length; i++) {
+				// list_class[i].index = i;
+				list_class[i].onclick = function() {
+					var host_id = this.getAttribute('data-id')
+					// console.log(host_id)
+					doJsTest(host_id)
+		
+				}
+			}
+		}
+		//音响系统
+		var host_4 = document.getElementsByClassName('host_4')[0];
+		host_4.onclick = function(e) {
+			if (e && e.stopPropagation) { //因此它支持W3C的stopPropagation()方法
+				e.stopPropagation();
+			} else {
+				//否则，我们需要使用IE的方式来取消事件冒泡 
+				window.event.cancelBubble = true;
+			}
+			
+			var anim = document.getElementsByClassName('anim')[0];
+			// console.log(typeof anim)
+			if (typeof anim == 'undefined') {
+				
+				//热点名称
+				var host_list = [{
+					'text': '语音识别',
+					'id': '236'
+				},{
+					'text': '红旗智联',
+					'id': '242'
+				}];
+				host_main(host_4, host_list)
+			} else {
+				anim.parentNode.removeChild(anim);
+				return
+			}
+		
+			var list_class = document.getElementsByClassName('list_class');
+			for (var i = 0; i < list_class.length; i++) {
+				// list_class[i].index = i;
+				list_class[i].onclick = function() {
+					var host_id = this.getAttribute('data-id')
+					// console.log(host_id)
+					doJsTest(host_id)
+		
+				}
+			}
+		}
+		//组合仪表
+		var host_5 = document.getElementsByClassName('host_5')[0];
+		host_5.onclick = function(e) {
+			if (e && e.stopPropagation) { //因此它支持W3C的stopPropagation()方法
+				e.stopPropagation();
+			} else {
+				//否则，我们需要使用IE的方式来取消事件冒泡 
+				window.event.cancelBubble = true;
+			}
+			var anim = document.getElementsByClassName('anim')[0];
+			// console.log(typeof anim)
+			if (typeof anim == 'undefined') {
+				//热点名称
+				var host_list = [{
+					'text': '前碰撞预警',
+					'id': '223'
+				},{
+					'text': '盲区探测',
+					'id': '225'
+				},{
+					'text': '车道保持辅助',
+					'id': '227'
+				}];
+				host_main(host_5, host_list)
+			} else {
+				anim.parentNode.removeChild(anim);
+				return
+			}
+		
+			var list_class = document.getElementsByClassName('list_class');
+			for (var i = 0; i < list_class.length; i++) {
+				// list_class[i].index = i;
+				list_class[i].onclick = function() {
+					var host_id = this.getAttribute('data-id')
+					// console.log(host_id)
+					doJsTest(host_id)
+		
+				}
+			}
+		}
+		//副仪表板
+		var host_6 = document.getElementsByClassName('host_6')[0];
+		host_6.onclick = function(e) {
+			if (e && e.stopPropagation) { //因此它支持W3C的stopPropagation()方法
+				e.stopPropagation();
+			} else {
+				//否则，我们需要使用IE的方式来取消事件冒泡 
+				window.event.cancelBubble = true;
+			}
+			
+			var anim = document.getElementsByClassName('anim')[0];
+			// console.log(typeof anim)
+			if (typeof anim == 'undefined') {
+				
+				//热点名称
+				var host_list = [{
+					'text': '驾驶模式',
+					'id': '212'
+				},{
+					'text': '自动泊车',
+					'id': '213'
+				},{
+					'text': '全景影像',
+					'id': '216'
+				},{
+					'text': '怠速启停',
+					'id': '218'
+				},{
+					'text': '人机交互',
+					'id': '221'
+				}];
+				host_main(host_6, host_list)
+			} else {
+				
+				anim.parentNode.removeChild(anim);
+				return
+			}
+		
+			var list_class = document.getElementsByClassName('list_class');
+			for (var i = 0; i < list_class.length; i++) {
+				// list_class[i].index = i;
+				list_class[i].onclick = function() {
+					var host_id = this.getAttribute('data-id')
+					// console.log(host_id)
+					doJsTest(host_id)
+		
+				}
+			}
+		}
 		//安卓ios传数据
 		function doJsTest(type) {
 			var u = navigator.userAgent,
@@ -196,12 +330,14 @@
 	function host_main(doc, text) {
 		var host_wrapper = document.createElement("div"); //热点容器
 		var host_line = document.createElement("div"); //热点弹出的线
+		var host_line_d =document.createElement("div");//热点线定位
 		var host_list = document.createElement("div"); //热点的弹出框
 		host_wrapper.classList.add('anim');
 		host_line.classList.add('line');
+		host_line_d.classList.add('line_d');
 		host_list.classList.add('list');
 		host_list.classList.add('animated');
-
+		
 		// 判断热点位置调整弹窗位置
 		var position_t = doc.getBoundingClientRect().top;
 		var position_l = doc.getBoundingClientRect().left;
@@ -211,19 +347,19 @@
 		if (position_t > position_window_h / 2 && position_l > position_window_w / 2) {
 			//热点在右下	
 			host_wrapper.style.transform = 'scale(1) rotateY(180deg) rotateX(0deg)';
-			host_list.style.transform = 'scale(1) rotateY(180deg) rotateX(0deg)';
+			host_list.style.transform = 'scale(1) rotateY(180deg) rotateX(0deg) translateY(-50%)';
 		} else if (position_t < position_window_h / 2 && position_l > position_window_w / 2) {
 			//热点在右上
 			host_wrapper.style.transform = 'scale(1) rotateY(180deg) rotateX(180deg)';
-			host_list.style.transform = 'scale(1) rotateY(180deg) rotateX(180deg)';
+			host_list.style.transform = 'scale(1) rotateY(180deg) rotateX(180deg) translateY(50%)';
 		} else if (position_t < position_window_h / 2 && position_l < position_window_w / 2) {
 			//热点在左上
 			host_wrapper.style.transform = 'scale(1) rotateY(0deg) rotateX(180deg)';
-			host_list.style.transform = 'scale(1) rotateY(0deg) rotateX(180deg)';
+			host_list.style.transform = 'scale(1) rotateY(0deg) rotateX(180deg) translateY(50%)';
 		} else if (position_t > position_window_h / 2 && position_l < position_window_w / 2) {
 			//热点在左下
 			host_wrapper.style.transform = 'scale(1) rotateY(0deg) rotateX(0deg)';
-			host_list.style.transform = 'scale(1) rotateY(0deg) rotateX(0deg)';
+			host_list.style.transform = 'scale(1) rotateY(0deg) rotateX(0deg) translateY(-50%)';
 		}
 		var x_list_li = ''
 		var x_list_li_text = text;
@@ -233,13 +369,14 @@
 		var x_list = `<ul>${x_list_li}</ul>`
 		host_list.innerHTML = x_list;
 		host_wrapper.appendChild(host_line)
-		host_wrapper.appendChild(host_list)
+		host_line.appendChild(host_line_d)
+		host_line_d.appendChild(host_list)
 		doc.after(host_wrapper);
 
 
 		//热点线动画 和弹窗动画
 		$('.line').animate({
-			width: "70px"
+			width: "1rem"
 		}, function() {
 			$('.list').fadeIn()
 			// $('.list').addClass('bounceIn').show()

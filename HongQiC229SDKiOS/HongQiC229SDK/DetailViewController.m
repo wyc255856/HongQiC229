@@ -323,7 +323,6 @@
         }
         }];
     
-     
     [self.item addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
 //    [self.myPlayer play];
 }

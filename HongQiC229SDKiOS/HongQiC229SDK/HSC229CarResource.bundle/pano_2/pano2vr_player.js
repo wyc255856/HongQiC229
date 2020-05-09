@@ -6919,7 +6919,6 @@ var W = !1;
 				var b = this.qe(),
 					d = !1;
 				this.bf && this.zh();
-				//新加  touchend 触摸 抬起事件
 				     console.log(this.zc(this.pb))
 				     if (this.zc(this.pb)) {
 				     	var anim = document.getElementsByClassName('anim')[0];

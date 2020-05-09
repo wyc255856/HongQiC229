@@ -154,6 +154,8 @@
 		743ADEFB244025320081AFEA /* C229_SDAsyncBlockOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 743ADEEF244025320081AFEA /* C229_SDAsyncBlockOperation.m */; };
 		743ADEFE244041CF0081AFEA /* C229NetWorkFailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 743ADEFD244041CF0081AFEA /* C229NetWorkFailViewController.m */; };
 		744F65E124347A78007E7C11 /* C229SectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 744F65E024347A78007E7C11 /* C229SectionHeader.m */; };
+		748EDCF82457F854002AF29A /* C229ChooseModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 748EDCF72457F854002AF29A /* C229ChooseModelViewController.m */; };
+		74DFFE6724527C3A003D5641 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74DFFE65245279C0003D5641 /* CoreFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -277,7 +279,7 @@
 		53AEC7C023FE7AE90076BECD /* SecondView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondView.h; sourceTree = "<group>"; };
 		53AEC7D923FE7AE90076BECD /* ThirdView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdView.m; sourceTree = "<group>"; };
 		53AEC7DB23FE7AE90076BECD /* HQ229MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HQ229MainViewController.h; sourceTree = "<group>"; };
-		53AEC7DC23FE7AE90076BECD /* DownLoadViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownLoadViewViewController.m; sourceTree = "<group>"; };
+		53AEC7DC23FE7AE90076BECD /* DownLoadViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownLoadViewViewController.m; sourceTree = "<group>"; wrapsLines = 1; };
 		53AEC7DD23FE7AE90076BECD /* FifTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FifTableViewCell.m; sourceTree = "<group>"; };
 		53AEC7DE23FE7AE90076BECD /* FirstView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstView.h; sourceTree = "<group>"; };
 		53AEC7E023FE7AE90076BECD /* HSC229CarResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = HSC229CarResource.bundle; sourceTree = "<group>"; };
@@ -459,9 +461,12 @@
 		743ADEEF244025320081AFEA /* C229_SDAsyncBlockOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = C229_SDAsyncBlockOperation.m; sourceTree = "<group>"; };
 		743ADEF0244025320081AFEA /* C229_UIColor+HexString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "C229_UIColor+HexString.h"; sourceTree = "<group>"; };
 		743ADEFC244041CF0081AFEA /* C229NetWorkFailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = C229NetWorkFailViewController.h; sourceTree = "<group>"; };
-		743ADEFD244041CF0081AFEA /* C229NetWorkFailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = C229NetWorkFailViewController.m; sourceTree = "<group>"; };
+		743ADEFD244041CF0081AFEA /* C229NetWorkFailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = C229NetWorkFailViewController.m; sourceTree = "<group>"; wrapsLines = 0; };
 		744F65DF24347A78007E7C11 /* C229SectionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = C229SectionHeader.h; sourceTree = "<group>"; };
 		744F65E024347A78007E7C11 /* C229SectionHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = C229SectionHeader.m; sourceTree = "<group>"; };
+		748EDCF62457F854002AF29A /* C229ChooseModelViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = C229ChooseModelViewController.h; sourceTree = "<group>"; };
+		748EDCF72457F854002AF29A /* C229ChooseModelViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = C229ChooseModelViewController.m; sourceTree = "<group>"; };
+		74DFFE65245279C0003D5641 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -469,6 +474,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74DFFE6724527C3A003D5641 /* CoreFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,6 +486,7 @@
 			children = (
 				53B601B720FF3DDE000DAC14 /* HongQiC229SDKiOS */,
 				4B92A7C520F5AB89005B6EEE /* Products */,
+				74DFFE64245279C0003D5641 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -677,6 +684,8 @@
 				53AEC7F923FE7AE90076BECD /* DetailViewController.h */,
 				743ADEFC244041CF0081AFEA /* C229NetWorkFailViewController.h */,
 				743ADEFD244041CF0081AFEA /* C229NetWorkFailViewController.m */,
+				748EDCF62457F854002AF29A /* C229ChooseModelViewController.h */,
+				748EDCF72457F854002AF29A /* C229ChooseModelViewController.m */,
 			);
 			path = HongQiC229SDK;
 			sourceTree = "<group>";
@@ -850,6 +859,14 @@
 			name = sdwebimage;
 			sourceTree = "<group>";
 		};
+		74DFFE64245279C0003D5641 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				74DFFE65245279C0003D5641 /* CoreFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -940,6 +957,7 @@
 				5310EE76240666E200EE0707 /* UIRefreshControl+C229CAR_AFNetworking.m in Sources */,
 				5310EE78240666E200EE0707 /* UITabBarController+CLPlayerRotation.m in Sources */,
 				743ADEB1244025200081AFEA /* C229_SDImageIOCoder.m in Sources */,
+				748EDCF82457F854002AF29A /* C229ChooseModelViewController.m in Sources */,
 				743ADEBC244025200081AFEA /* C229_SDWebImageTransition.m in Sources */,
 				5310ED6E2403EE1A00EE0707 /* c229_unzip.c in Sources */,
 				743ADECD244025200081AFEA /* C229_SDWebImageOptionsProcessor.m in Sources */,

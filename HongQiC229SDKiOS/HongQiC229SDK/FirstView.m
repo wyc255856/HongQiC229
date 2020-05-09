@@ -11,6 +11,7 @@
 #import "AppFaster.h"
 #import "C229CAR_Masonry.h"
 #import "TagBtn.h"
+#import "C229ChooseModelViewController.h"
 @implementation FirstView
 {
     
@@ -30,7 +31,9 @@
     CGFloat carWidth;
     CGFloat carHeight;
     UIScrollView *scroll;
-    //
+    UIButton *chooseBtn;
+    
+    
     BOOL hiddenAble;
 }
 - (id)initWithFrame:(CGRect)frame{
@@ -53,10 +56,23 @@
     change = 1;
     
     scroll.showsVerticalScrollIndicator = NO;
+    
+    chooseBtn = [[UIButton alloc] initWithFrame:CGRectMake((self.frame.size.width-91)/2,self.frame.size.height-50, 91, 20)];
+    chooseBtn.backgroundColor = [UIColor clearColor];
+    [self addSubview:chooseBtn];
+    [chooseBtn setImage:[AppManager createImageByName:@"c229chooseBtnImage"] forState:UIControlStateNormal];
+    [chooseBtn addTarget:self action:@selector(chooseBtnAction) forControlEvents:UIControlEventTouchUpInside];
+    
     return self;
     
+    
+    
 }
-
+- (void)chooseBtnAction{
+    if (self) {
+        self.jumpChooseModel(nil);
+    }
+}
 - (void)allocAllLineAndImage{
     ss1 = [[ShanShuoView alloc] initWithFrame:CGRectMake(0, 0, 4, 4)];
     ss2 = [[ShanShuoView alloc] initWithFrame:CGRectMake(0, 0, 4, 4)];
@@ -112,6 +128,7 @@
     [scroll setContentOffset:CGPointMake(self.frame.size.width, 0)];
     scroll.showsHorizontalScrollIndicator = NO;
     [self addSubview:scroll];
+    
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
 //    NSLog(@"%f",scrollView.contentOffset.x);
@@ -153,6 +170,8 @@
     ssImg1.hidden = NO;
     ssImg2.hidden = NO;
     ssImg3.hidden = NO;
+    [chooseBtn removeFromSuperview];
+    [self addSubview:chooseBtn];
 }
 - (void)allHide{
     
@@ -171,16 +190,27 @@
 - (void)setAllLineAndImageFrame:(int)x{
     NSLog(@"%d",x);
     [_carImage removeFromSuperview];
+    _carImage = nil;
     [scroll removeFromSuperview];
+    scroll = nil;
     [ss1 removeFromSuperview];
+    ss1 = nil;
     [ss2 removeFromSuperview];
+    ss2 = nil;
     [ss3 removeFromSuperview];
+    ss3 = nil;
     [ssBtn1 removeFromSuperview];
+    ssBtn1 = nil;
     [ssBtn2 removeFromSuperview];
+    ssBtn2 = nil;
     [ssBtn3 removeFromSuperview];
+    ssBtn3 = nil;
     [ssImg1 removeFromSuperview];
+    ssImg1 = nil;
     [ssImg2 removeFromSuperview];
+    ssImg2 = nil;
     [ssImg3 removeFromSuperview];
+    ssImg3 = nil;
     [self setCarImage];
     [self allocAllLineAndImage];
     [self addScrollView];
@@ -348,7 +378,7 @@
             [ssImg3 setImage:[self createImageByName:@"229line-4/229line-4-img3"]];
             [ssImg3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
                 make.size.c229_mas_equalTo(CGSizeMake(160, 160*115/382));
-                make.right.equalTo(ss3.c229_mas_right).offset(-10);
+                make.right.equalTo(ss3.c229_mas_right).offset(-5);
                 make.top.equalTo(ss3.c229_mas_top).offset(+1);
             }];
 
@@ -1780,24 +1810,24 @@
         NSDictionary *all = [self readLocalFileWithName:@"229_news"];
         NSArray *array = [all objectForKey:@"RECORDS"];
     NSString *itemID;
-    if ([btn.myTitle isEqualToString:@"车轮/轮胎"]) {
-        itemID = @"42";
+    if ([btn.myTitle isEqualToString:@"轮胎/车轮"]) {
+        itemID = @"169";
     }else if ([btn.myTitle isEqualToString:@"发动机舱"]){
-        itemID = @"38";
+        itemID = @"168";
     }else if ([btn.myTitle isEqualToString:@"外后视镜"]){
-        itemID = @"40";
+        itemID = @"127";
     }else if ([btn.myTitle isEqualToString:@"刮水器"]){
-        itemID = @"39";
+        itemID = @"219";
     }else if ([btn.myTitle isEqualToString:@"天窗"]){
-        itemID = @"43";
+        itemID = @"117";
     }else if ([btn.myTitle isEqualToString:@"前照灯"]){
-        itemID = @"59";
+        itemID = @"129";
     }else if ([btn.myTitle isEqualToString:@"油箱盖"]){
-        itemID = @"44";
+        itemID = @"131";
     }else if ([btn.myTitle isEqualToString:@"行李箱盖"]){
-        itemID = @"25";
+        itemID = @"113";
     }else if ([btn.myTitle isEqualToString:@"车门"]){
-        itemID = @"86";
+        itemID = @"112";
     }
         
     NSMutableArray *dataArr = [NSMutableArray array];

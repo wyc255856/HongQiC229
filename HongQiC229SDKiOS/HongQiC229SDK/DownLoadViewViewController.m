@@ -70,7 +70,7 @@
     self.titleLabel.textColor = [UIColor whiteColor];
     [self.backView addSubview:self.titleLabel];
     //progress
-    self.myPro = [[UIProgressView alloc] initWithFrame:CGRectMake(114, height-110-2, width-228, 2)];
+    self.myPro = [[UIProgressView alloc]  initWithFrame:CGRectMake(114, height-110-2, width-228, 2)];
     [self.backView addSubview:self.myPro];
     _cancelBtn = [[UIButton alloc] initWithFrame:CGRectMake((width-95)/2, height-72-112+23+50+30, 95, 30)];
     [_cancelBtn setImage:[self createImageByName:@"downloadCancelBtn"] forState:UIControlStateNormal];
