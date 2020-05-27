@@ -86,7 +86,7 @@
 }
 - (void)downLoadJson{
     NSString *catUrl = [NSString stringWithFormat:@"%@",updateResponse[@"category"]];
-    catUrl = [catUrl stringByReplacingOccurrencesOfString:@"http" withString:@"https"];
+//    catUrl = [catUrl stringByReplacingOccurrencesOfString:@"http" withString:@"https"];
     NSURL *downloadURL2 = [NSURL URLWithString:catUrl];
     NSURLRequest *request2 = [NSURLRequest requestWithURL:downloadURL2];
     NSURLSessionDownloadTask *downloadTask2 = [[C229CAR_AFHTTPSessionManager manager] downloadTaskWithRequest:request2 progress:^(NSProgress * _Nonnull downloadProgress) {
@@ -132,7 +132,7 @@
 
     
     NSString *newUrl = [NSString stringWithFormat:@"%@",updateResponse[@"news"]];
-    newUrl = [newUrl stringByReplacingOccurrencesOfString:@"http" withString:@"https"];
+//    newUrl = [newUrl stringByReplacingOccurrencesOfString:@"http" withString:@"https"];
     NSURL *downloadURL3 = [NSURL URLWithString:newUrl];
     NSURLRequest *request3 = [NSURLRequest requestWithURL:downloadURL3];
     NSURLSessionDownloadTask *downloadTask3 = [[C229CAR_AFHTTPSessionManager manager]downloadTaskWithRequest:request3 progress:^(NSProgress * _Nonnull downloadProgress) {

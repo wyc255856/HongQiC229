@@ -75,7 +75,7 @@
     dataArr = temArr;
     allDic = dataDic;
     [self setUi];
-
+    
     
     UIButton *closeBtn = [[UIButton alloc] initWithFrame:CGRectMake(16, 19, 25, 25)];
 //    [closeBtn setImage:[self createImageByName:@"neirongguanbianniu"] forState:UIControlStateNormal];
@@ -118,7 +118,22 @@
         [self setMore];
     }
 }
+//- (void)ressetDataArr{
+//    NSMutableArray *newArr =[NSMutableArray array];
+//    for (int i =0; i<dataArr.count; i++) {
+//        NSString *type = dataArr[i];
+//        if ([type isEqualToString:@"0"]) {
+//
+//        }else if ([type isEqualToString:@"1"]){
+//            NSDictionary *dic = [NSDictionary dictionary];
+//            [dic setValue:[allDic objectForKey:[NSString stringWithFormat:@"%@"]] forKey:@"content"];
+//        }else if ([type isEqualToString:@"3"]){
+//
+//        }
+//    }
+//}
 - (void)setMore{
+//    [self ressetDataArr];
     myScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 70, backView.frame.size.width, scrollHEIGHT)];
     myScroll.delegate = self;
     myScroll.showsHorizontalScrollIndicator = NO;

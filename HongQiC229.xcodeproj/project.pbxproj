@@ -464,6 +464,7 @@
 		743ADEFD244041CF0081AFEA /* C229NetWorkFailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = C229NetWorkFailViewController.m; sourceTree = "<group>"; wrapsLines = 0; };
 		744F65DF24347A78007E7C11 /* C229SectionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = C229SectionHeader.h; sourceTree = "<group>"; };
 		744F65E024347A78007E7C11 /* C229SectionHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = C229SectionHeader.m; sourceTree = "<group>"; };
+		746F9202246D30F500F1EC7F /* HongQiC229.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HongQiC229.entitlements; sourceTree = "<group>"; };
 		748EDCF62457F854002AF29A /* C229ChooseModelViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = C229ChooseModelViewController.h; sourceTree = "<group>"; };
 		748EDCF72457F854002AF29A /* C229ChooseModelViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = C229ChooseModelViewController.m; sourceTree = "<group>"; };
 		74DFFE65245279C0003D5641 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
@@ -484,6 +485,7 @@
 		4B92A7BB20F5AB89005B6EEE = {
 			isa = PBXGroup;
 			children = (
+				746F9202246D30F500F1EC7F /* HongQiC229.entitlements */,
 				53B601B720FF3DDE000DAC14 /* HongQiC229SDKiOS */,
 				4B92A7C520F5AB89005B6EEE /* Products */,
 				74DFFE64245279C0003D5641 /* Frameworks */,
@@ -670,9 +672,9 @@
 				53AEC7E923FE7AE90076BECD /* ForthView.h */,
 				53AEC7EB23FE7AE90076BECD /* AppManager.m */,
 				53AEC7EC23FE7AE90076BECD /* FifTableViewCell.h */,
+				53AEC7EF23FE7AE90076BECD /* ThirdView.h */,
 				53AEC7ED23FE7AE90076BECD /* DownLoadViewViewController.h */,
 				53AEC7EE23FE7AE90076BECD /* HQ229MainViewController.m */,
-				53AEC7EF23FE7AE90076BECD /* ThirdView.h */,
 				53AEC7F023FE7AE90076BECD /* FifthView.h */,
 				53AEC7F123FE7AE90076BECD /* TopTabView.m */,
 				53AEC7F323FE7AE90076BECD /* Info.plist */,
@@ -1224,8 +1226,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = HongQiC229.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 44PQM45H2J;
+				DEVELOPMENT_TEAM = NFB3RHHRK2;
 				INFOPLIST_FILE = "$(SRCROOT)/HongQiC229SDKiOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1234,6 +1238,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.car.hqev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1243,6 +1248,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = HongQiC229.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E7GV6V6TQR;
 				INFOPLIST_FILE = "$(SRCROOT)/HongQiC229SDKiOS/Info.plist";

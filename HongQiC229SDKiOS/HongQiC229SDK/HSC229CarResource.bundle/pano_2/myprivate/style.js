@@ -246,16 +246,16 @@
 					'text': '自动泊车',
 					'id': '213'
 				},{
-					'text': '全景影像',
+			  		'text': '全景影像',
 					'id': '216'
 				},{
-					'text': '怠速启停',
+					'text': '怠速起停',
 					'id': '218'
 				},{
 					'text': '人机交互',
 					'id': '221'
 				}];
-				host_main(host_6, host_list)
+				host_main(host_6, host_list) 
 			} else {
 				
 				anim.parentNode.removeChild(anim);
