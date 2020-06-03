@@ -1,12 +1,12 @@
 //
-//  HQ229MainViewController.m
+//  HQ115MainViewController.m
 //  HongQiC229
 //
-//  Created by 李卓轩 on 2019/12/12.
-//  Copyright © 2019 Parry. All rights reserved.
+//  Created by 李卓轩 on 2020/6/2.
+//  Copyright © 2020 freedomTeam. All rights reserved.
 //
 
-#import "HQ229MainViewController.h"
+#import "HQ115MainViewController.h"
 #import "TopTabView.h"
 #import "AppFaster.h"
 #import "FirstView.h"
@@ -19,12 +19,14 @@
 #import "C229NetWorkFailViewController.h"
 #import "DetailViewController.h"
 #import "DownLoadViewViewController.h"
-#import "C229ChooseModelViewController.h"
-@interface HQ229MainViewController ()
+#import "E115ChooseModelViewController.h"
+
+@interface HQ115MainViewController ()
 
 @end
 
-@implementation HQ229MainViewController
+@implementation HQ115MainViewController
+
 {
     UIScrollView *myScrollView;
     UIWebView *web;
@@ -50,8 +52,8 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
-    if (![user objectForKey:@"c229ModelChoose"]) {
-        C229ChooseModelViewController *choose = [[C229ChooseModelViewController alloc] init];
+    if (![user objectForKey:@"e115ModelChoose"]) {
+        E115ChooseModelViewController *choose = [[E115ChooseModelViewController alloc] init];
         [self presentViewController:choose animated:NO completion:nil];
     }else{
         
@@ -64,19 +66,19 @@
     [self checkNetWork];
     //background
     UIImageView *backGround = [[UIImageView alloc] initWithFrame:self.view.bounds];
-    [backGround setImage:[self createImageByName:@"homeBackground"]];
+    [backGround setImage:[self createImageByName:@"e115ImageResource/homeBackground"]];
     [self.view addSubview:backGround];
     //topView
     TopTabView *top = [[TopTabView alloc] initWithFrame:CGRectMake(100, 0, kScreenWidth-120, TopHeight)];
-    top.carType = @"c229";
+    top.carType = @"e115";
     [top reset];
     top.seleced = ^(NSInteger index) {
         myScrollView.contentOffset = CGPointMake(index *kScreenWidth, 0);
     };
     //closeBtn
     UIButton *closeBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 80, 50)];
-    [closeBtn setImage:[self createImageByName:@"CL_WDG_Status_Home_N"] forState:UIControlStateNormal];
-    [closeBtn setImage:[self createImageByName:@"CL_WDG_Status_Home_P"] forState:UIControlStateHighlighted];
+    [closeBtn setImage:[self createImageByName:@"e115ImageResource/CL_WDG_Status_Home_N"] forState:UIControlStateNormal];
+    [closeBtn setImage:[self createImageByName:@"e115ImageResourceCL_WDG_Status_Home_P"] forState:UIControlStateHighlighted];
     [closeBtn addTarget:self action:@selector(goDonwLoad) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:closeBtn];
     
@@ -127,7 +129,7 @@
     FirstView *first = [[FirstView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-TopHeight)];
     [myScrollView addSubview:first];
     first.jumpChooseModel = ^(NSDictionary * dic) {
-        C229ChooseModelViewController *choose = [[C229ChooseModelViewController alloc] init];
+        E115ChooseModelViewController *choose = [[E115ChooseModelViewController alloc] init];
         [self presentViewController:choose animated:NO completion:nil];
     };
     first.jumpToDetail = ^(NSDictionary * dataDic) {
@@ -278,3 +280,4 @@
         [web loadRequest:req];
 }
 @end
+

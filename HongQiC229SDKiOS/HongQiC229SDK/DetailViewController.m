@@ -78,7 +78,7 @@
     
     
     UIButton *closeBtn = [[UIButton alloc] initWithFrame:CGRectMake(16, 19, 25, 25)];
-//    [closeBtn setImage:[self createImageByName:@"neirongguanbianniu"] forState:UIControlStateNormal];
+
     UIImageView *closeImg = [[UIImageView alloc] initWithFrame:CGRectMake(16, 19, 13, 20)];
     [closeImg setImage:[self createImageByName:@"neirongguanbianniu"]];
     [backView addSubview:closeImg];
@@ -101,16 +101,11 @@
     [self.view addSubview:backView];
 }
 - (void)closeAction{
-    [self.myPlayer pause];
+    [self.myPlayer pause] ;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (void)setUi{
-//    if (dataArr.count>1) {
-//        [self setMore];
-//    }else{
-//        backView.hidden = YES;
-//        [self addVideo];
-//    }
+
     NSString *str = [dataArr objectAtIndex:0];
     if ([str isEqualToString:@"6"]) {
         [self addVideo];
@@ -118,20 +113,7 @@
         [self setMore];
     }
 }
-//- (void)ressetDataArr{
-//    NSMutableArray *newArr =[NSMutableArray array];
-//    for (int i =0; i<dataArr.count; i++) {
-//        NSString *type = dataArr[i];
-//        if ([type isEqualToString:@"0"]) {
-//
-//        }else if ([type isEqualToString:@"1"]){
-//            NSDictionary *dic = [NSDictionary dictionary];
-//            [dic setValue:[allDic objectForKey:[NSString stringWithFormat:@"%@"]] forKey:@"content"];
-//        }else if ([type isEqualToString:@"3"]){
-//
-//        }
-//    }
-//}
+
 - (void)setMore{
 //    [self ressetDataArr];
     myScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 70, backView.frame.size.width, scrollHEIGHT)];

@@ -82,7 +82,7 @@
                     newArr = [allDic objectForKey:newId];
                 }
                 NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
-                NSString *model = [dic objectForKey:[user objectForKey:@"c229ModelChoose"]];
+                NSString *model = [dic objectForKey:[user objectForKey:@"e115ModelChoose"]];
                 if ([model isEqualToString:@"1"]) {
                     [newArr addObject:dic];
                 }

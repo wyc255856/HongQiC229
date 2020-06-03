@@ -19,10 +19,14 @@
     titleArr = @[@"车型概览",@"快速入门",@"车型亮点",@"手册",@"搜索"];
     self = [super initWithFrame:frame];
     if (self) {
-        [self setUI];
+        
     }
     self.backgroundColor = [UIColor clearColor];
     return self;
+}
+- (void)setCarType:(NSString *)carType{
+    _carType = carType;
+    [self setUI];
 }
 - (void)setUI{
     for (int i = 0; i < 5; i++) {
@@ -36,7 +40,8 @@
         [self addSubview:button];
     }
     UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height-1, self.frame.size.width, 0)];
-    line.backgroundColor = [UIColor colorWithRed:26/255.0 green:27/255.0 blue:28/255.0 alpha:1];
+    
+    
     [self addSubview:line];
     
 }
@@ -58,7 +63,12 @@
         if (btn.tag == 1000) {
             btn.selected = YES;
             selected = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height-3, btn.titleLabel.text.length*15, 3)];
-            selected.backgroundColor = [AppManager colorWithHexString:@"83baff"];
+            
+            if ([self.carType isEqualToString:@"c229"]) {
+                selected.backgroundColor = [AppManager colorWithHexString:@"83baff"];
+                }else if ([self.carType isEqualToString:@"e115"]){
+                    selected.backgroundColor = [UIColor colorWithRed:146.0f/255.0f green:114.0f/255.0f blue:221.0f/255.0f alpha:1.0f];
+                }
             selected.layer.cornerRadius = 1;
             [self addSubview:selected];
             [selected setCenter:CGPointMake(btn.center.x, 50)];

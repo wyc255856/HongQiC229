@@ -97,32 +97,32 @@
         NSString *str4 = [NSString stringWithFormat:@"%@",leftArr[4][@"catid"]];
         NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
         if ([[NSString stringWithFormat:@"%@",dic[@"catid"]] isEqualToString:str0]) {
-            NSString *model = [dic objectForKey:[user objectForKey:@"c229ModelChoose"]];
+            NSString *model = [dic objectForKey:[user objectForKey:@"e115ModelChoose"]];
             if ([model isEqualToString:@"1"]) {
                 [cellArr0 addObject:dic];
             }
         }
         if ([[NSString stringWithFormat:@"%@",dic[@"catid"]] isEqualToString:str1]) {
-            NSString *model = [dic objectForKey:[user objectForKey:@"c229ModelChoose"]];
+            NSString *model = [dic objectForKey:[user objectForKey:@"e115ModelChoose"]];
             if ([model isEqualToString:@"1"]) {
                 [cellArr1 addObject:dic];
             }
             
         }
         if ([[NSString stringWithFormat:@"%@",dic[@"catid"]] isEqualToString:str2]) {
-            NSString *model = [dic objectForKey:[user objectForKey:@"c229ModelChoose"]];
+            NSString *model = [dic objectForKey:[user objectForKey:@"e115ModelChoose"]];
             if ([model isEqualToString:@"1"]) {
                 [cellArr2 addObject:dic];
             }
         }
         if ([[NSString stringWithFormat:@"%@",dic[@"catid"]] isEqualToString:str3]) {
-            NSString *model = [dic objectForKey:[user objectForKey:@"c229ModelChoose"]];
+            NSString *model = [dic objectForKey:[user objectForKey:@"e115ModelChoose"]];
             if ([model isEqualToString:@"1"]) {
                 [cellArr3 addObject:dic];
             }
         }
         if ([[NSString stringWithFormat:@"%@",dic[@"catid"]] isEqualToString:str4]) {
-            NSString *model = [dic objectForKey:[user objectForKey:@"c229ModelChoose"]];
+            NSString *model = [dic objectForKey:[user objectForKey:@"e115ModelChoose"]];
             if ([model isEqualToString:@"1"]) {
                 [cellArr4 addObject:dic];
             }

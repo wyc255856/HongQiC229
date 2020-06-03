@@ -1,23 +1,20 @@
 //
-//  C229ChooseModelViewController.m
+//  115ChooseModelViewController.m
 //  HongQiC229
 //
-//  Created by 李卓轩 on 2020/4/28.
+//  Created by 李卓轩 on 2020/6/2.
 //  Copyright © 2020 freedomTeam. All rights reserved.
 //
 
-#import "C229ChooseModelViewController.h"
+#import "E115ChooseModelViewController.h"
 #import "AppFaster.h"
-//Zdhh 3.0商务 5
-//zdss 3.0高 4
-//sdhh 2.0中配 2
-//sdss  2.0入门  1
-//sdzg 2.0高 3
-@interface C229ChooseModelViewController ()
+
+@interface E115ChooseModelViewController ()
 
 @end
 
-@implementation C229ChooseModelViewController
+@implementation E115ChooseModelViewController
+
 - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
         return UIInterfaceOrientationLandscapeLeft;
 }
@@ -40,7 +37,6 @@
     [backImage setImage:[AppManager createImageByName:@"c229chooseModelBack.jpg"]];
     [self.view addSubview:backImage];
     [self createBtn];
-    
 }
 
 - (void)createBtn{
@@ -76,24 +72,24 @@
     
     switch (btn.tag) {
         case 1001:
-            [user setObject:@"sdss" forKey:@"c229ModelChoose"];
+            [user setObject:@"sdss" forKey:@"e115ModelChoose"];
             break;
         case 1002:
-            [user setObject:@"sdhh" forKey:@"c229ModelChoose"];
+            [user setObject:@"sdhh" forKey:@"e115ModelChoose"];
             break;
         case 1003:
-            [user setObject:@"sdzg" forKey:@"c229ModelChoose"];
+            [user setObject:@"sdzg" forKey:@"e115ModelChoose"];
             break;
         case 1004:
-            [user setObject:@"zdss" forKey:@"c229ModelChoose"];
+            [user setObject:@"zdss" forKey:@"e115ModelChoose"];
             break;
         case 1005:
-            [user setObject:@"zdhh" forKey:@"c229ModelChoose"];
+            [user setObject:@"zdhh" forKey:@"e115ModelChoose"];
             break;
         default:
             break;
     }
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"c229chooseModel" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"e115chooseModel" object:nil];
     [self dismissViewControllerAnimated:NO completion:nil];
 }
 @end

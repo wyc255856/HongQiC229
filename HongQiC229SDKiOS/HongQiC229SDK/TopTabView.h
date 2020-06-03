@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TopTabView : UIView
 @property (nonatomic, copy)void(^seleced)(NSInteger);
+@property (nonatomic, strong)NSString *carType;
 - (void)reset;
 @end
 
