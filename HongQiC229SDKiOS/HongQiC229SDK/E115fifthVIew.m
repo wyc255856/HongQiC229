@@ -1,15 +1,16 @@
 //
-//  FifthView.m
+//  E115fifthVIew.m
 //  HongQiC229
 //
-//  Created by 李卓轩 on 2019/12/12.
-//  Copyright © 2019 Parry. All rights reserved.
+//  Created by 李卓轩 on 2020/6/4.
+//  Copyright © 2020 freedomTeam. All rights reserved.
 //
 
-#import "FifthView.h"
+#import "E115fifthVIew.h"
 #import "AppFaster.h"
 #import "FifTableViewCell.h"
-@implementation FifthView
+@implementation E115fifthVIew
+
 {
     UITextField *searchTf;
     UITableView *myTableView;
@@ -26,9 +27,12 @@
     return self;
 }
 - (void)setUi{
+    UIImageView *searchLine = [[UIImageView alloc] initWithFrame:CGRectMake(47+10, 75, kScreenWidth-47-105-20, 1)];
+    [searchLine setImage:[self getPictureWithName:@"e115ImageResource/e115searchLine"]];
+    [self addSubview:searchLine];
     searchTf = [[UITextField alloc] initWithFrame:CGRectMake(47, 37, kScreenWidth-47-105, 30)];
     searchTf.layer.cornerRadius = 3;
-    searchTf.layer.borderWidth = 1;
+    searchTf.layer.borderWidth = 0;
     searchTf.layer.borderColor = [[UIColor colorWithRed:104/255.0 green:119/255.0 blue:138/255.0 alpha:1] CGColor];
     searchTf.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 30, 10)];
     searchTf.font = [UIFont systemFontOfSize:15];
@@ -104,7 +108,7 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     FifTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FifTableViewCell"];
-    [cell loadWithData:dataArr[indexPath.row] andStr:keyWords :@"c229"];
+    [cell loadWithData:dataArr[indexPath.row] andStr:keyWords :@"e115"];
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -233,3 +237,4 @@
     searchTf.text = btn.titleLabel.text;
 }
 @end
+

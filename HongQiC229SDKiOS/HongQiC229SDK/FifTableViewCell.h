@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FifTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-- (void)loadWithData:(NSDictionary *)dic andStr:(NSString *)keyWords;
+- (void)loadWithData:(NSDictionary *)dic andStr:(NSString *)keyWords:(NSString *)type;
 @end
 
 NS_ASSUME_NONNULL_END

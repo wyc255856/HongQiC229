@@ -10,7 +10,7 @@
 #import "AppFaster.h"
 #import "HQ115MainViewController.h"
 #import "NetWorkManager.h"
-#import "C229NetWorkFailViewController.h"
+#import "E115NetWorkFailViewController.h"
 @interface E115LoadingViewController ()
 
 
@@ -72,7 +72,7 @@
         [self downLoadJson];
 
     } enError:^(NSError * _Nonnull error) {
-        C229NetWorkFailViewController *fail =[[C229NetWorkFailViewController alloc] init];
+        E115NetWorkFailViewController *fail =[[E115NetWorkFailViewController alloc] init];
         [fail addBtn:2];
         fail.retry = ^(NSString *str) {
             [self initNetWork];

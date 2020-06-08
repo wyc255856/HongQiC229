@@ -10,15 +10,14 @@
 #import "TopTabView.h"
 #import "AppFaster.h"
 #import "FirstView.h"
-#import "SecondView.h"
+#import "E115SecondVIew.h"
 #import "ThirdView.h"
-#import "ForthView.h"
-#import "FifthView.h"
+#import "E115ForthView.h"
+#import "E115fifthVIew.h"
 #import "C229CAR_AFNetworking.h"
 #define TopHeight 60
-#import "C229NetWorkFailViewController.h"
-#import "DetailViewController.h"
-#import "DownLoadViewViewController.h"
+#import "E115NetWorkFailViewController.h"
+#import "E115DetailViewController.h"
 #import "E115ChooseModelViewController.h"
 
 @interface HQ115MainViewController ()
@@ -95,8 +94,8 @@
                 {
                     //未知网络
                     NSLog(@"未知网络");
-                    C229NetWorkFailViewController *fail =
-                    [[C229NetWorkFailViewController alloc] init];
+                    E115NetWorkFailViewController *fail =
+                    [[E115NetWorkFailViewController alloc] init];
                     [fail addBtn:1];
                     [self presentViewController:fail animated:NO completion:nil];
                 }
@@ -105,8 +104,8 @@
                 {
                     //无法联网
                     NSLog(@"无法联网");
-                    C229NetWorkFailViewController *fail =
-                    [[C229NetWorkFailViewController alloc] init];
+                    E115NetWorkFailViewController *fail =
+                    [[E115NetWorkFailViewController alloc] init];
                     [fail addBtn:1];
                     [self presentViewController:fail animated:NO completion:nil];
                 }
@@ -133,17 +132,17 @@
         [self presentViewController:choose animated:NO completion:nil];
     };
     first.jumpToDetail = ^(NSDictionary * dataDic) {
-        DetailViewController *detail = [[DetailViewController alloc] init];
+        E115DetailViewController *detail = [[E115DetailViewController alloc] init];
         self.definesPresentationContext = YES;
         detail.modalPresentationStyle =UIModalPresentationOverFullScreen;
         detail.dataDic = dataDic;
         [self presentViewController:detail animated:YES completion:nil];
     };
 
-    SecondView *second = [[SecondView alloc] initWithFrame:CGRectMake(kScreenWidth*3, 0, kScreenWidth, kScreenHeight-TopHeight)];
+    E115SecondVIew *second = [[E115SecondVIew alloc] initWithFrame:CGRectMake(kScreenWidth*3, 0, kScreenWidth, kScreenHeight-TopHeight)];
     second.push = ^(NSDictionary * dataDic
                     ) {
-        DetailViewController *detail = [[DetailViewController alloc] init];
+        E115DetailViewController *detail = [[E115DetailViewController alloc] init];
         self.definesPresentationContext = YES;
         detail.modalPresentationStyle =UIModalPresentationOverFullScreen;
         detail.dataDic = dataDic;
@@ -157,7 +156,7 @@
             [self openNewWeb];
             return;
         }
-        DetailViewController *detail = [[DetailViewController alloc] init];
+        E115DetailViewController *detail = [[E115DetailViewController alloc] init];
         self.definesPresentationContext = YES;
         detail.modalPresentationStyle =UIModalPresentationOverFullScreen;
         detail.dataDic = dataDic;
@@ -166,9 +165,9 @@
     };
     [myScrollView addSubview:third];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    ForthView *forth = [[ForthView alloc] initWithFrame:CGRectMake(kScreenWidth, 0, kScreenWidth, kScreenHeight-TopHeight)];
+    E115ForthView *forth = [[E115ForthView alloc] initWithFrame:CGRectMake(kScreenWidth, 0, kScreenWidth, kScreenHeight-TopHeight)];
     forth.push = ^(NSDictionary * dataDic) {
-        DetailViewController *detail = [[DetailViewController alloc] init];
+        E115DetailViewController *detail = [[E115DetailViewController alloc] init];
         self.definesPresentationContext = YES;
         detail.modalPresentationStyle =UIModalPresentationOverFullScreen;
         detail.dataDic = dataDic;
@@ -176,9 +175,9 @@
     };
     [myScrollView addSubview:forth];
 //
-    FifthView *fifth = [[FifthView alloc] initWithFrame:CGRectMake(kScreenWidth*4, 0, kScreenWidth, kScreenHeight-TopHeight)];
+    E115fifthVIew *fifth = [[E115fifthVIew alloc] initWithFrame:CGRectMake(kScreenWidth*4, 0, kScreenWidth, kScreenHeight-TopHeight)];
     fifth.push = ^(NSDictionary * dataDic) {
-        DetailViewController *detail = [[DetailViewController alloc] init];
+        E115DetailViewController *detail = [[E115DetailViewController alloc] init];
         self.definesPresentationContext = YES;
         detail.modalPresentationStyle =UIModalPresentationOverFullScreen;
         detail.dataDic = dataDic;
@@ -245,10 +244,6 @@
     [self dismissViewControllerAnimated:NO completion:nil];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"dismiss" object:nil];
-//    DownLoadViewViewController *vc = [[DownLoadViewViewController alloc] init];
-//    self.definesPresentationContext = YES;
-//    vc.modalPresentationStyle =UIModalPresentationOverFullScreen;
-//    [self presentViewController:vc animated:NO completion:nil];
 }
 -(UIImage *) createImageByName:(NSString*)sName{
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];

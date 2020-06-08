@@ -21,11 +21,16 @@
 
     // Configure the view for the selected state
 }
-- (void)loadWithData:(NSDictionary *)dic andStr:(NSString *)keyWords{
+- (void)loadWithData:(NSDictionary *)dic andStr:(NSString *)keyWords:(NSString *)type;{
     NSString *title = [NSString stringWithFormat:@"%@",dic[@"title"]];
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:title];
     NSRange range = [title rangeOfString:keyWords];
-    [attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:131.0f/255.0f green:186.0f/255.0f blue:255.0f/255.0f alpha:1.0f] range:range];
+    if ([type isEqualToString:@"c229"]) {
+        [attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:131.0f/255.0f green:186.0f/255.0f blue:255.0f/255.0f alpha:1.0f] range:range];
+    }else if ([type isEqualToString:@"e115"]){
+        [attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:146.0f/255.0f green:114.0f/255.0f blue:221.0f/255.0f alpha:1.0f] range:range];
+    }
+    
     [_titleLabel setAttributedText:attributedString];
 }
 @end

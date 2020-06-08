@@ -1,17 +1,17 @@
 //
-//  ForthView.m
+//  E115ForthView.m
 //  HongQiC229
 //
-//  Created by 李卓轩 on 2019/12/12.
-//  Copyright © 2019 Parry. All rights reserved.
+//  Created by 李卓轩 on 2020/6/4.
+//  Copyright © 2020 freedomTeam. All rights reserved.
 //
 
-#import "ForthView.h"
+#import "E115ForthView.h"
 #import "AppFaster.h"
 #import "ForthCollectionViewCell.h"
-#import "DetailViewController.h"
+#import "E115DetailViewController.h"
 #import "C229SectionHeader.h"
-@implementation ForthView
+@implementation E115ForthView
 {
     UIImageView *selImage;
     NSMutableArray *leftArr;
@@ -32,17 +32,17 @@
     UIImageView *downYinYing = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.frame.size.height-kScreenWidth*192/1920, kScreenWidth, kScreenWidth*192/1920)];
     
     [self setCollectionView];
-    [downYinYing setImage:[self createImageByName:@"downYinYing"]];
+    [downYinYing setImage:[self createImageByName:@"e115ImageResource/e115downYinYing"]];
     [self addSubview:downYinYing];
     [self setLeftView];
     
     jianting = 1;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getNoty) name:@"unziped" object:nil];
     UIImageView *upYinYing = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenWidth*159/1920)];
-    [upYinYing setImage:[self createImageByName:@"upYinYing"]];
+    [upYinYing setImage:[self createImageByName:@"e115ImageResource/e115upYinYing"]];
     [self addSubview:upYinYing];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadData) name:@"c229chooseModel" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadData) name:@"e115chooseModel" object:nil];
     
     return self;
 }
@@ -97,32 +97,32 @@
         NSString *str4 = [NSString stringWithFormat:@"%@",leftArr[4][@"catid"]];
         NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
         if ([[NSString stringWithFormat:@"%@",dic[@"catid"]] isEqualToString:str0]) {
-            NSString *model = [dic objectForKey:[user objectForKey:@"c229ModelChoose"]];
+            NSString *model = [dic objectForKey:[user objectForKey:@"e115ModelChoose"]];
             if ([model isEqualToString:@"1"]) {
                 [cellArr0 addObject:dic];
             }
         }
         if ([[NSString stringWithFormat:@"%@",dic[@"catid"]] isEqualToString:str1]) {
-            NSString *model = [dic objectForKey:[user objectForKey:@"c229ModelChoose"]];
+            NSString *model = [dic objectForKey:[user objectForKey:@"e115ModelChoose"]];
             if ([model isEqualToString:@"1"]) {
                 [cellArr1 addObject:dic];
             }
             
         }
         if ([[NSString stringWithFormat:@"%@",dic[@"catid"]] isEqualToString:str2]) {
-            NSString *model = [dic objectForKey:[user objectForKey:@"c229ModelChoose"]];
+            NSString *model = [dic objectForKey:[user objectForKey:@"e115ModelChoose"]];
             if ([model isEqualToString:@"1"]) {
                 [cellArr2 addObject:dic];
             }
         }
         if ([[NSString stringWithFormat:@"%@",dic[@"catid"]] isEqualToString:str3]) {
-            NSString *model = [dic objectForKey:[user objectForKey:@"c229ModelChoose"]];
+            NSString *model = [dic objectForKey:[user objectForKey:@"e115ModelChoose"]];
             if ([model isEqualToString:@"1"]) {
                 [cellArr3 addObject:dic];
             }
         }
         if ([[NSString stringWithFormat:@"%@",dic[@"catid"]] isEqualToString:str4]) {
-            NSString *model = [dic objectForKey:[user objectForKey:@"c229ModelChoose"]];
+            NSString *model = [dic objectForKey:[user objectForKey:@"e115ModelChoose"]];
             if ([model isEqualToString:@"1"]) {
                 [cellArr4 addObject:dic];
             }
@@ -165,17 +165,20 @@
 - (void)setLeftView{
     selImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 18, 48, 300)];
     [selImage setImage:[self createImageByName:@"left0"]];
-    [self addSubview: selImage];
+//    [self addSubview: selImage];
     
     for (int i = 0; i < 5; i++) {
-        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(45, 40+48*i, 80, 48)];
+        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(20, 39+(50+10)*i, 80, 50)];
         NSDictionary *dic = leftArr[i];
-        [btn setTitle:[NSString stringWithFormat:@"%@",dic[@"catname"]] forState:UIControlStateNormal];
+        [btn setTitle:[NSString stringWithFormat:@"  %@",dic[@"catname"]] forState:UIControlStateNormal];
         btn.titleLabel.font = [UIFont systemFontOfSize:14];
         btn.tag = 1000+i;
         [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [btn setTitleColor:[UIColor colorWithRed:131/255.0 green:186/255.0 blue:255/255.0 alpha:1] forState:UIControlStateSelected];
+        [btn setTitleColor:[UIColor colorWithRed:146.0f/255.0f green:114.0f/255.0f blue:221.0f/255.0f alpha:1.0f] forState:UIControlStateSelected];
         btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+        [btn setBackgroundImage:[AppManager createImageByName:@"e115ImageResource/e115SelectedGrayLine"] forState:UIControlStateNormal];
+        [btn setBackgroundImage:[AppManager createImageByName:@"e115ImageResource/e115SelectedLine"] forState:UIControlStateSelected];
+//        [btn setImage:[AppManager createImageByName:@"e115ImageResource/e115SelectedLine"] forState:UIControlStateSelected];
         [self addSubview:btn];
         [btn addTarget:self action:@selector(leftBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     }

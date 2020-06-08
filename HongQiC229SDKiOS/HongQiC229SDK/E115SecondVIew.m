@@ -1,17 +1,18 @@
 //
-//  SecondView.m
+//  E115SecondVIew.m
 //  HongQiC229
 //
-//  Created by 李卓轩 on 2019/12/12.
-//  Copyright © 2019 Parry. All rights reserved.
+//  Created by 李卓轩 on 2020/6/4.
+//  Copyright © 2020 freedomTeam. All rights reserved.
 //
 
-#import "SecondView.h"
+#import "E115SecondVIew.h"
 #import "AppFaster.h"
 #import "ForthCollectionViewCell.h"
 #import "SecondTableViewCell.h"
 #import "C229SectionHeader.h"
-@implementation SecondView
+@implementation E115SecondVIew
+
 {
     UIImageView *selImage;
     NSArray *leftArr;
@@ -34,14 +35,14 @@
     jianting = 1;
     UIImageView *downYinYing = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.frame.size.height-kScreenWidth*192/1920, kScreenWidth, kScreenWidth*192/1920)];
     
-    [downYinYing setImage:[self createImageByName:@"downYinYing"]];
+    [downYinYing setImage:[self createImageByName:@"e115ImageResource/e115downYinYing"]];
     [self addSubview:downYinYing];
     [self setLeftView];
     UIImageView *upYinYing = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenWidth*159/1920)];
-    [upYinYing setImage:[self createImageByName:@"upYinYing"]];
+    [upYinYing setImage:[self createImageByName:@"e115ImageResource/e115upYinYing"]];
     [self addSubview:upYinYing];
     [self reSetLeftView:0];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadData) name:@"c229chooseModel" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadData) name:@"e115chooseModel" object:nil];
     return self;
 }
 - (void)getNoty{
@@ -82,7 +83,7 @@
                     newArr = [allDic objectForKey:newId];
                 }
                 NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
-                NSString *model = [dic objectForKey:[user objectForKey:@"c229ModelChoose"]];
+                NSString *model = [dic objectForKey:[user objectForKey:@"e115ModelChoose"]];
                 if ([model isEqualToString:@"1"]) {
                     [newArr addObject:dic];
                 }
@@ -103,16 +104,18 @@
     leftScroll.contentSize = CGSizeMake(128, 48*12);
     [self addSubview: leftScroll];
     
-    [leftScroll addSubview: selImage];
+//    [leftScroll addSubview: selImage];
     
     for (int i = 0; i < cateGGArr.count; i++) {
-        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(40, 25+41.4*i, 128-40, 48)];
+        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(20, 25+(41.4+10)*i, 128-20, 48)];
         NSDictionary *dic = cateGGArr[i];
-        [btn setTitle:[NSString stringWithFormat:@"%@",dic[@"catname"]] forState:UIControlStateNormal];
+        [btn setTitle:[NSString stringWithFormat:@"  %@",dic[@"catname"]] forState:UIControlStateNormal];
         btn.titleLabel.font = [UIFont systemFontOfSize:14];
         btn.tag = 1000+i;
+        [btn setBackgroundImage:[AppManager createImageByName:@"e115ImageResource/e115SelectedGrayLine"] forState:UIControlStateNormal];
+        [btn setBackgroundImage:[AppManager createImageByName:@"e115ImageResource/e115SelectedLine"] forState:UIControlStateSelected];
         [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [btn setTitleColor:[UIColor colorWithRed:131/255.0 green:186/255.0 blue:255/255.0 alpha:1] forState:UIControlStateSelected];
+        [btn setTitleColor:[UIColor colorWithRed:146.0f/255.0f green:114.0f/255.0f blue:221.0f/255.0f alpha:1.0f] forState:UIControlStateSelected];
         btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         [leftScroll addSubview:btn];
         [btn addTarget:self action:@selector(leftBtnClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -413,3 +416,4 @@
 }
 
 @end
+

@@ -38,11 +38,11 @@
 }
 - (void)setUILayer{
     UIImageView *back = [[UIImageView alloc] initWithFrame:self.view.bounds];
-    [back setImage:[AppManager createImageByName:@"C229NetFailbackGround"]];
+    [back setImage:[AppManager createImageByName:@"e115ImageResource/e115networkfailBack.jpg"]];
     [self.view addSubview:back];
     
     UIImageView *logo = [[UIImageView alloc] initWithFrame:CGRectMake((kScreenWidth-170)/2, (kScreenHeight-136)/2-30, 170, 136)];
-    [logo setImage:[AppManager createImageByName:@"c229netfailLogo"]];
+    [logo setImage:[AppManager createImageByName:@"e115ImageResource/c229netfailLogo"]];
     [self.view addSubview:logo];
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, (kScreenHeight-136)/2-30+136+15, kScreenWidth, 15)];
@@ -59,7 +59,7 @@
         [centerBtn setTitle:@"确认" forState:UIControlStateNormal];
         centerBtn.titleLabel.font = [UIFont systemFontOfSize:14];
         [centerBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [centerBtn setBackgroundImage:[AppManager createImageByName:@"c229failBtnBlue"] forState:UIControlStateNormal];
+        [centerBtn setBackgroundImage:[AppManager createImageByName:@"e115ImageResource/e115btnBack"] forState:UIControlStateNormal];
         [self.view addSubview:centerBtn];
         [centerBtn addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
     }else{
@@ -67,7 +67,7 @@
         [leftBtn setTitle:@"重试" forState:UIControlStateNormal];
         leftBtn.titleLabel.font = [UIFont systemFontOfSize:14];
         [leftBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [leftBtn setBackgroundImage:[AppManager createImageByName:@"c229failBtnBlue"] forState:UIControlStateNormal];
+        [leftBtn setBackgroundImage:[AppManager createImageByName:@"e115btnBack"] forState:UIControlStateNormal];
         [self.view addSubview:leftBtn];
         [leftBtn addTarget:self action:@selector(leftAction) forControlEvents:UIControlEventTouchUpInside];
         

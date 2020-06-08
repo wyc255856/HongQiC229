@@ -18,7 +18,6 @@
 #define TopHeight 60
 #import "C229NetWorkFailViewController.h"
 #import "DetailViewController.h"
-#import "DownLoadViewViewController.h"
 #import "C229ChooseModelViewController.h"
 @interface HQ229MainViewController ()
 
@@ -243,10 +242,6 @@
     [self dismissViewControllerAnimated:NO completion:nil];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"dismiss" object:nil];
-//    DownLoadViewViewController *vc = [[DownLoadViewViewController alloc] init];
-//    self.definesPresentationContext = YES;
-//    vc.modalPresentationStyle =UIModalPresentationOverFullScreen;
-//    [self presentViewController:vc animated:NO completion:nil];
 }
 -(UIImage *) createImageByName:(NSString*)sName{
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];

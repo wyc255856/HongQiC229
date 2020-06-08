@@ -10,8 +10,6 @@
 #import "AppFaster.h"
 #import "HQ229MainViewController.h"
 #import "NetWorkManager.h"
-//#import "AppDelegate.h"
-#import "DownLoadViewViewController.h"
 #import "C229NetWorkFailViewController.h"
 @interface C229LoadingViewController ()
 
