@@ -178,7 +178,7 @@
         btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         [btn setBackgroundImage:[AppManager createImageByName:@"e115ImageResource/e115SelectedGrayLine"] forState:UIControlStateNormal];
         [btn setBackgroundImage:[AppManager createImageByName:@"e115ImageResource/e115SelectedLine"] forState:UIControlStateSelected];
-//        [btn setImage:[AppManager createImageByName:@"e115ImageResource/e115SelectedLine"] forState:UIControlStateSelected];
+
         [self addSubview:btn];
         [btn addTarget:self action:@selector(leftBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     }

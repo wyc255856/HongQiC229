@@ -225,22 +225,22 @@
     [image sd_setImageWithURL:[NSURL URLWithString:file] completed:^(UIImage * _Nullable pimage, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
         if (error) {
            
-            image.frame = CGRectMake(31, 0, myScroll.frame.size.width-62+4, myScroll.frame.size.height);
+            image.frame = CGRectMake(31, 0, self->myScroll.frame.size.width-62+4, self->myScroll.frame.size.height);
             [image setImage:[AppManager createImageByName:@"c229chuntuPlace"]];
             [bk addSubview:image];
-            [myScroll addSubview:bk];
+            [self->myScroll addSubview:bk];
         }else{
             
-            image.frame = CGRectMake(0, 0, myScroll.frame.size.width-62, (myScroll.frame.size.width-62)*pimage.size.height/pimage.size.width);
+            image.frame = CGRectMake(0, 0, self->myScroll.frame.size.width-62, (self->myScroll.frame.size.width-62)*pimage.size.height/pimage.size.width);
             image.backgroundColor = [UIColor clearColor];
-                UIScrollView *imageScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(31, 0, myScroll.frame.size.width-62+4, myScroll.frame.size.height)];
+            UIScrollView *imageScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(31, 0, self->myScroll.frame.size.width-62+4, self->myScroll.frame.size.height)];
             //    [image setImage:theImage];
                 imageScroll.contentSize = image.frame.size;
                 imageScroll.indicatorStyle = UIScrollViewIndicatorStyleWhite;
                 [imageScroll setBounces:NO];
                 [imageScroll addSubview:image];
                 [bk addSubview:imageScroll];
-                [myScroll addSubview:bk];
+            [self->myScroll addSubview:bk];
         }
     }];
     

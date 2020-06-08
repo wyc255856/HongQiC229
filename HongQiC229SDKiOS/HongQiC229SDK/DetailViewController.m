@@ -158,8 +158,10 @@
     [image sd_setImageWithURL:[NSURL URLWithString:file] placeholderImage:[AppManager createImageByName:@"c229tuwenPlace"]];
     [bk addSubview:image];
     
-    NSString *cKey = [NSString stringWithFormat:@"content%d",index];
+    NSString *cKey = [NSString stringWithFormat:@"content%d_app",index];
+    
     NSString *contentStr = [NSString stringWithFormat:@"%@",allDic[cKey]];
+   
     UIWebView *web = [[UIWebView alloc] initWithFrame:CGRectMake(31+scrollHEIGHT+20, 0, myScroll.frame.size.width-31-scrollHEIGHT-20-20, scrollHEIGHT)];
     [web loadHTMLString:contentStr baseURL:nil];
     web.backgroundColor = [UIColor clearColor];
@@ -191,8 +193,9 @@
     UIView *bk = [[UIView alloc]initWithFrame:CGRectMake(myScroll.frame.size.width*(xx-1), 0, myScroll.frame.size.width, myScroll.frame.size.height)];
     [myScroll addSubview:bk];
     UIWebView *web = [[UIWebView alloc] initWithFrame:CGRectMake(30, 0, myScroll.frame.size.width-30-30, scrollHEIGHT)];
-    NSString *cKey = [NSString stringWithFormat:@"content%d",xx];
+    NSString *cKey = [NSString stringWithFormat:@"content%d_app",xx];
     NSString *contentStr = [NSString stringWithFormat:@"%@",allDic[cKey]];
+
     [web loadHTMLString:contentStr baseURL:nil];
     web.backgroundColor = [UIColor clearColor];
     web.opaque = NO; //不设置这个值 页面背景始终是白色

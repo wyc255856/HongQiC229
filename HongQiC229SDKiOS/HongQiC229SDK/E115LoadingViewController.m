@@ -58,7 +58,7 @@
     
     //创建临时路径
     NSString *allPath = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES)[0];
-        NSString *temPath = [NSString stringWithFormat:@"temZip"];
+        NSString *temPath = [NSString stringWithFormat:@"115temZip"];
         NSString *folderPath = [allPath stringByAppendingPathComponent:temPath];
     if (![self isExistsAtPath:folderPath]) {
         [self createDirectoryAtPath:folderPath error:nil];
@@ -67,7 +67,7 @@
     
 }
 - (void)initNetWork{
-    [NetWorkManager requestGETSuperAPIWithURLStr:@"hongqih9_admin/index.php?m=home&c=index&a=get_first_version" WithAuthorization:@"" paramDic:nil finish:^(id  _Nonnull responseObject) {
+    [NetWorkManager requestGETSuperAPIWithURLStr:@"e115_admin/index.php?m=home&c=index&a=get_first_version" WithAuthorization:@"" paramDic:nil finish:^(id  _Nonnull responseObject) {
         updateResponse = responseObject;
         [self downLoadJson];
 
@@ -91,23 +91,23 @@
     NSURLSessionDownloadTask *downloadTask2 = [[C229CAR_AFHTTPSessionManager manager] downloadTaskWithRequest:request2 progress:^(NSProgress * _Nonnull downloadProgress) {
         NSLog(@"download progress : %.2f%%", 1.0f * downloadProgress.completedUnitCount / downloadProgress.totalUnitCount * 100);
     } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
-        NSString *fileName = @"229_category.json";
+        NSString *fileName = @"115_category.json";
         //返回文件的最终存储路径
         NSString *allPath = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES)[0];
-        //    NSString *folderPath = [allPath stringByAppendingPathComponent:@"c229App/images/ppp"];
-            NSString *temPath = [NSString stringWithFormat:@"temZip"];
+    
+            NSString *temPath = [NSString stringWithFormat:@"115temZip"];
             NSString *folderPath = [allPath stringByAppendingPathComponent:temPath];
             NSString *last = [folderPath stringByAppendingPathComponent:fileName];
         return [NSURL fileURLWithPath:last];
     } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
-        NSString *fileName = @"229_category.json";
+        NSString *fileName = @"115_category.json";
         //返回文件的最终存储路径
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *documentsDirectory = [paths objectAtIndex:0];
         NSString *oldPath = [documentsDirectory stringByAppendingPathComponent:fileName];
 
         NSString *allPath = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES)[0];
-        NSString *temPath = [NSString stringWithFormat:@"temZip"];
+        NSString *temPath = [NSString stringWithFormat:@"115temZip"];
         NSString *folderPath = [allPath stringByAppendingPathComponent:temPath];
         NSString *last = [folderPath stringByAppendingPathComponent:fileName];
 
@@ -137,11 +137,11 @@
     NSURLSessionDownloadTask *downloadTask3 = [[C229CAR_AFHTTPSessionManager manager]downloadTaskWithRequest:request3 progress:^(NSProgress * _Nonnull downloadProgress) {
         NSLog(@"download3 progress : %.2f%%", 1.0f * downloadProgress.completedUnitCount / downloadProgress.totalUnitCount * 100);
     } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
-        NSString *fileName = @"229_news.json";
+        NSString *fileName = @"115_news.json";
         //返回文件的最终存储路径
         NSString *allPath = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES)[0];
-        //    NSString *folderPath = [allPath stringByAppendingPathComponent:@"c229App/images/ppp"];
-            NSString *temPath = [NSString stringWithFormat:@"temZip"];
+       
+            NSString *temPath = [NSString stringWithFormat:@"115temZip"];
             NSString *folderPath = [allPath stringByAppendingPathComponent:temPath];
             NSString *last = [folderPath stringByAppendingPathComponent:fileName];
         return [NSURL fileURLWithPath:last];
@@ -151,14 +151,14 @@
         
         }else {
             NSLog(@"download3 file success");
-            NSString *fileName = @"229_news.json";
+            NSString *fileName = @"115_news.json";
             //返回文件的最终存储路径
             NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
             NSString *documentsDirectory = [paths objectAtIndex:0];
             NSString *oldPath = [documentsDirectory stringByAppendingPathComponent:fileName];
             NSString *allPath = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES)[0];
 
-                NSString *temPath = [NSString stringWithFormat:@"temZip"];
+                NSString *temPath = [NSString stringWithFormat:@"115temZip"];
                 NSString *folderPath = [allPath stringByAppendingPathComponent:temPath];
                 NSString *last = [folderPath stringByAppendingPathComponent:fileName];
             NSError *error;
