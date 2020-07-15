@@ -27,7 +27,7 @@ Pod::Spec.new do |s|
 
   s.license      = "Copyright (c) 2019年 HongQiC229. All rights reserved."
 
-  s.author             = { "wyc255856" => "327250924@qq.com" }
+  s.author             = { "Wq6255169" => "327250924@qq.com" }
 
   s.platform     = :ios, "8.0"
 
