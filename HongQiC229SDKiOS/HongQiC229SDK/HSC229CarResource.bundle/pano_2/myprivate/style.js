@@ -20,13 +20,12 @@
 
 	//判断全景图加载完毕 执行自己的代码
 	pano.on("imagesready", function() {
-		myprivate()
-		// $('.loding').hide()
 		var loading = setTimeout(function() {
 			$('.loding').hide()
 			console.log("clearTimeout");
 			clearTimeout(loading)
 		}, 2000)
+		myprivate()
 		console.log("Panorama imagesready!");
 	});
 
@@ -41,6 +40,34 @@
 
 
 	function myprivate() {
+		var style_color, //换肤主题
+		    list_child_color; //换肤文字颜色
+		function getQueryString(name) {
+			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+			var r = window.location.search.substr(1).match(reg);
+			if (r != null) return unescape(r[2]);
+			return null;
+		}
+		style_color = getQueryString('style');
+		if (style_color != null) {
+			style_color.toLowerCase()
+		} else {
+			style_color = 'sp';
+		}
+
+		if (style_color == 'sp') {
+			list_child_color = 'list_child_color_sp'; //换肤颜色class
+		} else if (style_color == 'sm') {
+			list_child_color = 'list_child_color_sm'; //换肤颜色class
+		} else if (style_color == 'si') {
+			list_child_color = 'list_child_color_si'; //换肤颜色class
+		} else {
+			style_color = 'sp';
+			list_child_color = 'list_child_color_sp'; //换肤颜色class
+		}
+
+
+
 		//车门
 		var host_1 = document.getElementsByClassName('host_1')[0];
 		host_1.onclick = function(e) {
@@ -55,10 +82,11 @@
 			if (typeof anim == 'undefined') {
 				//热点名称
 				var host_list = [{
-					'text': '组合开关',
+					'text': '智能进入和起动',
 					'id': '232'
 				}];
-				host_main(host_1, host_list)
+				host_main(host_1, host_list, style_color)
+
 			} else {
 				anim.parentNode.removeChild(anim);
 				return
@@ -69,6 +97,7 @@
 				list_class[i].onclick = function() {
 					var host_id = this.getAttribute('data-id')
 					// console.log(host_id)
+					$(this).addClass(list_child_color).siblings().removeClass(list_child_color);
 					doJsTest(host_id)
 
 				}
@@ -91,7 +120,7 @@
 					'text': '高级巡航',
 					'id': '228'
 				}];
-				host_main(host_2, host_list)
+				host_main(host_2, host_list, style_color)
 			} else {
 				anim.parentNode.removeChild(anim);
 				return
@@ -103,6 +132,7 @@
 				list_class[i].onclick = function() {
 					var host_id = this.getAttribute('data-id')
 					// console.log(host_id)
+					$(this).addClass(list_child_color).siblings().removeClass(list_child_color);
 					doJsTest(host_id)
 
 				}
@@ -124,24 +154,25 @@
 				var host_list = [{
 					'text': '多屏互动',
 					'id': '230'
-				},{
+				}, {
 					'text': '座椅记忆',
 					'id': '231'
 				}];
-				host_main(host_3, host_list)
+				host_main(host_3, host_list, style_color)
 			} else {
 				anim.parentNode.removeChild(anim);
 				return
 			}
-		
+
 			var list_class = document.getElementsByClassName('list_class');
 			for (var i = 0; i < list_class.length; i++) {
 				// list_class[i].index = i;
 				list_class[i].onclick = function() {
 					var host_id = this.getAttribute('data-id')
 					// console.log(host_id)
+					$(this).addClass(list_child_color).siblings().removeClass(list_child_color);
 					doJsTest(host_id)
-		
+
 				}
 			}
 		}
@@ -154,33 +185,34 @@
 				//否则，我们需要使用IE的方式来取消事件冒泡 
 				window.event.cancelBubble = true;
 			}
-			
+
 			var anim = document.getElementsByClassName('anim')[0];
 			// console.log(typeof anim)
 			if (typeof anim == 'undefined') {
-				
+
 				//热点名称
 				var host_list = [{
 					'text': '语音识别',
 					'id': '236'
-				},{
+				}, {
 					'text': '红旗智联',
 					'id': '242'
 				}];
-				host_main(host_4, host_list)
+				host_main(host_4, host_list, style_color)
 			} else {
 				anim.parentNode.removeChild(anim);
 				return
 			}
-		
+
 			var list_class = document.getElementsByClassName('list_class');
 			for (var i = 0; i < list_class.length; i++) {
 				// list_class[i].index = i;
 				list_class[i].onclick = function() {
 					var host_id = this.getAttribute('data-id')
 					// console.log(host_id)
+					$(this).addClass(list_child_color).siblings().removeClass(list_child_color);
 					doJsTest(host_id)
-		
+
 				}
 			}
 		}
@@ -200,27 +232,28 @@
 				var host_list = [{
 					'text': '前碰撞预警',
 					'id': '223'
-				},{
+				}, {
 					'text': '盲区探测',
 					'id': '225'
-				},{
+				}, {
 					'text': '车道保持辅助',
 					'id': '227'
 				}];
-				host_main(host_5, host_list)
+				host_main(host_5, host_list, style_color)
 			} else {
 				anim.parentNode.removeChild(anim);
 				return
 			}
-		
+
 			var list_class = document.getElementsByClassName('list_class');
 			for (var i = 0; i < list_class.length; i++) {
 				// list_class[i].index = i;
 				list_class[i].onclick = function() {
 					var host_id = this.getAttribute('data-id')
 					// console.log(host_id)
+					$(this).addClass(list_child_color).siblings().removeClass(list_child_color);
 					doJsTest(host_id)
-		
+
 				}
 			}
 		}
@@ -233,43 +266,41 @@
 				//否则，我们需要使用IE的方式来取消事件冒泡 
 				window.event.cancelBubble = true;
 			}
-			
 			var anim = document.getElementsByClassName('anim')[0];
 			// console.log(typeof anim)
 			if (typeof anim == 'undefined') {
-				
 				//热点名称
 				var host_list = [{
 					'text': '驾驶模式',
 					'id': '212'
-				},{
+				}, {
 					'text': '自动泊车',
 					'id': '213'
-				},{
-			  		'text': '全景影像',
+				}, {
+					'text': '全景影像',
 					'id': '216'
-				},{
+				}, {
 					'text': '怠速起停',
 					'id': '218'
-				},{
+				}, {
 					'text': '人机交互',
 					'id': '221'
 				}];
-				host_main(host_6, host_list) 
+				host_main(host_6, host_list, style_color)
 			} else {
-				
 				anim.parentNode.removeChild(anim);
 				return
 			}
-		
+
 			var list_class = document.getElementsByClassName('list_class');
 			for (var i = 0; i < list_class.length; i++) {
 				// list_class[i].index = i;
 				list_class[i].onclick = function() {
 					var host_id = this.getAttribute('data-id')
 					// console.log(host_id)
+					$(this).addClass(list_child_color).siblings().removeClass(list_child_color);
 					doJsTest(host_id)
-		
+
 				}
 			}
 		}
@@ -326,18 +357,28 @@
 
 
 
-	//热点弹窗模板
-	function host_main(doc, text) {
+	//热点弹窗
+	function host_main(doc, text, type) {
 		var host_wrapper = document.createElement("div"); //热点容器
 		var host_line = document.createElement("div"); //热点弹出的线
-		var host_line_d =document.createElement("div");//热点线定位
+		var host_line_d = document.createElement("div"); //热点线定位
 		var host_list = document.createElement("div"); //热点的弹出框
 		host_wrapper.classList.add('anim');
 		host_line.classList.add('line');
 		host_line_d.classList.add('line_d');
 		host_list.classList.add('list');
 		host_list.classList.add('animated');
-		
+		//判断主题type
+		if (type == 'sp') {
+			host_line.classList.add('line_sp');
+			host_list.classList.add('list_sp');
+		} else if (type == 'sm') {
+			host_line.classList.add('line_sm');
+			host_list.classList.add('list_sm');
+		} else if (type == 'si') {
+			host_line.classList.add('line_si');
+			host_list.classList.add('list_si');
+		}
 		// 判断热点位置调整弹窗位置
 		var position_t = doc.getBoundingClientRect().top;
 		var position_l = doc.getBoundingClientRect().left;
@@ -373,23 +414,11 @@
 		host_line_d.appendChild(host_list)
 		doc.after(host_wrapper);
 
-
 		//热点线动画 和弹窗动画
 		$('.line').animate({
 			width: "1rem"
 		}, function() {
 			$('.list').fadeIn()
-			// $('.list').addClass('bounceIn').show()
 		});
-		// 弹窗内滚动
-		// $('.list div ul').dragscroll({
-		// 	direction: 'scrollTop'
-		// });
-		// document.getElementsByClassName('list')[0].onclick = function() {
-		// 	// console.log(1)
-		// }
 	}
-	// $('.anim').on('click','li',function(){
-	// 	console.log($(this).index())
-	// })
 })()

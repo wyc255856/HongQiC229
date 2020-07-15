@@ -162,6 +162,11 @@
 		7470D4E32488C0D400EF5877 /* E115fifthVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 7470D4E22488C0D400EF5877 /* E115fifthVIew.m */; };
 		7470D4E62488C64000EF5877 /* E115DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7470D4E52488C64000EF5877 /* E115DetailViewController.m */; };
 		748EDCF82457F854002AF29A /* C229ChooseModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 748EDCF72457F854002AF29A /* C229ChooseModelViewController.m */; };
+		74951EB62499AF7200608B54 /* MXCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 74951EB42499AF7200608B54 /* MXCollectionViewLayout.m */; };
+		74951EB92499AF9100608B54 /* MXCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 74951EB82499AF9100608B54 /* MXCollectionView.m */; };
+		74951EBC2499AFB900608B54 /* MXCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 74951EBA2499AFB900608B54 /* MXCollectionReusableView.m */; };
+		74951EBF2499E3B800608B54 /* MXCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 74951EBD2499E3B800608B54 /* MXCollectionViewCell.m */; };
+		74A07CBE24BE9AC300CDD52E /* E115FirstView.m in Sources */ = {isa = PBXBuildFile; fileRef = 74A07CBD24BE9AC300CDD52E /* E115FirstView.m */; };
 		74DFFE6724527C3A003D5641 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74DFFE65245279C0003D5641 /* CoreFoundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -488,6 +493,16 @@
 		7470D4E52488C64000EF5877 /* E115DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = E115DetailViewController.m; sourceTree = "<group>"; };
 		748EDCF62457F854002AF29A /* C229ChooseModelViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = C229ChooseModelViewController.h; sourceTree = "<group>"; };
 		748EDCF72457F854002AF29A /* C229ChooseModelViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = C229ChooseModelViewController.m; sourceTree = "<group>"; };
+		74951EB42499AF7200608B54 /* MXCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXCollectionViewLayout.m; sourceTree = "<group>"; };
+		74951EB52499AF7200608B54 /* MXCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXCollectionViewLayout.h; sourceTree = "<group>"; };
+		74951EB72499AF9100608B54 /* MXCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXCollectionView.h; sourceTree = "<group>"; };
+		74951EB82499AF9100608B54 /* MXCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXCollectionView.m; sourceTree = "<group>"; };
+		74951EBA2499AFB900608B54 /* MXCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXCollectionReusableView.m; sourceTree = "<group>"; };
+		74951EBB2499AFB900608B54 /* MXCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXCollectionReusableView.h; sourceTree = "<group>"; };
+		74951EBD2499E3B800608B54 /* MXCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXCollectionViewCell.m; sourceTree = "<group>"; };
+		74951EBE2499E3B800608B54 /* MXCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXCollectionViewCell.h; sourceTree = "<group>"; };
+		74A07CBC24BE9AC300CDD52E /* E115FirstView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = E115FirstView.h; sourceTree = "<group>"; };
+		74A07CBD24BE9AC300CDD52E /* E115FirstView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = E115FirstView.m; sourceTree = "<group>"; };
 		74DFFE65245279C0003D5641 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -685,6 +700,10 @@
 				53AEC7E323FE7AE90076BECD /* DetailViewController.m */,
 				53AEC7E423FE7AE90076BECD /* SecondTableViewCell.m */,
 				53AEC7E523FE7AE90076BECD /* C229LoadingViewController.h */,
+				74951EB72499AF9100608B54 /* MXCollectionView.h */,
+				74951EB82499AF9100608B54 /* MXCollectionView.m */,
+				74951EBE2499E3B800608B54 /* MXCollectionViewCell.h */,
+				74951EBD2499E3B800608B54 /* MXCollectionViewCell.m */,
 				53AEC7E623FE7AE90076BECD /* ForthCollectionViewCell.m */,
 				53AEC7E723FE7AE90076BECD /* SecondView.m */,
 				744F65DF24347A78007E7C11 /* C229SectionHeader.h */,
@@ -692,10 +711,14 @@
 				53AEC7E823FE7AE90076BECD /* ShanShuoView.m */,
 				53AEC7E923FE7AE90076BECD /* ForthView.h */,
 				53AEC7EB23FE7AE90076BECD /* AppManager.m */,
+				74951EBB2499AFB900608B54 /* MXCollectionReusableView.h */,
+				74951EBA2499AFB900608B54 /* MXCollectionReusableView.m */,
 				53AEC7EC23FE7AE90076BECD /* FifTableViewCell.h */,
 				53AEC7EF23FE7AE90076BECD /* ThirdView.h */,
 				53AEC7EE23FE7AE90076BECD /* HQ229MainViewController.m */,
 				53AEC7F023FE7AE90076BECD /* FifthView.h */,
+				74951EB52499AF7200608B54 /* MXCollectionViewLayout.h */,
+				74951EB42499AF7200608B54 /* MXCollectionViewLayout.m */,
 				53AEC7F123FE7AE90076BECD /* TopTabView.m */,
 				53AEC7F323FE7AE90076BECD /* Info.plist */,
 				53AEC7F423FE7AE90076BECD /* AppFaster.h */,
@@ -900,6 +923,8 @@
 				7470D4E22488C0D400EF5877 /* E115fifthVIew.m */,
 				7470D4E42488C64000EF5877 /* E115DetailViewController.h */,
 				7470D4E52488C64000EF5877 /* E115DetailViewController.m */,
+				74A07CBC24BE9AC300CDD52E /* E115FirstView.h */,
+				74A07CBD24BE9AC300CDD52E /* E115FirstView.m */,
 			);
 			name = HongQiE115;
 			sourceTree = "<group>";
@@ -1005,6 +1030,7 @@
 				5310EE78240666E200EE0707 /* UITabBarController+CLPlayerRotation.m in Sources */,
 				743ADEB1244025200081AFEA /* C229_SDImageIOCoder.m in Sources */,
 				748EDCF82457F854002AF29A /* C229ChooseModelViewController.m in Sources */,
+				74951EBC2499AFB900608B54 /* MXCollectionReusableView.m in Sources */,
 				743ADEBC244025200081AFEA /* C229_SDWebImageTransition.m in Sources */,
 				5310ED6E2403EE1A00EE0707 /* c229_unzip.c in Sources */,
 				743ADECD244025200081AFEA /* C229_SDWebImageOptionsProcessor.m in Sources */,
@@ -1031,6 +1057,7 @@
 				743ADEA5244025200081AFEA /* C229_SDImageFrame.m in Sources */,
 				743ADEC4244025200081AFEA /* C229_UIImage+MultiFormat.m in Sources */,
 				5310EDBF2404042E00EE0707 /* ViewController+C229CAR_MASAdditions.m in Sources */,
+				74A07CBE24BE9AC300CDD52E /* E115FirstView.m in Sources */,
 				743ADED3244025200081AFEA /* C229_UIImage+GIF.m in Sources */,
 				743ADE73244025160081AFEA /* C229_MKAnnotationView+WebCache.m in Sources */,
 				5310EDBD2404042E00EE0707 /* C229CAR_MASLayoutConstraint.m in Sources */,
@@ -1072,6 +1099,7 @@
 				5310ED7A2403EE1A00EE0707 /* c229_entropy.c in Sources */,
 				743ADECE244025200081AFEA /* C229_SDWebImageDefine.m in Sources */,
 				743ADED0244025200081AFEA /* C229_SDWebImageDownloaderDecryptor.m in Sources */,
+				74951EBF2499E3B800608B54 /* MXCollectionViewCell.m in Sources */,
 				5310EE79240666E200EE0707 /* C229CAR_AFAutoPurgingImageCache.m in Sources */,
 				5310EE73240666E200EE0707 /* UIWebView+C229CAR_AFNetworking.m in Sources */,
 				53B6024220FF3DDF000DAC14 /* AppDelegate.m in Sources */,
@@ -1116,6 +1144,7 @@
 				743ADEBA244025200081AFEA /* C229_SDImageLoadersManager.m in Sources */,
 				743ADECB244025200081AFEA /* C229_SDImageCodersManager.m in Sources */,
 				743ADEAC244025200081AFEA /* C229_UIView+WebCache.m in Sources */,
+				74951EB62499AF7200608B54 /* MXCollectionViewLayout.m in Sources */,
 				5310ED7B2403EE1A00EE0707 /* c229_mztools.c in Sources */,
 				743ADECF244025200081AFEA /* C229_SDImageTransformer.m in Sources */,
 				743ADEC6244025200081AFEA /* C229_SDWebImageManager.m in Sources */,
@@ -1123,6 +1152,7 @@
 				5310EDC22404042E00EE0707 /* C229CAR_MASViewConstraint.m in Sources */,
 				743ADEC2244025200081AFEA /* C229_SDWebImageIndicator.m in Sources */,
 				743ADEF4244025320081AFEA /* C229_SDInternalMacros.m in Sources */,
+				74951EB92499AF9100608B54 /* MXCollectionView.m in Sources */,
 				5310ED7C2403EE1A00EE0707 /* C229CAR_SSZipArchive.m in Sources */,
 				744F65E124347A78007E7C11 /* C229SectionHeader.m in Sources */,
 				5310EDC12404042E00EE0707 /* NSArray+C229CAR_MASAdditions.m in Sources */,
@@ -1279,7 +1309,7 @@
 				CODE_SIGN_ENTITLEMENTS = HongQiC229.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NFB3RHHRK2;
+				DEVELOPMENT_TEAM = 44PQM45H2J;
 				INFOPLIST_FILE = "$(SRCROOT)/HongQiC229SDKiOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1300,7 +1330,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = HongQiC229.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = E7GV6V6TQR;
+				DEVELOPMENT_TEAM = 44PQM45H2J;
 				INFOPLIST_FILE = "$(SRCROOT)/HongQiC229SDKiOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (

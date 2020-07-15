@@ -9,7 +9,7 @@
 #import "HQ115MainViewController.h"
 #import "TopTabView.h"
 #import "AppFaster.h"
-#import "FirstView.h"
+#import "E115FirstView.h"
 #import "E115SecondVIew.h"
 #import "ThirdView.h"
 #import "E115ForthView.h"
@@ -125,7 +125,7 @@
     myScrollView.showsVerticalScrollIndicator = NO;
     myScrollView.showsHorizontalScrollIndicator = NO;
     
-    FirstView *first = [[FirstView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-TopHeight)];
+    E115FirstView *first = [[E115FirstView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-TopHeight)];
     [myScrollView addSubview:first];
     first.jumpChooseModel = ^(NSDictionary * dic) {
         E115ChooseModelViewController *choose = [[E115ChooseModelViewController alloc] init];

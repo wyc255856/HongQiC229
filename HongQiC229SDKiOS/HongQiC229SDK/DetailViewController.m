@@ -315,10 +315,10 @@
             weakSelf.myPro.progress = CMTimeGetSeconds(time)/CMTimeGetSeconds(self.item.duration);
         if ((NSInteger)CMTimeGetSeconds(time)==self->nowDeadLine) {
             if (self->restartIsShow==0) {
-                [weakSelf.view addSubview:weakSelf.reStartView];
+//                [weakSelf.view addSubview:weakSelf.reStartView];
                 self->restartIsShow = 1;
             }
-            [weakSelf.myPlayer pause];
+//            [weakSelf.myPlayer pause];
             
         }
         }];
