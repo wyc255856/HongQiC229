@@ -155,7 +155,7 @@
     NSString *file = [NSString stringWithFormat:@"%@/%@",C229HttpServer,iPath];
    
     [image setImage:[UIImage imageWithContentsOfFile:file]];
-    [image csd_setImageWithURL:[NSURL URLWithString:file] placeholderImage:[AppManager createImageByName:@"c229tuwenPlace"]];
+    [image sd_setImageWithURL:[NSURL URLWithString:file] placeholderImage:[AppManager createImageByName:@"c229tuwenPlace"]];
     [bk addSubview:image];
     
     NSString *cKey = [NSString stringWithFormat:@"content%d_app",index];
@@ -223,7 +223,7 @@
 
     UIImageView *image = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
     
-    [image csd_setImageWithURL:[NSURL URLWithString:file] completed:^(UIImage * _Nullable pimage, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+    [image sd_setImageWithURL:[NSURL URLWithString:file] completed:^(UIImage * _Nullable pimage, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
         if (error) {
            
             image.frame = CGRectMake(31, 0, myScroll.frame.size.width-62+4, myScroll.frame.size.height);

@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "HongQiC229"
-  s.version      = "1.3.3"
+  s.version      = "1.3.7"
   s.summary      = "A short description of HongQiC229."
 
   s.description  = <<-DESC
@@ -41,4 +41,5 @@ Pod::Spec.new do |s|
 
   s.exclude_files = "Classes/Exclude"
   s.resource = "HongQiC229SDKiOS/HongQiC229SDK/HSC229CarResource.bundle"
+  s.dependency 'sdwebimage'
 end
