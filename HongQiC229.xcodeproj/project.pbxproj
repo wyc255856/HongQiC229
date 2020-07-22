@@ -153,20 +153,11 @@
 		743ADEFB244025320081AFEA /* C229_SDAsyncBlockOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 743ADEEF244025320081AFEA /* C229_SDAsyncBlockOperation.m */; };
 		743ADEFE244041CF0081AFEA /* C229NetWorkFailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 743ADEFD244041CF0081AFEA /* C229NetWorkFailViewController.m */; };
 		744F65E124347A78007E7C11 /* C229SectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 744F65E024347A78007E7C11 /* C229SectionHeader.m */; };
-		746920F42485EEEF00262509 /* E115LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 746920F32485EEEF00262509 /* E115LoadingViewController.m */; };
-		746920F7248618AB00262509 /* HQ115MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 746920F6248618AB00262509 /* HQ115MainViewController.m */; };
-		746920FA24863C9500262509 /* E115ChooseModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 746920F924863C9500262509 /* E115ChooseModelViewController.m */; };
-		746920FD24864F7A00262509 /* E115NetWorkFailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 746920FC24864F7A00262509 /* E115NetWorkFailViewController.m */; };
-		7470D4DD2488872700EF5877 /* E115SecondVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 7470D4DC2488872700EF5877 /* E115SecondVIew.m */; };
-		7470D4E02488873200EF5877 /* E115ForthView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7470D4DF2488873200EF5877 /* E115ForthView.m */; };
-		7470D4E32488C0D400EF5877 /* E115fifthVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 7470D4E22488C0D400EF5877 /* E115fifthVIew.m */; };
-		7470D4E62488C64000EF5877 /* E115DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7470D4E52488C64000EF5877 /* E115DetailViewController.m */; };
 		748EDCF82457F854002AF29A /* C229ChooseModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 748EDCF72457F854002AF29A /* C229ChooseModelViewController.m */; };
 		74951EB62499AF7200608B54 /* MXCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 74951EB42499AF7200608B54 /* MXCollectionViewLayout.m */; };
 		74951EB92499AF9100608B54 /* MXCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 74951EB82499AF9100608B54 /* MXCollectionView.m */; };
 		74951EBC2499AFB900608B54 /* MXCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 74951EBA2499AFB900608B54 /* MXCollectionReusableView.m */; };
 		74951EBF2499E3B800608B54 /* MXCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 74951EBD2499E3B800608B54 /* MXCollectionViewCell.m */; };
-		74A07CBE24BE9AC300CDD52E /* E115FirstView.m in Sources */ = {isa = PBXBuildFile; fileRef = 74A07CBD24BE9AC300CDD52E /* E115FirstView.m */; };
 		74DFFE6724527C3A003D5641 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74DFFE65245279C0003D5641 /* CoreFoundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -474,23 +465,7 @@
 		743ADEFD244041CF0081AFEA /* C229NetWorkFailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = C229NetWorkFailViewController.m; sourceTree = "<group>"; wrapsLines = 0; };
 		744F65DF24347A78007E7C11 /* C229SectionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = C229SectionHeader.h; sourceTree = "<group>"; };
 		744F65E024347A78007E7C11 /* C229SectionHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = C229SectionHeader.m; sourceTree = "<group>"; };
-		746920F22485EEEF00262509 /* E115LoadingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = E115LoadingViewController.h; sourceTree = "<group>"; };
-		746920F32485EEEF00262509 /* E115LoadingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = E115LoadingViewController.m; sourceTree = "<group>"; };
-		746920F5248618AB00262509 /* HQ115MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HQ115MainViewController.h; sourceTree = "<group>"; };
-		746920F6248618AB00262509 /* HQ115MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HQ115MainViewController.m; sourceTree = "<group>"; };
-		746920F824863C9500262509 /* E115ChooseModelViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = E115ChooseModelViewController.h; sourceTree = "<group>"; };
-		746920F924863C9500262509 /* E115ChooseModelViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = E115ChooseModelViewController.m; sourceTree = "<group>"; };
-		746920FB24864F7A00262509 /* E115NetWorkFailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = E115NetWorkFailViewController.h; sourceTree = "<group>"; };
-		746920FC24864F7A00262509 /* E115NetWorkFailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = E115NetWorkFailViewController.m; sourceTree = "<group>"; };
 		746F9202246D30F500F1EC7F /* HongQiC229.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HongQiC229.entitlements; sourceTree = "<group>"; };
-		7470D4DB2488872700EF5877 /* E115SecondVIew.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = E115SecondVIew.h; sourceTree = "<group>"; };
-		7470D4DC2488872700EF5877 /* E115SecondVIew.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = E115SecondVIew.m; sourceTree = "<group>"; };
-		7470D4DE2488873200EF5877 /* E115ForthView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = E115ForthView.h; sourceTree = "<group>"; };
-		7470D4DF2488873200EF5877 /* E115ForthView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = E115ForthView.m; sourceTree = "<group>"; };
-		7470D4E12488C0D400EF5877 /* E115fifthVIew.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = E115fifthVIew.h; sourceTree = "<group>"; };
-		7470D4E22488C0D400EF5877 /* E115fifthVIew.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = E115fifthVIew.m; sourceTree = "<group>"; };
-		7470D4E42488C64000EF5877 /* E115DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = E115DetailViewController.h; sourceTree = "<group>"; };
-		7470D4E52488C64000EF5877 /* E115DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = E115DetailViewController.m; sourceTree = "<group>"; };
 		748EDCF62457F854002AF29A /* C229ChooseModelViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = C229ChooseModelViewController.h; sourceTree = "<group>"; };
 		748EDCF72457F854002AF29A /* C229ChooseModelViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = C229ChooseModelViewController.m; sourceTree = "<group>"; };
 		74951EB42499AF7200608B54 /* MXCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXCollectionViewLayout.m; sourceTree = "<group>"; };
@@ -501,8 +476,6 @@
 		74951EBB2499AFB900608B54 /* MXCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXCollectionReusableView.h; sourceTree = "<group>"; };
 		74951EBD2499E3B800608B54 /* MXCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXCollectionViewCell.m; sourceTree = "<group>"; };
 		74951EBE2499E3B800608B54 /* MXCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXCollectionViewCell.h; sourceTree = "<group>"; };
-		74A07CBC24BE9AC300CDD52E /* E115FirstView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = E115FirstView.h; sourceTree = "<group>"; };
-		74A07CBD24BE9AC300CDD52E /* E115FirstView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = E115FirstView.m; sourceTree = "<group>"; };
 		74DFFE65245279C0003D5641 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -675,7 +648,6 @@
 		53AEC6CB23FE7AE90076BECD /* HongQiC229SDK */ = {
 			isa = PBXGroup;
 			children = (
-				746920F12485E8CB00262509 /* HongQiE115 */,
 				743ADE2B244024EC0081AFEA /* sdwebimage */,
 				5310EDD82404FBA400EE0707 /* player */,
 				5310EDD62404FA8600EE0707 /* zip */,
@@ -904,31 +876,6 @@
 			name = sdwebimage;
 			sourceTree = "<group>";
 		};
-		746920F12485E8CB00262509 /* HongQiE115 */ = {
-			isa = PBXGroup;
-			children = (
-				746920F22485EEEF00262509 /* E115LoadingViewController.h */,
-				746920F32485EEEF00262509 /* E115LoadingViewController.m */,
-				746920F5248618AB00262509 /* HQ115MainViewController.h */,
-				746920F6248618AB00262509 /* HQ115MainViewController.m */,
-				746920F824863C9500262509 /* E115ChooseModelViewController.h */,
-				746920F924863C9500262509 /* E115ChooseModelViewController.m */,
-				746920FB24864F7A00262509 /* E115NetWorkFailViewController.h */,
-				746920FC24864F7A00262509 /* E115NetWorkFailViewController.m */,
-				7470D4DB2488872700EF5877 /* E115SecondVIew.h */,
-				7470D4DC2488872700EF5877 /* E115SecondVIew.m */,
-				7470D4DE2488873200EF5877 /* E115ForthView.h */,
-				7470D4DF2488873200EF5877 /* E115ForthView.m */,
-				7470D4E12488C0D400EF5877 /* E115fifthVIew.h */,
-				7470D4E22488C0D400EF5877 /* E115fifthVIew.m */,
-				7470D4E42488C64000EF5877 /* E115DetailViewController.h */,
-				7470D4E52488C64000EF5877 /* E115DetailViewController.m */,
-				74A07CBC24BE9AC300CDD52E /* E115FirstView.h */,
-				74A07CBD24BE9AC300CDD52E /* E115FirstView.m */,
-			);
-			name = HongQiE115;
-			sourceTree = "<group>";
-		};
 		74DFFE64245279C0003D5641 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1018,12 +965,10 @@
 				743ADEAB244025200081AFEA /* C229_SDImageGIFCoder.m in Sources */,
 				5310EE6E240666E200EE0707 /* UINavigationController+CLPlayerRotation.m in Sources */,
 				743ADEC5244025200081AFEA /* C229_UIImage+Transform.m in Sources */,
-				746920F7248618AB00262509 /* HQ115MainViewController.m in Sources */,
 				743ADEBE244025200081AFEA /* C229_UIImage+ForceDecode.m in Sources */,
 				743ADEF2244025320081AFEA /* C229_SDImageAssetManager.m in Sources */,
 				5310EE6D240666E200EE0707 /* C229CAR_AFNetworkActivityIndicatorManager.m in Sources */,
 				743ADEAA244025200081AFEA /* C229_SDAnimatedImageRep.m in Sources */,
-				746920F42485EEEF00262509 /* E115LoadingViewController.m in Sources */,
 				5310EE74240666E200EE0707 /* UIButton+C229CAR_AFNetworking.m in Sources */,
 				743ADEB3244025200081AFEA /* C229_SDWebImageDownloaderOperation.m in Sources */,
 				5310EE76240666E200EE0707 /* UIRefreshControl+C229CAR_AFNetworking.m in Sources */,
@@ -1051,13 +996,11 @@
 				53AEC88B23FE7AE90076BECD /* ThirdView.m in Sources */,
 				743ADEF1244025320081AFEA /* C229_NSBezierPath+RoundedCorners.m in Sources */,
 				743ADEA6244025200081AFEA /* C229_SDImageCoderHelper.m in Sources */,
-				7470D4E02488873200EF5877 /* E115ForthView.m in Sources */,
 				743ADEF9244025320081AFEA /* C229_SDAssociatedObject.m in Sources */,
 				743ADEA1244025200081AFEA /* C229_UIImage+ExtendedCacheData.m in Sources */,
 				743ADEA5244025200081AFEA /* C229_SDImageFrame.m in Sources */,
 				743ADEC4244025200081AFEA /* C229_UIImage+MultiFormat.m in Sources */,
 				5310EDBF2404042E00EE0707 /* ViewController+C229CAR_MASAdditions.m in Sources */,
-				74A07CBE24BE9AC300CDD52E /* E115FirstView.m in Sources */,
 				743ADED3244025200081AFEA /* C229_UIImage+GIF.m in Sources */,
 				743ADE73244025160081AFEA /* C229_MKAnnotationView+WebCache.m in Sources */,
 				5310EDBD2404042E00EE0707 /* C229CAR_MASLayoutConstraint.m in Sources */,
@@ -1081,14 +1024,12 @@
 				743ADEF8244025320081AFEA /* C229_SDImageCachesManagerOperation.m in Sources */,
 				743ADEB7244025200081AFEA /* C229_SDImageIOAnimatedCoder.m in Sources */,
 				743ADED2244025200081AFEA /* C229_UIView+WebCacheOperation.m in Sources */,
-				746920FD24864F7A00262509 /* E115NetWorkFailViewController.m in Sources */,
 				743ADEA0244025200081AFEA /* C229_UIImageView+WebCache.m in Sources */,
 				743ADEC9244025200081AFEA /* C229_SDMemoryCache.m in Sources */,
 				53AEC89623FE7AE90076BECD /* ShanShuoView.m in Sources */,
 				53AEC89223FE7AE90076BECD /* DetailViewController.m in Sources */,
 				5310EDF02404FCDF00EE0707 /* CLPlayerMaskView.m in Sources */,
 				743ADEFB244025320081AFEA /* C229_SDAsyncBlockOperation.m in Sources */,
-				746920FA24863C9500262509 /* E115ChooseModelViewController.m in Sources */,
 				743ADEF6244025320081AFEA /* C229_SDFileAttributeHelper.m in Sources */,
 				743ADECC244025200081AFEA /* C229_SDAnimatedImagePlayer.m in Sources */,
 				743ADEB9244025200081AFEA /* C229_SDWebImageCacheSerializer.m in Sources */,
@@ -1121,7 +1062,6 @@
 				5310EDC52404042E00EE0707 /* C229CAR_MASCompositeConstraint.m in Sources */,
 				743ADEB4244025200081AFEA /* C229_SDWebImageDownloader.m in Sources */,
 				743ADEC8244025200081AFEA /* C229_SDWebImageCompat.m in Sources */,
-				7470D4E32488C0D400EF5877 /* E115fifthVIew.m in Sources */,
 				743ADEA8244025200081AFEA /* C229_SDAnimatedImage.m in Sources */,
 				5310EDF22404FCDF00EE0707 /* CLSlider.m in Sources */,
 				743ADEA7244025200081AFEA /* C229_SDWebImageDownloaderResponseModifier.m in Sources */,
@@ -1136,8 +1076,6 @@
 				743ADEFE244041CF0081AFEA /* C229NetWorkFailViewController.m in Sources */,
 				53B6021920FF3DDF000DAC14 /* ViewController.m in Sources */,
 				743ADEF5244025320081AFEA /* C229_SDWeakProxy.m in Sources */,
-				7470D4DD2488872700EF5877 /* E115SecondVIew.m in Sources */,
-				7470D4E62488C64000EF5877 /* E115DetailViewController.m in Sources */,
 				743ADEAF244025200081AFEA /* C229_SDImageCachesManager.m in Sources */,
 				743ADEA2244025200081AFEA /* C229_NSData+ImageContentType.m in Sources */,
 				5310EE6F240666E200EE0707 /* UIProgressView+C229CAR_AFNetworking.m in Sources */,

@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "HQ229MainViewController.h"
 #import "C229LoadingViewController.h"
-#import "E115LoadingViewController.h"
+//#import "E115LoadingViewController.h"
 #import "AppDelegate.h"
 @interface ViewController ()
 
@@ -47,9 +47,9 @@
     
 }
 - (void)e115buttonClick{
-    E115LoadingViewController *vc = [[E115LoadingViewController alloc] init];
-    vc.modalPresentationStyle = 0;
-    [self presentViewController:vc animated:NO completion:nil];
+//    E115LoadingViewController *vc = [[E115LoadingViewController alloc] init];
+//    vc.modalPresentationStyle = 0;
+//    [self presentViewController:vc animated:NO completion:nil];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
