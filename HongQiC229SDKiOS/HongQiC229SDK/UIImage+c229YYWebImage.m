@@ -9,7 +9,7 @@
 //  LICENSE file in the root directory of this source tree.
 //
 
-#import "UIImage+YYWebImage.h"
+#import "UIImage+c229YYWebImage.h"
 #import <ImageIO/ImageIO.h>
 #import <Accelerate/Accelerate.h>
 #import <objc/runtime.h>

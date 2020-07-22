@@ -10,7 +10,7 @@
 //
 
 #import "c229_YYWebImageOperation.h"
-#import "UIImage+YYWebImage.h"
+#import "UIImage+c229YYWebImage.h"
 #import <ImageIO/ImageIO.h>
 #import <libkern/OSAtomic.h>
 

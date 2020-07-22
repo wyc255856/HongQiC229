@@ -9,7 +9,7 @@
 //  LICENSE file in the root directory of this source tree.
 //
 
-#import "_YYWebImageSetter.h"
+#import "_c229YYWebImageSetter.h"
 #import "c229_YYWebImageOperation.h"
 #import <libkern/OSAtomic.h>
 

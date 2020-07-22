@@ -9,9 +9,9 @@
 //  LICENSE file in the root directory of this source tree.
 //
 
-#import "UIButton+YYWebImage.h"
+#import "UIButton+c229YYWebImage.h"
 #import "c229_YYWebImageOperation.h"
-#import "_YYWebImageSetter.h"
+#import "_c229YYWebImageSetter.h"
 #import <objc/runtime.h>
 
 // Dummy class for category

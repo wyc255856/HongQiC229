@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UIImageView+YYWebImage.h"
+
+#import "UIImageView+c229YYWebImage.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ForthCollectionViewCell : UICollectionViewCell

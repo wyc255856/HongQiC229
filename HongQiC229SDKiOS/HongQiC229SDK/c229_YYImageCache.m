@@ -11,7 +11,7 @@
 
 #import "c229_YYImageCache.h"
 #import "c229_YYImage.h"
-#import "UIImage+YYWebImage.h"
+#import "UIImage+c229YYWebImage.h"
 
 #if __has_include(<YYImage/YYImage.h>)
 #import <YYImage/YYImage.h>
