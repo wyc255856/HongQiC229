@@ -23,14 +23,14 @@ FOUNDATION_EXPORT const unsigned char YYWebImageVersionString[];
 #import <YYWebImage/CALayer+YYWebImage.h>
 #import <YYWebImage/MKAnnotationView+YYWebImage.h>
 #else
-#import "YYImageCache.h"
-#import "YYWebImageOperation.h"
-#import "YYWebImageManager.h"
-#import "UIImage+YYWebImage.h"
-#import "UIImageView+YYWebImage.h"
-#import "UIButton+YYWebImage.h"
-#import "CALayer+YYWebImage.h"
-#import "MKAnnotationView+YYWebImage.h"
+#import "c229_YYImageCache.h"
+#import "c229_YYWebImageOperation.h"
+#import "c229_YYWebImageManager.h"
+#import "UIImage+c229YYWebImage.h"
+#import "UIImageView+c229YYWebImage.h"
+#import "UIButton+c229YYWebImage.h"
+#import "CALayer+c229YYWebImage.h"
+#import "MKAnnotationView+c229YYWebImage.h"
 #endif
 
 #if __has_include(<YYImage/YYImage.h>)
@@ -42,11 +42,11 @@ FOUNDATION_EXPORT const unsigned char YYWebImageVersionString[];
 #import <YYWebImage/YYImageCoder.h>
 #import <YYWebImage/YYAnimatedImageView.h>
 #else
-#import "YYImage.h"
-#import "YYFrameImage.h"
-#import "YYSpriteSheetImage.h"
-#import "YYImageCoder.h"
-#import "YYAnimatedImageView.h"
+#import "c229_YYImage.h"
+#import "c229_YYFrameImage.h"
+#import "c229_YYSpriteSheetImage.h"
+#import "c229_YYImageCoder.h"
+#import "c229_YYAnimatedImageView.h"
 #endif
 
 #if __has_include(<YYCache/YYCache.h>)
@@ -57,9 +57,9 @@ FOUNDATION_EXPORT const unsigned char YYWebImageVersionString[];
 #import <YYWebImage/YYDiskCache.h>
 #import <YYWebImage/YYKVStorage.h>
 #else
-#import "YYCache.h"
-#import "YYMemoryCache.h"
-#import "YYDiskCache.h"
-#import "YYKVStorage.h"
+#import "c229_YYCache.h"
+#import "c229_YYMemoryCache.h"
+#import "c229_YYDiskCache.h"
+#import "c229_YYKVStorage.h"
 #endif
 
