@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UIImageView+WebCache.h"
+#import "UIImageView+YYWebImage.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DetailViewController : UIViewController
