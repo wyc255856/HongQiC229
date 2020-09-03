@@ -27,7 +27,7 @@
     self.image.backgroundColor = [UIColor lightGrayColor];
     
     [self.image yy_setImageWithURL:[NSURL URLWithString:file] placeholder:[AppManager createImageByName:@"c229imagePlace"]];
-    
+     
 
 }
 @end

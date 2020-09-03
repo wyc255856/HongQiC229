@@ -35,10 +35,12 @@
     NSString *str = [resourceBundle pathForResource:@"pano_2/index" ofType:@"html"];
     NSURLRequest *req = [NSURLRequest requestWithURL:[NSURL URLWithString:str]];
     web.delegate = self;
+    
+    NSURLRequest *reqWeb = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.haoweisys.com/c229_360/"]];
 
     [self addSubview:web];
     self.clipsToBounds = YES;
-    [web loadRequest:req];
+    [web loadRequest:reqWeb];
 
 }
 

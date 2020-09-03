@@ -94,8 +94,8 @@
 }
 - (void)setLeftView{
     
-    selImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 48, 48*12)];
-    [selImage setImage:[self createImageByName:@"secondLeft0"]];
+//    selImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 48, 48*12)];
+//    [selImage setImage:[self createImageByName:@"secondLeft0"]];
     
     
     leftScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 30, 128, 300)];
@@ -103,7 +103,7 @@
     leftScroll.contentSize = CGSizeMake(128, 48*12);
     [self addSubview: leftScroll];
     
-    [leftScroll addSubview: selImage];
+//    [leftScroll addSubview: selImage];
     
     for (int i = 0; i < cateGGArr.count; i++) {
         UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(40, 25+41.4*i, 128-40, 48)];
@@ -156,7 +156,7 @@
         }
     }
     NSString *imgName = [NSString stringWithFormat:@"secondLeft%ld",btn.tag-1000];
-    [selImage setImage:[self createImageByName:imgName]];
+//    [selImage setImage:[self createImageByName:imgName]];
     NSIndexPath *index = [NSIndexPath indexPathForRow:0 inSection:btn.tag-1000];
 //    [myCollection scrollToItemAtIndexPath:index atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:YES];
     NSString *yStr = [everyXY objectAtIndex:btn.tag-1000];
@@ -366,7 +366,7 @@
             if (b.tag-1000==x) {
                 b.selected = YES;
                 NSString *imgName = [NSString stringWithFormat:@"secondLeft%d",x];
-                [selImage setImage:[self createImageByName:imgName]];
+//                [selImage setImage:[self createImageByName:imgName]];
                 
 //            NSLog(@"%f---%f",leftScroll.contentOffset.y,b.frame.origin.y+48);
                 

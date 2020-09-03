@@ -163,9 +163,9 @@
     }
 }
 - (void)setLeftView{
-    selImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 18, 48, 300)];
-    [selImage setImage:[self createImageByName:@"left0"]];
-    [self addSubview: selImage];
+//    selImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 18, 48, 300)];
+//    [selImage setImage:[self createImageByName:@"left0"]];
+//    [self addSubview: selImage];
     
     for (int i = 0; i < 5; i++) {
         UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(45, 40+48*i, 80, 48)];
@@ -218,7 +218,7 @@
         }
     }
     NSString *imgName = [NSString stringWithFormat:@"left%ld",btn.tag-1000];
-    [selImage setImage:[self createImageByName:imgName]];
+//    [selImage setImage:[self createImageByName:imgName]];
     NSIndexPath *index = [NSIndexPath indexPathForRow:0 inSection:btn.tag-1000];
     NSString *yStr = [everyGroupCountNum objectAtIndex:btn.tag-1000];
     CGFloat yyy = [yStr floatValue];
@@ -426,7 +426,7 @@
             if (b.tag-1000==x) {
                 b.selected = YES;
                 NSString *imgName = [NSString stringWithFormat:@"left%ld",x];
-                [selImage setImage:[self createImageByName:imgName]];
+//                [selImage setImage:[self createImageByName:imgName]];
             }
             }
         

@@ -45,6 +45,7 @@
     total = 4;
     now = 736;
     jianju = self.frame.size.width/56;
+    return self;
     [self setCarImage];
     [self allocAllLineAndImage];
     [self reSetTagBtn:total];

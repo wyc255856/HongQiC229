@@ -71,7 +71,7 @@
 		53AEC89923FE7AE90076BECD /* HQ229MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEC7EE23FE7AE90076BECD /* HQ229MainViewController.m */; };
 		53AEC89A23FE7AE90076BECD /* TopTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEC7F123FE7AE90076BECD /* TopTabView.m */; };
 		53AEC89C23FE7AE90076BECD /* FirstView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEC7F523FE7AE90076BECD /* FirstView.m */; };
-		53AEC89D23FE7AE90076BECD /* C229LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEC7F823FE7AE90076BECD /* C229LoadingViewController.m */; };
+		53AEC89D23FE7AE90076BECD /* ElectronicManualViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEC7F823FE7AE90076BECD /* ElectronicManualViewController.m */; };
 		53B6021820FF3DDF000DAC14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53B601B920FF3DDE000DAC14 /* Assets.xcassets */; };
 		53B6021920FF3DDF000DAC14 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B601BA20FF3DDE000DAC14 /* ViewController.m */; };
 		53B6021B20FF3DDF000DAC14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53B601BD20FF3DDE000DAC14 /* Main.storyboard */; };
@@ -86,6 +86,7 @@
 		743ADEFE244041CF0081AFEA /* C229NetWorkFailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 743ADEFD244041CF0081AFEA /* C229NetWorkFailViewController.m */; };
 		744F65E124347A78007E7C11 /* C229SectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 744F65E024347A78007E7C11 /* C229SectionHeader.m */; };
 		748EDCF82457F854002AF29A /* C229ChooseModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 748EDCF72457F854002AF29A /* C229ChooseModelViewController.m */; };
+		74927CB524FC98D500A989C1 /* DownLoadViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74927CB424FC98D500A989C1 /* DownLoadViewViewController.m */; };
 		74951EB62499AF7200608B54 /* MXCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 74951EB42499AF7200608B54 /* MXCollectionViewLayout.m */; };
 		74951EB92499AF9100608B54 /* MXCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 74951EB82499AF9100608B54 /* MXCollectionView.m */; };
 		74951EBC2499AFB900608B54 /* MXCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 74951EBA2499AFB900608B54 /* MXCollectionReusableView.m */; };
@@ -239,7 +240,7 @@
 		53AEC7E223FE7AE90076BECD /* FifthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FifthView.m; sourceTree = "<group>"; };
 		53AEC7E323FE7AE90076BECD /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		53AEC7E423FE7AE90076BECD /* SecondTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondTableViewCell.m; sourceTree = "<group>"; };
-		53AEC7E523FE7AE90076BECD /* C229LoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = C229LoadingViewController.h; sourceTree = "<group>"; };
+		53AEC7E523FE7AE90076BECD /* ElectronicManualViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElectronicManualViewController.h; sourceTree = "<group>"; };
 		53AEC7E623FE7AE90076BECD /* ForthCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForthCollectionViewCell.m; sourceTree = "<group>"; };
 		53AEC7E723FE7AE90076BECD /* SecondView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondView.m; sourceTree = "<group>"; };
 		53AEC7E823FE7AE90076BECD /* ShanShuoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShanShuoView.m; sourceTree = "<group>"; };
@@ -255,7 +256,7 @@
 		53AEC7F523FE7AE90076BECD /* FirstView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstView.m; sourceTree = "<group>"; };
 		53AEC7F623FE7AE90076BECD /* ForthCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForthCollectionViewCell.h; sourceTree = "<group>"; };
 		53AEC7F723FE7AE90076BECD /* SecondTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondTableViewCell.h; sourceTree = "<group>"; };
-		53AEC7F823FE7AE90076BECD /* C229LoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = C229LoadingViewController.m; sourceTree = "<group>"; };
+		53AEC7F823FE7AE90076BECD /* ElectronicManualViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElectronicManualViewController.m; sourceTree = "<group>"; };
 		53AEC7F923FE7AE90076BECD /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		53B601B820FF3DDE000DAC14 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		53B601B920FF3DDE000DAC14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -278,6 +279,8 @@
 		746F9202246D30F500F1EC7F /* HongQiC229.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HongQiC229.entitlements; sourceTree = "<group>"; };
 		748EDCF62457F854002AF29A /* C229ChooseModelViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = C229ChooseModelViewController.h; sourceTree = "<group>"; };
 		748EDCF72457F854002AF29A /* C229ChooseModelViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = C229ChooseModelViewController.m; sourceTree = "<group>"; };
+		74927CB424FC98D500A989C1 /* DownLoadViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownLoadViewViewController.m; sourceTree = "<group>"; };
+		74927CB624FC98E000A989C1 /* DownLoadViewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DownLoadViewViewController.h; sourceTree = "<group>"; };
 		74951EB42499AF7200608B54 /* MXCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXCollectionViewLayout.m; sourceTree = "<group>"; };
 		74951EB52499AF7200608B54 /* MXCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXCollectionViewLayout.h; sourceTree = "<group>"; };
 		74951EB72499AF9100608B54 /* MXCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXCollectionView.h; sourceTree = "<group>"; };
@@ -495,6 +498,8 @@
 		53AEC6CB23FE7AE90076BECD /* HongQiC229SDK */ = {
 			isa = PBXGroup;
 			children = (
+				74927CB624FC98E000A989C1 /* DownLoadViewViewController.h */,
+				74927CB424FC98D500A989C1 /* DownLoadViewViewController.m */,
 				74CFC78B24C895D400D45D05 /* c229YYImage */,
 				5310EDD82404FBA400EE0707 /* player */,
 				5310EDD62404FA8600EE0707 /* zip */,
@@ -518,7 +523,7 @@
 				53AEC7E223FE7AE90076BECD /* FifthView.m */,
 				53AEC7E323FE7AE90076BECD /* DetailViewController.m */,
 				53AEC7E423FE7AE90076BECD /* SecondTableViewCell.m */,
-				53AEC7E523FE7AE90076BECD /* C229LoadingViewController.h */,
+				53AEC7E523FE7AE90076BECD /* ElectronicManualViewController.h */,
 				74951EB72499AF9100608B54 /* MXCollectionView.h */,
 				74951EB82499AF9100608B54 /* MXCollectionView.m */,
 				74951EBE2499E3B800608B54 /* MXCollectionViewCell.h */,
@@ -544,7 +549,7 @@
 				53AEC7F523FE7AE90076BECD /* FirstView.m */,
 				53AEC7F623FE7AE90076BECD /* ForthCollectionViewCell.h */,
 				53AEC7F723FE7AE90076BECD /* SecondTableViewCell.h */,
-				53AEC7F823FE7AE90076BECD /* C229LoadingViewController.m */,
+				53AEC7F823FE7AE90076BECD /* ElectronicManualViewController.m */,
 				53AEC7F923FE7AE90076BECD /* DetailViewController.h */,
 				743ADEFC244041CF0081AFEA /* C229NetWorkFailViewController.h */,
 				743ADEFD244041CF0081AFEA /* C229NetWorkFailViewController.m */,
@@ -746,6 +751,7 @@
 				74CFC7AE24C895F800D45D05 /* c229_YYCache.m in Sources */,
 				53AEC89623FE7AE90076BECD /* ShanShuoView.m in Sources */,
 				74CFC7A024C895F100D45D05 /* c229_YYFrameImage.m in Sources */,
+				74927CB524FC98D500A989C1 /* DownLoadViewViewController.m in Sources */,
 				53AEC89223FE7AE90076BECD /* DetailViewController.m in Sources */,
 				5310EDF02404FCDF00EE0707 /* CLPlayerMaskView.m in Sources */,
 				5310EDC32404042E00EE0707 /* C229CAR_MASConstraintMaker.m in Sources */,
@@ -761,7 +767,7 @@
 				74CFC79524C895E900D45D05 /* c229_YYWebImageOperation.m in Sources */,
 				5310ED9B2403EE4000EE0707 /* TagBtn.m in Sources */,
 				74CFC7C224C8966C00D45D05 /* UIImageView+c229YYWebImage.m in Sources */,
-				53AEC89D23FE7AE90076BECD /* C229LoadingViewController.m in Sources */,
+				53AEC89D23FE7AE90076BECD /* ElectronicManualViewController.m in Sources */,
 				53AEC89423FE7AE90076BECD /* ForthCollectionViewCell.m in Sources */,
 				5310EE77240666E200EE0707 /* C229CAR_AFURLResponseSerialization.m in Sources */,
 				74CFC7A424C895F100D45D05 /* c229_YYImage.m in Sources */,

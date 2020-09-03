@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "HQ229MainViewController.h"
-#import "C229LoadingViewController.h"
+#import "ElectronicManualViewController.h"
 //#import "E115LoadingViewController.h"
 #import "AppDelegate.h"
 @interface ViewController ()
@@ -41,7 +41,7 @@
 
 - (void)buttonClicked {
 
-    C229LoadingViewController *vc = [[C229LoadingViewController alloc] init];
+    ElectronicManualViewController *vc = [[ElectronicManualViewController alloc] init];
     vc.modalPresentationStyle = 0;
     [self presentViewController:vc animated:NO completion:nil];
     
