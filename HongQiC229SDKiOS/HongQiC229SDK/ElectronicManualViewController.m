@@ -22,6 +22,7 @@
     NSMutableArray *fileNameArr;
     NSString *newVersion;
     NSDictionary *updateResponse;
+    
 }
 
 - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
@@ -55,7 +56,7 @@
     [zipSucDic setValue:@"0" forKey:@"news"];
     fileNameArr = [NSMutableArray array];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(disMiss) name:@"dismiss" object:nil];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(jumpMain) name:@"unziped" object:nil];
     //创建临时路径
     NSString *allPath = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES)[0];
         NSString *temPath = [NSString stringWithFormat:@"temZip"];
@@ -69,26 +70,22 @@
     
 }
 - (void)getZipAdd{
-    [NetWorkManager requestGETSuperAPIWithURLStr:@"hongqih9_admin/index.php?m=home&c=index&a=get_img_zip&type=C229" WithAuthorization:@"" paramDic:nil finish:^(id  _Nonnull responseObject) {
-        DownLoadViewViewController *downLoad = [[DownLoadViewViewController alloc] init];
-        downLoad.myDic = responseObject;
-        [self presentViewController:downLoad animated:NO completion:nil];
-    } enError:^(NSError * _Nonnull error) {
-        
-    } andShowLoading:NO];
+    
+    DownLoadViewViewController *downLoad = [[DownLoadViewViewController alloc] init];
+    downLoad.myDic = updateResponse;
+    [self presentViewController:downLoad animated:NO completion:nil];
+    
 }
 - (void)initNetWork{
-    [NetWorkManager requestGETSuperAPIWithURLStr:@"hongqih9_admin/index.php?m=home&c=index&a=get_first_version" WithAuthorization:@"" paramDic:nil finish:^(id  _Nonnull responseObject) {
+    NSString *oldUrl = [NSString stringWithFormat:@"hongqih9_admin/index.php?m=home&c=index&a=get_car_info&car_name="];
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@",oldUrl,_carID];
+    
+    [NetWorkManager requestGETSuperAPIWithURLStr:urlStr WithAuthorization:@"" paramDic:nil finish:^(id  _Nonnull responseObject) {
         updateResponse = responseObject;
-        if (NO) {
-            
-            [self getZipAdd];
-            
-        }else{
-            [self downLoadJson];
-        }
         
-
+        [self downLoadJson];
+       
+        
     } enError:^(NSError * _Nonnull error) {
         C229NetWorkFailViewController *fail =[[C229NetWorkFailViewController alloc] init];
         [fail addBtn:2];
@@ -103,14 +100,15 @@
 }
 
 - (void)downLoadJson{
-    NSString *catUrl = [NSString stringWithFormat:@"%@",updateResponse[@"category"]];
+    NSString *catUrl = [NSString stringWithFormat:@"%@",updateResponse[@"category_url"]];
 //    catUrl = [catUrl stringByReplacingOccurrencesOfString:@"http" withString:@"https"];
     NSURL *downloadURL2 = [NSURL URLWithString:catUrl];
     NSURLRequest *request2 = [NSURLRequest requestWithURL:downloadURL2];
     NSURLSessionDownloadTask *downloadTask2 = [[C229CAR_AFHTTPSessionManager manager] downloadTaskWithRequest:request2 progress:^(NSProgress * _Nonnull downloadProgress) {
         NSLog(@"download progress : %.2f%%", 1.0f * downloadProgress.completedUnitCount / downloadProgress.totalUnitCount * 100);
     } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
-        NSString *fileName = @"229_category.json";
+        
+        NSString *fileName = [NSString stringWithFormat:@"%@_category.json",_carID];
         //返回文件的最终存储路径
         NSString *allPath = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES)[0];
         //    NSString *folderPath = [allPath stringByAppendingPathComponent:@"c229App/images/ppp"];
@@ -119,7 +117,8 @@
             NSString *last = [folderPath stringByAppendingPathComponent:fileName];
         return [NSURL fileURLWithPath:last];
     } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
-        NSString *fileName = @"229_category.json";
+        
+        NSString *fileName = [NSString stringWithFormat:@"%@_category.json",_carID];
         //返回文件的最终存储路径
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -149,14 +148,15 @@
     //news
 
     
-    NSString *newUrl = [NSString stringWithFormat:@"%@",updateResponse[@"news"]];
+    NSString *newUrl = [NSString stringWithFormat:@"%@",updateResponse[@"news_url"]];
 //    newUrl = [newUrl stringByReplacingOccurrencesOfString:@"http" withString:@"https"];
     NSURL *downloadURL3 = [NSURL URLWithString:newUrl];
     NSURLRequest *request3 = [NSURLRequest requestWithURL:downloadURL3];
     NSURLSessionDownloadTask *downloadTask3 = [[C229CAR_AFHTTPSessionManager manager]downloadTaskWithRequest:request3 progress:^(NSProgress * _Nonnull downloadProgress) {
         NSLog(@"download3 progress : %.2f%%", 1.0f * downloadProgress.completedUnitCount / downloadProgress.totalUnitCount * 100);
     } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
-        NSString *fileName = @"229_news.json";
+        
+        NSString *fileName = [NSString stringWithFormat:@"%@_news.json",_carID];
         //返回文件的最终存储路径
         NSString *allPath = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES)[0];
         //    NSString *folderPath = [allPath stringByAppendingPathComponent:@"c229App/images/ppp"];
@@ -170,7 +170,8 @@
         
         }else {
             NSLog(@"download3 file success");
-            NSString *fileName = @"229_news.json";
+            
+            NSString *fileName = [NSString stringWithFormat:@"%@_news.json",_carID];
             //返回文件的最终存储路径
             NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
             NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -193,6 +194,7 @@
 
 - (void)jumpMain{
     HQ229MainViewController *vc = [[HQ229MainViewController alloc] init];
+    vc.carID = self.carID;
     [self presentViewController:vc animated:NO completion:nil];
 }
 - (void)disMiss{
@@ -212,8 +214,16 @@
         x = NO;
     }
     if (x) {
+        //parry
         
-        [self jumpMain];
+        NSString *nowVersion = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@Version",_carID]];
+        NSString *newVersion = [updateResponse objectForKey:@"version"];
+        if ([nowVersion isEqualToString:newVersion]) {
+            [self jumpMain];
+        }else{
+            [self getZipAdd];
+        }
+        
     }
     return x;
 }

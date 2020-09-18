@@ -15,6 +15,7 @@
 #import "ForthView.h"
 #import "FifthView.h"
 #import "C229CAR_AFNetworking.h"
+#import "NetWorkManager.h"
 #define TopHeight 60
 #import "C229NetWorkFailViewController.h"
 #import "DetailViewController.h"
@@ -28,6 +29,7 @@
     UIScrollView *myScrollView;
     UIWebView *web;
     ThirdView *third;
+    NSArray *settingArr;
 }
 - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
         return UIInterfaceOrientationLandscapeLeft;
@@ -48,15 +50,30 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
-    if (![user objectForKey:@"c229ModelChoose"]) {
-        C229ChooseModelViewController *choose = [[C229ChooseModelViewController alloc] init];
-        [self presentViewController:choose animated:NO completion:nil];
-    }else{
-        
-    }
+    [self initNetWork];
 }
-
+- (void)initNetWork{
+    NSString *oldUrl = [NSString stringWithFormat:@"hongqih9_admin/index.php?m=home&c=index&a=get_car_info&car_name="];
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@",oldUrl,_carID];
+    
+    [NetWorkManager requestGETSuperAPIWithURLStr:urlStr WithAuthorization:@"" paramDic:nil finish:^(id  _Nonnull responseObject) {
+        settingArr = [responseObject objectForKey:@"type_list"];
+        
+       NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+        NSString *chooseStr = [NSString stringWithFormat:@"%@ModelChoose",_carID];
+       if (![user objectForKey:chooseStr]) {
+           C229ChooseModelViewController *choose = [[C229ChooseModelViewController alloc] init];
+           choose.carID = _carID;
+           choose.settingArr = settingArr;
+           [self presentViewController:choose animated:NO completion:nil];
+       }else{
+           
+       }
+        
+    } enError:^(NSError * _Nonnull error) {
+    
+    } andShowLoading:NO];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -124,9 +141,12 @@
     myScrollView.showsHorizontalScrollIndicator = NO;
     
     FirstView *first = [[FirstView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-TopHeight)];
+    first.carID = self.carID;
     [myScrollView addSubview:first];
     first.jumpChooseModel = ^(NSDictionary * dic) {
         C229ChooseModelViewController *choose = [[C229ChooseModelViewController alloc] init];
+        choose.carID = _carID;
+        choose.settingArr = settingArr;
         [self presentViewController:choose animated:NO completion:nil];
     };
     first.jumpToDetail = ^(NSDictionary * dataDic) {
@@ -138,6 +158,7 @@
     };
 
     SecondView *second = [[SecondView alloc] initWithFrame:CGRectMake(kScreenWidth*3, 0, kScreenWidth, kScreenHeight-TopHeight)];
+    second.carID = self.carID;
     second.push = ^(NSDictionary * dataDic
                     ) {
         DetailViewController *detail = [[DetailViewController alloc] init];
@@ -164,6 +185,7 @@
     [myScrollView addSubview:third];
     self.automaticallyAdjustsScrollViewInsets = NO;
     ForthView *forth = [[ForthView alloc] initWithFrame:CGRectMake(kScreenWidth, 0, kScreenWidth, kScreenHeight-TopHeight)];
+    forth.carID = self.carID;
     forth.push = ^(NSDictionary * dataDic) {
         DetailViewController *detail = [[DetailViewController alloc] init];
         self.definesPresentationContext = YES;
@@ -174,6 +196,7 @@
     [myScrollView addSubview:forth];
 //
     FifthView *fifth = [[FifthView alloc] initWithFrame:CGRectMake(kScreenWidth*4, 0, kScreenWidth, kScreenHeight-TopHeight)];
+    fifth.carID = self.carID;
     fifth.push = ^(NSDictionary * dataDic) {
         DetailViewController *detail = [[DetailViewController alloc] init];
         self.definesPresentationContext = YES;
@@ -187,7 +210,8 @@
     [web removeFromSuperview];
 }
 - (void)getJson{
-    NSDictionary *dicOne = [self readLocalFileWithName:@"229_category"];
+    NSString *name = [NSString stringWithFormat:@"%@_category",self.carID];
+    NSDictionary *dicOne = [self readLocalFileWithName:name];
     NSArray *dataArr = dicOne[@"RECORDS"];
     NSString *sqlStr = [self returnSqlKeys:dataArr[0]];
     

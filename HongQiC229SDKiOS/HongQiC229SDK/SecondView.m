@@ -26,29 +26,34 @@
 - (id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     self.backgroundColor = [UIColor clearColor];
-    [self loadData];
     
-    [self setCollectionView];
-//    [self setTableView];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getNoty) name:@"unziped" object:nil];
-    jianting = 1;
-    UIImageView *downYinYing = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.frame.size.height-kScreenWidth*192/1920, kScreenWidth, kScreenWidth*192/1920)];
-    
-    [downYinYing setImage:[self createImageByName:@"downYinYing"]];
-    [self addSubview:downYinYing];
-    [self setLeftView];
-    UIImageView *upYinYing = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenWidth*159/1920)];
-    [upYinYing setImage:[self createImageByName:@"upYinYing"]];
-    [self addSubview:upYinYing];
-    [self reSetLeftView:0];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadData) name:@"c229chooseModel" object:nil];
     return self;
+}
+- (void)setCarID:(NSString *)carID{
+    _carID = carID;
+    [self loadData];
+        
+        [self setCollectionView];
+    //    [self setTableView];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getNoty) name:@"unziped" object:nil];
+        jianting = 1;
+        UIImageView *downYinYing = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.frame.size.height-kScreenWidth*192/1920, kScreenWidth, kScreenWidth*192/1920)];
+        
+        [downYinYing setImage:[self createImageByName:@"downYinYing"]];
+        [self addSubview:downYinYing];
+        [self setLeftView];
+        UIImageView *upYinYing = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenWidth*159/1920)];
+        [upYinYing setImage:[self createImageByName:@"upYinYing"]];
+        [self addSubview:upYinYing];
+        [self reSetLeftView:0];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadData) name:@"c229chooseModel" object:nil];
 }
 - (void)getNoty{
     [myCollection reloadData];
 }
 - (void)loadData{
-    NSDictionary *categoryDic = [self readLocalFileWithName:@"229_category"];
+    NSString *cateStr = [NSString stringWithFormat:@"%@_category",_carID];
+    NSDictionary *categoryDic = [self readLocalFileWithName:cateStr];
     NSArray *catArr = categoryDic[@"RECORDS"];
     NSMutableArray *catIdArr = [NSMutableArray array];
     cateGGArr = [NSMutableArray array];
@@ -61,7 +66,8 @@
     }
     
     leftArr = catIdArr;
-    NSDictionary *newsDic = [self readLocalFileWithName:@"229_news"];
+    NSString *newStr = [NSString stringWithFormat:@"%@_news",_carID];
+    NSDictionary *newsDic = [self readLocalFileWithName:newStr];
     NSArray *newArr = newsDic[@"RECORDS"];
    
     //
@@ -82,7 +88,8 @@
                     newArr = [allDic objectForKey:newId];
                 }
                 NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
-                NSString *model = [dic objectForKey:[user objectForKey:@"c229ModelChoose"]];
+                NSString *chooseStr = [NSString stringWithFormat:@"%@ModelChoose",_carID];
+                NSString *model = [dic objectForKey:[user objectForKey:chooseStr]];
                 if ([model isEqualToString:@"1"]) {
                     [newArr addObject:dic];
                 }

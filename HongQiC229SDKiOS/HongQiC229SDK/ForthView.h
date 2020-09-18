@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ForthView : UIView<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic, copy)void(^push)(NSDictionary *);
+@property (nonatomic, strong)NSString *carID;
 @end
 
 NS_ASSUME_NONNULL_END

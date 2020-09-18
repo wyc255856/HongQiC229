@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy)void(^jumpToDetail)(NSDictionary *);
 @property (nonatomic, copy)void(^jumpChooseModel)(NSDictionary *);
 @property (nonatomic, strong)UIImageView *carImage;
+@property (nonatomic, strong)NSString *carID;
 - (void)allShow;
 @end
 

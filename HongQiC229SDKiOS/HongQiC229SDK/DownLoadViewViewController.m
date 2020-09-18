@@ -167,9 +167,9 @@
 
 - (void)downLoad{
     [self setUI:0];
-    NSString *js1 = [NSString stringWithFormat:@"%@",_myDic[@"category"]];
+    NSString *js1 = [NSString stringWithFormat:@"%@",_myDic[@"category_url"]];
 //    js1 = [js1 stringByReplacingOccurrencesOfString:@"http" withString:@"https"];
-    NSString *js2 = [NSString stringWithFormat:@"%@",_myDic[@"news"]];
+    NSString *js2 = [NSString stringWithFormat:@"%@",_myDic[@"news_url"]];
 //    js2 = [js2 stringByReplacingOccurrencesOfString:@"http" withString:@"https"];
     
 
@@ -179,7 +179,8 @@
     NSURLSessionDownloadTask *downloadTask1 = [[C229CAR_AFHTTPSessionManager manager] downloadTaskWithRequest:request1 progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
-        NSString *fileName = @"229_category.json";
+        
+        NSString *fileName = [NSString stringWithFormat:@"%@_category.json",_myDic[@"car_name"]];
         //返回文件的最终存储路径
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -212,7 +213,7 @@
     NSURLSessionDownloadTask *downloadTask2 = [[C229CAR_AFHTTPSessionManager manager] downloadTaskWithRequest:request2 progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
-        NSString *fileName = @"229_news.json";
+        NSString *fileName = [NSString stringWithFormat:@"%@_news.json",_myDic[@"car_name"]];
         //返回文件的最终存储路径
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -296,10 +297,17 @@
 - (void)zipLoad:(NSString *)path{
     [self setUI:1];
     NSString *allPath = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES)[0];
-    NSString *folderPath = [allPath stringByAppendingPathComponent:@"c229App"];
+    NSString *nowApp = [_myDic objectForKey:@"car_name"];
+    NSString *folderPath = [allPath stringByAppendingPathComponent:nowApp];
     path = [path substringFromIndex:7];
-   
-    [[NSUserDefaults standardUserDefaults] setObject:folderPath forKey:@"localResource"];
+    if ([nowApp isEqualToString:@"C229"]) {
+//        path = [NSString stringWithFormat:@"%@/c229-36images",path];
+    }else if ([nowApp isEqualToString:@"E115"]){
+//        path = [NSString stringWithFormat:@"%@/e115-36images",path];
+    }
+    
+    NSString *localKey = [NSString stringWithFormat:@"%@localResource",nowApp];
+    [[NSUserDefaults standardUserDefaults] setObject:folderPath forKey:localKey];
      
     [C229CAR_SSZipArchive unzipFileAtPath:path toDestination:folderPath overwrite:YES password:nil progressHandler:^(NSString * _Nonnull entry, unz_file_info zipInfo, long entryNumber, long total) {
 
@@ -361,7 +369,8 @@
         &&[downLoad[@"js2"] isEqualToString:@"1"]
         &&[downLoad[@"zip"] isEqualToString:@"1"] ) {
         NSString *version = [NSString stringWithFormat:@"%@",_myDic[@"version"]];
-        [[NSUserDefaults standardUserDefaults] setObject:version forKey:@"c229NowVersion"];
+        NSString *nowAppKey = [NSString stringWithFormat:@"%@Version",_myDic[@"car_name"]];
+        [[NSUserDefaults standardUserDefaults] setObject:version forKey:nowAppKey];
         return YES;
     }else{
         return NO;
@@ -383,8 +392,8 @@
 }
 - (void)createDownLoad3{
     //zip
-    NSString *zip = [NSString stringWithFormat:@"%@",_myDic[@"zip_address"]];
-    zip = [zip stringByReplacingOccurrencesOfString:@"http" withString:@"https"];
+    NSString *zip = [NSString stringWithFormat:@"%@",_myDic[@"zip_url"]];
+//    zip = [zip stringByReplacingOccurrencesOfString:@"http" withString:@"https"];
     NSURL *downloadURL3 = [NSURL URLWithString:zip];
     NSURLRequest *request3 = [NSURLRequest requestWithURL:downloadURL3];
     self.downloadTask3 = [[C229CAR_AFHTTPSessionManager manager] downloadTaskWithRequest:request3 progress:^(NSProgress * _Nonnull downloadProgress) {
@@ -394,7 +403,7 @@
             self.myPro.progress = 1.0f * downloadProgress.completedUnitCount / downloadProgress.totalUnitCount ;
         });
     } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
-        NSString *fileName = @"229image.zip";
+        NSString *fileName = [NSString stringWithFormat:@"%@image.zip",_myDic[@"car_name"]];
         //返回文件的最终存储路径
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         

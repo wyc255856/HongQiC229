@@ -20,10 +20,14 @@
 - (id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     self.backgroundColor = [UIColor clearColor];
-    [self setUi];
-    [self setTableView];
+    
     
     return self;
+}
+- (void)setCarID:(NSString *)carID{
+    _carID = carID;
+    [self setUi];
+    [self setTableView];
 }
 - (void)setUi{
     searchTf = [[UITextField alloc] initWithFrame:CGRectMake(47, 37, kScreenWidth-47-105, 30)];
@@ -114,7 +118,8 @@
     myTableView.tableHeaderView = nil;
     NSString *searcH = [self removeSpaceAndNewline:str];
     keyWords = searcH;
-    NSDictionary *all = [self readLocalFileWithName:@"229_news"];
+    NSString *newJsonStr = [NSString stringWithFormat:@"%@_news",_carID];
+    NSDictionary *all = [self readLocalFileWithName:newJsonStr];
     NSArray *array = [all objectForKey:@"RECORDS"];
     dataArr = [NSMutableArray array];
     [dataArr removeAllObjects];

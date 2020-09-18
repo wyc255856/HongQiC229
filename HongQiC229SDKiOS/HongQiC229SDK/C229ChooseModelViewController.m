@@ -39,33 +39,43 @@
     UIImageView *backImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
     [backImage setImage:[AppManager createImageByName:@"c229chooseModelBack.jpg"]];
     [self.view addSubview:backImage];
-    [self createBtn];
+    
     
 }
-
+- (void)setSettingArr:(NSArray *)settingArr{
+    _settingArr = settingArr;
+    [self createBtn];
+}
 - (void)createBtn{
-    UIView *back = [[UIView alloc] initWithFrame:CGRectMake((kScreenWidth-282)/2, (kScreenHeight-34*5)/2, 282, 34*5)];
-    NSArray *rightArr = @[@"2.0低配",@"2.0中配",@"2.0高配",@"3.0高配",@"3.0商务"];
-    [self.view addSubview:back];
-    for (int i=1; i<6; i++) {
-        UIImageView *lineImg = [[UIImageView alloc] initWithFrame:CGRectMake(0, i*34-1,  back.frame.size.width, 1)];
-        [back addSubview:lineImg];
-        [lineImg setImage:[AppManager createImageByName:@"c229chooseline"]];
+//    UIView *back = [[UIView alloc] initWithFrame:CGRectMake((kScreenWidth-282)/2, (kScreenHeight-34*5)/2, 282, 34*5)];
+    
+    UIScrollView *backScroll = [[UIScrollView alloc] initWithFrame:CGRectMake((kScreenWidth-282)/2, (kScreenHeight-34*5)/2, 282, 34*5)];
+    
+    
+//    NSArray *rightArr = @[@"2.0低配",@"2.0中配",@"2.0高配",@"3.0高配",@"3.0商务"];
+    [self.view addSubview:backScroll];
+    
+    backScroll.contentSize = CGSizeMake ((kScreenWidth-282)/2, _settingArr.count*34);
+    
+    for (int i=1; i<_settingArr.count+1; i++) {
+        UIImageView *lineImg = [[UIImageView alloc] initWithFrame:CGRectMake(0, i*34-1,  backScroll.frame.size.width, 1)];
+        [backScroll addSubview:lineImg];
+        [lineImg setImage:[AppManager createImageByName:@"c229chooseline"]];    
         
         UILabel *leftLabel = [[UILabel alloc] initWithFrame:CGRectMake(70, i*34-28, 100, 20)];
         leftLabel.font = [UIFont systemFontOfSize:14];
         leftLabel.textColor = [UIColor whiteColor];
         leftLabel.text = @"2020款";
-        [back addSubview:leftLabel];
+        [backScroll addSubview:leftLabel];
         
         UILabel *rightLabel = [[UILabel alloc] initWithFrame:CGRectMake(150, i*34-28, 100, 20)];
         rightLabel.font = [UIFont systemFontOfSize:14];
         rightLabel.textColor = [UIColor whiteColor];
-        rightLabel.text = rightArr[i-1];
-        [back addSubview:rightLabel];
+        rightLabel.text = [_settingArr[i-1] objectForKey:@"content_desc"];
+        [backScroll addSubview:rightLabel];
         
-        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, i*34-34, back.frame.size.width, 34)];
-        [back addSubview:button];
+        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, i*34-34, backScroll.frame.size.width, 34)];
+        [backScroll addSubview:button];
         button.tag = 1000+i;
         [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
         
@@ -73,26 +83,11 @@
 }
 - (void)buttonClick:(UIButton *)btn{
     NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    NSString *strID = [NSString stringWithFormat:@"%@",[_settingArr[btn.tag-1000-1] objectForKey:@"content_id"]];
     
-    switch (btn.tag) {
-        case 1001:
-            [user setObject:@"sdss" forKey:@"c229ModelChoose"];
-            break;
-        case 1002:
-            [user setObject:@"sdhh" forKey:@"c229ModelChoose"];
-            break;
-        case 1003:
-            [user setObject:@"sdzg" forKey:@"c229ModelChoose"];
-            break;
-        case 1004:
-            [user setObject:@"zdss" forKey:@"c229ModelChoose"];
-            break;
-        case 1005:
-            [user setObject:@"zdhh" forKey:@"c229ModelChoose"];
-            break;
-        default:
-            break;
-    }
+    NSString *sst = [NSString stringWithFormat:@"%@ModelChoose",_carID];
+    [user setObject:strID forKey:sst];
+
     [[NSNotificationCenter defaultCenter] postNotificationName:@"c229chooseModel" object:nil];
     [self dismissViewControllerAnimated:NO completion:nil];
 }

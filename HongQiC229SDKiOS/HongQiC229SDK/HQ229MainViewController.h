@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HQ229MainViewController : UIViewController
-
+@property (nonatomic, strong) NSString *carID;
 @end
 
 NS_ASSUME_NONNULL_END

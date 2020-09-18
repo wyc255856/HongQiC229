@@ -39,13 +39,22 @@
 - (id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     self.backgroundColor = [UIColor clearColor];
+    
+    
+    return self;
+    
+    
+    
+}
+- (void)setCarID:(NSString *)carID{
+    _carID = carID;
     hiddenAble = NO;
     carHeight = 270;
     carWidth = 270*1920/900;
-    total = 4;
+    total = 1;
     now = 736;
     jianju = self.frame.size.width/56;
-    return self;
+    
     [self setCarImage];
     [self allocAllLineAndImage];
     [self reSetTagBtn:total];
@@ -63,11 +72,6 @@
     [self addSubview:chooseBtn];
     [chooseBtn setImage:[AppManager createImageByName:@"c229chooseBtnImage"] forState:UIControlStateNormal];
     [chooseBtn addTarget:self action:@selector(chooseBtnAction) forControlEvents:UIControlEventTouchUpInside];
-    
-    return self;
-    
-    
-    
 }
 - (void)chooseBtnAction{
     if (self) {
@@ -91,7 +95,12 @@
 - (void)setCarImage{
     _carImage = [[UIImageView alloc] initWithFrame:CGRectMake((kScreenWidth-carWidth)/2, (self.frame.size.height-carHeight)/2, carWidth, carHeight)];
     //[_carImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"hq229-%d",total]]];
-    [_carImage setImage:[self createImageByName:[NSString stringWithFormat:@"c229-36images/hq229-%d",total]]];
+    if ([self.carID isEqualToString:@"C229"]) {
+        [_carImage setImage:[self get360ImageByName:[NSString stringWithFormat:@"c229_car_%d",total]]];
+    }else{
+        [_carImage setImage:[self get360ImageByName:[NSString stringWithFormat:@"hq115-%d",total]]];
+    }
+    
     [self addSubview:_carImage];
     
 }
@@ -119,8 +128,12 @@
     [self changeImage];
 }
 - (void)changeImage{
-    NSString *imageName = [NSString stringWithFormat:@"c229-36images/hq229-%d",total];
-    [_carImage setImage:[self createImageByName:imageName]];
+    
+    if ([self.carID isEqualToString:@"C229"]) {
+        [_carImage setImage:[self get360ImageByName:[NSString stringWithFormat:@"hq229-%d",total]]];
+    }else{
+        [_carImage setImage:[self get360ImageByName:[NSString stringWithFormat:@"hq115-%d",total]]];
+    }
 }
 - (void)addScrollView{
     scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
@@ -175,7 +188,6 @@
     [self addSubview:chooseBtn];
 }
 - (void)allHide{
-    
     ss1.hidden = YES;
     ss2.hidden = YES;
     ss3.hidden = YES;
@@ -185,8 +197,6 @@
     ssImg1.hidden = YES;
     ssImg2.hidden = YES;
     ssImg3.hidden = YES;
-    
-    
 }
 - (void)setAllLineAndImageFrame:(int)x{
     NSLog(@"%d",x);
@@ -218,7 +228,7 @@
     [self reSetTagBtn:x];
     switch (x) {
             
-        case 1:{
+        case 4:{
             ss1.frame = CGRectMake(_carImage.frame.origin.x+215, _carImage.frame.origin.y+128, 4, 4);
             ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-250+40, _carImage.frame.origin.y+117, 4, 4);
             
@@ -356,7 +366,7 @@
             }];
             break;
         }
-        case 4:{
+        case 1:{
             ss1.frame = CGRectMake(_carImage.frame.origin.x+150, _carImage.frame.origin.y+125, 4, 4);
             ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-245, _carImage.frame.origin.y+120, 4, 4);
             
@@ -402,7 +412,7 @@
             }];
             break;
         }
-        case 5:{
+        case 35:{
             
             [ss1 removeFromSuperview];
             [ssImg1 removeFromSuperview];
@@ -444,7 +454,7 @@
             
             break;
         }
-        case 6:{
+        case 36:{
             [ss1 removeFromSuperview];
                 [ssImg1 removeFromSuperview];
                 [ssBtn1 removeFromSuperview];
@@ -486,7 +496,7 @@
                 break;
             
         }
-        case 7:{
+        case 34:{
             [ss1 removeFromSuperview];
                 [ssImg1 removeFromSuperview];
                 [ssBtn1 removeFromSuperview];
@@ -528,7 +538,7 @@
                 break;
             
         }
-        case 8:{
+        case 5:{
             [ss1 removeFromSuperview];
                 [ssImg1 removeFromSuperview];
                 [ssBtn1 removeFromSuperview];
@@ -570,7 +580,7 @@
                 break;
             
         }
-        case 9:{
+        case 6:{
             ss1.frame = CGRectMake(_carImage.frame.origin.x+230, _carImage.frame.origin.y+122, 4, 4);
             ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-190, _carImage.frame.origin.y+143, 4, 4);
             
@@ -616,7 +626,7 @@
             }];
             break;
         }
-        case 10:{
+        case 7:{
             ss1.frame = CGRectMake(_carImage.frame.origin.x+230, _carImage.frame.origin.y+122, 4, 4);
             ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-200, _carImage.frame.origin.y+133, 4, 4);
             
@@ -662,7 +672,7 @@
             }];
             break;
         }
-        case 11:{
+        case 8:{
             ss1.frame = CGRectMake(_carImage.frame.origin.x+218, _carImage.frame.origin.y+120, 4, 4);
             ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-210, _carImage.frame.origin.y+133, 4, 4);
             
@@ -708,7 +718,7 @@
             }];
             break;
         }
-        case 12:{
+        case 9:{
             ss1.frame = CGRectMake(_carImage.frame.origin.x+212, _carImage.frame.origin.y+118, 4, 4);
             ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-225, _carImage.frame.origin.y+133, 4, 4);
             
@@ -754,7 +764,7 @@
             }];
             break;
         }
-        case 13:{
+        case 10:{
             ss1.frame = CGRectMake(_carImage.frame.origin.x+202, _carImage.frame.origin.y+118, 4, 4);
             ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-235, _carImage.frame.origin.y+123, 4, 4);
             
@@ -800,7 +810,7 @@
             }];
             break;
         }
-        case 14:{
+        case 11:{
             ss1.frame = CGRectMake(_carImage.frame.origin.x+200, _carImage.frame.origin.y+118, 4, 4);
             ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-255, _carImage.frame.origin.y+123, 4, 4);
             
@@ -846,7 +856,7 @@
             }];
             break;
         }
-        case 15:{
+        case 12:{
             ss1.frame = CGRectMake(_carImage.frame.origin.x+197, _carImage.frame.origin.y+118, 4, 4);
             ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-175, _carImage.frame.origin.y+147, 4, 4);
             
@@ -892,7 +902,7 @@
             }];
             break;
         }
-        case 16:{
+        case 13:{
             ss1.frame = CGRectMake(_carImage.frame.origin.x+197, _carImage.frame.origin.y+118, 4, 4);
             ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-175, _carImage.frame.origin.y+147, 4, 4);
             
@@ -938,7 +948,7 @@
             }];
             break;
         }
-        case 17:{
+        case 14:{
             ss1.frame = CGRectMake(_carImage.frame.origin.x+197, _carImage.frame.origin.y+118, 4, 4);
             ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-175, _carImage.frame.origin.y+147, 4, 4);
             
@@ -984,7 +994,7 @@
             }];
             break;
         }
-        case 18:{
+        case 15:{
             ss1.frame = CGRectMake(_carImage.frame.origin.x+202, _carImage.frame.origin.y+118, 4, 4);
             ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-205, _carImage.frame.origin.y+147, 4, 4);
             
@@ -1030,7 +1040,7 @@
             }];
             break;
         }
-        case 19:{
+        case 16:{
             ss1.frame = CGRectMake(_carImage.frame.origin.x+207, _carImage.frame.origin.y+118, 4, 4);
             ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-238, _carImage.frame.origin.y+147, 4, 4);
             
@@ -1068,7 +1078,7 @@
            
             break;
         }
-        case 20:{
+        case 17:{
             ss1.frame = CGRectMake(_carImage.frame.origin.x+360, _carImage.frame.origin.y+120, 4, 4);
             ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-220, _carImage.frame.origin.y+157, 4, 4);
             
@@ -1114,7 +1124,7 @@
             }];
             break;
         }
-        case 21:{
+        case 18:{
             ss1.frame = CGRectMake(_carImage.frame.origin.x+315, _carImage.frame.origin.y+130, 4, 4);
             ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-190, _carImage.frame.origin.y+157, 4, 4);
             
@@ -1160,7 +1170,7 @@
             }];
             break;
         }
-        case 22:{
+        case 19:{
             ss1.frame = CGRectMake(_carImage.frame.origin.x+285, _carImage.frame.origin.y+130, 4, 4);
             ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-180, _carImage.frame.origin.y+157, 4, 4);
             
@@ -1206,7 +1216,7 @@
             }];
             break;
         }
-        case 23:{
+        case 20:{
             ss1.frame = CGRectMake(_carImage.frame.origin.x+247, _carImage.frame.origin.y+130, 4, 4);
             ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-195, _carImage.frame.origin.y+147, 4, 4);
             
@@ -1252,7 +1262,7 @@
             }];
             break;
         }
-        case 24:{
+        case 21:{
             ss1.frame = CGRectMake(_carImage.frame.origin.x+223, _carImage.frame.origin.y+127, 4, 4);
             ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-195, _carImage.frame.origin.y+147, 4, 4);
             
@@ -1291,7 +1301,7 @@
 
             break;
         }
-        case 25:{
+        case 22:{
             ss1.frame = CGRectMake(_carImage.frame.origin.x+195, _carImage.frame.origin.y+127, 4, 4);
             ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-195, _carImage.frame.origin.y+147, 4, 4);
             
@@ -1330,7 +1340,7 @@
 
             break;
         }
-        case 26:{
+        case 23:{
             ss1.frame = CGRectMake(_carImage.frame.origin.x+174, _carImage.frame.origin.y+127, 4, 4);
             ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-195, _carImage.frame.origin.y+147, 4, 4);
             
@@ -1369,7 +1379,7 @@
 
             break;
         }
-        case 27:{
+        case 24:{
             ss1.frame = CGRectMake(_carImage.frame.origin.x+168, _carImage.frame.origin.y+127, 4, 4);
             ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-195, _carImage.frame.origin.y+147, 4, 4);
             
@@ -1408,7 +1418,7 @@
 
             break;
         }
-        case 28:{
+        case 25:{
             ss1.frame = CGRectMake(_carImage.frame.origin.x+158, _carImage.frame.origin.y+127, 4, 4);
             ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-210, _carImage.frame.origin.y+147, 4, 4);
             
@@ -1445,6 +1455,144 @@
             }];
 
 
+            break;
+        }
+        case 26:{
+            ss1.frame = CGRectMake(_carImage.frame.origin.x+147, _carImage.frame.origin.y+130, 4, 4);
+            ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-180, _carImage.frame.origin.y+127, 4, 4);
+            
+            ss3.frame = CGRectMake(_carImage.frame.origin.x+163, _carImage.frame.origin.y+175, 4, 4);
+            [ssImg1 setImage:[self createImageByName:@"229line-1/229line-1-img1"]];
+            [ssImg1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(160, 160*153/445));
+                make.right.equalTo(ss1.c229_mas_right).offset(-6);
+                make.bottom.equalTo(ss1.c229_mas_bottom).offset(-2);
+
+            }];
+            
+            [ssImg2 setImage:[self createImageByName:@"229line-9/229line-9-img2"]];
+            [ssImg2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(200, 200*93/617));
+                make.left.equalTo(ss2.c229_mas_left).offset(+8);
+                make.bottom.equalTo(ss2.c229_mas_bottom).offset(-3);
+            }];
+            
+            [ssImg3 setImage:[self createImageByName:@"229line-8/229line-8-img3"]];
+            [ssImg3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(160, 160*115/382));
+                make.right.equalTo(ss3.c229_mas_right).offset(-10);
+                make.top.equalTo(ss3.c229_mas_top).offset(+1);
+            }];
+
+            [ssBtn1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg1.c229_mas_left).offset(+15);
+                make.bottom.equalTo(ssImg1.c229_mas_top).offset(+25);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg2.c229_mas_left).offset(+115);
+                make.bottom.equalTo(ssImg2.c229_mas_top).offset(+15);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg3.c229_mas_left).offset(-10);
+                make.bottom.equalTo(ssImg3.c229_mas_top).offset(+43);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+            break;
+        }
+        case 27:{
+            ss1.frame = CGRectMake(_carImage.frame.origin.x+147, _carImage.frame.origin.y+130, 4, 4);
+            ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-180, _carImage.frame.origin.y+127, 4, 4);
+            
+            ss3.frame = CGRectMake(_carImage.frame.origin.x+163, _carImage.frame.origin.y+175, 4, 4);
+            [ssImg1 setImage:[self createImageByName:@"229line-1/229line-1-img1"]];
+            [ssImg1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(160, 160*153/445));
+                make.right.equalTo(ss1.c229_mas_right).offset(-6);
+                make.bottom.equalTo(ss1.c229_mas_bottom).offset(-2);
+
+            }];
+            
+            [ssImg2 setImage:[self createImageByName:@"229line-9/229line-9-img2"]];
+            [ssImg2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(200, 200*93/617));
+                make.left.equalTo(ss2.c229_mas_left).offset(+8);
+                make.bottom.equalTo(ss2.c229_mas_bottom).offset(-3);
+            }];
+            
+            [ssImg3 setImage:[self createImageByName:@"229line-8/229line-8-img3"]];
+            [ssImg3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(160, 160*115/382));
+                make.right.equalTo(ss3.c229_mas_right).offset(-10);
+                make.top.equalTo(ss3.c229_mas_top).offset(+1);
+            }];
+
+            [ssBtn1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg1.c229_mas_left).offset(+15);
+                make.bottom.equalTo(ssImg1.c229_mas_top).offset(+25);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg2.c229_mas_left).offset(+115);
+                make.bottom.equalTo(ssImg2.c229_mas_top).offset(+15);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg3.c229_mas_left).offset(-10);
+                make.bottom.equalTo(ssImg3.c229_mas_top).offset(+43);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+            break;
+        }
+        case 28:{
+            ss1.frame = CGRectMake(_carImage.frame.origin.x+147, _carImage.frame.origin.y+130, 4, 4);
+            ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-180, _carImage.frame.origin.y+127, 4, 4);
+            
+            ss3.frame = CGRectMake(_carImage.frame.origin.x+163, _carImage.frame.origin.y+175, 4, 4);
+            [ssImg1 setImage:[self createImageByName:@"229line-1/229line-1-img1"]];
+            [ssImg1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(160, 160*153/445));
+                make.right.equalTo(ss1.c229_mas_right).offset(-6);
+                make.bottom.equalTo(ss1.c229_mas_bottom).offset(-2);
+
+            }];
+            
+            [ssImg2 setImage:[self createImageByName:@"229line-9/229line-9-img2"]];
+            [ssImg2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(200, 200*93/617));
+                make.left.equalTo(ss2.c229_mas_left).offset(+8);
+                make.bottom.equalTo(ss2.c229_mas_bottom).offset(-3);
+            }];
+            
+            [ssImg3 setImage:[self createImageByName:@"229line-8/229line-8-img3"]];
+            [ssImg3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.size.c229_mas_equalTo(CGSizeMake(160, 160*115/382));
+                make.right.equalTo(ss3.c229_mas_right).offset(-10);
+                make.top.equalTo(ss3.c229_mas_top).offset(+1);
+            }];
+
+            [ssBtn1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg1.c229_mas_left).offset(+15);
+                make.bottom.equalTo(ssImg1.c229_mas_top).offset(+25);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg2.c229_mas_left).offset(+115);
+                make.bottom.equalTo(ssImg2.c229_mas_top).offset(+15);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
+
+            [ssBtn3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
+                make.left.equalTo(ssImg3.c229_mas_left).offset(-10);
+                make.bottom.equalTo(ssImg3.c229_mas_top).offset(+43);
+                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
+            }];
             break;
         }
         case 29:{
@@ -1494,144 +1642,6 @@
             break;
         }
         case 30:{
-            ss1.frame = CGRectMake(_carImage.frame.origin.x+147, _carImage.frame.origin.y+130, 4, 4);
-            ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-180, _carImage.frame.origin.y+127, 4, 4);
-            
-            ss3.frame = CGRectMake(_carImage.frame.origin.x+163, _carImage.frame.origin.y+175, 4, 4);
-            [ssImg1 setImage:[self createImageByName:@"229line-1/229line-1-img1"]];
-            [ssImg1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.size.c229_mas_equalTo(CGSizeMake(160, 160*153/445));
-                make.right.equalTo(ss1.c229_mas_right).offset(-6);
-                make.bottom.equalTo(ss1.c229_mas_bottom).offset(-2);
-
-            }];
-            
-            [ssImg2 setImage:[self createImageByName:@"229line-9/229line-9-img2"]];
-            [ssImg2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.size.c229_mas_equalTo(CGSizeMake(200, 200*93/617));
-                make.left.equalTo(ss2.c229_mas_left).offset(+8);
-                make.bottom.equalTo(ss2.c229_mas_bottom).offset(-3);
-            }];
-            
-            [ssImg3 setImage:[self createImageByName:@"229line-8/229line-8-img3"]];
-            [ssImg3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.size.c229_mas_equalTo(CGSizeMake(160, 160*115/382));
-                make.right.equalTo(ss3.c229_mas_right).offset(-10);
-                make.top.equalTo(ss3.c229_mas_top).offset(+1);
-            }];
-
-            [ssBtn1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.left.equalTo(ssImg1.c229_mas_left).offset(+15);
-                make.bottom.equalTo(ssImg1.c229_mas_top).offset(+25);
-                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
-            }];
-
-            [ssBtn2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.left.equalTo(ssImg2.c229_mas_left).offset(+115);
-                make.bottom.equalTo(ssImg2.c229_mas_top).offset(+15);
-                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
-            }];
-
-            [ssBtn3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.left.equalTo(ssImg3.c229_mas_left).offset(-10);
-                make.bottom.equalTo(ssImg3.c229_mas_top).offset(+43);
-                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
-            }];
-            break;
-        }
-        case 31:{
-            ss1.frame = CGRectMake(_carImage.frame.origin.x+147, _carImage.frame.origin.y+130, 4, 4);
-            ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-180, _carImage.frame.origin.y+127, 4, 4);
-            
-            ss3.frame = CGRectMake(_carImage.frame.origin.x+163, _carImage.frame.origin.y+175, 4, 4);
-            [ssImg1 setImage:[self createImageByName:@"229line-1/229line-1-img1"]];
-            [ssImg1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.size.c229_mas_equalTo(CGSizeMake(160, 160*153/445));
-                make.right.equalTo(ss1.c229_mas_right).offset(-6);
-                make.bottom.equalTo(ss1.c229_mas_bottom).offset(-2);
-
-            }];
-            
-            [ssImg2 setImage:[self createImageByName:@"229line-9/229line-9-img2"]];
-            [ssImg2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.size.c229_mas_equalTo(CGSizeMake(200, 200*93/617));
-                make.left.equalTo(ss2.c229_mas_left).offset(+8);
-                make.bottom.equalTo(ss2.c229_mas_bottom).offset(-3);
-            }];
-            
-            [ssImg3 setImage:[self createImageByName:@"229line-8/229line-8-img3"]];
-            [ssImg3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.size.c229_mas_equalTo(CGSizeMake(160, 160*115/382));
-                make.right.equalTo(ss3.c229_mas_right).offset(-10);
-                make.top.equalTo(ss3.c229_mas_top).offset(+1);
-            }];
-
-            [ssBtn1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.left.equalTo(ssImg1.c229_mas_left).offset(+15);
-                make.bottom.equalTo(ssImg1.c229_mas_top).offset(+25);
-                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
-            }];
-
-            [ssBtn2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.left.equalTo(ssImg2.c229_mas_left).offset(+115);
-                make.bottom.equalTo(ssImg2.c229_mas_top).offset(+15);
-                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
-            }];
-
-            [ssBtn3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.left.equalTo(ssImg3.c229_mas_left).offset(-10);
-                make.bottom.equalTo(ssImg3.c229_mas_top).offset(+43);
-                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
-            }];
-            break;
-        }
-        case 32:{
-            ss1.frame = CGRectMake(_carImage.frame.origin.x+147, _carImage.frame.origin.y+130, 4, 4);
-            ss2.frame = CGRectMake(_carImage.frame.origin.x+_carImage.frame.size.width-180, _carImage.frame.origin.y+127, 4, 4);
-            
-            ss3.frame = CGRectMake(_carImage.frame.origin.x+163, _carImage.frame.origin.y+175, 4, 4);
-            [ssImg1 setImage:[self createImageByName:@"229line-1/229line-1-img1"]];
-            [ssImg1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.size.c229_mas_equalTo(CGSizeMake(160, 160*153/445));
-                make.right.equalTo(ss1.c229_mas_right).offset(-6);
-                make.bottom.equalTo(ss1.c229_mas_bottom).offset(-2);
-
-            }];
-            
-            [ssImg2 setImage:[self createImageByName:@"229line-9/229line-9-img2"]];
-            [ssImg2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.size.c229_mas_equalTo(CGSizeMake(200, 200*93/617));
-                make.left.equalTo(ss2.c229_mas_left).offset(+8);
-                make.bottom.equalTo(ss2.c229_mas_bottom).offset(-3);
-            }];
-            
-            [ssImg3 setImage:[self createImageByName:@"229line-8/229line-8-img3"]];
-            [ssImg3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.size.c229_mas_equalTo(CGSizeMake(160, 160*115/382));
-                make.right.equalTo(ss3.c229_mas_right).offset(-10);
-                make.top.equalTo(ss3.c229_mas_top).offset(+1);
-            }];
-
-            [ssBtn1 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.left.equalTo(ssImg1.c229_mas_left).offset(+15);
-                make.bottom.equalTo(ssImg1.c229_mas_top).offset(+25);
-                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
-            }];
-
-            [ssBtn2 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.left.equalTo(ssImg2.c229_mas_left).offset(+115);
-                make.bottom.equalTo(ssImg2.c229_mas_top).offset(+15);
-                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
-            }];
-
-            [ssBtn3 c229_mas_makeConstraints:^(C229CAR_MASConstraintMaker *make) {
-                make.left.equalTo(ssImg3.c229_mas_left).offset(-10);
-                make.bottom.equalTo(ssImg3.c229_mas_top).offset(+43);
-                make.size.c229_mas_equalTo(CGSizeMake(100, 30));
-            }];
-            break;
-        }
-        case 33:{
             
             [ss1 removeFromSuperview];
             [ssImg1 removeFromSuperview];
@@ -1673,7 +1683,7 @@
             
             break;
         }
-        case 34:{
+        case 31:{
             
             [ss1 removeFromSuperview];
             [ssImg1 removeFromSuperview];
@@ -1715,7 +1725,7 @@
             
             break;
         }
-        case 35:{
+        case 32:{
             
             [ss1 removeFromSuperview];
             [ssImg1 removeFromSuperview];
@@ -1757,7 +1767,7 @@
             
             break;
         }
-        case 36:{
+        case 33:{
             
             [ss1 removeFromSuperview];
             [ssImg1 removeFromSuperview];
@@ -1807,8 +1817,8 @@
 }
 - (void)goJump:(TagBtn *)btn{
     
- 
-        NSDictionary *all = [self readLocalFileWithName:@"229_news"];
+    NSString *newName = [NSString stringWithFormat:@"%@_news",_carID];
+        NSDictionary *all = [self readLocalFileWithName:newName];
         NSArray *array = [all objectForKey:@"RECORDS"];
     NSString *itemID;
     if ([btn.myTitle isEqualToString:@"轮胎/车轮"]) {
@@ -2006,7 +2016,20 @@
     [ssBtn2 addTarget:self action:@selector(goJump:) forControlEvents:UIControlEventTouchUpInside];
     [ssBtn3 addTarget:self action:@selector(goJump:) forControlEvents:UIControlEventTouchUpInside];
 }
-
+- (UIImage *)get360ImageByName:(NSString *)name{
+    NSString *localKey = [NSString stringWithFormat:@"%@localResource",_carID];
+    NSString *imageFile = [[NSUserDefaults standardUserDefaults] objectForKey:localKey];
+    NSString *fileAdd;
+    if ([_carID isEqualToString:@"C229"]) {
+        fileAdd = [NSString stringWithFormat:@"%@/c229-36images",imageFile];
+    }else if([_carID isEqualToString:@"E115"]){
+        fileAdd = [NSString stringWithFormat:@"%@/e115-36images",imageFile];
+    }
+    NSString *theImageFile = [NSString stringWithFormat:@"%@/%@",fileAdd,name];
+    UIImage *image = [UIImage imageWithContentsOfFile:theImageFile];
+    
+    return image;
+}
 -(UIImage *) createImageByName:(NSString*)sName{
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];
     NSURL *bundleURL = [bundle URLForResource:@"HSC229CarResource" withExtension:@"bundle"];

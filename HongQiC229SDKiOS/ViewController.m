@@ -43,13 +43,15 @@
 
     ElectronicManualViewController *vc = [[ElectronicManualViewController alloc] init];
     vc.modalPresentationStyle = 0;
+    vc.carID = @"C229";
     [self presentViewController:vc animated:NO completion:nil];
     
 }
 - (void)e115buttonClick{
-//    E115LoadingViewController *vc = [[E115LoadingViewController alloc] init];
-//    vc.modalPresentationStyle = 0;
-//    [self presentViewController:vc animated:NO completion:nil];
+    ElectronicManualViewController *vc = [[ElectronicManualViewController alloc] init];
+    vc.modalPresentationStyle = 0;
+    vc.carID = @"E115";
+    [self presentViewController:vc animated:NO completion:nil];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

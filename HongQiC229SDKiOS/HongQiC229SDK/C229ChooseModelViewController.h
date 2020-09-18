@@ -11,7 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface C229ChooseModelViewController : UIViewController
-
+@property (nonatomic, strong)NSString *carID;
+@property (nonatomic, strong)NSArray *settingArr;
 @end
 
 NS_ASSUME_NONNULL_END
