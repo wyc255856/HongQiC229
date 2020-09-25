@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HQ229MainViewController : UIViewController
+@property (nonatomic, strong) NSDictionary *dataDic;
 @property (nonatomic, strong) NSString *carID;
 @end
 

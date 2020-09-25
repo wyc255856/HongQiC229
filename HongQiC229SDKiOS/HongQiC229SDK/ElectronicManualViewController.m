@@ -41,7 +41,9 @@
 -(BOOL)shouldAutorotate {
     return NO;
 }
-
+- (void)dealloc{
+    
+}
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     UIImageView *back = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
@@ -85,7 +87,7 @@
         
         [self downLoadJson];
        
-        
+    
     } enError:^(NSError * _Nonnull error) {
         C229NetWorkFailViewController *fail =[[C229NetWorkFailViewController alloc] init];
         [fail addBtn:2];
@@ -194,7 +196,8 @@
 
 - (void)jumpMain{
     HQ229MainViewController *vc = [[HQ229MainViewController alloc] init];
-    vc.carID = self.carID;
+    vc.dataDic = updateResponse;
+    
     [self presentViewController:vc animated:NO completion:nil];
 }
 - (void)disMiss{

@@ -20,9 +20,12 @@
 - (id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     self.backgroundColor = [UIColor clearColor];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(closeKeyboard) name:@"closeKeyboard" object:nil];
     
     return self;
+}
+- (void)closeKeyboard{
+    [searchTf resignFirstResponder];
 }
 - (void)setCarID:(NSString *)carID{
     _carID = carID;

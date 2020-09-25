@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSArray <NSString *>*dataArray;
 @property (nonatomic, strong) NSArray <NSString *>*sectionArray;
 @property (nonatomic, strong) NSString *carID;
+
 @end
 
 NS_ASSUME_NONNULL_END

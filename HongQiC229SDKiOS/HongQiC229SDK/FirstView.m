@@ -98,7 +98,7 @@
     if ([self.carID isEqualToString:@"C229"]) {
         [_carImage setImage:[self get360ImageByName:[NSString stringWithFormat:@"c229_car_%d",total]]];
     }else{
-        [_carImage setImage:[self get360ImageByName:[NSString stringWithFormat:@"hq115-%d",total]]];
+        [_carImage setImage:[self get360ImageByName:[NSString stringWithFormat:@"e115_car_%d",total]]];
     }
     
     [self addSubview:_carImage];
@@ -130,9 +130,9 @@
 - (void)changeImage{
     
     if ([self.carID isEqualToString:@"C229"]) {
-        [_carImage setImage:[self get360ImageByName:[NSString stringWithFormat:@"hq229-%d",total]]];
+        [_carImage setImage:[self get360ImageByName:[NSString stringWithFormat:@"c229_car_%d",total]]];
     }else{
-        [_carImage setImage:[self get360ImageByName:[NSString stringWithFormat:@"hq115-%d",total]]];
+        [_carImage setImage:[self get360ImageByName:[NSString stringWithFormat:@"e115_car_%d",total]]];
     }
 }
 - (void)addScrollView{

@@ -14,11 +14,15 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor clearColor];
-        [self setWebView];
+        
     }
     
     return self;
     
+}
+- (void)setDataDic:(NSDictionary *)dataDic{
+    _dataDic = dataDic;
+    [self setWebView];
 }
 - (void)setWebView{
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];
@@ -36,7 +40,7 @@
     NSURLRequest *req = [NSURLRequest requestWithURL:[NSURL URLWithString:str]];
     web.delegate = self;
     
-    NSURLRequest *reqWeb = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.haoweisys.com/c229_360/"]];
+    NSURLRequest *reqWeb = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",_dataDic[@"trim_web_url"]]]];
 
     [self addSubview:web];
     self.clipsToBounds = YES;
@@ -51,7 +55,7 @@
         NSString *newId = [str substringFromIndex:7];
         
         NSLog(@"%@",newId);
-        NSDictionary *all = [self readLocalFileWithName:@"229_news"];
+        NSDictionary *all = [self readLocalFileWithName:[NSString stringWithFormat:@"%@_news",_dataDic[@"car_name"]]];
         NSArray *array = [all objectForKey:@"RECORDS"];
         
         for (NSDictionary *d in array) {

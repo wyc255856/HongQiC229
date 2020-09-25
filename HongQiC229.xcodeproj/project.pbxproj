@@ -87,6 +87,7 @@
 		744F65E124347A78007E7C11 /* C229SectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 744F65E024347A78007E7C11 /* C229SectionHeader.m */; };
 		748EDCF82457F854002AF29A /* C229ChooseModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 748EDCF72457F854002AF29A /* C229ChooseModelViewController.m */; };
 		74927CB524FC98D500A989C1 /* DownLoadViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74927CB424FC98D500A989C1 /* DownLoadViewViewController.m */; };
+		7493E6FC251DDD98008F7866 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7493E6FB251DDD98008F7866 /* README.md */; };
 		74951EB62499AF7200608B54 /* MXCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 74951EB42499AF7200608B54 /* MXCollectionViewLayout.m */; };
 		74951EB92499AF9100608B54 /* MXCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 74951EB82499AF9100608B54 /* MXCollectionView.m */; };
 		74951EBC2499AFB900608B54 /* MXCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 74951EBA2499AFB900608B54 /* MXCollectionReusableView.m */; };
@@ -281,6 +282,7 @@
 		748EDCF72457F854002AF29A /* C229ChooseModelViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = C229ChooseModelViewController.m; sourceTree = "<group>"; };
 		74927CB424FC98D500A989C1 /* DownLoadViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownLoadViewViewController.m; sourceTree = "<group>"; };
 		74927CB624FC98E000A989C1 /* DownLoadViewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DownLoadViewViewController.h; sourceTree = "<group>"; };
+		7493E6FB251DDD98008F7866 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		74951EB42499AF7200608B54 /* MXCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXCollectionViewLayout.m; sourceTree = "<group>"; };
 		74951EB52499AF7200608B54 /* MXCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXCollectionViewLayout.h; sourceTree = "<group>"; };
 		74951EB72499AF9100608B54 /* MXCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXCollectionView.h; sourceTree = "<group>"; };
@@ -498,6 +500,7 @@
 		53AEC6CB23FE7AE90076BECD /* HongQiC229SDK */ = {
 			isa = PBXGroup;
 			children = (
+				7493E6FB251DDD98008F7866 /* README.md */,
 				74927CB624FC98E000A989C1 /* DownLoadViewViewController.h */,
 				74927CB424FC98D500A989C1 /* DownLoadViewViewController.m */,
 				74CFC78B24C895D400D45D05 /* c229YYImage */,
@@ -699,6 +702,7 @@
 				5310ED9A2403EE4000EE0707 /* Info.plist in Resources */,
 				53B6024D21002819000DAC14 /*  Default@2x.png in Resources */,
 				53B6024C21002819000DAC14 /* Default-568h.png in Resources */,
+				7493E6FC251DDD98008F7866 /* README.md in Resources */,
 				53B6024E210028DE000DAC14 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -50,6 +50,11 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    
+}
+- (void)setDataDic:(NSDictionary *)dataDic{
+    _dataDic = dataDic;
+    _carID = [NSString stringWithFormat:@"%@",dataDic[@"car_name"]];
     [self initNetWork];
 }
 - (void)initNetWork{
@@ -87,6 +92,7 @@
     top.carType = @"c229";
     [top reset];
     top.seleced = ^(NSInteger index) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"closeKeyboard" object:nil];
         myScrollView.contentOffset = CGPointMake(index *kScreenWidth, 0);
     };
     //closeBtn
@@ -170,6 +176,7 @@
     [myScrollView addSubview:second];
 //
     third = [[ThirdView alloc] initWithFrame:CGRectMake(kScreenWidth*2, 0, kScreenWidth, kScreenHeight-TopHeight)];
+    third.dataDic = self.dataDic;
     third.jumpToDetail = ^(NSDictionary * dataDic) {
         if ([[NSString stringWithFormat:@"%@",dataDic[@"id"]] isEqualToString:@"213"]) {
             [self openNewWeb];

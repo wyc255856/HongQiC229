@@ -60,9 +60,16 @@
     NSMutableArray *scArr = [NSMutableArray array];
     
     for (NSDictionary *ds in catArr) {
-        if ([[NSString stringWithFormat:@"%@",ds[@"parentid"]] isEqualToString:@"1869"]) {
-            [scArr addObject:ds];
+        if ([self.carID isEqualToString:@"C229"]) {
+            if ([[NSString stringWithFormat:@"%@",ds[@"parentid"]] isEqualToString:@"1869"]) {
+                [scArr addObject:ds];
+            }
+        }else if ([self.carID isEqualToString:@"E115"]){
+            if ([[NSString stringWithFormat:@"%@",ds[@"parentid"]] isEqualToString:@"17"]) {
+                [scArr addObject:ds];
+            }
         }
+        
     }
     leftArr = [NSMutableArray array];
     for (NSDictionary *dc in scArr) {

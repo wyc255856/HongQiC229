@@ -58,11 +58,20 @@
     NSMutableArray *catIdArr = [NSMutableArray array];
     cateGGArr = [NSMutableArray array];
     for (NSDictionary *ds in catArr) {
-        if ([[NSString stringWithFormat:@"%@",ds[@"parentid"]] isEqualToString:@"1855"]) {
-            
-            [catIdArr addObject:[NSString stringWithFormat:@"%@",ds[@"catid"]]];
-            [cateGGArr addObject:ds];
+        if ([self.carID isEqualToString:@"C229"]) {
+            if ([[NSString stringWithFormat:@"%@",ds[@"parentid"]] isEqualToString:@"1855"]) {
+                
+                [catIdArr addObject:[NSString stringWithFormat:@"%@",ds[@"catid"]]];
+                [cateGGArr addObject:ds];
+            }
+        }else if ([self.carID isEqualToString:@"E115"]){
+            if ([[NSString stringWithFormat:@"%@",ds[@"parentid"]] isEqualToString:@"1"]) {
+                
+                [catIdArr addObject:[NSString stringWithFormat:@"%@",ds[@"catid"]]];
+                [cateGGArr addObject:ds];
+            }
         }
+        
     }
     
     leftArr = catIdArr;
