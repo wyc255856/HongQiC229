@@ -178,7 +178,7 @@
     third = [[ThirdView alloc] initWithFrame:CGRectMake(kScreenWidth*2, 0, kScreenWidth, kScreenHeight-TopHeight)];
     third.dataDic = self.dataDic;
     third.jumpToDetail = ^(NSDictionary * dataDic) {
-        if ([[NSString stringWithFormat:@"%@",dataDic[@"id"]] isEqualToString:@"213"]) {
+        if ([[NSString stringWithFormat:@"%@",dataDic[@"id"]] isEqualToString:@"213"]||[[NSString stringWithFormat:@"%@",dataDic[@"id"]] isEqualToString:@"205"]) {
             [self openNewWeb];
             return;
         }
@@ -284,18 +284,16 @@
 }
 -(void)openNewWeb{
         web = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
-        NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-        NSURL *bundleURL = [bundle URLForResource:@"HSC229CarResource" withExtension:@"bundle"];
-        NSBundle *resourceBundle = [NSBundle bundleWithURL: bundleURL];
 
-        NSString *str = [resourceBundle pathForResource:@"webmobile/index" ofType:@"html"];
-    NSString *xxx = [NSString stringWithFormat:@"%@",bundleURL];
-    NSString *yyy = [xxx stringByAppendingFormat:@"carGame/web_mobile/index.html"];
+
+        NSString *str = [NSString stringWithFormat:@"%@",_dataDic[@"game_web_url"]];
+    
+    
         NSURLRequest *req = [NSURLRequest requestWithURL:[NSURL URLWithString:str]];
 //         web.delegate = self;
 
         [self.view addSubview:web];
-
+    web.backgroundColor = [UIColor blackColor];
         UIButton *closeBtn = [[UIButton alloc] initWithFrame:CGRectMake(16, 19, 13, 19)];
         [closeBtn setImage:[self createImageByName:@"neirongguanbianniu"] forState:UIControlStateNormal];
         [closeBtn addTarget:self action:@selector(closeAction) forControlEvents:UIControlEventTouchUpInside];

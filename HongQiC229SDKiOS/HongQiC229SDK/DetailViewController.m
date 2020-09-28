@@ -67,9 +67,10 @@
         NSString *key = [NSString stringWithFormat:@"template%d",i];
         NSString *value = [NSString stringWithFormat:@"%@",dataDic[key]];
         if ([value isEqualToString:@"-1"]) {
-            break;
+            
+        }else{
+            [temArr addObject:value];
         }
-        [temArr addObject:value];
     }
     
     dataArr = temArr;
@@ -128,6 +129,7 @@
     pageControl.numberOfPages = dataArr.count;
     [backView addSubview:myScroll];
     [backView addSubview:pageControl];
+    myScroll.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     if (dataArr.count==1) {
         pageControl.hidden = YES;
     }
@@ -139,6 +141,8 @@
             [self addWenBen:i];
         }else if ([type isEqualToString:@"3"]){
             [self addTuPian:i];
+        }else if ([type isEqualToString:@"5"]){
+            [self addUpDownTuWen:i];
         }
     }
 }
@@ -189,6 +193,61 @@
     [webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByTagName('body')[0].style.webkitTextFillColor= 'white'"];
     //页面背景色
     [webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByTagName('body')[0].style.background='rgba(113,255,255,0)'"];
+}
+- (void)addUpDownTuWen:(int)xx{
+    UIView *bk = [[UIView alloc]initWithFrame:CGRectMake((xx-1)*myScroll.frame.size.width, 0, myScroll.frame.size.width, myScroll.frame.size.height)];
+    
+    NSString *key = [NSString stringWithFormat:@"image%d",xx];
+    NSString *iPath = [NSString stringWithFormat:@"%@",allDic[key]];
+    NSString *file = [NSString stringWithFormat:@"%@/%@",C229HttpServer,iPath];
+
+    UIImageView *image = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
+    
+    [image yy_setImageWithURL:[NSURL URLWithString:file] placeholder:nil options:nil completion:^(UIImage * _Nullable pimage, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
+        if (error) {
+//
+            image.frame = CGRectMake(31, 0, myScroll.frame.size.width-62+4, myScroll.frame.size.height);
+            [image setImage:[AppManager createImageByName:@"c229chuntuPlace"]];
+            [bk addSubview:image];
+            [myScroll addSubview:bk];
+        }else{
+            
+            image.frame = CGRectMake(0, 0, myScroll.frame.size.width-62+4, (myScroll.frame.size.width)*pimage.size.height/pimage.size.width);
+            image.backgroundColor = [UIColor clearColor];
+            UIScrollView *imageScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(31, 0, myScroll.frame.size.width-62, myScroll.frame.size.height)];
+
+            imageScroll.contentSize = CGSizeMake(image.frame.size.width-62, scrollHEIGHT*2.5);
+                imageScroll.indicatorStyle = UIScrollViewIndicatorStyleWhite;
+                [imageScroll setBounces:NO];
+                [imageScroll addSubview:image];
+                [bk addSubview:imageScroll];
+            
+            
+                NSString *cKey = [NSString stringWithFormat:@"content%d_app",xx];
+                 
+                 NSString *contentStr = [NSString stringWithFormat:@"%@",allDic[cKey]];
+                
+            UIWebView *web = [[UIWebView alloc] initWithFrame:CGRectMake(0, image.frame.size.height+20, myScroll.frame.size.width-62, scrollHEIGHT*1.5)];
+                 [web loadHTMLString:contentStr baseURL:nil];
+                 web.backgroundColor = [UIColor clearColor];
+                 web.opaque = NO; //不设置这个值 页面背景始终是白色
+                 for (UIView *subView in [web subviews])
+                 {
+                     if ([subView isKindOfClass:[UIScrollView class]])
+                     {
+                         UIScrollView *sc = (UIScrollView *)subView;
+                         sc.indicatorStyle = UIScrollViewIndicatorStyleWhite;
+                         [sc setBounces:NO];
+                     }
+                 }
+                 web.delegate = self;
+                 [imageScroll addSubview:web];
+                 
+                 [myScroll addSubview:bk];
+        }
+    }];
+     
+     
 }
 - (void)addWenBen:(int)xx{
     UIView *bk = [[UIView alloc]initWithFrame:CGRectMake(myScroll.frame.size.width*(xx-1), 0, myScroll.frame.size.width, myScroll.frame.size.height)];

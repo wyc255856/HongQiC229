@@ -116,7 +116,7 @@
     
     leftScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 30, 128, 300)];
     leftScroll.showsVerticalScrollIndicator = NO;
-    leftScroll.contentSize = CGSizeMake(128, 48*12);
+    leftScroll.contentSize = CGSizeMake(128, 48*cateGGArr.count);
     [self addSubview: leftScroll];
     
 //    [leftScroll addSubview: selImage];
@@ -348,7 +348,7 @@
     }
 
     if (ySet>=scrollView.contentSize.height-scrollView.frame.size.height-10) {
-        [self reSetLeftView:11];
+        [self reSetLeftView:cateGGArr.count-1];
     }
     
     
