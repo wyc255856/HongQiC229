@@ -19,7 +19,6 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
 }
 - (void)loadWithData:(NSDictionary *)dic andStr:(NSString *)keyWords:(NSString *)type;{
     NSString *title = [NSString stringWithFormat:@"%@",dic[@"title"]];

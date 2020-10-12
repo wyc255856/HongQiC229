@@ -69,8 +69,9 @@
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     [searchTf resignFirstResponder];
-    
-    [self searchGo:textField.text];
+    if (textField.text.length>0) {
+        [self searchGo:textField.text];
+    }
     return YES;
 }
 - (void)searchX{

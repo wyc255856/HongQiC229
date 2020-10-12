@@ -284,7 +284,6 @@
 - (void)reSetTagBtn:(int)x{
     switch (x) {
         
-        
         case 1:
             ssBtn1 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
             if ([_carID isEqualToString:@"C229"]) {
@@ -313,7 +312,12 @@
         ssBtn1 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
         [ssBtn1 setImage:@"229-360-icon/229-360-houshijing" AndTitle:@"外后视镜"];
         ssBtn2 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
-        [ssBtn2 setImage:@"229-360-icon/229-360-chemen" AndTitle:@"天窗"];
+        
+            if ([self.carID isEqualToString:@"E115"]) {
+                [ssBtn2 setImage:@"229-360-icon/229-360-chemen" AndTitle:@"天窗"];
+            }else if ([self.carID isEqualToString:@"C229"]){
+                [ssBtn2 setImage:@"229-360-icon/229-360-chemen" AndTitle:@"车门"];
+            }
         ssBtn3 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
         [ssBtn3 setImage:@"229-360-icon/229-360-chelun" AndTitle:@"轮胎/车轮"];
         break;
@@ -339,14 +343,32 @@
         case 13:
         case 14:
         case 15:
-        case 16:
             ssBtn1 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
-            [ssBtn1 setImage:@"229-360-icon/229-360-houshijing" AndTitle:@"行李箱盖"];
+            [ssBtn1 setImage:@"229-360-icon/229-360-houshijing" AndTitle:@"外后视镜"];
             ssBtn2 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
-            [ssBtn2 setImage:@"229-360-icon/229-360-houbeixiang" AndTitle:@"外后视镜"];
+            [ssBtn2 setImage:@"229-360-icon/229-360-houbeixiang" AndTitle:@"行李箱盖"];
             ssBtn3 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
             [ssBtn3 setImage:@"229-360-icon/229-360-chemen" AndTitle:@"车门"];
             break;
+        case 16:
+            if ([self.carID isEqualToString:@"C229"]) {
+                ssBtn1 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
+                [ssBtn1 setImage:@"229-360-icon/229-360-houshijing" AndTitle:@"外后视镜"];
+                ssBtn2 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
+                [ssBtn2 setImage:@"229-360-icon/229-360-houbeixiang" AndTitle:@"行李箱盖"];
+                ssBtn3 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
+                [ssBtn3 setImage:@"229-360-icon/229-360-chemen" AndTitle:@"车门"];
+                break;
+            }else if ([self.carID isEqualToString:@"E115"]){
+                ssBtn1 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
+                [ssBtn1 setImage:@"229-360-icon/229-360-houshijing" AndTitle:@"行李箱盖"];
+                ssBtn2 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
+                [ssBtn2 setImage:@"229-360-icon/229-360-houbeixiang" AndTitle:@"外后视镜"];
+                ssBtn3 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
+                [ssBtn3 setImage:@"229-360-icon/229-360-chemen" AndTitle:@"车门"];
+                break;
+            }
+            
         
         case 17:
             ssBtn1 = [[TagBtn alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];

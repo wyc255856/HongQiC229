@@ -1,5 +1,5 @@
 # c229/e115电子手册
-1.4.5版本(2020.09.25)
+1.4.6版本(2020.09.28)
 集成方法
 c229:
 ElectronicManualViewController *vc = [[ElectronicManualViewController alloc] init];
