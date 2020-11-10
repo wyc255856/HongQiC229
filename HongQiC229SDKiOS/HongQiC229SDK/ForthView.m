@@ -64,12 +64,12 @@
             if ([[NSString stringWithFormat:@"%@",ds[@"parentid"]] isEqualToString:@"1869"]) {
                 [scArr addObject:ds];
             }
-        }else if ([self.carID isEqualToString:@"E115"]){
+        }else if (  [self.carID isEqualToString:@"E115"]){
             if ([[NSString stringWithFormat:@"%@",ds[@"parentid"]] isEqualToString:@"17"]) {
                 [scArr addObject:ds];
             }
         }
-        
+         
     }
     leftArr = [NSMutableArray array];
     for (NSDictionary *dc in scArr) {
@@ -91,14 +91,13 @@
     }
     
     
-//    leftArr = scArr;
     NSString *newsStr = [NSString stringWithFormat:@"%@_news",_carID];
     NSDictionary *newdic = [self readLocalFileWithName:newsStr];
     NSArray *newArr = newdic[@"RECORDS"];
     cellArr0 = [NSMutableArray array];
     cellArr1 = [NSMutableArray array];
     cellArr2 = [NSMutableArray array];
-    cellArr3 = [NSMutableArray array];
+    cellArr3 = [NSMutableArray array]; 
     cellArr4 = [NSMutableArray array];
     allDic = [NSMutableDictionary dictionary];
     NSString *chooseStr = [NSString stringWithFormat:@"%@ModelChoose",_carID];
