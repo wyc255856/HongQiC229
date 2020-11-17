@@ -11,8 +11,9 @@
 
 #import <AVFoundation/AVFoundation.h>
 #import "ShanShuoView.h"
+#import <WebKit/WebKit.h>
 
-@interface DetailViewController ()<UIScrollViewDelegate,UIWebViewDelegate>
+@interface DetailViewController ()<UIScrollViewDelegate,WKNavigationDelegate,WKUIDelegate>
 @property (strong, nonatomic)AVPlayer *myPlayer;//播放器
 @property (strong, nonatomic)AVPlayerItem *item;//播放单元
 @property (strong, nonatomic)AVPlayerLayer *playerLayer;//播放界面（layer）
@@ -167,7 +168,7 @@
     
     NSString *contentStr = [NSString stringWithFormat:@"%@",allDic[cKey]];
    
-    UIWebView *web = [[UIWebView alloc] initWithFrame:CGRectMake(31+scrollHEIGHT+20, 0, myScroll.frame.size.width-31-scrollHEIGHT-20-20, scrollHEIGHT)];
+    WKWebView *web = [[WKWebView alloc] initWithFrame:CGRectMake(31+scrollHEIGHT+20, 0, myScroll.frame.size.width-31-scrollHEIGHT-20-20, scrollHEIGHT)];
     [web loadHTMLString:contentStr baseURL:nil];
     web.backgroundColor = [UIColor clearColor];
     web.opaque = NO; //不设置这个值 页面背景始终是白色
@@ -180,10 +181,23 @@
             [sc setBounces:NO];
         }
     }
-    web.delegate = self;
+    web.UIDelegate = self;
+    web.navigationDelegate = self;
     [bk addSubview:web];
     
     [myScroll addSubview:bk];
+    
+}
+-(void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
+// 设置字体
+    NSString *fontFamilyStr = @"document.getElementsByTagName('body')[0].style.fontFamily='Arial';";
+    [webView evaluateJavaScript:fontFamilyStr completionHandler:nil];
+//设置颜色
+    [ webView evaluateJavaScript:@"document.getElementsByTagName('body')[0].style.webkitTextFillColor= 'white'" completionHandler:nil];
+//修改字体大小
+    [ webView evaluateJavaScript:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '200%'"completionHandler:nil];
+    [ webView evaluateJavaScript:@"document.getElementsByTagName('body')[0].style.background='rgba(113,255,255,0)'" completionHandler:nil];
+    
     
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
@@ -227,7 +241,7 @@
                  
                  NSString *contentStr = [NSString stringWithFormat:@"%@",allDic[cKey]];
                 
-            UIWebView *web = [[UIWebView alloc] initWithFrame:CGRectMake(0, image.frame.size.height+20, myScroll.frame.size.width-62, scrollHEIGHT*1.5)];
+            WKWebView *web = [[WKWebView alloc] initWithFrame:CGRectMake(0, image.frame.size.height+20, myScroll.frame.size.width-62, scrollHEIGHT*1.5)];
                  [web loadHTMLString:contentStr baseURL:nil];
                  web.backgroundColor = [UIColor clearColor];
                  web.opaque = NO; //不设置这个值 页面背景始终是白色
@@ -240,7 +254,8 @@
                          [sc setBounces:NO];
                      }
                  }
-                 web.delegate = self;
+                 web.UIDelegate = self;
+                web.navigationDelegate = self;
                  [imageScroll addSubview:web];
                  
                  [myScroll addSubview:bk];

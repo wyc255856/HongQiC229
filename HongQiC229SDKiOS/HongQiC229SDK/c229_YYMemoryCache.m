@@ -288,7 +288,7 @@ static inline dispatch_queue_t YYMemoryCacheGetReleaseQueue() {
             }
             pthread_mutex_unlock(&_lock);
         } else {
-            usleep(10 * 1000); //10 ms
+            usleep(10 * 1000); //10
         }
     }
     if (holder.count) {

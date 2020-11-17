@@ -20,6 +20,7 @@
 #import "C229NetWorkFailViewController.h"
 #import "DetailViewController.h"
 #import "C229ChooseModelViewController.h"
+#import <WebKit/WebKit.h>
 @interface HQ229MainViewController ()
 
 @end
@@ -27,7 +28,7 @@
 @implementation HQ229MainViewController
 {
     UIScrollView *myScrollView;
-    UIWebView *web;
+    WKWebView *web;
     ThirdView *third;
     NSArray *settingArr;
 }
@@ -283,7 +284,8 @@
     return image;
 }
 -(void)openNewWeb{
-        web = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
+        
+        web = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
 
 
         NSString *str = [NSString stringWithFormat:@"%@",_dataDic[@"game_web_url"]];

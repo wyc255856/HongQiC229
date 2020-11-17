@@ -26,8 +26,8 @@
             filePath = "HongQiC229SDKiOS/HongQiC229SDK/HQ229MainViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "289"
-            endingLineNumber = "289"
+            startingLineNumber = "291"
+            endingLineNumber = "291"
             landmarkName = "-openNewWeb"
             landmarkType = "7">
          </BreakpointContent>
@@ -70,8 +70,8 @@
             filePath = "HongQiC229SDKiOS/HongQiC229SDK/DetailViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "205"
-            endingLineNumber = "205"
+            startingLineNumber = "219"
+            endingLineNumber = "219"
             landmarkName = "-addUpDownTuWen:"
             landmarkType = "7">
             <Locations>
@@ -86,8 +86,8 @@
                   urlString = "file:///Users/lizhuoxuan/Desktop/229%E6%8B%B7%E8%B4%9D%E5%8C%85/HongQiC229/HongQiC229SDKiOS/HongQiC229SDK/DetailViewController.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "206"
-                  endingLineNumber = "206"
+                  startingLineNumber = "220"
+                  endingLineNumber = "220"
                   offsetFromSymbolStart = "912">
                </Location>
                <Location
@@ -101,8 +101,8 @@
                   urlString = "file:///Users/lizhuoxuan/Desktop/229%E6%8B%B7%E8%B4%9D%E5%8C%85/HongQiC229/HongQiC229SDKiOS/HongQiC229SDK/DetailViewController.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "207"
-                  endingLineNumber = "207"
+                  startingLineNumber = "221"
+                  endingLineNumber = "221"
                   offsetFromSymbolStart = "204">
                </Location>
             </Locations>
@@ -127,32 +127,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CA166833-6706-47EB-BA2C-0AC690E381C8"
+            uuid = "9D1566D9-1B22-4476-81D2-67E04D430FE3"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HongQiC229SDKiOS/HongQiC229SDK/DetailViewController.m"
+            filePath = "HongQiC229SDKiOS/HongQiC229SDK/ThirdView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
-            landmarkName = "-scrollViewDidScroll:"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "-webView:decidePolicyForNavigationResponse:decisionHandler:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "1712BC9F-C9FC-4E4A-82B9-CA52C89D9544"
+            uuid = "ACD2513B-1D22-4B84-874E-1642C1AD1A84"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HongQiC229SDKiOS/HongQiC229SDK/ElectronicManualViewController.m"
+            filePath = "HongQiC229SDKiOS/HongQiC229SDK/ThirdView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
-            landmarkName = "-initNetWork"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "-webView:didFinishNavigation:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

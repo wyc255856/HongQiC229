@@ -7,7 +7,7 @@
 //
 
 #import "ThirdView.h"
-
+#import <WebKit/WebKit.h>
 @implementation ThirdView
 
 - (id)initWithFrame:(CGRect)frame{
@@ -29,17 +29,15 @@
     NSURL *bundleURL = [bundle URLForResource:@"HSC229CarResource" withExtension:@"bundle"];
     NSBundle *resourceBundle = [NSBundle bundleWithURL: bundleURL];
     
-    UIWebView *web = [[UIWebView alloc] initWithFrame:CGRectMake(-50, 0, self.frame.size.width+100, self.frame.size.height+50)];
+    WKWebView *web = [[WKWebView alloc] initWithFrame:CGRectMake(-50, 0, self.frame.size.width+100, self.frame.size.height+50)];
 
 
 //    if (@available(iOS 11.0, *)) {
 //        web.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
 //    }
 
-    NSString *str = [resourceBundle pathForResource:@"pano_2/index" ofType:@"html"];
-    NSURLRequest *req = [NSURLRequest requestWithURL:[NSURL URLWithString:str]];
-    web.delegate = self;
-    
+    web.UIDelegate = self;
+    web.navigationDelegate = self;
     NSURLRequest *reqWeb = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",_dataDic[@"trim_web_url"]]]];
 
     [self addSubview:web];
@@ -47,27 +45,71 @@
     [web loadRequest:reqWeb];
 
 }
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(WKNavigationResponse *)navigationResponse decisionHandler:(void (^)(WKNavigationResponsePolicy))decisionHandler{
+    NSString * urlStr = navigationResponse.response.URL.absoluteString;
+    NSLog(@"当前跳转地址：%@",urlStr);
+   NSLog(@"6->在收到响应后，决定是否跳转");
+   NSLog(@"navigationResponse = %@", navigationResponse);
+   NSLog(@"navigationResponse.response = %@", navigationResponse.response);
+   // 必须实现decisionHandler的回调，否则就会报错
+   decisionHandler(WKNavigationResponsePolicyAllow);
+   NSLog(@"WKNavigationResponsePolicyAllow");
 
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
+    NSString *str = [NSString stringWithFormat:@"%@",navigationResponse.response.URL.host];
+        if ([str containsString:@"JsTest="]) {
+            NSString *newId = [str substringFromIndex:7];
     
-    NSString *str = [NSString stringWithFormat:@"%@",request.URL.host];
-    if ([str containsString:@"JsTest="]) {
-        NSString *newId = [str substringFromIndex:7];
-        
-        NSLog(@"%@",newId);
-        NSDictionary *all = [self readLocalFileWithName:[NSString stringWithFormat:@"%@_news",_dataDic[@"car_name"]]];
-        NSArray *array = [all objectForKey:@"RECORDS"];
-        
-        for (NSDictionary *d in array) {
-            NSString *tid = [NSString stringWithFormat:@"%@",d[@"id"]];
-            if ([tid isEqualToString:newId]) {
-                self.jumpToDetail(d);
+            NSLog(@"%@",newId);
+            NSDictionary *all = [self readLocalFileWithName:[NSString stringWithFormat:@"%@_news",_dataDic[@"car_name"]]];
+            NSArray *array = [all objectForKey:@"RECORDS"];
+    
+            for (NSDictionary *d in array) {
+                NSString *tid = [NSString stringWithFormat:@"%@",d[@"id"]];
+                if ([tid isEqualToString:newId]) {
+                    self.jumpToDetail(d);
+                }
             }
         }
-    }
-    
-    return YES;
 }
+-(void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
+// 设置字体
+    NSString *fontFamilyStr = @"document.getElementsByTagName('body')[0].style.fontFamily='Arial';";
+    [webView evaluateJavaScript:fontFamilyStr completionHandler:nil];
+//设置颜色
+    [ webView evaluateJavaScript:@"document.getElementsByTagName('body')[0].style.webkitTextFillColor= '#9098b8'" completionHandler:nil];
+//修改字体大小
+//    [ webView evaluateJavaScript:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '200%'"completionHandler:nil];
+}
+
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
+    if (navigationAction.navigationType == WKNavigationTypeLinkActivated) {
+        decisionHandler(WKNavigationActionPolicyCancel);
+        NSLog(@"WKNavigationActionPolicyCancel");
+    } else {
+        decisionHandler(WKNavigationActionPolicyAllow);
+        NSLog(@"WKNavigationActionPolicyAllow");
+        
+    }
+
+//    NSString * urlStr = navigationAction.request.URL.absoluteString;
+        NSString *str = [NSString stringWithFormat:@"%@",navigationAction.request.URL.host];
+        if ([str containsString:@"JsTest="]) {
+            NSString *newId = [str substringFromIndex:7];
+    
+            NSLog(@"%@",newId);
+            NSDictionary *all = [self readLocalFileWithName:[NSString stringWithFormat:@"%@_news",_dataDic[@"car_name"]]];
+            NSArray *array = [all objectForKey:@"RECORDS"];
+    
+            for (NSDictionary *d in array) {
+                NSString *tid = [NSString stringWithFormat:@"%@",d[@"id"]];
+                if ([tid isEqualToString:newId]) {
+                    self.jumpToDetail(d);
+                }
+            }
+        }
+    
+}
+
 
 - (NSDictionary *)readLocalFileWithName:(NSString *)name {
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];
